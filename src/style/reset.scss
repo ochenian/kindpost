@@ -17,7 +17,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   line-height: 1.5;
-  font-family: consolas, Menlo, monospace, sans-serif;
+  // font-family: consolas, Menlo, monospace, sans-serif;
 }
 
 ol, ul {
@@ -39,5 +39,9 @@ table {
 }
 
 body {
-  background: linear-gradient(to bottom, white, cyan, white, MediumVioletRed, white, Green, white, cyan)
+  // background: linear-gradient(to bottom, white, cyan, white, MediumVioletRed, white, Green, white, cyan)
+  // background: #191919;
+  background: radial-gradient(#434343 0%, #040404 100%);
+  background-repeat: no-repeat;;
+  font-family: Rubik, sans-serif;
 }
