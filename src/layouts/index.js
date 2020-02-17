@@ -7,32 +7,28 @@ import '../style/index.scss'
 
 const Layout = ({ children, site }) => (
   <div>
-    <Helmet title="A Light Chance of Snow" />
+    <Helmet
+      title="kindpost."
+      link={[{
+        href:"https://cdn.snipcart.com/themes/v3.0.7/default/snipcart.css",
+        rel:"stylesheet",
+        type:"text/css"
+      }]} />
     <div className="Container">
       <div className="Header">
         <div className="Wrap" >
           <div className="Header__body">
             <h1 className="Header__title">
               <Link data-text={site.siteMetadata.siteName} to="/">
-                {site.siteMetadata.siteName}
+                {site.siteMetadata.siteName}<span className="Header__icon">&#10084;</span>
               </Link>
             </h1>
             <div className="Header__nav">
-              <div>account</div>
-              <div>products</div>
-              <div>cart</div>
+              <button className="Header__btn snipcart-customer-signin">account</button>
+              <div>postcards</div>
+              <button className="Header__btn snipcart-checkout">cart</button>
+              <div>contact</div>
             </div>
-            {/* <div className="Header__summary snipcart-summary snipcart-checkout">
-              <div className="Header__summary__title">
-                <span>&#128722;</span>
-              </div>
-              <div className="Header__summary__line">
-                Number of items: <span className="snipcart-total-items"></span>
-              </div>
-              <div className="Header__summary__line">
-                Total price: <span className="snipcart-total-price"></span>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

@@ -41,7 +41,8 @@ table {
 body {
   // background: linear-gradient(to bottom, white, cyan, white, MediumVioletRed, white, Green, white, cyan)
   // background: #191919;
-  background: radial-gradient(#434343 0%, #040404 100%);
+  background: linear-gradient(to right, RGBA(147,237,199,0.2), RGBA(28,216,210,0.2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   background-repeat: no-repeat;;
-  font-family: Rubik, sans-serif;
+  font-family: itim, sans-serif;
 }

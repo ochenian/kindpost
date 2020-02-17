@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteName: 'A Light Chance of Snow',
+    siteName: ' kindpost',
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -17,8 +17,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-snipcart',
       options: {
-        apiKey: 'OWE3MmZmMjQtNTk3Yi00OThhLWEwMmUtZDY4ZWM4NzIwYzZiNjM2NjM0Mzc1NzE0MTUwNzI1',
-        autopop: true
+        apiKey: 'NDMxYjEwZmUtZDgyZC00MmZiLWI2NjUtY2M2MjQ0MTMzZmVkNjM3MTc0NzQ4OTc2Mjk3NDMz',
+        autopop: false,
+        js: 'https://cdn.snipcart.com/themes/v3.0.7/default/snipcart.js'
       }
     },
   ],
