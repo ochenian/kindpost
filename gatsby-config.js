@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     siteName: ' kindpost',
@@ -19,8 +21,18 @@ module.exports = {
       options: {
         apiKey: 'NDMxYjEwZmUtZDgyZC00MmZiLWI2NjUtY2M2MjQ0MTMzZmVkNjM3MTc0NzQ4OTc2Mjk3NDMz',
         autopop: false,
-        js: 'https://cdn.snipcart.com/themes/v3.0.7/default/snipcart.js'
+        js: 'https://cdn.snipcart.com/themes/v3.0.7/default/snipcart.js',
+        styles: 'https://cdn.snipcart.com/themes/v3.0.8/default/snipcart.css',
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `assets`),
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 }

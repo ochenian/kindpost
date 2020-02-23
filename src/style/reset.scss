@@ -17,7 +17,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   line-height: 1.5;
-  // font-family: consolas, Menlo, monospace, sans-serif;
+  // background: url('../assets/annie-spratt-PhT7MMnxmfo-unsplash.jpg');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
+  font-family: itim, sans-serif;
 }
 
 ol, ul {
@@ -36,13 +40,4 @@ blockquote:before, blockquote:after, q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-body {
-  // background: linear-gradient(to bottom, white, cyan, white, MediumVioletRed, white, Green, white, cyan)
-  // background: #191919;
-  background: linear-gradient(to right, RGBA(147,237,199,0.2), RGBA(28,216,210,0.2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  background-repeat: no-repeat;;
-  font-family: itim, sans-serif;
 }
