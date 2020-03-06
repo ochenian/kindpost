@@ -63,7 +63,44 @@
     }
   }
   video {
-    filter: grayscale(0.5) brightness(0.5);
+    width: 100vw;
+
+    filter: grayscale(1) brightness(0.5);
   }
 }
 
+.how-container {
+  padding: 6em;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #fafafa;
+
+  .how-title {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+
+  .step-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  .how-step {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      background-image: linear-gradient(#000, #000);
+      background-size: 2px 50%;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+  }
+
+  svg {
+    width: 50%;
+  }
+}

@@ -11,6 +11,8 @@
   width: 100%;
   z-index: 10;
   padding: 0 32px;
+
+  margin-top: 1em;
 }
 
 .Header__body {
@@ -28,44 +30,50 @@
   // font-style: italic;
   // text-shadow: -3px 0 0px #38666E;
 
-  a {
-    // font-size: 6em;
-    font-size: 2em;
-    // font-weight: bold;
-    position: relative;
-    color: #FF1654;
-    text-decoration: none;
-    display: block;
-    padding: 2px;
-    text-transform: lowercase;
-    letter-spacing: 0.1em;
-    text-align: center;
-
-    // &:after, &:before {
-    //   content: attr(data-text);
-    //   position: absolute;
-    //   top: 0;
-    //   color: #2A3339;
-    //   background: #EEF0F1;
-    //   overflow: hidden;
-    //   clip: rect(0,900px,0,0);
-    //   display: block;
-    //   padding: 2px;
-    // }
-
-    // &:after {
-    //   left: 3px;
-    //   text-shadow: -2px 0 black;
-    //   // animation: noise-anim 2s infinite linear alternate-reverse;
-    // }
-
-    // &:before {
-    //   content:attr(data-text);
-    //   left: -3px;
-    //   text-shadow: 2px 0 black;
-    //   // animation: noise-anim-2 3s infinite linear alternate-reverse;
-    // }
+  .logo {
+    fill: #d4004c;
+    width: 60%;
+    height: 100%;
   }
+
+  // a {
+  //   // font-size: 6em;
+  //   font-size: 2em;
+  //   // font-weight: bold;
+  //   position: relative;
+  //   color: #FF1654;
+  //   text-decoration: none;
+  //   display: block;
+  //   padding: 2px;
+  //   text-transform: lowercase;
+  //   letter-spacing: 0.1em;
+  //   text-align: center;
+
+  //   // &:after, &:before {
+  //   //   content: attr(data-text);
+  //   //   position: absolute;
+  //   //   top: 0;
+  //   //   color: #2A3339;
+  //   //   background: #EEF0F1;
+  //   //   overflow: hidden;
+  //   //   clip: rect(0,900px,0,0);
+  //   //   display: block;
+  //   //   padding: 2px;
+  //   // }
+
+  //   // &:after {
+  //   //   left: 3px;
+  //   //   text-shadow: -2px 0 black;
+  //   //   // animation: noise-anim 2s infinite linear alternate-reverse;
+  //   // }
+
+  //   // &:before {
+  //   //   content:attr(data-text);
+  //   //   left: -3px;
+  //   //   text-shadow: 2px 0 black;
+  //   //   // animation: noise-anim-2 3s infinite linear alternate-reverse;
+  //   // }
+  // }
 }
 
 .Header__icon {

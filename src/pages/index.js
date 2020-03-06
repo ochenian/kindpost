@@ -1,7 +1,11 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Layout from "../layouts/index"
-import CartImg from "../assets/kasturi-roy-NO1MXvxy02o-unsplash.jpg";
+import Layout from '../layouts/index'
+import BirthdaySvg from '../assets/svg/noun_Birthday_2870586.svg'
+import PostcardSvg from '../assets/svg/noun_postcard_672435.svg'
+import MailTruckSvg from '../assets/svg/noun_mail_truck_953374.svg'
+import HappyFaceSvg from '../assets/svg/noun_happy_face_2541167.svg'
+import BgVideo from '../assets/KPVideo.mp4'
 import Img from 'gatsby-image'
 
 export default () => (
@@ -28,7 +32,7 @@ export default () => (
             siteName
           }
         }
-        bgImage: file(relativePath: { eq: "annie-spratt-PhT7MMnxmfo-unsplash.jpg" }) {
+        bgImage: file(relativePath: { eq: "Image9.jpg" }) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
@@ -37,7 +41,9 @@ export default () => (
             }
           }
         }
-        cartImage: file(relativePath: { eq: "kasturi-roy-NO1MXvxy02o-unsplash.jpg" }) {
+        cartImage: file(
+          relativePath: { eq: "kasturi-roy-NO1MXvxy02o-unsplash.jpg" }
+        ) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
@@ -47,56 +53,51 @@ export default () => (
           }
         }
       }
-
     `}
-render={data => (
-  <Layout site={data.site}>
-    {/* <Img fluid={data.file.childImageSharp.fluid} style={{height: `100vh`}} /> */}
-    <div className="video-text">
-      <p>cultivating kindness</p>
-      <div>across the country.</div>
+    render={data => (
+      <Layout site={data.site}>
+        {/* <Img fluid={data.bgImage.childImageSharp.fluid} style={{height: `100vh`}} /> */}
 
-      <button
-        className="snipcart-add-item"
-        data-item-id="1"
-        data-item-name="Postcard"
-        data-item-price="5.99"
-        data-item-description="Custom handwritten postcard for someone special"
-        data-item-image={CartImg}
-        data-item-custom1-name="Message type"
-        data-item-custom1-options="Birthday|Inspiration|Just Because"
-        >
-          send a postcard
-      </button>
-      <video autoplay muted src="https://css-tricks-post-videos.s3.us-east-1.amazonaws.com/Island%20-%204141.mp4" autoPlay loop playsInline muted></video>
-    </div>
-
-    <div className="siteInfoContainer">
-      <div className="supportContainer">
-        <p>Info.</p>
-
-        <div>About us</div>
-        <div>FAQ</div>
-        <div>Contact us</div>
-      </div>
-      <div className="subscribeContainer">
-        <p>Subscribe.</p>
-        <div className="emailInput">
-          <input />
-          <button>Sign Up</button>
+        <div className="video-text">
+          <button
+            className="snipcart-add-item"
+            data-item-id="1"
+            data-item-name="Custom Postcard"
+            data-item-price="5.99"
+            data-item-description="Custom handwritten postcard for someone special"
+            // data-item-image={CartImg}
+            data-item-custom1-name="Message type"
+            data-item-custom1-options="Birthday|Inspiration|Just Because"
+          >
+            send a postcard
+          </button>
+          <video muted src={BgVideo} autoPlay loop playsInline muted></video>
         </div>
 
-        <p className="privacyText">YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR PRIVACY POLICY</p>
-      </div>
-      <div className="followContainer">
-        <p>Follow.</p>
-        <div>Facebook</div>
-        <div>Instagram</div>
-      </div>
-    </div>
-    {/* <div className="Catalogue__text">a little kindness</div>
+        <div className="how-container">
+          <div className="how-title">how it works</div>
+          <div className="step-container">
+            <div className="how-step">
+              <BirthdaySvg />
+              <div>pick an occasion</div>
+            </div>
+            <div className="how-step">
+              <PostcardSvg />
+              <div>we'll write a note</div>
+            </div>
+            <div className="how-step">
+              <MailTruckSvg />
+              <div>we'll send your postcard</div>
+            </div>
+            <div className="how-step">
+              <HappyFaceSvg />
+              <div>happy friend</div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="Catalogue__text">a little kindness</div>
     <div className="Catalogue__subText">goes a long way</div> */}
-    {/* <div className="Catalogue">
+        {/* <div className="Catalogue">
       {
         data.postcards.edges.map(({ node: postcard }) => (
           <div className="Catalogue__item" key={postcard.id}>
@@ -130,7 +131,7 @@ render={data => (
         ))
       }
     </div> */}
-  </Layout>
-     )}
-   />
+      </Layout>
+    )}
+  />
 )
