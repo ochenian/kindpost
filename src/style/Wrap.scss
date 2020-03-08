@@ -22,6 +22,7 @@
   // background-size: cover;
   // background-position: center;
   .video-text {
+    position: relative;
     font-family: Montserrat;
 
     & p {
@@ -34,27 +35,62 @@
       text-transform: capitalize;
     }
 
-    & div {
+    & .text-container {
       position: absolute;
-      top: 32%;
-      left: 34%;
-      color: white;
       z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      text-align: center;
+      color: #fff;
+
+      letter-spacing: 0.1em;
+
+      & .small-text {
+        font-size: 24px;
+        text-transform: uppercase;
+
+        position: relative;
+        top: 16px;
+      }
+
+      & .large-text {
+        font-size: 48px;
+        text-transform: uppercase;
+
+        margin-bottom: 1.25em;
+        font-weight: bold;
+        text-shadow: 0px 0px 43px #000;
+
+        span {
+          color: #d4004c;
+        }
+      }
+    }
+
+    & .text-line {
+      // position: absolute;
+      // z-index: 10;
+      // top: 50%;
+      // left: 50%;
+      color: white;
+      // z-index: 10;
       font-size: 48px;
       text-transform: capitalize;
     }
 
     & button {
-      position: absolute;
-      z-index: 10;
-      top: 50%;
-      left: 45%;
+      // position: absolute;
+      // z-index: 10;
+      // top: 50%;
+      // left: 50%;
       padding: 20px;
-      border-radius: 2px;
-      background: white;
-      color: black;
+      border-radius: 4px;
+      background: #d4004c;
+      color: #fff;
       text-transform: uppercase;
-      border: 1px solid white;
+      // border: 1px solid white;
+      border: none;
       font-size: 12px;
       font-family: Lato;
       box-shadow: 1px 1px 6px 0px #000;
@@ -63,10 +99,24 @@
     }
   }
   video {
+    position: relative;
     width: 100vw;
+    z-index: -10;
 
     filter: grayscale(1) brightness(0.5);
   }
+}
+
+.card-example_container {
+  display: flex;
+}
+
+.card-example_description {
+  font-size: 24px;
+}
+
+.card-example_photo {
+  background-color: #d4004c;
 }
 
 .how-container {
@@ -90,7 +140,10 @@
   .how-step {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+
+    padding: 2em;
 
     &:not(:last-child) {
       background-image: linear-gradient(#000, #000);
@@ -101,6 +154,7 @@
   }
 
   svg {
-    width: 50%;
+    width: 70%;
+    margin-bottom: 1em;
   }
 }

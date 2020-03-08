@@ -2,8 +2,8 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Layout from '../layouts/index'
 import BirthdaySvg from '../assets/svg/noun_Birthday_2870586.svg'
-import PostcardSvg from '../assets/svg/noun_postcard_672435.svg'
-import MailTruckSvg from '../assets/svg/noun_mail_truck_953374.svg'
+import PostcardSvg from '../assets/svg/Postcard.svg'
+import MailTruckSvg from '../assets/svg/Truck.svg'
 import HappyFaceSvg from '../assets/svg/noun_happy_face_2541167.svg'
 import BgVideo from '../assets/KPVideo.mp4'
 import Img from 'gatsby-image'
@@ -59,19 +59,32 @@ export default () => (
         {/* <Img fluid={data.bgImage.childImageSharp.fluid} style={{height: `100vh`}} /> */}
 
         <div className="video-text">
-          <button
-            className="snipcart-add-item"
-            data-item-id="1"
-            data-item-name="Custom Postcard"
-            data-item-price="5.99"
-            data-item-description="Custom handwritten postcard for someone special"
-            // data-item-image={CartImg}
-            data-item-custom1-name="Message type"
-            data-item-custom1-options="Birthday|Inspiration|Just Because"
-          >
-            send a postcard
-          </button>
+          <div className="text-container">
+            <div className="small-text">a new way to</div>
+            <div className="large-text">send your <span>love.</span></div>
+            <button
+              className="snipcart-add-item"
+              data-item-id="1"
+              data-item-name="Custom Postcard"
+              data-item-price="5.99"
+              data-item-description="Custom handwritten postcard for someone special"
+              // data-item-image={CartImg}
+              data-item-custom1-name="Message type"
+              data-item-custom1-options="Birthday|Inspiration|Just Because"
+            >
+              send a postcard
+            </button>
+          </div>
           <video muted src={BgVideo} autoPlay loop playsInline muted></video>
+        </div>
+
+        <div className="card-example_container">
+          <div className="card-example_description">Beautiful Postcards.</div>
+          <div className="card-example_photo"></div>
+        </div>
+        <div className="card-example_container">
+          <div className="card-example_photo"></div>
+          <div className="card-example_description">Handwritten Messages.</div>
         </div>
 
         <div className="how-container">

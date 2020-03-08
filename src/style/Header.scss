@@ -22,6 +22,12 @@
   justify-content: space-between;
 }
 
+.logo {
+  width: 12em;
+  height: 100%;
+  fill: #d4004c;
+}
+
 .Header__title {
   // flex: 1;
   // padding: 20px 0;
@@ -29,12 +35,6 @@
   // font-family: "Playfair Display", serif;
   // font-style: italic;
   // text-shadow: -3px 0 0px #38666E;
-
-  .logo {
-    fill: #d4004c;
-    width: 60%;
-    height: 100%;
-  }
 
   // a {
   //   // font-size: 6em;
@@ -87,11 +87,11 @@
   letter-spacing: 0.1em;
 
   & div:first-child {
-    margin-right: 48px;
+    margin-right: 4em;
   }
 
   & div:nth-child(2) {
-    margin-right: 32px;
+    // margin-right: 32px;
   }
 }
 
@@ -102,6 +102,10 @@
   font-size: inherit;
   color: inherit;
   cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 2em;
+  }
 
   & svg {
     width: 30px;

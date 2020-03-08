@@ -6,12 +6,12 @@ const Header = (props) => (
   <div className="Header">
     <div className="Wrap" >
       <div className="Header__body">
-        <h1 className="Header__title">
-          <Link data-text={props.siteName} to="/">
+        {/* <h1 className="Header__title"> */}
+          {/* <Link data-text={props.siteName} to="/"> */}
             {/* {props.siteName}<span className="Header__icon">&#10084;</span> */}
             <Logo className="logo" />
-          </Link>
-        </h1>
+          {/* </Link> */}
+        {/* </h1> */}
         <div className="Header__nav">
           <div >send a postcard</div>
           <div>how it works</div>
