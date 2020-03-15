@@ -8,6 +8,7 @@
     "gatsby": "^2.18.8",
     "gatsby-image": "^2.2.34",
     "gatsby-link": "^2.2.25",
+    "gatsby-plugin-manifest": "^2.2.44",
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sass": "^2.1.24",
@@ -18,8 +19,10 @@
     "gatsby-transformer-sharp": "^2.3.14",
     "node-sass": "^4.12.0",
     "react": "^16.12.0",
+    "react-awesome-slider": "^4.1.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",
+    "typeface-averia-sans-libre": "0.0.72",
     "typeface-itim": "0.0.72",
     "typeface-lato": "0.0.75"
   },

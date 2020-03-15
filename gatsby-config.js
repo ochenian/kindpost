@@ -42,5 +42,17 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `kindpost.`,
+        short_name: `kindpost.`,
+        start_url: `/`,
+        background_color: `#FF1654`,
+        theme_color: `#FF1654`,
+        display: `standalone`,
+        icon: `src/assets/svg/KP_Thumbnail.svg`
+      },
+    },
   ],
 }

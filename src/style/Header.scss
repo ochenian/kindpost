@@ -1,4 +1,5 @@
 .Header {
+  font-family: 'Averia Sans Libre';
   // background: #7BDFF2;
   color: #fff;
   // margin: 50px;
@@ -13,6 +14,16 @@
   padding: 0 32px;
 
   margin-top: 1em;
+
+  &.light {
+    position: static;
+    color: #000;
+    margin-bottom: 2em;
+
+    svg g#Product {
+      stroke: #000;
+    }
+  }
 }
 
 .Header__body {

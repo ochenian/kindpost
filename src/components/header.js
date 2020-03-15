@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import Logo from '../assets/svg/KP_Logo.svg';
 
 const Header = (props) => (
-  <div className="Header">
+  <div className={props.headerClass}>
     <div className="Wrap" >
       <div className="Header__body">
         {/* <h1 className="Header__title"> */}

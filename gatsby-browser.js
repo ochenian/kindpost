@@ -6,3 +6,4 @@
 
 require("typeface-itim");
 require("typeface-lato");
+require("typeface-averia-sans-libre");

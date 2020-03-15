@@ -22,6 +22,7 @@
   // background-size: cover;
   // background-position: center;
   .video-text {
+    display: flex;
     position: relative;
     font-family: Montserrat;
 
@@ -109,18 +110,41 @@
 
 .card-example_container {
   display: flex;
+
+  font-family: Montserrat;
+  letter-spacing: 0.1em;
 }
 
 .card-example_description {
-  font-size: 24px;
+  flex-basis: 50%;
+
+  // font-size: 24px;
+
+  align-self: center;
+  padding: 4em;
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+}
+
+.card-example_photo_container {
+  flex-basis: 50%;
+
+  // background: #d4004c;
+  /* transform: skewX(10deg); */
+  padding: 4em;
 }
 
 .card-example_photo {
-  background-color: #d4004c;
+  // background-color: #d4004c;
+  width: 100%;
 }
 
 .how-container {
-  padding: 6em;
+  font-family: 'Averia Sans Libre';
+  padding: 2em;
 
   display: flex;
   flex-direction: column;
@@ -154,7 +178,22 @@
   }
 
   svg {
-    width: 70%;
     margin-bottom: 1em;
+
+    &.happy-face {
+      width: 50%;
+    }
+
+    &.truck {
+      width: 88%;
+    }
+
+    &.postcard {
+      width: 66%;
+    }
+
+    &.occasion {
+      width: 61%;
+    }
   }
 }

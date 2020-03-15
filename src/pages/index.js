@@ -32,7 +32,7 @@ export default () => (
             siteName
           }
         }
-        bgImage: file(relativePath: { eq: "Image9.jpg" }) {
+        postcardBirthdayImg: file(relativePath: { eq: "Birthday.png" }) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
@@ -55,7 +55,7 @@ export default () => (
       }
     `}
     render={data => (
-      <Layout site={data.site}>
+      <Layout site={data.site} headerClass="Header">
         {/* <Img fluid={data.bgImage.childImageSharp.fluid} style={{height: `100vh`}} /> */}
 
         <div className="video-text">
@@ -78,16 +78,30 @@ export default () => (
           <video muted src={BgVideo} autoPlay loop playsInline muted></video>
         </div>
 
-        <div className="card-example_container">
-          <div className="card-example_description">Beautiful Postcards.</div>
-          <div className="card-example_photo"></div>
+        {/* <div className="card-example_container">
+          <div className="card-example_description">
+            <h1>Handpicked Postcards</h1>
+            <p>Our vintage postcards are ethically sourced using sustainable practices.</p>
+          </div>
+          <div className="card-example_photo_container">
+            <div className="card-example_photo">
+              <Img fluid={data.postcardBirthdayImg.childImageSharp.fluid} />
+            </div>
+          </div>
         </div>
         <div className="card-example_container">
-          <div className="card-example_photo"></div>
-          <div className="card-example_description">Handwritten Messages.</div>
-        </div>
+        <div className="card-example_photo_container">
+            <div className="card-example_photo">
+              <Img fluid={data.postcardBirthdayImg.childImageSharp.fluid} />
+            </div>
+          </div>
+          <div className="card-example_description">
+            <h1>Handwritten Messages</h1>
+            <p>A member of our staff will personally handwrite a beautiful message to fit the occasion by picked by you.</p>
+          </div>
+        </div> */}
 
-        <div className="how-container">
+        {/* <div className="how-container">
           <div className="how-title">how it works</div>
           <div className="step-container">
             <div className="how-step">
@@ -107,7 +121,8 @@ export default () => (
               <div>happy friend</div>
             </div>
           </div>
-        </div>
+        </div> */}
+
         {/* <div className="Catalogue__text">a little kindness</div>
     <div className="Catalogue__subText">goes a long way</div> */}
         {/* <div className="Catalogue">
