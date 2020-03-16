@@ -51,7 +51,7 @@ module.exports = {
         background_color: `#FF1654`,
         theme_color: `#FF1654`,
         display: `standalone`,
-        icon: `src/assets/svg/KP_Thumbnail.svg`
+        icon: `src/assets/KP_Thumbnail.png`
       },
     },
   ],
