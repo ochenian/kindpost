@@ -1,5 +1,5 @@
 .Header {
-  font-family: 'Averia Sans Libre';
+  font-family: 'Averia Serif Libre';
   // background: #7BDFF2;
   color: #fff;
   // margin: 50px;
@@ -11,9 +11,9 @@
   position: absolute;
   width: 100%;
   z-index: 10;
-  padding: 0 32px;
+  padding: 0 8em;
 
-  margin-top: 1em;
+  margin-top: 1.5em;
 
   &.light {
     position: static;
@@ -34,7 +34,7 @@
 }
 
 .logo {
-  width: 12em;
+  width: 10em;
   height: 100%;
   fill: #d4004c;
 }
@@ -93,7 +93,7 @@
 
 .Header__nav {
   display: flex;
-  font-size: 1.25em;
+  font-size: 0.9em;
   text-transform: lowercase;
   letter-spacing: 0.1em;
 
@@ -119,8 +119,7 @@
   }
 
   & svg {
-    width: 30px;
-    height: 30px;
+    width: 24px;
   }
 }
 

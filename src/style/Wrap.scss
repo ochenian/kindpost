@@ -39,16 +39,16 @@
     & .text-container {
       position: absolute;
       z-index: 10;
-      top: 50%;
+      top: 80%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
       text-align: center;
       color: #fff;
 
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
 
       & .small-text {
-        font-size: 24px;
+        font-size: 1em;
         text-transform: uppercase;
 
         position: relative;
@@ -56,10 +56,10 @@
       }
 
       & .large-text {
-        font-size: 48px;
+        font-size: 2em;
         text-transform: uppercase;
 
-        margin-bottom: 1.25em;
+        margin: 0.5em;
         font-weight: bold;
         text-shadow: 0px 0px 43px #000;
 
@@ -143,7 +143,7 @@
 }
 
 .how-container {
-  font-family: 'Averia Sans Libre';
+  font-family: 'Averia Serif Libre';
   padding: 2em;
 
   display: flex;
@@ -153,7 +153,7 @@
 
   .how-title {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 0.5em;
   }
 
@@ -181,19 +181,19 @@
     margin-bottom: 1em;
 
     &.happy-face {
-      width: 50%;
+      width: 29%;
     }
 
     &.truck {
-      width: 88%;
+      width: 51%;
     }
 
     &.postcard {
-      width: 66%;
+      width: 38%;
     }
 
     &.occasion {
-      width: 61%;
+      width: 35%;
     }
   }
 }

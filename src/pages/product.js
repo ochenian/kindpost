@@ -58,11 +58,18 @@ const ProductPage = () => {
               <h1>Postcard</h1>
               <p>$5.99</p>
               <p>Custom, handpicked postcard with handwritten message blah blah blah</p>
-              <select>
+              {/* <select>
                 <option>Birthday</option>
                 <option>Inspiration</option>
                 <option>Just Because</option>
-              </select>
+              </select> */}
+              <div className="options">
+                <button className="occasion">Birthday</button>
+                <button className="occasion">Inspiration</button>
+                <button className="occasion">Just Because</button>
+                <button className="occasion">Anniversary</button>
+              </div>
+
               <button
                 className="Product add snipcart-add-item"
                 data-item-id="1"
