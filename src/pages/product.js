@@ -64,10 +64,10 @@ const ProductPage = () => {
                 <option>Just Because</option>
               </select> */}
               <div className="options">
-                <button className="occasion">Birthday</button>
-                <button className="occasion">Inspiration</button>
-                <button className="occasion">Just Because</button>
-                <button className="occasion">Anniversary</button>
+                <button className="btn_picker">Birthday</button>
+                <button className="btn_picker">Inspiration</button>
+                <button className="btn_picker">Just Because</button>
+                <button className="btn_picker">Anniversary</button>
               </div>
 
               <button

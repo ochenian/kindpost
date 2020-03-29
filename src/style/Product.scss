@@ -203,7 +203,7 @@ select option {
  * 2. Remove the margin in Firefox and Safari.
  */
 
- button,
+ .btn_picker,
  input,
  optgroup,
  select,
@@ -219,7 +219,7 @@ select option {
   * 1. Show the overflow in Edge.
   */
 
- button,
+ .btn_picker,
  input { /* 1 */
    overflow: visible;
  }
@@ -229,7 +229,7 @@ select option {
   * 1. Remove the inheritance of text transform in Firefox.
   */
 
- button,
+  .btn_picker,
  select { /* 1 */
    text-transform: none;
  }
@@ -238,10 +238,7 @@ select option {
   * Correct the inability to style clickable types in iOS and Safari.
   */
 
- button,
- [type="button"],
- [type="reset"],
- [type="submit"] {
+  .btn_picker {
   background: none;
   -webkit-appearance: button;
   border: 1px solid #999;
@@ -259,13 +256,13 @@ select option {
   }
  }
 
- button:hover {
+ .btn_picker:hover {
     border: 1px solid #000;
     border-radius: 6px;
     cursor: pointer;
 }
 
-button:focus {
+.btn_picker:focus {
     background: #FF1654;
     border: 2px solid #FF1654;
     border-radius: 6px;
@@ -273,12 +270,8 @@ button:focus {
     outline-width: 0;
 }
 
-button:active {
+.btn_picker:active {
     transform: scale(0.99);
-}
-
-.occasion {
-
 }
 
 .options {
