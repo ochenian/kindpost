@@ -1,0 +1,47 @@
+.contact-container {
+  margin: 8em;
+
+  font-family: 'Averia Serif Libre', sans-serif;
+
+  & section {
+    margin: 4em 0;
+    padding: 0 8em;
+  }
+
+  & h1 {
+    margin-bottom: 2em;
+
+    font-size: 2em;
+    letter-spacing: 0.15em;
+    text-align: center;
+    line-height: 0.75;
+  }
+
+  & a {
+    margin-bottom: 0.5em;
+
+    color: #000;
+    text-decoration: none;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+  }
+
+  & > svg {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 4em;
+    width: 4%;
+    height: 100%;
+  }
+
+  & .social-icons {
+    display: flex;
+    justify-content: space-evenly;
+
+    & svg {
+      height: 100%;
+      width: 4%;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.privacy-container {
+  margin: 8em;
+  font-family: Montserrat, sans-serif;
+
+  & section {
+    padding: 0 8em;
+  }
+
+  & h1 {
+    margin-bottom: 2em;
+    font-size: 2em;
+    letter-spacing: 0.15em;
+    text-align: center;
+  }
+
+  & h3 {
+    // font-family: 'Averia Serif Libre';
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+  }
+}
