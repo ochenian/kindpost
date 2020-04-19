@@ -1,13 +1,14 @@
 import React from 'react'
+import Link from 'gatsby-link'
 
 const Footer = () => (
   <div className="siteInfoContainer">
     <div className="supportContainer">
       <p>Info.</p>
 
-      <div>About us</div>
-      <div>FAQ</div>
-      <div>Contact us</div>
+      <Link to="/about">About us</Link>
+      <Link to="/faq">FAQ</Link>
+      <Link to="/contact">Contact us</Link>
     </div>
     <div className="subscribeContainer">
       <p>Subscribe.</p>

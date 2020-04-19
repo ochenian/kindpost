@@ -43,7 +43,7 @@ const ProductPage = () => {
     }
   `)
   return (
-      <Layout site={data.site} headerClass="Header light">
+      <Layout site={data.site.siteMetadata.siteName} headerClass="Header light">
       <div>
          <div className="product_container">
             {/* <Slider slides={[data.postcardImg, data.postcardBack]}>

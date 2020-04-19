@@ -1,5 +1,5 @@
 .contact-container {
-  margin: 8em;
+  // margin: 8em;
 
   font-family: 'Averia Serif Libre', sans-serif;
 
@@ -27,12 +27,13 @@
     font-weight: bold;
   }
 
-  & > svg {
+  & .contact-content > svg {
     display: block;
     margin: 0 auto;
     margin-bottom: 4em;
     width: 4%;
     height: 100%;
+    fill: #d4004c;
   }
 
   & .social-icons {
@@ -44,4 +45,27 @@
       width: 4%;
     }
   }
+
+  p svg {
+    height: 100%;
+    width: 8em;
+    position: relative;
+    top: 0.7em;
+    margin: 0 0.5em;
+    fill: #d4004c;
+  }
+}
+
+.color--primary {
+  color: #d4004c;
+  font-size: 1.5em;
+}
+
+.contact-content {
+  margin: 6em;
+}
+
+.hero {
+  width: 100vw;
+  height: 50vh;
 }

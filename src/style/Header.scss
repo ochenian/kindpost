@@ -23,6 +23,13 @@
     svg g#Product {
       stroke: #000;
     }
+
+    .Header__nav {
+      a {
+        color: #000;
+      }
+
+    }
   }
 }
 
@@ -103,6 +110,10 @@
 
   & div:nth-child(2) {
     // margin-right: 32px;
+  }
+
+  a {
+    color: #fff;
   }
 }
 

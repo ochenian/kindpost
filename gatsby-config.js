@@ -11,18 +11,16 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-anchor-links`,
     {
       resolve: `gatsby-source-datocms`,
-      // options: { apiToken: process.env.DATO_API_TOKEN },
-      options: { apiToken: 'ebf324cd8b9b3ec1102109722a5295' }
+      options: { apiToken: process.env.DATO_API_TOKEN },
     },
     {
-      resolve: 'gatsby-plugin-snipcart',
+      resolve: 'gatsby-plugin-snipcartv3',
       options: {
-        apiKey: 'NDMxYjEwZmUtZDgyZC00MmZiLWI2NjUtY2M2MjQ0MTMzZmVkNjM3MTc0NzQ4OTc2Mjk3NDMz',
-        autopop: false,
-        js: 'https://cdn.snipcart.com/themes/v3.0.7/default/snipcart.js',
-        styles: 'https://cdn.snipcart.com/themes/v3.0.8/default/snipcart.css',
+        apiKey: process.env.SNIPCART_API_TOKEN,
+        autopop: true,
       }
     },
     {

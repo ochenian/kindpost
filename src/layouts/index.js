@@ -10,7 +10,7 @@ import HappyFaceSvg from '../assets/svg/Happy-Face.svg'
 
 import '../style/index.scss'
 
-const Layout = ({ children, site, headerClass }) => (
+const Layout = ({ children, siteName, headerClass }) => (
   <div>
     <Helmet
       title="kindpost."
@@ -23,9 +23,9 @@ const Layout = ({ children, site, headerClass }) => (
       ]}
     />
     <div className="Container">
-      <Header siteName={site.siteMetadata.siteName} headerClass={headerClass}></Header>
+      <Header siteName={siteName} headerClass={headerClass}></Header>
       <div className="Wrap Wrap__main_content">{children}</div>
-      <div className="how-container">
+      <div id="howTo" className="how-container">
           <div className="how-title">how it works</div>
           <div className="step-container">
             <div className="how-step">

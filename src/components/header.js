@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Logo from '../assets/svg/KP_Logo.svg';
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const Header = (props) => (
   <div className={props.headerClass}>
@@ -9,12 +10,13 @@ const Header = (props) => (
         {/* <h1 className="Header__title"> */}
           {/* <Link data-text={props.siteName} to="/"> */}
             {/* {props.siteName}<span className="Header__icon">&#10084;</span> */}
-            <Logo className="logo" />
+            <Link to="/"><Logo className="logo" /></Link>
           {/* </Link> */}
         {/* </h1> */}
         <div className="Header__nav">
-          <div >send a postcard</div>
-          <div>how it works</div>
+          <Link to="/product"><div>send a postcard</div></Link>
+          <AnchorLink to="/#howTo"><div>how it works</div></AnchorLink>
+          <Link to="/about">about</Link>
           {/* <div>about us</div> */}
         </div>
 

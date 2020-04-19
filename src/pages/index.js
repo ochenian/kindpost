@@ -55,7 +55,7 @@ export default () => (
       }
     `}
     render={data => (
-      <Layout site={data.site} headerClass="Header">
+      <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
         {/* <Img fluid={data.bgImage.childImageSharp.fluid} style={{height: `100vh`}} /> */}
 
         <div className="video-text">
