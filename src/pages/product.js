@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Header from '../components/header'
 import Slider from '../components/Slider'
+import SampleImg from '../assets/Sample.png'
 
 const ProductPage = () => {
 
@@ -36,6 +37,15 @@ const ProductPage = () => {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
           fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      postcardCartImg: file(relativePath: { eq: "Sample.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 100, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -75,10 +85,7 @@ const ProductPage = () => {
                 data-item-id="1"
                 data-item-name="Custom Postcard"
                 data-item-price="5.99"
-                data-item-description="Custom handwritten postcard for someone special"
-                // data-item-image={CartImg}
-                data-item-custom1-name="Message type"
-                data-item-custom1-options="Birthday|Inspiration|Just Because"
+                data-item-image={SampleImg}
               >
                 ADD TO BAG
               </button>

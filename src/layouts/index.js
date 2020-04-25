@@ -7,6 +7,7 @@ import BirthdaySvg from '../assets/svg/Occasion.svg'
 import PostcardSvg from '../assets/svg/Postcard.svg'
 import MailTruckSvg from '../assets/svg/Truck.svg'
 import HappyFaceSvg from '../assets/svg/Happy-Face.svg'
+import CartHeader from '../components/Cart'
 
 import '../style/index.scss'
 

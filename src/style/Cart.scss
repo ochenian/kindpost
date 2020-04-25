@@ -1,0 +1,31 @@
+#snipcart .cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: static;
+
+  padding: 2em;
+
+  font-family: 'Averia Serif Libre';
+
+  & .title {
+    font-size: 1.25rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+  }
+
+  &.snipcart-checkout__header {
+    & .title {
+      display: none;
+    }
+
+    & button {
+      margin-left: auto;
+    }
+  }
+
+  & button {
+    cursor: pointer;
+  }
+}
