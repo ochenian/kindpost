@@ -1,5 +1,4 @@
 import React from 'react'
-import Logo from '../assets/svg/KP_Thumbnail.svg'
 
 const CartHeader = () => (
   <div className="cart-header">

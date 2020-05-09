@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 import Layout from '../layouts/index'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import Header from '../components/header'
-import Slider from '../components/Slider'
 import SampleImg from '../assets/Sample.png'
 
 const ProductPage = () => {
@@ -11,10 +9,41 @@ const ProductPage = () => {
   const [ frontActive, setFrontActive ] = useState(true);
   const [ backActive, setBackActive ] = useState(false);
 
+  const [selectedPostcard, setSelectedPostcard] = useState({});
+
   function toggleClass() {
     setFrontActive(!frontActive);
     setBackActive(!backActive);
   };
+
+  function selectPostcard(selected) {
+    switch(selected) {
+      case 0:
+        setSelectedPostcard({
+          id: 0,
+          name: 'Birthday Postcard',
+        });
+        break;
+      case 1:
+        setSelectedPostcard({
+          id: 1,
+          name: 'Inspiration Postcard',
+        });
+        break;
+      case 2:
+        setSelectedPostcard({
+          id: 2,
+          name: 'Just Because Postcard',
+        });
+        break;
+      case 3:
+        setSelectedPostcard({
+          id: 3,
+          name: 'Anniversary Postcard',
+        });
+        break;
+    }
+  }
 
   const data = useStaticQuery(graphql`
     query SiteQuery {
@@ -74,18 +103,20 @@ const ProductPage = () => {
                 <option>Just Because</option>
               </select> */}
               <div className="options">
-                <button className="btn_picker">Birthday</button>
-                <button className="btn_picker">Inspiration</button>
-                <button className="btn_picker">Just Because</button>
-                <button className="btn_picker">Anniversary</button>
+                <button className="btn_picker" onClick={() => selectPostcard(0)}>Birthday</button>
+                <button className="btn_picker" onClick={() => selectPostcard(1)}>Inspiration</button>
+                <button className="btn_picker" onClick={() => selectPostcard(2)}>Just Because</button>
+                <button className="btn_picker" onClick={() => selectPostcard(3)}>Anniversary</button>
               </div>
 
               <button
                 className="Product add snipcart-add-item"
-                data-item-id="1"
-                data-item-name="Custom Postcard"
+                data-item-id={selectedPostcard.id}
+                data-item-name={selectedPostcard.name}
+                data-item-url="/product"
                 data-item-price="5.99"
                 data-item-image={SampleImg}
+                data-item-max-quantity="100"
               >
                 ADD TO BAG
               </button>

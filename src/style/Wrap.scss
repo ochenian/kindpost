@@ -23,8 +23,18 @@
   // background-position: center;
   .video-text {
     display: flex;
-    position: relative;
+    flex-direction: column;
+    // position: relative;
     font-family: Montserrat;
+
+    position: absolute;
+    width: calc(100vh * (1000 / 960));
+    height: calc(100vw * (540 / 1000));
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     & p {
       position: absolute;
@@ -56,14 +66,22 @@
       }
 
       & .large-text {
+        display: flex;
+
         font-size: 2em;
         text-transform: uppercase;
 
         margin: 0.5em;
         font-weight: bold;
-        text-shadow: 0px 0px 43px #000;
+        // text-shadow: 0px 0px 43px #000;
 
         span {
+          display: block;
+          margin: 0 6px;
+          overflow: hidden;
+        }
+
+        span:last-of-type {
           color: #d4004c;
         }
       }
@@ -100,9 +118,16 @@
     }
   }
   video {
-    position: relative;
-    width: 100vw;
+    // position: relative;
+    // width: 100vw;
     z-index: -10;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: unset;
 
     filter: grayscale(1) brightness(0.5);
   }
@@ -149,7 +174,7 @@
   display: flex;
   flex-direction: column;
 
-  background: #fafafa;
+  background: #fff;
 
   .how-title {
     text-align: center;
@@ -162,11 +187,12 @@
     justify-content: space-around;
   }
   .how-step {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
     padding: 2em;
 
     &:not(:last-child) {
@@ -197,3 +223,39 @@
     }
   }
 }
+
+// .showcase {
+//   background: #f4f0ec;
+//   padding: 12em 6em;
+//   position: relative;
+//   display: flex;
+
+//   .showcase-image {
+//     position: relative;
+//     overflow: hidden;
+//     flex: 1 1 50%;
+//     box-shadow: 4px 8px 24px 0px rgba(0, 0, 0, 0.2), 4px 12px 36px 0px rgba(0, 0, 0, 0.1);
+//     z-index: 10;
+//   }
+
+//   .showcase-copy {
+//     color: #d4004c;
+//     font-family: 'Averia Serif Libre';
+//     font-size: 4em;
+//     margin-left: 2em;
+//     line-height: 1.25;
+//     text-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+//     flex: 1 1 50%;
+//   }
+
+//   svg {
+//     width: 44%;
+//     top: 21%;
+//     left: 6%;
+//     position: absolute;
+
+//     circle {
+//       fill: white;
+//     }
+//   }
+// }

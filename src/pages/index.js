@@ -1,16 +1,12 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Layout from '../layouts/index'
-import BirthdaySvg from '../assets/svg/noun_Birthday_2870586.svg'
-import PostcardSvg from '../assets/svg/Postcard.svg'
-import MailTruckSvg from '../assets/svg/Truck.svg'
-import HappyFaceSvg from '../assets/svg/noun_happy_face_2541167.svg'
-import BgVideo from '../assets/KPVideo.mp4'
-import Img from 'gatsby-image'
+import Hero from '../components/Hero'
+import Showcase from '../components/Showcase'
+// import Img from 'gatsby-image'
 
-export default () => (
-  <StaticQuery
-    query={graphql`
+export default () => {
+  const data = useStaticQuery(graphql`
       query CatalogueQuery {
         postcards: allDatoCmsPostcard {
           edges {
@@ -32,7 +28,7 @@ export default () => (
             siteName
           }
         }
-        postcardBirthdayImg: file(relativePath: { eq: "Birthday.png" }) {
+        postcardSampleImg: file(relativePath: { eq: "Sample.png" }) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
@@ -53,30 +49,13 @@ export default () => (
           }
         }
       }
-    `}
-    render={data => (
+    `)
+    return (
       <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
         {/* <Img fluid={data.bgImage.childImageSharp.fluid} style={{height: `100vh`}} /> */}
 
-        <div className="video-text">
-          <div className="text-container">
-            <div className="small-text">a new way to</div>
-            <div className="large-text">send your <span>love.</span></div>
-            <button
-              className="snipcart-add-item"
-              data-item-id="1"
-              data-item-name="Custom Postcard"
-              data-item-price="5.99"
-              data-item-description="Custom handwritten postcard for someone special"
-              // data-item-image={CartImg}
-              data-item-custom1-name="Message type"
-              data-item-custom1-options="Birthday|Inspiration|Just Because"
-            >
-              send a postcard
-            </button>
-          </div>
-          <video muted src={BgVideo} autoPlay loop playsInline muted></video>
-        </div>
+        <Hero></Hero>
+        <Showcase />
 
         {/* <div className="card-example_container">
           <div className="card-example_description">
@@ -159,7 +138,18 @@ export default () => (
         ))
       }
     </div> */}
+      {/* <div className="showcase">
+        <Img className="showcase-image" fluid={data.postcardSampleImg.childImageSharp.fluid} />
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"/>
+        </svg>
+        <div className="showcase-copy">
+          <div>Vintage</div>
+          <div>Kindness</div>
+        </div>
+
+      </div> */}
+
       </Layout>
-    )}
-  />
-)
+    )
+  }

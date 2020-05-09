@@ -1,5 +1,13 @@
+// hsla
+// hsla(344, 100%, 54%, 1)
+// rgba
+// rgba(255,22,84,1)
+// hex
+// #FF1654
+
 .Header {
-  font-family: 'Averia Serif Libre';
+  // font-family: 'Averia Serif Libre';
+  font-family: Montserrat;
   // background: #7BDFF2;
   color: #fff;
   // margin: 50px;
@@ -100,8 +108,9 @@
 
 .Header__nav {
   display: flex;
-  font-size: 0.9em;
-  text-transform: lowercase;
+  font-size: 0.75em;
+  // text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
 
   & div:first-child {

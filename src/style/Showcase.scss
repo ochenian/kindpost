@@ -1,0 +1,52 @@
+.showcase {
+  background: #f4f0ec;
+  // padding: 12em 6em;
+  padding: 6em 12em;
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+
+
+  // &:last-of-type {
+  //   padding-bottom: 10em;
+  // }
+
+  // &:first-of-type {
+  //   padding-top: 10em;
+  // }
+
+  .showcase-image {
+    position: relative;
+    overflow: hidden;
+    // flex: 1 1 50%;
+    min-width: 400px;
+    width: 50%;
+    box-shadow: 4px 8px 24px 0px rgba(0, 0, 0, 0.2), 4px 12px 36px 0px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .showcase-copy {
+    color: #d4004c;
+    font-family: 'Averia Serif Libre';
+    font-size: 4em;
+    // margin-left: 2em;
+    line-height: 1.25;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+    // flex: 1 1 50%;
+  }
+
+  svg {
+    width: 44%;
+    top: 21%;
+    left: 6%;
+    position: absolute;
+
+    circle {
+      fill: white;
+    }
+  }
+}
