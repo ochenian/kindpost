@@ -1,0 +1,16 @@
+<svg viewBox="0 0 21 25" version="1.1">
+    <g id="Shop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Product" transform="translate(-1603.000000, -76.000000)" stroke="#fff">
+            <g id="Menu" transform="translate(0.000000, 31.000000)">
+                <g id="Right-nav" transform="translate(1473.000000, 39.000000)">
+                    <g id="bag-20" transform="translate(131.000000, 0.500000)">
+                        <g id="Group-10" transform="translate(0.387097, 6.387097)">
+                            <polygon id="Path" points="18.5806452 23.2258065 -2.62900812e-13 23.2258065 1.5483871 4.64516129 17.0322581 4.64516129"/>
+                            <path d="M5.41935484,6.96774194 L5.41935484,3.87096774 C5.41935484,1.73341935 7.15277419,1.50990331e-14 9.29032258,1.50990331e-14 C11.427871,1.50990331e-14 13.1612903,1.73341935 13.1612903,3.87096774 L13.1612903,6.96774194" id="Path"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

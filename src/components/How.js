@@ -3,7 +3,6 @@ import BirthdaySvg from '../assets/svg/Occasion.svg'
 import PostcardSvg from '../assets/svg/Postcard.svg'
 import MailTruckSvg from '../assets/svg/Truck.svg'
 import HappyFaceSvg from '../assets/svg/Happy-Face.svg'
-// import { gsap, TweenMax, TweenLite, TimelineMax, Power2 } from "gsap"
 import {useSpring, useTrail, animated} from 'react-spring'
 import { useInView } from 'react-intersection-observer'
 
@@ -38,10 +37,7 @@ const How = () => {
     [inViewRef],
   )
 
-  const props = useSpring({ opacity: inView ? 1 : 0 },
-    {
-      mass: 500, tension: 500, friction: 100, clamp: true
-    })
+  const props = useSpring({ opacity: inView ? 1 : 0 })
   const trail = useTrail(components.length, {
     config,
     opacity: inView ? 1 : 0,
@@ -50,47 +46,16 @@ const How = () => {
     from: { opacity: 0, x: 20, height: 0 },
   })
 
-  //GSAP
-  // let birthdaySvg = useRef(null)
-  // let postcardSvg = useRef(null)
-
-  // let tl = new TimelineMax()
-
-  // useEffect(() => {
-    // TweenLite.to(birthdaySvg, 1, {x: 100, y: 100});
-    // TweenLite.to(birthdaySvg, 1, { visibility: "visible", ease: Power2})
-
-  //   let svg = birthdaySvg.firstElementChild
-
-  //   tl.to(svg, 1.2, { y: "135%", scale: 1, ease: Power2.easeInOut })
-  //   .from(
-  //     svg,
-  //     1.2,
-  //     { scale: 0.97, ease: Power2.easeInOut },
-  //     2.7
-  //   )
-  // })
-
   return (
     <animated.div id="howTo" className="how-container">
-      <animated.div ref={setRefs} style={props} className="how-title">how it works</animated.div>
-      <animated.div ref={setRefs} style={props} className="step-container">
-        {/* <div className="how-step">
-          <BirthdaySvg className="occasion" />
-          <div>pick an occasion</div>
-        </div>
-        <div className="how-step">
-          <PostcardSvg className="postcard"/>
-          <div>we'll write a note</div>
-        </div>
-        <div className="how-step">
-          <MailTruckSvg className="truck"/>
-          <div>we'll send your postcard</div>
-        </div>
-        <div className="how-step">
-          <HappyFaceSvg className="happy-face"/>
-          <div>happy friend</div>
-        </div> */}
+      <animated.div
+      ref={setRefs}
+      style={{...props}}
+      className="how-title">how it works</animated.div>
+      <animated.div
+      ref={setRefs}
+      style={props}
+      className="step-container">
         {trail.map(({ x, height, ...rest }, index) => (
           <animated.div
             key={index}

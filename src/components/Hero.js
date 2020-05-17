@@ -4,36 +4,32 @@ import Waves from '../assets/svg/waves.svg'
 import {useSpring, useTrail, animated, config} from 'react-spring'
 
 const Hero = () => {
-  let customConfig = { mass: 500, tension: 500, friction: 100, clamp: true }
+  let trailConfig = { mass: 5, tension: 1000, friction: 100 }
 
-  const props = useSpring({ to: {opacity: 1}, from: {opacity: 0}, delay: 1000 }, {
-    mass: 500, tension: 500, friction: 100, clamp: true
-  })
+  const textSpring = useSpring({ to: {opacity: 1}, from: {opacity: 0}, delay: 1000 })
 
   const videoText = ['send', 'your', 'love'];
   const trail = useTrail(videoText.length, {
-    config: customConfig,
+    config: trailConfig,
     opacity: 1,
     from: {
       opacity: 0,
     },
-    delay: 2000
+    delay: 1500
   })
 
-  const buttonAnimation = useSpring({ opacity: 1, transform: 'scale(1)', from: {opacity: 0, transform: 'scale(0.5)'}, delay: 5500}, config.gentle)
+  const buttonAnimation = useSpring({ opacity: 1, transform: 'scale(1)', from: {opacity: 0, transform: 'scale(0.5)'}, delay: 2500})
 
   return (
     <div className="Hero">
       <div className="video-text">
         <div className="text-container">
-          <animated.div className="small-text" style={props}>a new way to</animated.div>
-          {/* <div className="large-text">send your <span>love.</span></div> */}
+          <animated.div style={{...textSpring}} className="small-text">a new way to</animated.div>
           <div className="large-text">
             {
               trail.map(({opacity, ...rest}, index) => (
                 <animated.span
                   key={index}
-                  // style={{ ...rest, height, transform: y.interpolate(y => `translate3d(0,${y}px,0)`) }}>
                   style={{ ...rest, opacity }}>
                   {videoText[index]}
                 </animated.span>

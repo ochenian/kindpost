@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Layout from '../layouts/index'
 import Hero from '../components/Hero'
 import Showcase from '../components/Showcase'
-// import Img from 'gatsby-image'
+import Pager from '../components/Pager'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -55,7 +55,8 @@ export default () => {
         {/* <Img fluid={data.bgImage.childImageSharp.fluid} style={{height: `100vh`}} /> */}
 
         <Hero></Hero>
-        <Showcase />
+        {/* <Showcase /> */}
+        <Pager />
 
         {/* <div className="card-example_container">
           <div className="card-example_description">
