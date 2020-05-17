@@ -13,15 +13,15 @@
     <path id="l" d="M103.72 184.96h-22.1"/>
   </defs>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#a"/>
-  <use fill="#fff" xlink:href="#b"/>
+  <use fill-opacity="0" xlink:href="#b"/>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#b"/>
-  <use fill="#fff" xlink:href="#c"/>
+  <use fill-opacity="0" xlink:href="#c"/>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#c"/>
-  <use fill="#fff" xlink:href="#d"/>
+  <use fill="#f4f0ec" xlink:href="#d"/>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#d"/>
-  <use fill="#fff" xlink:href="#e"/>
+  <use fill="#f4f0ec" xlink:href="#e"/>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#e"/>
-  <use fill="#fff" xlink:href="#f"/>
+  <use fill-opacity="0" xlink:href="#f"/>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#f"/>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#g"/>
   <g>

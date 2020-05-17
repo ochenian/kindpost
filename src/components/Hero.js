@@ -6,19 +6,20 @@ import {useSpring, useTrail, animated, config} from 'react-spring'
 const Hero = () => {
   let trailConfig = { mass: 5, tension: 1000, friction: 100 }
 
-  const textSpring = useSpring({ to: {opacity: 1}, from: {opacity: 0}, delay: 1000 })
+  const textSpring = useSpring({ to: {opacity: 1}, from: {opacity: 0}, delay: 2000 })
+  const videoSpring = useSpring({ transform: 'scale(1.1)', from: { transform: 'scale(1.75)' }, delay: 1000, config: { duration: 1000 }})
 
   const videoText = ['send', 'your', 'love'];
   const trail = useTrail(videoText.length, {
-    config: trailConfig,
+    config: config.molasses,
     opacity: 1,
     from: {
       opacity: 0,
     },
-    delay: 1500
+    delay: 3000
   })
 
-  const buttonAnimation = useSpring({ opacity: 1, transform: 'scale(1)', from: {opacity: 0, transform: 'scale(0.5)'}, delay: 2500})
+  const buttonAnimation = useSpring({ opacity: 1, transform: 'scale(1)', from: {opacity: 0, transform: 'scale(0.5)'}, delay: 3500, config: config.molasses})
 
   return (
     <div className="Hero">
@@ -50,7 +51,7 @@ const Hero = () => {
             send a postcard
           </animated.button>
         </div>
-        <video muted src={BgVideo} autoPlay loop playsInline></video>
+        <animated.video style={{ ...videoSpring }} muted src={BgVideo} autoPlay loop playsInline></animated.video>
         {/* <div className="beach">
           <div className="waves">
             <Waves/>

@@ -7,15 +7,15 @@
     <path id="e2" d="M235.89 134.04c0 3.16-2.57 5.73-5.73 5.73-3.16 0-5.73-2.57-5.73-5.73 0-3.16 2.57-5.72 5.73-5.72 3.16 0 5.73 2.56 5.73 5.72z"/>
     <path id="f2" d="M235.89 136.79c0 3.16-2.57 5.72-5.73 5.72-3.16 0-5.73-2.56-5.73-5.72 0-3.16 2.57-5.73 5.73-5.73 3.16 0 5.73 2.57 5.73 5.73z"/>
   </defs>
-  <use fill="#fff" xlink:href="#a2"/>
+  <use fill-opacity="0" xlink:href="#a2"/>
   <use fill-opacity="0" stroke="#000" stroke-width="2" xlink:href="#a2"/>
   <use fill-opacity="0" stroke="#0d1b19" stroke-width="2" xlink:href="#b2"/>
   <g>
     <use xlink:href="#c2"/>
-    <use fill="#fff" xlink:href="#d2"/>
+    <use fill="#f4f0ec" xlink:href="#d2"/>
     <g>
       <use xlink:href="#e2"/>
-      <use fill="#fff" xlink:href="#f2"/>
+      <use fill="#f4f0ec" xlink:href="#f2"/>
     </g>
   </g>
 </svg>

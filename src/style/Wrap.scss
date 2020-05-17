@@ -9,6 +9,19 @@
   // flex-direction: column;
   // flex: 1;
   // height: 40vw;
+  .legal-footer {
+    display: flex;
+    background: #FF1654;
+    color: #fff;
+    padding: 0.25em 1em;
+    font-family: 'Montserrat';
+    font-size: 0.75em;
+    justify-content: space-around;
+
+    div:first-child {
+      text-transform: lowercase;
+    }
+  }
 }
 
 .Wrap__main_content {
@@ -56,6 +69,7 @@
       color: #fff;
 
       letter-spacing: 0.2em;
+      font-family: 'Averia Serif Libre';
 
       & .small-text {
         font-size: 1em;
@@ -83,6 +97,8 @@
 
         span:last-of-type {
           color: #d4004c;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+          font-weight: 900;
         }
       }
     }
@@ -168,43 +184,70 @@
 }
 
 .how-container {
-  font-family: 'Averia Serif Libre';
-  padding: 2em;
+  // font-family: 'Averia Serif Libre';
+  font-family: 'Montserrat';
+  // padding: 0 2em 6em 2em;
+  // padding-bottom: 6em;
+  padding: 4em 2em;
 
   display: flex;
   flex-direction: column;
 
-  background: #fff;
+  background: #f4f0ec;
 
   .how-title {
     text-align: center;
     font-size: 2em;
-    margin-bottom: 0.5em;
+    margin-bottom: 2em;
+    // text-transform: uppercase;
+    font-family: 'Averia Serif Libre';
   }
 
   .step-container {
     display: flex;
     justify-content: space-around;
   }
+
   .how-step {
+    flex-basis: 25%;
+
+    padding: 1em 2em;
+    text-align: center;
+
     div {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
     }
-    padding: 2em;
 
-    &:not(:last-child) {
-      background-image: linear-gradient(#000, #000);
-      background-size: 2px 50%;
-      background-repeat: no-repeat;
-      background-position: right center;
-    }
+    // &:not(:last-child) {
+    //   background-image: linear-gradient(#000, #000);
+    //   background-size: 2px 50%;
+    //   background-repeat: no-repeat;
+    //   background-position: right center;
+    // }
+  }
+
+  .how-description {
+    font-family: 'Montserrat';
+    font-weight: 100;
+    text-transform: none;
+    line-height: 1.5;
+  }
+
+  .how-type {
+    padding: 3em 0;
+    text-transform: uppercase;
+    font-size: 0.75em;
+  }
+
+  .how-icon {
+
   }
 
   svg {
-    margin-bottom: 1em;
+    // margin-bottom: 1em;
 
     &.happy-face {
       width: 29%;

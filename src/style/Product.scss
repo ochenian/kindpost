@@ -119,12 +119,13 @@
 
   width: 100%;
 
-  margin: 8em 0em;
+  // margin: 8em 0em;
+  margin: 11em 0;
 
   font-family: Montserrat;
 
   div {
-    flex-basis: 50%;
+    flex-basis: 40%;
   }
 }
 
@@ -136,7 +137,7 @@
   display: flex;
   flex-direction: column;
 
-  margin-right: 8em;
+  // margin-right: 8em;
 
   // padding: 2em;
   // flex-basis: 50%;
@@ -281,6 +282,11 @@ select option {
 
 .product_container .awssld__content > img {
   object-fit: fill;
+}
+
+.c {
+  position: absolute !important;
+  width: 450px;
 }
 
 .card {

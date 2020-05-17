@@ -4,6 +4,7 @@
   height: 50%;
   top: 25%;
   will-change: transform;
+  width: 500px;
 }
 
 .pager-container-hidden {
@@ -25,7 +26,7 @@
 .pp-container {
   position: relative;
   height: 75vh;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   justify-content: center;
   background: #f4f0ec;

@@ -25,9 +25,6 @@ const Layout = ({ children, siteName, headerClass }) => (
       <How></How>
       <div className="Wrap">
         <Footer></Footer>
-        {/* <div className="Footer">
-          &copy; 2020 kindpost.
-        </div> */}
       </div>
     </div>
   </div>

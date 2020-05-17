@@ -8,11 +8,17 @@ import {useSpring, animated} from 'react-spring'
 import ButtonLink from '../components/ButtonLink'
 
 const Header = (props) => {
+  const navSpring = useSpring({
+    opacity: 1,
+    height: 50,
+    from: { opacity: 0, height: 0 },
+    config: { duration: 1000}
+  })
 
   return (
   <div className={props.headerClass}>
     <div className="Wrap" >
-      <div className="Header__body">
+      <animated.div className="Header__body" style={{ ...navSpring }}>
         <Link to="/"><Logo className="logo" /></Link>
         <div className="Header__nav">
           <ButtonLink>
@@ -26,7 +32,7 @@ const Header = (props) => {
             <Bag />
           </button>
         </div>
-      </div>
+      </animated.div>
     </div>
   </div>
 )}

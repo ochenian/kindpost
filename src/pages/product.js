@@ -3,6 +3,7 @@ import Layout from '../layouts/index'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import SampleImg from '../assets/Sample.png'
+import { useSpring, animated } from 'react-spring'
 
 const ProductPage = () => {
 
@@ -15,6 +16,15 @@ const ProductPage = () => {
     setFrontActive(!frontActive);
     setBackActive(!backActive);
   };
+
+  const AnimatedImg = animated(Img)
+
+  const [flipped, set] = useState(false)
+  const { transform, opacity } = useSpring({
+    opacity: flipped ? 1 : 0,
+    transform: `perspective(600px) rotateY(${flipped ? -180 : 0}deg)`,
+    config: { mass: 5, tension: 500, friction: 80 }
+  })
 
   function selectPostcard(selected) {
     switch(selected) {
@@ -87,12 +97,19 @@ const ProductPage = () => {
          <div className="product_container">
             {/* <Slider slides={[data.postcardImg, data.postcardBack]}>
             </Slider> */}
-            <div className={!frontActive ? 'card card-front--flip' : 'card card-front'} onClick={toggleClass} >
+
+            <div onClick={() => set(state => !state)}>
+              <AnimatedImg className="c" style={{ opacity: opacity.interpolate(o => 1 - o), transform }} fluid={data.postcardImg.childImageSharp.fluid} />
+              <AnimatedImg className="c" style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(-180deg)`) }} fluid={data.postcardBack.childImageSharp.fluid} />
+            </div>
+
+            {/* <div className={!frontActive ? 'card card-front--flip' : 'card card-front'} onClick={toggleClass} >
               <Img fluid={data.postcardImg.childImageSharp.fluid} />
             </div>
             <div className={backActive ? 'card card-back--flip' : 'card card-back'} onClick={toggleClass} >
               <Img fluid={data.postcardBack.childImageSharp.fluid} />
-            </div>
+            </div> */}
+
             <div className="product_detail">
               <h1>Postcard</h1>
               <p>$5.99</p>
