@@ -1,7 +1,7 @@
 import React, { useRef, useCallback } from 'react'
 import clamp from 'lodash-es/clamp'
 import { useSpring, useSprings, animated } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
+import { useDrag, useGesture } from 'react-use-gesture'
 import { useStaticQuery, graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import { useInView } from 'react-intersection-observer'
@@ -68,6 +68,7 @@ const Pager = () => {
     scale: 1,
     display: 'block'
   }))
+
   const bind = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }) => {
     if (down && distance > window.innerWidth / 2)
       cancel((index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, components.length - 1)))
@@ -87,8 +88,8 @@ const Pager = () => {
           className="pager-container"
           {...bind()}
           key={i}
-          style={{ display, x, ...pagerSpring, transform: cardProps.xys.interpolate(trans) }}>
-          <AnimatedImg style={{ scale }} draggable={false} className="pager-item" fluid={components[i]} />
+          style={{ display, ...pagerSpring, transform: cardProps.xys.interpolate(trans), transform: x.interpolate(x => `translate3d(${x}px,0,0)`) }}>
+          <AnimatedImg style={{ transform: scale.interpolate(s => `scale(${s})`) }} draggable={false} className="pager-item" fluid={components[i]} />
         </animated.div>
       )) }
     </animated.div>

@@ -4,6 +4,7 @@ import Layout from '../layouts/index'
 import Hero from '../components/Hero'
 import Showcase from '../components/Showcase'
 import Pager from '../components/Pager'
+import Divider from '../components/Divider'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -57,6 +58,7 @@ export default () => {
         <Hero></Hero>
         {/* <Showcase /> */}
         <Pager />
+        <Divider />
 
         {/* <div className="card-example_container">
           <div className="card-example_description">

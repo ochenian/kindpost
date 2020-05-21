@@ -27,7 +27,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",
     "react-intersection-observer": "^8.26.2",
-    "react-spring": "^9.0.0-rc.2",
+    "react-spring": "^8.0.27",
     "react-use-gesture": "^7.0.15",
     "typeface-averia-sans-libre": "0.0.72",
     "typeface-averia-serif-libre": "0.0.72",
