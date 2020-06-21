@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect } from 'react'
+import React, {useState, useRef, useEffect, useContext } from 'react'
 import Link from 'gatsby-link'
 import Logo from '../assets/svg/KP_Logo.svg';
 import { AnchorLink } from "gatsby-plugin-anchor-links";
@@ -6,8 +6,13 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Bag from '../assets/svg/bag.svg'
 import {useSpring, animated} from 'react-spring'
 import ButtonLink from '../components/ButtonLink'
+import {SnipcartContext} from 'gatsby-plugin-snipcart-advanced/context';
 
 const Header = (props) => {
+  const {state} = useContext(SnipcartContext)
+  console.log(state)
+  const {userStatus, cartQuantity} = state;
+
   const navSpring = useSpring({
     opacity: 1,
     height: 50,
@@ -30,7 +35,7 @@ const Header = (props) => {
           </ButtonLink>
           <button className="Header__btn snipcart-checkout">
             <Bag />
-            <span class="snipcart-items-count"></span>
+            <span className="cart-quantity">{cartQuantity}</span>
           </button>
         </div>
       </animated.div>

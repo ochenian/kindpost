@@ -61,6 +61,33 @@ module.exports = {
         resourceType: `video`,
         prefix: `videos/`
       }
-    }
+    },
+    // {
+    //   resolve: 'gatsby-plugin-snipcartv3',
+    //   options: {
+    //     apiKey: process.env.SNIPCART_API_KEY,
+    //     autopop: true
+    //   }
+    // },
+    {
+      resolve: `gatsby-plugin-snipcart-advanced`,
+      options: {
+          version: '3.0.15',
+          publicApiKey: process.env.SNIPCART_API_KEY,
+          defaultLang: 'en',
+          currency: 'usd',
+          openCartOnAdd: true,
+          locales: {
+          },
+          innerHTML: `<cart-header title="My Bag" showItemsCount="true" showAccountMenu="true" showSummary="true" backButtonTitle="true">
+            <div class="cart-header">
+              <span class="title">Your Bag</span>
+              <close-cart-action>
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Remove item" title="Remove item" class="snipcart__icon--darker snipcart__icon--medium snipcart__icon--angled snipcart__icon"><path d="M33.23 30.77H48v2.46H33.23V48h-2.46V33.23H16v-2.46h14.77V16h2.46v14.77z" fill="#313749"></path></svg>
+              </close-cart-action>
+            </div>
+          </cart-header>`,
+      },
+    },
   ],
 }

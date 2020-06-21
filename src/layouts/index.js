@@ -12,13 +12,13 @@ const Layout = ({ children, siteName, headerClass }) => (
   <div>
     <Helmet
       title="kindpost."
-      link={[
-        {
-          href: 'https://cdn.snipcart.com/themes/v3.0.7/default/snipcart.css',
-          rel: 'stylesheet',
-          type: 'text/css',
-        },
-      ]}
+      // link={[
+      //   {
+      //     href: 'https://cdn.snipcart.com/themes/v3.0.7/default/snipcart.css',
+      //     rel: 'stylesheet',
+      //     type: 'text/css',
+      //   },
+      // ]}
     />
     <div className="Container">
       <Header siteName={siteName} headerClass={headerClass}></Header>
