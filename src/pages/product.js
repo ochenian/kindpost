@@ -149,9 +149,9 @@ const ProductPage = () => {
 
               <button
                 className="Product add snipcart-add-item"
-                data-item-id='postcard'
+                data-item-id={selectedPostcard.id}
                 data-item-name={selectedPostcard.name}
-                data-item-url="/product"
+                data-item-url="/"
                 data-item-price="5.99"
                 data-item-image={SampleImg}
                 data-item-max-quantity="100"
