@@ -10,7 +10,6 @@ import {SnipcartContext} from 'gatsby-plugin-snipcart-advanced/context';
 
 const Header = (props) => {
   const {state} = useContext(SnipcartContext)
-  console.log(state)
   const {userStatus, cartQuantity} = state;
 
   const navSpring = useSpring({

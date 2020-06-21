@@ -1,0 +1,22 @@
+[
+  {
+    "id": "birthday",
+    "name": "Birthday",
+    "price": 5.99
+  },
+  {
+    "id": "anniversary",
+    "name": "Anniversary",
+    "price": 5.99
+  },
+  {
+    "id": "just-because",
+    "name": "Just Because",
+    "price": 5.99
+  },
+  {
+    "id": "inspiration",
+    "name": "Inspiration",
+    "price": 5.99
+  }
+]
