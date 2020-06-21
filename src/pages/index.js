@@ -5,25 +5,11 @@ import Hero from '../components/Hero'
 import Showcase from '../components/Showcase'
 import Pager from '../components/Pager'
 import Divider from '../components/Divider'
+import Gallery from '../components/Gallery'
 
 export default () => {
   const data = useStaticQuery(graphql`
       query CatalogueQuery {
-        postcards: allDatoCmsPostcard {
-          edges {
-            node {
-              id
-              name
-              price
-              image {
-                url
-                sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
-                  ...GatsbyDatoCmsSizes
-                }
-              }
-            }
-          }
-        }
         site {
           siteMetadata {
             siteName
@@ -57,8 +43,9 @@ export default () => {
 
         <Hero></Hero>
         {/* <Showcase /> */}
-        <Pager />
-        <Divider />
+        {/* <Pager /> */}
+        <Gallery />
+        {/* <Divider /> */}
 
         {/* <div className="card-example_container">
           <div className="card-example_description">

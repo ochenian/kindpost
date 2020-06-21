@@ -24,13 +24,14 @@ const Footer = () => (
         <p>Follow.</p>
         <div>Facebook</div>
         <div>Instagram</div>
+        <div>Twitter</div>
       </div>
     </div>
-    <div className="legal-footer">
+    {/* <div className="legal-footer">
       <div>&copy; 2020 kindpost.</div>
       <div>terms & conditions</div>
       <div>privacy policy</div>
-    </div>
+    </div> */}
   </React.Fragment>
 
 )

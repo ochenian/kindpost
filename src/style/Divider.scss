@@ -1,9 +1,15 @@
 .divider {
-  height: 6px;
+  background: #f5bc5e;
+  height: 1px;
   text-align: center;
 
   svg {
     position: relative;
-    bottom: 6px;
+    bottom: 8px;
+
+    path {
+      stroke: #f5bc5e;
+      stroke-width: 1px;
+    }
   }
 }

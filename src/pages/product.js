@@ -26,6 +26,11 @@ const ProductPage = () => {
     config: { mass: 5, tension: 500, friction: 80 }
   })
 
+  const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
+  const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+  // const [float, setFloat] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+  const { xys, config } = useSpring({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } })
+
   function selectPostcard(selected) {
     switch(selected) {
       case 0:
@@ -98,9 +103,25 @@ const ProductPage = () => {
             {/* <Slider slides={[data.postcardImg, data.postcardBack]}>
             </Slider> */}
 
-            <div onClick={() => set(state => !state)}>
-              <AnimatedImg className="c" style={{ opacity: opacity.interpolate(o => 1 - o), transform }} fluid={data.postcardImg.childImageSharp.fluid} />
-              <AnimatedImg className="c" style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(-180deg)`) }} fluid={data.postcardBack.childImageSharp.fluid} />
+            <div className="left" onClick={() => set(state => !state)}>
+              <AnimatedImg
+                onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                className="c"
+                style={{
+                  opacity: opacity.interpolate(o => 1 - o),
+                  transform
+                }}
+                fluid={data.postcardImg.childImageSharp.fluid} />
+              <AnimatedImg
+                onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                className="c"
+                style={{
+                  opacity,
+                  transform: transform.interpolate(t => `${t} rotateY(-180deg)`)
+                }}
+                fluid={data.postcardBack.childImageSharp.fluid} />
             </div>
 
             {/* <div className={!frontActive ? 'card card-front--flip' : 'card card-front'} onClick={toggleClass} >
@@ -110,7 +131,7 @@ const ProductPage = () => {
               <Img fluid={data.postcardBack.childImageSharp.fluid} />
             </div> */}
 
-            <div className="product_detail">
+            <div className="product_detail right">
               <h1>Postcard</h1>
               <p>$5.99</p>
               <p>Custom, handpicked postcard with handwritten message blah blah blah</p>
@@ -120,10 +141,10 @@ const ProductPage = () => {
                 <option>Just Because</option>
               </select> */}
               <div className="options">
-                <button className="btn_picker" onClick={() => selectPostcard(0)}>Birthday</button>
-                <button className="btn_picker" onClick={() => selectPostcard(1)}>Inspiration</button>
-                <button className="btn_picker" onClick={() => selectPostcard(2)}>Just Because</button>
-                <button className="btn_picker" onClick={() => selectPostcard(3)}>Anniversary</button>
+                <button className={`btn_picker ${selectedPostcard.id === 0 ? 'selected' : ''}`} onClick={() => selectPostcard(0)}>Birthday</button>
+                <button className={`btn_picker ${selectedPostcard.id === 1 ? 'selected' : ''}`} onClick={() => selectPostcard(1)}>Inspiration</button>
+                <button className={`btn_picker ${selectedPostcard.id === 2 ? 'selected' : ''}`} onClick={() => selectPostcard(2)}>Just Because</button>
+                <button className={`btn_picker ${selectedPostcard.id === 3 ? 'selected' : ''}`} onClick={() => selectPostcard(3)}>Anniversary</button>
               </div>
 
               <button

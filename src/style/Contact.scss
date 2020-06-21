@@ -1,11 +1,18 @@
 .contact-container {
-  // margin: 8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+
+  margin-top: 8em;
 
   font-family: 'Averia Serif Libre', sans-serif;
 
   & section {
     margin: 4em 0;
     padding: 0 8em;
+    width: 725px;
   }
 
   & h1 {

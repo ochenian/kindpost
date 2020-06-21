@@ -17,9 +17,15 @@
   margin-top: 1.5em;
 
   &.light {
-    position: static;
+    // old
+    // position: static;
+    // color: #000;
+    // margin-bottom: 2em;
+
+    position: absolute;
     color: #000;
     margin-bottom: 2em;
+    background: transparent;
 
     .logo {
       fill: #d4004c;
@@ -68,7 +74,7 @@
   letter-spacing: 0.1em;
 
   .link {
-    margin-right: 2em;
+    margin-right: 4em;
   }
 
   a {
@@ -85,6 +91,7 @@
   font-size: inherit;
   color: inherit;
   cursor: pointer;
+  position: relative;
 
   &:not(:last-child) {
     margin-right: 2em;
@@ -92,6 +99,21 @@
 
   & svg {
     width: 1.25em;
+  }
+
+  & .snipcart-items-count {
+    border: 1px solid rgba(255, 199, 199, 1);;
+    border-radius: 50% 50%;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    background: rgba(255, 199, 199, 1);;
+    font-size: 0.25em;
   }
 }
 

@@ -12,7 +12,7 @@ const Contact = () => (
         <h1>CONTACT</h1>
         <Logo />
         <section>
-          <a href="mailto:help@kindpost.com">help@kindpost.com</a>
+          <a href="mailto:studio@kindpost.com">help@kindpost.com</a>
           <p>For any questions, comments, or insights. We welcome them all!</p>
         </section>
         <section>
@@ -20,7 +20,7 @@ const Contact = () => (
           <p>Have an idea for a custom postcard? Let's hear it!</p>
         </section>
         <section>
-          <a href="mailto:media@kindpost.com">media@kindpost.com</a>
+          <a href="mailto:press@kindpost.com">media@kindpost.com</a>
           <p>Would you like to contact us about our story? We'd be happy to share!</p>
         </section>
         <section className="social-icons">

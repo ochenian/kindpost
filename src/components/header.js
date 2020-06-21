@@ -26,10 +26,11 @@ const Header = (props) => {
           </ButtonLink>
 
           <ButtonLink>
-            <AnchorLink to="/#howTo"><div>how it works</div></AnchorLink>
+            <Link to="/#howTo"><div>how it works</div></Link>
           </ButtonLink>
           <button className="Header__btn snipcart-checkout">
             <Bag />
+            <span class="snipcart-items-count"></span>
           </button>
         </div>
       </animated.div>

@@ -1,7 +1,6 @@
 import React from 'react'
-import BgVideo from '../assets/KPVideo.mp4'
-import Waves from '../assets/svg/waves.svg'
 import {useSpring, useTrail, animated, config} from 'react-spring'
+import { useStaticQuery, graphql } from 'gatsby'
 
 const Hero = () => {
   let trailConfig = { mass: 5, tension: 1000, friction: 100 }
@@ -21,6 +20,18 @@ const Hero = () => {
 
   const buttonAnimation = useSpring({ opacity: 1, transform: 'scale(1)', from: {opacity: 0, transform: 'scale(0.5)'}, delay: 3500, config: config.molasses})
 
+  const data = useStaticQuery(graphql`
+    query CloudinaryVideo {
+      allCloudinaryMedia {
+        edges {
+          node {
+            secure_url
+          }
+        }
+      }
+    }
+  `)
+  const clVideo = data.allCloudinaryMedia.edges[0]
   return (
     <div className="Hero">
       <div className="video-text">
@@ -51,7 +62,7 @@ const Hero = () => {
             send a postcard
           </animated.button>
         </div>
-        <animated.video style={{ ...videoSpring }} muted src={BgVideo} autoPlay loop playsInline></animated.video>
+        <animated.video style={{ ...videoSpring }} muted src={clVideo.node.secure_url} autoPlay loop playsInline></animated.video>
         {/* <div className="beach">
           <div className="waves">
             <Waves/>
