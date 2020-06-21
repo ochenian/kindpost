@@ -141,20 +141,21 @@ const ProductPage = () => {
                 <option>Just Because</option>
               </select> */}
               <div className="options">
-                <button className={`btn_picker ${selectedPostcard.id === 0 ? 'selected' : ''}`} onClick={() => selectPostcard(0)}>Birthday</button>
-                <button className={`btn_picker ${selectedPostcard.id === 1 ? 'selected' : ''}`} onClick={() => selectPostcard(1)}>Inspiration</button>
-                <button className={`btn_picker ${selectedPostcard.id === 2 ? 'selected' : ''}`} onClick={() => selectPostcard(2)}>Just Because</button>
-                <button className={`btn_picker ${selectedPostcard.id === 3 ? 'selected' : ''}`} onClick={() => selectPostcard(3)}>Anniversary</button>
+                <button className={`btn_picker ${selectedPostcard.id === 'birthday' ? 'selected' : ''}`} onClick={() => selectPostcard(0)}>Birthday</button>
+                <button className={`btn_picker ${selectedPostcard.id === 'inspiration' ? 'selected' : ''}`} onClick={() => selectPostcard(1)}>Inspiration</button>
+                <button className={`btn_picker ${selectedPostcard.id === 'just-because' ? 'selected' : ''}`} onClick={() => selectPostcard(2)}>Just Because</button>
+                <button className={`btn_picker ${selectedPostcard.id === 'anniversary' ? 'selected' : ''}`} onClick={() => selectPostcard(3)}>Anniversary</button>
               </div>
 
               <button
                 className="Product add snipcart-add-item"
-                data-item-id={selectedPostcard.id}
+                data-item-id='postcard'
                 data-item-name={selectedPostcard.name}
                 data-item-url="/product"
                 data-item-price="5.99"
                 data-item-image={SampleImg}
                 data-item-max-quantity="100"
+                data-item-categories={selectedPostcard.id}
               >
                 ADD TO BAG
               </button>
