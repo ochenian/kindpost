@@ -35,25 +35,25 @@ const ProductPage = () => {
     switch(selected) {
       case 0:
         setSelectedPostcard({
-          id: 0,
+          id: 'birthday',
           name: 'Birthday Postcard',
         });
         break;
       case 1:
         setSelectedPostcard({
-          id: 1,
+          id: 'inspiration',
           name: 'Inspiration Postcard',
         });
         break;
       case 2:
         setSelectedPostcard({
-          id: 2,
+          id: 'just-because',
           name: 'Just Because Postcard',
         });
         break;
       case 3:
         setSelectedPostcard({
-          id: 3,
+          id: 'anniversary',
           name: 'Anniversary Postcard',
         });
         break;
