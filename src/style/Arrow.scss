@@ -1,17 +1,21 @@
 .arrow {
   --active: #fff;
 //   --active: #FF1654;
-  --border: rgba(255, 255, 255, 1);
+  --border: rgba(0, 0, 0, 1);
 //   --border: rgba(212, 0, 76, 0.12);
   display: block;
-  position: relative;
+//   position: relative;
+position: absolute;
+right: 40px;
   width: 44px;
   min-width: 44px;
   height: 44px;
   cursor: pointer;
+  z-index: 10;
 
   &.left {
       transform: scaleX(-1);
+      left: 40px;
   }
 
   i {
@@ -32,9 +36,11 @@
           left: 50%;
           top: 50%;
           background: var(--active);
+        //   background: #fff;
           margin: -1px 0 0 -5px;
           display: block;
           transform-origin: 9px 50%;
+          z-index: 10;
       }
       &:before {
           transform: rotate(-40deg);
@@ -54,6 +60,7 @@
       bottom: 1px;
       border-radius: 50%;
       border: 2px solid var(--border);
+      background: #000;
   }
   svg {
       width: 44px;
@@ -73,12 +80,12 @@
           animation: stroke 1s ease forwards .3s;
       }
       i {
-          animation: arrow 1.6s ease forwards;
+          animation: arrow 0.75s ease forwards;
           &:before {
-              animation: arrowUp 1.6s ease forwards;
+              animation: arrowUp 0.75s ease forwards;
           }
           &:after {
-              animation: arrowDown 1.6s ease forwards;
+              animation: arrowDown 0.75s ease forwards;
           }
       }
 

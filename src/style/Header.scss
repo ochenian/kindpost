@@ -41,6 +41,12 @@
       }
 
     }
+
+    .Header__btn {
+      .cart-quantity {
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -102,7 +108,8 @@
   }
 
   & .cart-quantity {
-    border: 1px solid rgba(255, 199, 199, 1);;
+    // border: 1px solid rgba(255, 199, 199, 1);
+    border: 1px solid #d4004c;
     border-radius: 50% 50%;
     height: 16px;
     width: 16px;
@@ -112,9 +119,12 @@
     position: absolute;
     top: -6px;
     left: 20px;
-    background: rgba(255, 199, 199, 1);;
+    // background: rgba(255, 199, 199, 1);
+    background: #d4004c;
     font-size: 0.25em;
   }
+
+
 }
 
 .Header__summary {

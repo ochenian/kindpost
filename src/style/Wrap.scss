@@ -62,37 +62,39 @@
     & .text-container {
       position: absolute;
       z-index: 10;
-      top: 80%;
+      top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
-      text-align: center;
       color: #fff;
 
-      letter-spacing: 0.2em;
+      letter-spacing: 0.3em;
       font-family: 'Averia Serif Libre';
 
       & .small-text {
-        font-size: 1em;
-        text-transform: uppercase;
+        font-size: 2em;
+        letter-spacing: 0.18em;
+        margin-bottom: 1em;
 
-        position: relative;
-        top: 16px;
+        // position: relative;
+        // top: 16px;
       }
 
       & .large-text {
         display: flex;
 
-        font-size: 2em;
-        text-transform: uppercase;
-
-        margin: 0.5em;
+        font-size: 3em;
+        text-transform: lowercase;
         font-weight: bold;
-        // text-shadow: 0px 0px 43px #000;
+        // letter-spacing: 0.18em;
+
+        width: 650px;
+        margin-bottom: 1em;
 
         span {
           display: block;
-          margin: 0 6px;
+          margin-right: 0.25em;
           overflow: hidden;
+          text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
         }
 
         span:last-of-type {
@@ -115,16 +117,12 @@
     }
 
     & button {
-      // position: absolute;
-      // z-index: 10;
-      // top: 50%;
-      // left: 50%;
+      width: 21em;
       padding: 20px;
       border-radius: 4px;
       background: #d4004c;
       color: #fff;
       text-transform: uppercase;
-      // border: 1px solid white;
       border: none;
       font-size: 12px;
       font-family: Lato;
@@ -192,6 +190,8 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 75vh;
 
   background: #fff;
 
@@ -234,6 +234,7 @@
     font-weight: 100;
     text-transform: none;
     line-height: 1.5;
+    text-align: justify;
   }
 
   .how-type {
@@ -243,7 +244,11 @@
   }
 
   .how-icon {
-
+    margin: 0 auto;
+    background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
   }
 
   svg {

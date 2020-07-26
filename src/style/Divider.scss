@@ -1,4 +1,6 @@
 .divider {
+  position: relative;
+  z-index: 20;
   background: #f5bc5e;
   height: 1px;
   text-align: center;

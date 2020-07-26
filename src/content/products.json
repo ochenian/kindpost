@@ -5,18 +5,18 @@
     "price": 5.99
   },
   {
-    "id": "anniversary",
-    "name": "Anniversary",
+    "id": "love",
+    "name": "Love",
     "price": 5.99
   },
   {
-    "id": "just-because",
-    "name": "Just Because",
+    "id": "congratulations",
+    "name": "Congratulations",
     "price": 5.99
   },
   {
-    "id": "inspiration",
-    "name": "Inspiration",
+    "id": "encouragement",
+    "name": "Encouragement",
     "price": 5.99
   }
 ]

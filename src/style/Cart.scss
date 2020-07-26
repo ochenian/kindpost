@@ -15,9 +15,17 @@
     text-transform: uppercase;
   }
 
+  & > svg {
+    display: none;
+  }
+
   &.snipcart-checkout__header {
     & .title {
       display: none;
+    }
+
+    & > svg {
+      display: block;
     }
 
     & button {
@@ -27,5 +35,9 @@
 
   & button {
     cursor: pointer;
+  }
+
+  .cart-logo {
+    // background-image: url(../assets/svg/KP_Logo.svg);
   }
 }

@@ -1,22 +1,35 @@
-import React, {useState} from 'react'
+import React, { useState, useCallback } from 'react'
 import Layout from '../layouts/index'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import SampleImg from '../assets/Sample.png'
 import { useSpring, animated } from 'react-spring'
 import Products from "../content/products.json"
+import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+import styled from 'styled-components'
+import { motion, useAnimation } from "framer-motion"
 
 const ProductPage = () => {
 
-  const [ frontActive, setFrontActive ] = useState(true);
-  const [ backActive, setBackActive ] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false)
 
-  const [selectedPostcard, setSelectedPostcard] = useState({});
+  // const handleZoomChange = useCallback(shouldZoom => {
+  //   setIsZoomed(shouldZoom)
+  // }, [])
 
   function toggleClass() {
     setFrontActive(!frontActive);
     setBackActive(!backActive);
   };
+
+  const AnimatedImgContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `
 
   const AnimatedImg = animated(Img)
 
@@ -31,35 +44,6 @@ const ProductPage = () => {
   const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
   // const [float, setFloat] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
   const { xys, config } = useSpring({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } })
-
-  function selectPostcard(selected) {
-    switch(selected) {
-      case 'birthday':
-        setSelectedPostcard({
-          id: 'birthday',
-          name: 'Birthday Postcard',
-        });
-        break;
-      case 'inspiration':
-        setSelectedPostcard({
-          id: 'inspiration',
-          name: 'Inspiration Postcard',
-        });
-        break;
-      case 'just-because':
-        setSelectedPostcard({
-          id: 'just-because',
-          name: 'Just Because Postcard',
-        });
-        break;
-      case 'anniversary':
-        setSelectedPostcard({
-          id: 'anniversary',
-          name: 'Anniversary Postcard',
-        });
-        break;
-    }
-  }
 
   const data = useStaticQuery(graphql`
     query SiteQuery {
@@ -86,6 +70,33 @@ const ProductPage = () => {
           }
         }
       }
+      postcardCongratulationsBack: file(relativePath: { eq: "Congratulations.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      postcardEncouragementBack: file(relativePath: { eq: "Encouragement.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      postcardLoveBack: file(relativePath: { eq: "Love.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       postcardCartImg: file(relativePath: { eq: "Sample.png" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
@@ -97,33 +108,119 @@ const ProductPage = () => {
       }
     }
   `)
+
+  const [ frontActive, setFrontActive ] = useState(true);
+  const [ backActive, setBackActive ] = useState(false);
+
+  const [selectedPostcard, setSelectedPostcard] = useState({
+    id: 'birthday',
+    name: 'Birthday Postcard',
+    img: data.postcardBack.childImageSharp.fluid
+  });
+
+  function selectPostcard(selected) {
+    switch(selected) {
+      case 'birthday':
+        setSelectedPostcard({
+          id: 'birthday',
+          name: 'Birthday Postcard',
+          img: data.postcardBack.childImageSharp.fluid
+        });
+        break;
+      case 'congratulations':
+        setSelectedPostcard({
+          id: 'congratulations',
+          name: 'Congratulations Postcard',
+          img: data.postcardCongratulationsBack.childImageSharp.fluid
+        });
+        break;
+      case 'love':
+        setSelectedPostcard({
+          id: 'love',
+          name: 'Love Postcard',
+          img: data.postcardLoveBack.childImageSharp.fluid
+        });
+        break;
+      case 'encouragement':
+        setSelectedPostcard({
+          id: 'encouragement',
+          name: 'Encouragement Postcard',
+          img: data.postcardEncouragementBack.childImageSharp.fluid
+        });
+        break;
+    }
+  }
+
+  function onPostcardSelect(selected) {
+    if (!flipped) {
+      set(state => !state);
+    }
+
+    selectPostcard(selected);
+  }
+
+  const ZoomButton = styled(motion.div)`
+    position: absolute;
+    top: 200px;
+  `
+  const rightControls = useAnimation()
+  const leftControls = useAnimation()
+
+  function onZoom() {
+    // rightControls.start({
+    //   width: "0%",
+    //   padding: "0",
+    //   margin: "0",
+    //   flexBasis: "0",
+    // })
+    rightControls.start({
+      display: 'none',
+    })
+    leftControls.start({
+      // position: "absolute",
+      // width: "100%",
+      // height: "100%",
+      // zIndex: 20,
+      // background: "rgba(255, 199, 199, 1.0)",
+      flexBasis: '100%',
+      transform: "scale(1.75)",
+      transition: { duration: 1 },
+    })
+  }
+
   return (
       <Layout site={data.site.siteMetadata.siteName} headerClass="Header light">
       <div>
          <div className="product_container">
             {/* <Slider slides={[data.postcardImg, data.postcardBack]}>
             </Slider> */}
+            {/* <div className="left" onClick={() => set(state => !state)}> */}
+            <motion.div className="left" animate={leftControls} onClick={() => set(flipped => !flipped)}>
 
-            <div className="left" onClick={() => set(state => !state)}>
-              <AnimatedImg
-                onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-                onMouseLeave={() => set({ xys: [0, 0, 1] })}
-                className="c"
-                style={{
-                  opacity: opacity.interpolate(o => 1 - o),
-                  transform
-                }}
-                fluid={data.postcardImg.childImageSharp.fluid} />
-              <AnimatedImg
-                onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-                onMouseLeave={() => set({ xys: [0, 0, 1] })}
-                className="c"
-                style={{
-                  opacity,
-                  transform: transform.interpolate(t => `${t} rotateY(-180deg)`)
-                }}
-                fluid={data.postcardBack.childImageSharp.fluid} />
-            </div>
+              {/* <ZoomButton onClick={() => onZoom()}>Zoom</ZoomButton> */}
+
+                <AnimatedImg
+                  onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                  onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                  className="c"
+                  style={{
+                    opacity: opacity.interpolate(o => 1 - o),
+                    transform
+                  }}
+                  fluid={data.postcardImg.childImageSharp.fluid} />
+
+                <AnimatedImg
+                  onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                  onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                  className="c"
+                  style={{
+                    opacity,
+                    transform: transform.interpolate(t => `${t} rotateY(-180deg)`)
+                  }}
+                  fluid={selectedPostcard.img} />
+
+
+            </motion.div>
 
             {/* <div className={!frontActive ? 'card card-front--flip' : 'card card-front'} onClick={toggleClass} >
               <Img fluid={data.postcardImg.childImageSharp.fluid} />
@@ -132,10 +229,12 @@ const ProductPage = () => {
               <Img fluid={data.postcardBack.childImageSharp.fluid} />
             </div> */}
 
-            <div className="product_detail right">
-              <h1>Postcard</h1>
+            <motion.div animate={rightControls} className="product_detail right">
+              <h1>KINDPOST</h1>
               <p>$5.99</p>
-              <p>Custom, handpicked postcard with handwritten message blah blah blah</p>
+              <p>A kindpost is a carefully curated vintage postcard with a unique handwritten message of positivity
+                crafted by the team in our sunny California office.</p>
+              <p>Your custom, handwritten message will be based on your selected occasion.</p>
               {/* <select>
                 <option>Birthday</option>
                 <option>Inspiration</option>
@@ -145,11 +244,12 @@ const ProductPage = () => {
               {
                 Products.map((product) => {
                   return <button className={`btn_picker ${selectedPostcard.id === product.id ? 'selected' : ''}`}
-                                 onClick={() => selectPostcard(product.id)}>{product.name}
+                                 onClick={() => onPostcardSelect(product.id)}>{product.name}
                          </button>
                 })
               }
               </div>
+
               {/* <div className="options">
                 <button className={`btn_picker ${selectedPostcard.id === 'birthday' ? 'selected' : ''}`} onClick={() => selectPostcard(0)}>Birthday</button>
                 <button className={`btn_picker ${selectedPostcard.id === 'inspiration' ? 'selected' : ''}`} onClick={() => selectPostcard(1)}>Inspiration</button>
@@ -169,7 +269,11 @@ const ProductPage = () => {
               >
                 ADD TO BAG
               </button>
-            </div>
+
+              {/* <p>NOTE:</p>
+              <p>Our postcards are sustainably sourced from individual collectors. As such, we cannot guarantee a specific card for your recipient.</p>
+              <p>If you have a specific idea of a postcard or message you would like to send, include it in a message with your order and we’ll do our best to meet your request!</p> */}
+            </motion.div>
           </div>
       </div>
 

@@ -11,7 +11,7 @@ const How = () => {
   const ref = useRef()
 
   // const props = useSpring({ opacity: 1, from: {opacity: 0}, delay: 1000})
-  const items = ['pick an occasion', 'we\'ll write a note', 'we\'ll send your postcard', 'happy friend']
+  const items = ['pick an occasion', 'we\'ll write a note', 'we\'ll send your postcard', 'kindness accomplished']
   const descriptions = [
     'Select an occasion that conveys the message you want to send',
     'Our writers will select an appropriate postcard & develop a positive, inspiring message that represents your chosen occasion',
@@ -71,7 +71,9 @@ const How = () => {
               key={index}
               className="how-step"
               style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-              <animated.div className="how-icon" style={{ height }}>{components[index]}</animated.div>
+              <animated.div className="how-icon" style={{ height }}>
+                {components[index]}
+              </animated.div>
               <animated.div className="how-type" style={{ height }}>{items[index]}</animated.div>
               <animated.div className="how-description" style={{ height }}>{descriptions[index]}</animated.div>
             </animated.div>

@@ -35,8 +35,11 @@ const Slide = ({
 }) => {
   const offsetFromCenter = index - offsetRadius;
   const totalPresentables = 2 * offsetRadius + 1;
-  const distanceFactor = 1 - Math.abs(offsetFromCenter / (offsetRadius + 1));
-
+  console.log(offsetFromCenter)
+  console.log(offsetRadius)
+  let distanceFactor = 1 - Math.abs(offsetFromCenter / (offsetRadius + 1));
+  let rotateZ = '0deg'
+  console.log(distanceFactor)
   const translateXoffset =
     50 * (Math.abs(offsetFromCenter) / (offsetRadius + 1));
   let translateX = -50;
@@ -49,20 +52,27 @@ const Slide = ({
     }
   }
 
+  if (offsetFromCenter !== 0) {
+    distanceFactor = 0.8
+  }
+
   if (offsetFromCenter > 0) {
     translateX += translateXoffset;
+    rotateZ = '2deg'
   } else if (offsetFromCenter < 0) {
     translateX -= translateXoffset;
+    rotateZ = '-2deg'
   }
 
   return (
     <Spring
       to={{
-        transform: `translateY(-50%) translateX(${translateX}%) scale(${distanceFactor})`,
+        transform: `translateY(-50%) translateX(${translateX}%) scale(${distanceFactor}) rotateZ(${rotateZ})`,
         left: `${
           offsetRadius === 0 ? 50 : 50 + (offsetFromCenter * 50) / offsetRadius
         }%`,
-        opacity: distanceFactor * distanceFactor
+        // opacity: distanceFactor * distanceFactor
+        opacity: 1
       }}
       config={animationConfig}
     >

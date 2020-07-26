@@ -4,7 +4,7 @@ import Logo from '../assets/svg/KP_Logo.svg';
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 // import Account from '../assets/svg/account.svg'
 import Bag from '../assets/svg/bag.svg'
-import {useSpring, animated} from 'react-spring'
+import {useSpring, animated, config} from 'react-spring'
 import ButtonLink from '../components/ButtonLink'
 import {SnipcartContext} from 'gatsby-plugin-snipcart-advanced/context';
 
@@ -16,7 +16,8 @@ const Header = (props) => {
     opacity: 1,
     height: 50,
     from: { opacity: 0, height: 0 },
-    config: { duration: 1000}
+    config: config.wobbly
+    // config: { duration: 1000}
   })
 
   return (

@@ -6,9 +6,10 @@
   &.add {
     // margin-top: 2em;
     padding: 1.5em;
-    border-radius: 2px;
+    border-radius: 5px;
     // background: #FF1654;
-    background: linear-gradient(180deg, rgba(212,0,76,1) 0%, rgba(244,0,117,1) 100%);
+    // background: linear-gradient(180deg, rgba(212,0,76,1) 0%, rgba(244,0,117,1) 100%);
+    background: #d4004c;
     color: #fff;
     text-transform: uppercase;
     // width: fit-content;
@@ -202,9 +203,11 @@
   }
 
   p {
-    font-size: 1em;
+    font-size: 0.9em;
     margin: 1em 0;
-    font-weight: 300;
+    font-weight: 400;
+    color: rgb(74,74,74);
+    width: 75%;
   }
 }
 

@@ -23,7 +23,7 @@ const Gallery = () => {
           fluid(maxWidth: 500, quality: 90) {
             ...GatsbyImageSharpFluid
           }
-          fixed(width: 500) {
+          fixed(width: 900) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -57,20 +57,54 @@ const Gallery = () => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };
   });
 
+  const GalleryText = styled.div`
+    display: flex;
+    font-family: 'Montserrat';
+    font-weight: 300;
+    background: rgb(255, 227, 227);
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    letter-spacing: 0.10em;
+    /* padding-top: 1em;
+    padding-left: 6em;
+    padding-right: 6em; */
+    margin: 2em 0;
+    /* text-align: center; */
+  `
+
+  const GalleryContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    background: #ffe3e3;
+  `
+
+  const CarouselContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    margin-bottom: 6em;
+    background: #ffe3e3;
+  `
+
   return (
-    <div style={{
-      display: "flex",
-      alignItems: "center",
-      height: "500px",
-      margin: "0 auto",
-      background: '#ffe3e3',
-      padding: '2em',
-       }}>
-      <Carousel
-        slides={slides}
-        goToSlide={state.goToSlide}
-      />
-    </div>
+    <GalleryContainer>
+      <GalleryText>VINTAGE LINENS + CHROMES</GalleryText>
+      <CarouselContainer style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "65vh",
+        marginBottom: "9em",
+        background: '#ffe3e3',
+        }}>
+        <Carousel
+          slides={slides}
+          goToSlide={state.goToSlide}
+        />
+      </CarouselContainer>
+    </GalleryContainer>
   )
 
 }

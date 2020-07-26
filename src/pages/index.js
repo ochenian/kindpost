@@ -6,6 +6,7 @@ import Showcase from '../components/Showcase'
 import Pager from '../components/Pager'
 import Divider from '../components/Divider'
 import Gallery from '../components/Gallery'
+import FullBleed from '../components/FullBleed'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -45,6 +46,8 @@ export default () => {
         {/* <Showcase /> */}
         {/* <Pager /> */}
         <Gallery />
+        <Divider />
+        <FullBleed />
         {/* <Divider /> */}
 
         {/* <div className="card-example_container">

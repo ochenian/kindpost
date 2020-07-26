@@ -188,8 +188,9 @@ div.snipcart-modal__container.snipcart-layout--large {
 }
 
 .snipcart-layout .snipcart-cart-button--highlight {
-  background: rgb(232,89,130);
-  background: linear-gradient(270deg, rgba(232,89,130,1) 0%, rgba(255,22,84,1) 100%);
+  // background: rgb(232,89,130);
+  // background: linear-gradient(270deg, rgba(232,89,130,1) 0%, rgba(255,22,84,1) 100%);
+  background: #d4004c;
 }
 
 .snipcart-layout .snipcart-item-custom-fields {
@@ -252,6 +253,18 @@ div.snipcart-modal__container.snipcart-layout--large {
 
 .snipcart-layout .snipcart-item-line--cart-edit img.snipcart-item-line__image {
   width: 148px;
+}
+
+.snipcart-layout .snipcart__box--badge-highlight {
+  background: #d4004c;
+}
+
+.snipcart-layout .snipcart__icon--blue-dark path {
+  fill: #d4004c;
+}
+
+.snipcart-layout .snipcart__actions--link {
+  color: #d4004c;
 }
 
 
