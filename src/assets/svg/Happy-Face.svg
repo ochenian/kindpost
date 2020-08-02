@@ -12,10 +12,10 @@
   <use fill-opacity="0" stroke="#0d1b19" stroke-width="2" xlink:href="#b2"/>
   <g>
     <use xlink:href="#c2"/>
-    <use fill="#fff" xlink:href="#d2"/>
+    <use fill="rgba(0,0,0,0.01)" xlink:href="#d2"/>
     <g>
       <use xlink:href="#e2"/>
-      <use fill="#fff" xlink:href="#f2"/>
+      <use fill="rgba(0,0,0,0.01)" xlink:href="#f2"/>
     </g>
   </g>
 </svg>

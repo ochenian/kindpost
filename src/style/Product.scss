@@ -4,22 +4,52 @@
   cursor: pointer;
 
   &.add {
-    // margin-top: 2em;
+    font-family: 'Averia Serif Libre';
     padding: 1.5em;
-    border-radius: 5px;
-    // background: #FF1654;
-    // background: linear-gradient(180deg, rgba(212,0,76,1) 0%, rgba(244,0,117,1) 100%);
-    background: #d4004c;
-    color: #fff;
+    border-radius: 6px;
+    background: transparent;
+    color: #d4004c;
     text-transform: uppercase;
-    // width: fit-content;
-    border-color: transparent;
+    border: 1px solid #d4004c;
     font-weight: bold;
 
-    // width: 80%;
     max-width: 150px;
-    // margin: 0 auto;
     margin-top: 2em;
+
+    overflow: hidden;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    color: #d4004c;
+    border: 1px solid #d4004c;
+
+    position: relative;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      transition: all 0.4s;
+      width: 100%;
+      height: 0;
+      top: 0;
+      left: 0;
+      background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    }
+
+    &:hover:after,
+    &:active:after {
+      height: 100%;
+    }
+
+    &:hover,
+    &:active {
+      color: #fff;
+      cursor: pointer;
+    }
   }
 }
 
@@ -294,32 +324,61 @@ select option {
   */
 
   .btn_picker {
-  background: none;
-  -webkit-appearance: button;
-  border: 1px solid #999;
-  color: #444;
-  border-radius: 6px;
-  width: 150px;
-  height: 80px;
-  // margin-bottom: 1em;
-  font-size: 0.875em;
-  font-family: 'Averia Serif Libre';
-  letter-spacing: 0.1em;
-  // margin-right: 1em;
+    background: none;
+    -webkit-appearance: button;
+    // border: 1px solid #999;
+    // color: #444;
+    border-radius: 6px;
+    width: 150px;
+    height: 80px;
+    // margin-bottom: 1em;
+    font-size: 0.875em;
+    font-family: 'Averia Serif Libre';
+    letter-spacing: 0.1em;
+    // margin-right: 1em;
 
-  border: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-  opacity: 0.9;
+    border: 1px solid rgba(0,0,0,0.1);
+    // box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    opacity: 0.9;
 
-  &:not(:last-child) {
-    margin-bottom: 1em;
-    margin-right: 1em;
-  }
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+    color: #d4004c;
+    border: 1px solid #d4004c;
+
+    position: relative;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      transition: all 0.4s;
+      width: 100%;
+      height: 0;
+      top: 0;
+      left: 0;
+      background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    }
+
+    &:not(.selected):hover:after,
+    &:active:after {
+      height: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1em;
+      margin-right: 1em;
+    }
  }
 
  .btn_picker:hover {
-    border: 1px solid #FF1654;
-    border-radius: 6px;
+    // border: 1px solid #FF1654;
+    // border-radius: 6px;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -331,6 +390,10 @@ select option {
     border-radius: 6px;
     color: #fff;
     outline-width: 0;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2),
+                inset -4px -4px 6px 0 rgba(255,255,255,.2),
+                inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
 }
 
 .btn_picker:active {

@@ -5,7 +5,10 @@ import Img from 'gatsby-image'
 import styled from "styled-components"
 
 const StyledImg = styled(Img)`
-    width: 100%;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.12), 0px 0px 4px rgba(0,0,0,0.12),
+    0px 0px 8px rgba(0,0,0,0.12),
+    0px 0px 16px rgba(0,0,0,0.12),
+    0px 0px 32px rgba(0,0,0,0.12);
   `
 
 const Gallery = () => {

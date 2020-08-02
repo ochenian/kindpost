@@ -7,6 +7,7 @@ import Pager from '../components/Pager'
 import Divider from '../components/Divider'
 import Gallery from '../components/Gallery'
 import FullBleed from '../components/FullBleed'
+import Message from '../components/Message'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -46,6 +47,8 @@ export default () => {
         {/* <Showcase /> */}
         {/* <Pager /> */}
         <Gallery />
+        <Divider />
+        <Message />
         <Divider />
         <FullBleed />
         {/* <Divider /> */}

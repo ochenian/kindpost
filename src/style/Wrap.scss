@@ -199,8 +199,22 @@
     text-align: center;
     font-size: 2em;
     margin-bottom: 2em;
-    // text-transform: uppercase;
     font-family: 'Averia Serif Libre';
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    top: 0;
+    margin-bottom: 2em;
+
+    &:before{
+      content: "";
+      position: absolute;
+      left: 25%;
+      bottom: -8px;
+      height: 1px;
+      width: 50%;
+      border-bottom: 2px solid #ffe3e3;
+    }
   }
 
   .step-container {
@@ -249,6 +263,11 @@
     border-radius: 50%;
     width: 120px;
     height: 120px;
+    // background: linear-gradient(0deg, rgba(233,255,8,1) 0%, rgba(245,188,94,1) 100%);
+    background: linear-gradient(190deg, rgba(238,156,167,1) 0%, rgba(255,227,227,1) 100%);
+    background: rgba(255,227,227,1);
+
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.12), 0px 2px 4px rgba(0,0,0,0.12), 0px 4px 8px rgba(0,0,0,0.12), 0px 8px 16px rgba(0,0,0,0.12);
   }
 
   svg {

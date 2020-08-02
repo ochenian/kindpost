@@ -6,6 +6,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   width: 100vw;
   position: relative;
+  background: radial-gradient(transparent, rgba(0,0,0,0.5) 90%);
 `
 
 const TextContainer = styled.div`
@@ -23,11 +24,14 @@ const TextContainer = styled.div`
     font-weight: bold;
     letter-spacing: 5px;
     text-transform: lowercase;
+    text-shadow: 0 0 16px rgba(0,0,0,1);
 `
 
 const GrayscaleImg = styled(Img)`
   filter: brightness(60%) grayscale(0.5);
   height: 75vh;
+  position: relative;
+  z-index: -10;
 `
 
 const FullBleed = () => {

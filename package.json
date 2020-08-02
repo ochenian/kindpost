@@ -34,6 +34,7 @@
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.4.1",
     "react-use-gesture": "^7.0.15",
+    "sharp": "^0.25.4",
     "styled-components": "^5.1.0",
     "typeface-averia-sans-libre": "0.0.72",
     "typeface-averia-serif-libre": "0.0.72",
