@@ -22,9 +22,10 @@ const Layout = ({ children, siteName, headerClass }) => (
     />
     <div className="Container">
       <Header siteName={siteName} headerClass={headerClass}></Header>
+      {/* <div style={{height: '106px'}}></div> */}
       <div className="Wrap Wrap__main_content">{children}</div>
-      <Divider />
-      <How></How>
+      {/* <Divider /> */}
+      {/* <How></How> */}
       <div className="Wrap">
         <Footer></Footer>
       </div>

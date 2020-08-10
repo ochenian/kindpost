@@ -11,6 +11,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-anchor-links`,
     {
       resolve: `gatsby-source-datocms`,
@@ -69,6 +70,13 @@ module.exports = {
     //     autopop: true
     //   }
     // },
+    {
+      resolve: `gatsby-theme-shopify-manager`,
+      options: {
+        shopName: 'Kindpost',
+        accessToken: 'a108d5424d5dae2ede62a9624dea1949',
+      },
+    },
     {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
