@@ -9,6 +9,7 @@ import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 import styled from 'styled-components'
 import { motion, useAnimation } from "framer-motion"
+import { useAddItemToCart } from 'gatsby-theme-shopify-manager';
 
 const ProductPage = () => {
 
@@ -106,6 +107,25 @@ const ProductPage = () => {
           }
         }
       }
+        products: allShopifyProduct(
+        sort: { fields: [publishedAt], order: ASC }
+      ) {
+        edges {
+          node {
+            id
+            handle
+            title
+            description
+            productType
+            variants {
+              shopifyId
+              title
+              price
+              availableForSale
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -188,6 +208,18 @@ const ProductPage = () => {
     })
   }
 
+  const addItemToCart = useAddItemToCart()
+
+  async function addToCart(variantId, quantity) {
+    try {
+      await addItemToCart(variantId, quantity);
+      alert('Successfully added that item to your cart!');
+    } catch(e) {
+      console.log(e)
+      alert('There was a problem adding that item to your cart.');
+    }
+  }
+
   return (
       <Layout site={data.site.siteMetadata.siteName} headerClass="Header light">
       <div>
@@ -257,7 +289,7 @@ const ProductPage = () => {
                 <button className={`btn_picker ${selectedPostcard.id === 'anniversary' ? 'selected' : ''}`} onClick={() => selectPostcard(3)}>Anniversary</button>
               </div> */}
 
-              <button
+              {/* <button
                 className="Product add snipcart-add-item"
                 data-item-id='postcard'
                 data-item-name={selectedPostcard.name}
@@ -266,6 +298,14 @@ const ProductPage = () => {
                 data-item-image={SampleImg}
                 data-item-max-quantity="100"
                 data-item-categories={selectedPostcard.name}
+              >
+                ADD TO BAG
+              </button> */}
+
+
+              <button
+                className="Product add snipcart-add-item"
+                onClick={() => addToCart(data.products.edges[0].node.variants[0].shopifyId, 1)}
               >
                 ADD TO BAG
               </button>

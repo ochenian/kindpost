@@ -5,6 +5,7 @@ import Footer from '../components/footer'
 import Header from '../components/header'
 import How from '../components/How'
 import Divider from '../components/Divider'
+import Cart from '../components/Cart/ShopCart'
 
 import '../style/index.scss'
 
@@ -23,6 +24,7 @@ const Layout = ({ children, siteName, headerClass }) => (
     <div className="Container">
       <Header siteName={siteName} headerClass={headerClass}></Header>
       {/* <div style={{height: '106px'}}></div> */}
+      <Cart />
       <div className="Wrap Wrap__main_content">{children}</div>
       {/* <Divider /> */}
       {/* <How></How> */}

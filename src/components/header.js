@@ -6,11 +6,11 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Bag from '../assets/svg/bag.svg'
 import {useSpring, animated, config} from 'react-spring'
 import ButtonLink from '../components/ButtonLink'
-import {SnipcartContext} from 'gatsby-plugin-snipcart-advanced/context';
+// import {SnipcartContext} from 'gatsby-plugin-snipcart-advanced/context';
 
 const Header = (props) => {
-  const {state} = useContext(SnipcartContext)
-  const {userStatus, cartQuantity} = state;
+  // const {state} = useContext(SnipcartContext)
+  // const {userStatus, cartQuantity} = state;
 
   const navSpring = useSpring({
     opacity: 1,
@@ -35,7 +35,7 @@ const Header = (props) => {
           </ButtonLink>
           <button className="Header__btn snipcart-checkout">
             <Bag />
-            <span className="cart-quantity">{cartQuantity}</span>
+            {/* <span className="cart-quantity">{cartQuantity}</span> */}
           </button>
         </div>
       </animated.div>
