@@ -6,11 +6,14 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 import Bag from '../assets/svg/bag.svg'
 import {useSpring, animated, config} from 'react-spring'
 import ButtonLink from '../components/ButtonLink'
+import { useCartCount } from 'gatsby-theme-shopify-manager';
+
 // import {SnipcartContext} from 'gatsby-plugin-snipcart-advanced/context';
 
-const Header = (props) => {
+const Header = ({ headerClass, toggle }) => {
   // const {state} = useContext(SnipcartContext)
   // const {userStatus, cartQuantity} = state;
+  const itemsInCart = useCartCount()
 
   const navSpring = useSpring({
     opacity: 1,
@@ -21,7 +24,7 @@ const Header = (props) => {
   })
 
   return (
-  <div className={props.headerClass}>
+  <div className={headerClass}>
     <div className="Wrap" >
       <animated.div className="Header__body" style={{ ...navSpring }}>
         <Link to="/"><Logo className="logo" /></Link>
@@ -34,8 +37,10 @@ const Header = (props) => {
             <Link to="/#howTo"><div>how it works</div></Link>
           </ButtonLink>
           <button className="Header__btn snipcart-checkout">
-            <Bag />
-            {/* <span className="cart-quantity">{cartQuantity}</span> */}
+            <Bag onClick={() => toggle()} />
+            {
+              itemsInCart > 0 ? <span className="cart-quantity">{itemsInCart}</span> : <span></span>
+            }
           </button>
         </div>
       </animated.div>

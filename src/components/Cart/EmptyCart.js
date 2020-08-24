@@ -11,10 +11,11 @@ const EmptyCartRoot = styled('div')`
 `;
 
 const SadCartCopy = styled('div')`
-  color: ${colors.lilac};
+  color: ${colors.black};
   margin-top: ${spacing.lg}px;
   max-width: 200px;
   text-align: center;
+  text-transform: uppercase;
 
   p {
     margin: 0;
@@ -97,16 +98,9 @@ const SadCart = () => (
 
 const EmptyCart = () => (
   <EmptyCartRoot>
-    <SadCart />
+    {/* <SadCart /> */}
     <SadCartCopy>
-      <p>
-        Your Cart is sad{' '}
-        <span role="img" aria-label="sad face">
-          😔
-        </span>
-      </p>
-      <p>Turn that frown upside down with swag!</p>
-      <p>I LOVE CATE :)</p>
+      <p>Your bag is empty</p>
     </SadCartCopy>
   </EmptyCartRoot>
 );

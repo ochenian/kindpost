@@ -14,6 +14,12 @@ export const Input = styled(`input`)`
   padding: ${spacing.sm}px ${spacing.md}px;
   width: 100%;
 
+  &[type=number]::-webkit-inner-spin-button,
+  &[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   :focus {
     box-shadow: 0 0 0 3px ${colors.accent};
     outline: 0;

@@ -5,9 +5,11 @@ import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg'
 import InstaLogo from '../assets/svg/insta_icon.svg'
 import TextRotator from '../components/TextRotaor'
 import styled from "styled-components"
-import { motion } from "framer-motion"
+import { motion, useTransform, useViewportScroll } from "framer-motion"
 
 const Hero = () => {
+  const { scrollYProgress } = useViewportScroll()
+  const y = useTransform(scrollYProgress, [0, 1], [0, 2000])
   let trailConfig = { mass: 5, tension: 1000, friction: 100 }
 
   const textSpring = useSpring({
@@ -153,7 +155,11 @@ const Hero = () => {
             send a postcard
           </animated.button> */}
         </div>
-        <video muted src={clVideo.node.secure_url} autoPlay loop playsInline></video>
+        <motion.video
+          style={{y }}
+          muted
+          src={clVideo.node.secure_url}
+          autoPlay loop playsInline></motion.video>
         {/* <div className="beach">
           <div className="waves">
             <Waves/>

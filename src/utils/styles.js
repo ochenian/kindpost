@@ -10,10 +10,10 @@ import { keyframes, css } from 'styled-components';
  */
 export const colors = {
   brandDarker: '#221133',
-  brandDark: '#442266',
-  brand: '#663399',
-  brandBright: '#e0d6eb',
-  brandLight: '#f5f3f7',
+  brandDark: '#d4004c',
+  brand: `#f40075`,
+  brandBright: '#ffb0cd',
+  brandLight: '#ffe3e3',
   brandLighter: '#fbfafc',
   lightest: '#ffffff',
   darkest: '#4d4058',
@@ -21,10 +21,11 @@ export const colors = {
   textMild: '#555555',
   textLight: '#7e718a',
   textLighter: '#aaaaaa',
-  lilac: `#8c65b3`,
-  accent: `#ffb238`,
+  navy: `#43546a`,
+  accent: `#f5bc5e`,
   error: `#ec1818`,
-  lemon: `#ffdf37`
+  lemon: `#ffdf37`,
+  black: `#000`
 };
 
 export const badgeThemes = {
@@ -91,13 +92,13 @@ const monospaceFontStack = [
 
 export const fonts = {
   body: defaultFontStack,
-  heading: `Futura PT, ${defaultFontStack}`,
+  heading: `Averia Serif Libre, ${defaultFontStack}`,
   monospace: monospaceFontStack
 };
 
 export const dimensions = {
-  headerHeight: '60px',
-  cartWidthDesktop: '400px',
+  headerHeight: '100px',
+  cartWidthDesktop: '500px',
   contributorAreaWidth: {
     closedDesktop: '60px',
     openDesktop: '340px',
@@ -114,7 +115,7 @@ export const scrollbarStyles = {
   WebkitOverflowScrolling: `touch`,
   '&::-webkit-scrollbar': { width: `6px`, height: `6px` },
   '&::-webkit-scrollbar-thumb': { background: colors.brandBright },
-  '&::-webkit-scrollbar-thumb:hover': { background: colors.lilac },
+  '&::-webkit-scrollbar-thumb:hover': { background: colors.brand },
   '&::-webkit-scrollbar-track': { background: colors.brandLight }
 };
 

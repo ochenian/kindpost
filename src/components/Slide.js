@@ -35,11 +35,10 @@ const Slide = ({
 }) => {
   const offsetFromCenter = index - offsetRadius;
   const totalPresentables = 2 * offsetRadius + 1;
-  console.log(offsetFromCenter)
-  console.log(offsetRadius)
+
   let distanceFactor = 1 - Math.abs(offsetFromCenter / (offsetRadius + 1));
   let rotateZ = '0deg'
-  console.log(distanceFactor)
+
   const translateXoffset =
     50 * (Math.abs(offsetFromCenter) / (offsetRadius + 1));
   let translateX = -50;

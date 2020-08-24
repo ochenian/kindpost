@@ -213,10 +213,8 @@ const ProductPage = () => {
   async function addToCart(variantId, quantity) {
     try {
       await addItemToCart(variantId, quantity);
-      alert('Successfully added that item to your cart!');
     } catch(e) {
       console.log(e)
-      alert('There was a problem adding that item to your cart.');
     }
   }
 
@@ -275,7 +273,7 @@ const ProductPage = () => {
               <div className="options">
               {
                 Products.map((product) => {
-                  return <button className={`btn_picker ${selectedPostcard.id === product.id ? 'selected' : ''}`}
+                  return <button key={product.id} className={`btn_picker ${selectedPostcard.id === product.id ? 'selected' : ''}`}
                                  onClick={() => onPostcardSelect(product.id)}>{product.name}
                          </button>
                 })

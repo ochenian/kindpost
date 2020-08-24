@@ -3,6 +3,7 @@ import React, { Component, useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 import {useCart, useCartItems, useCartCount, useRemoveItemFromCart, useCheckoutUrl} from 'gatsby-theme-shopify-manager';
+import Close from '../../assets/svg/clear-24px.svg';
 
 // import {
 //   MdClose,
@@ -11,7 +12,7 @@ import {useCart, useCartItems, useCartCount, useRemoveItemFromCart, useCheckoutU
 //   MdArrowForward
 // } from 'react-icons/md';
 
-import Close from '../../assets/svg/close.svg';
+// import Close from '../../assets/svg/close.svg';
 
 // import StoreContext from '../../context/StoreContext';
 import CartList from './CartList';
@@ -82,22 +83,24 @@ const Heading = styled(`header`)`
   display: flex;
   height: ${dimensions.headerHeight};
   justify-content: flex-start;
+  padding: 0 24px;
+  margin-top: 1rem;
 `;
 
 const Title = styled(`h2`)`
   flex-grow: 1;
   font-family: ${fonts.heading};
   font-size: 1.8rem;
-  left: -${dimensions.headerHeight};
+  // left: -${dimensions.headerHeight};
   margin: 0;
-  margin-left: ${spacing.md}px;
+  // margin-left: ${spacing.md}px;
   position: relative;
 
   .open & {
-    margin-left: calc(${dimensions.headerHeight} + ${spacing.md}px);
+    // margin-left: calc(${dimensions.headerHeight} + ${spacing.md}px);
 
     @media (min-width: ${breakpoints.desktop}px) {
-      margin-left: ${spacing.md}px;
+      // margin-left: ${spacing.md}px;
     }
   }
 `;
@@ -157,6 +160,7 @@ const Costs = styled('div')`
   display: flex;
   flex-direction: column;
   margin-top: ${spacing.sm}px;
+  text-transform: uppercase;
 `;
 
 const Cost = styled(`div`)`
@@ -175,7 +179,7 @@ const Cost = styled(`div`)`
   }
 
   strong {
-    color: ${colors.lilac};
+    color: ${colors.brand};
     flex-basis: 40%;
     text-align: right;
   }
@@ -183,7 +187,7 @@ const Cost = styled(`div`)`
 
 const Total = styled(Cost)`
   border-top: 1px solid ${colors.brandBright};
-  color: ${colors.brandDark};
+  color: ${colors.black};
   margin-top: ${spacing.xs}px;
   padding-top: ${spacing.sm}px;
 
@@ -281,7 +285,24 @@ const BackLink = styled(Button)`
   width: 100%;
 `;
 
-const Cart = () => {
+const CloseBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: #231f20;
+  z-index: 1;
+  transition: .8s;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  svg {
+    fill: #fff;
+  }
+`
+
+const Cart = ({ cartStatus, toggle }) => {
   const [ state, setState ] = useState({ className: 'closed', isLoading: false });
   // const { isDesktopViewport, productImagesBrowserStatus } = props;
   const { className } = state;
@@ -289,11 +310,11 @@ const Cart = () => {
   const cart = useCart()
   const checkoutUrl = useCheckoutUrl()
   const setCartLoading = bool => setState({ isLoading: bool });
-  const [ cartStatus, setCartStatus ] = useState('open')
+  // const [ cartStatus, setCartStatus ] = useState('open')
 
-  const toggle = () => {
-    cartStatus === 'open' ? setCartStatus('closed') : setCartStatus('open')
-  }
+  // const toggle = () => {
+  //   cartStatus === 'open' ? setCartStatus('closed') : setCartStatus('open')
+  // }
 
   useEffect(() => {
     setState({
@@ -322,31 +343,32 @@ const Cart = () => {
       }`}
     >
       <Heading>
-        <CartToggle
+        {/* <CartToggle
           aria-label={`Shopping cart with ${itemsInCart} items`}
           onClick={toggle}
         >
           {cartStatus === 'open' ? (
-            // <MdClose />
+             <MdClose />
             <Close />
           ) : (
             <>
-              {/* <MdShoppingCart /> */}
+              <MdShoppingCart />
               {itemsInCart > 0 && (
                 <ItemsNumber>{itemsInCart}</ItemsNumber>
               )}
             </>
           )}
-        </CartToggle>
+        </CartToggle> */}
         {/* <CartIndicator itemsInCart={itemsInCart} adding={adding} /> */}
         {/* <CartIndicator itemsInCart={itemsInCart} /> */}
-        <Title>Your Cart</Title>
-        <ItemsInCart>
-          items
-          <br />
-          in cart
+        <Title>My Bag</Title>
+        <CloseBtn onClick={toggle}>
+          <Close />
+        </CloseBtn>
+
+        {/* <ItemsInCart>
           <ItemsNumber>{itemsInCart}</ItemsNumber>
-        </ItemsInCart>
+        </ItemsInCart> */}
       </Heading>
       {cartItems.length > 0 ? (
         <Content>
@@ -359,22 +381,22 @@ const Cart = () => {
           <Costs>
             <Cost>
               <span>Subtotal:</span>{' '}
-              <strong>USD ${cart.subtotalPrice}</strong>
+              <strong>${cart.subtotalPrice}</strong>
             </Cost>
-            <Cost>
+            {/* <Cost>
               <span>Taxes:</span> <strong>{cart.totalTax}</strong>
-            </Cost>
+            </Cost> */}
             <Cost>
-              <span>Shipping (worldwide):</span> <strong>FREE</strong>
+              <span>Shipping:</span> <strong>FREE</strong>
             </Cost>
             <Total>
               <span>Total Price:</span>
-              <strong>USD ${cart.totalPrice}</strong>
+              <strong>${cart.totalPrice}</strong>
             </Total>
           </Costs>
 
           <CheckOut href={checkoutUrl}>
-            Check out
+            Checkout
             {/* <MdArrowForward /> */}
           </CheckOut>
           <BackLink onClick={toggle}>
