@@ -13,8 +13,8 @@
     border: 1px solid #d4004c;
     font-weight: bold;
 
-    max-width: 150px;
-    margin-top: 2em;
+    max-width: 200px;
+    margin: 2em 0;
 
     overflow: hidden;
     box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
@@ -403,7 +403,7 @@ select option {
 .options {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: center;
+  width: fit-content;
 }
 
 .product_container .awssld__content > img {

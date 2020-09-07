@@ -6,6 +6,8 @@ import InstaLogo from '../assets/svg/insta_icon.svg'
 import TextRotator from '../components/TextRotaor'
 import styled from "styled-components"
 import { motion, useTransform, useViewportScroll } from "framer-motion"
+import CtaButton from './shared/Button';
+import { Link } from 'gatsby';
 
 const Hero = () => {
   const { scrollYProgress } = useViewportScroll()
@@ -140,6 +142,9 @@ const Hero = () => {
               startDelay={1000}
             />
           </div>
+          <Link to="product">
+            <CtaButton>send</CtaButton>
+          </Link>
           {/* <animated.button
           // animate={{ scale: 0.8 }}
             style={buttonAnimation}
@@ -156,7 +161,8 @@ const Hero = () => {
           </animated.button> */}
         </div>
         <motion.video
-          style={{y }}
+          style={{ y, opacity: 0, scale: 0.75 }}
+          animate={{ opacity: 1, scale: 1 }}
           muted
           src={clVideo.node.secure_url}
           autoPlay loop playsInline></motion.video>

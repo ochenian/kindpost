@@ -2,6 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import CtaButton from './shared/Button'
 
 const Container = styled.div`
   width: 100vw;
@@ -25,6 +26,10 @@ const TextContainer = styled.div`
     letter-spacing: 5px;
     text-transform: lowercase;
     text-shadow: 0 0 16px rgba(0,0,0,1);
+`
+
+const Text = styled.div`
+  margin-bottom: 2rem;
 `
 
 const GrayscaleImg = styled(Img)`
@@ -51,7 +56,8 @@ const FullBleed = () => {
   return (
     <Container>
       <TextContainer>
-        <div>sustainably sourced + carefully curated</div>
+        <Text>sustainably sourced + carefully curated</Text>
+        <CtaButton>learn more</CtaButton>
       </TextContainer>
       <GrayscaleImg fluid={data.postcardSampleImg.childImageSharp.fluid} />
     </Container>

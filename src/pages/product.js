@@ -10,6 +10,7 @@ import 'react-medium-image-zoom/dist/styles.css'
 import styled from 'styled-components'
 import { motion, useAnimation } from "framer-motion"
 import { useAddItemToCart } from 'gatsby-theme-shopify-manager';
+import CtaButton from '../components/shared/Button'
 
 const ProductPage = () => {
 
@@ -57,7 +58,7 @@ const ProductPage = () => {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(maxWidth: 2000, quality: 90) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -102,7 +103,7 @@ const ProductPage = () => {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 100, quality: 100) {
+          fluid(maxWidth: 100, quality: 90) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -144,6 +145,9 @@ const ProductPage = () => {
         setSelectedPostcard({
           id: 'birthday',
           name: 'Birthday Postcard',
+          description: `Another year to remember! Our team will select a vintage
+          postcard for you, on which we will dream up and write a lovely birthday
+          wish for you or your loved one. `,
           img: data.postcardBack.childImageSharp.fluid
         });
         break;
@@ -151,6 +155,9 @@ const ProductPage = () => {
         setSelectedPostcard({
           id: 'congratulations',
           name: 'Congratulations Postcard',
+          description: `We love to commemorate events large and small.
+          Our team will choose a vintage postcard, on which we will craft a sweet
+          message celebrating you or your loved one. `,
           img: data.postcardCongratulationsBack.childImageSharp.fluid
         });
         break;
@@ -158,6 +165,9 @@ const ProductPage = () => {
         setSelectedPostcard({
           id: 'love',
           name: 'Love Postcard',
+          description: `Here at Kindpost, we are lovers of love. Our team will
+          handpick a vintage postcard, on which we will craft a message celebrating
+          love, for you or your loved one. `,
           img: data.postcardLoveBack.childImageSharp.fluid
         });
         break;
@@ -165,6 +175,9 @@ const ProductPage = () => {
         setSelectedPostcard({
           id: 'encouragement',
           name: 'Encouragement Postcard',
+          description: `At Kindpost, we believe in sharing positivity and support.
+          Our team will select a vintage postcard, on which we will write a thoughtful
+          message of encouragement for you or your loved one. `,
           img: data.postcardEncouragementBack.childImageSharp.fluid
         });
         break;
@@ -178,6 +191,67 @@ const ProductPage = () => {
 
     selectPostcard(selected);
   }
+
+  const ProductName = styled.h1`
+    margin-bottom: 2rem;
+  `
+
+  const SubHeaderLabel = styled.div`
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.8);
+    margin: 1rem 0;
+    font-family: 'Averia Serif Libre';
+  `
+
+  const Price = styled.div`
+    font-family: 'Averia Serif Libre';
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: #4a4a4a;
+  `
+
+  const Description = styled.div`
+    /* margin: 1rem 0; */
+    margin-bottom: 1rem;
+    max-width: 60ch;
+    font-family: 'Averia Serif Libre';
+    line-height: 2;
+    color: #4a4a4a;
+  `
+
+  const OptionsContainer = styled.div`
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: -12px 0 0 -12px;
+    width: calc(100% + 12px);
+
+    margin-bottom: 1rem;
+  `
+
+  const Option = styled.button`
+    margin: 12px 0 0 12px;
+  `
+
+  const Variants = styled(CtaButton)`
+   margin: 12px 0 0 12px;
+   color: #f40075;
+   border: 1px solid #f40075;
+   letter-spacing: 2px;
+
+   &.selected {
+     background: #f40075;
+    /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
+    color: #fff;
+   }
+  `
+
+  const Checkout = styled(CtaButton)`
+    color: #f40075;
+    border: 1px solid #f40075;
+    letter-spacing: 2px;
+    max-width: 350px;
+  `
 
   const ZoomButton = styled(motion.div)`
     position: absolute;
@@ -252,62 +326,31 @@ const ProductPage = () => {
 
             </motion.div>
 
-            {/* <div className={!frontActive ? 'card card-front--flip' : 'card card-front'} onClick={toggleClass} >
-              <Img fluid={data.postcardImg.childImageSharp.fluid} />
-            </div>
-            <div className={backActive ? 'card card-back--flip' : 'card card-back'} onClick={toggleClass} >
-              <Img fluid={data.postcardBack.childImageSharp.fluid} />
-            </div> */}
-
             <motion.div animate={rightControls} className="product_detail right">
-              <h1>KINDPOST</h1>
-              <p>$5.99</p>
-              <p>A kindpost is a carefully curated vintage postcard with a unique handwritten message of positivity
-                crafted by the team in our sunny California office.</p>
-              <p>Your custom, handwritten message will be based on your selected occasion.</p>
-              {/* <select>
-                <option>Birthday</option>
-                <option>Inspiration</option>
-                <option>Just Because</option>
-              </select> */}
-              <div className="options">
+              <ProductName>KINDPOST</ProductName>
+              <SubHeaderLabel>description</SubHeaderLabel>
+              <Description>A kindpost is a carefully curated vintage postcard with a unique handwritten message of positivity
+                crafted by the team in our sunny California office.</Description>
+              <Description>Your custom, handwritten message will be based on your selected occasion.</Description>
+              <SubHeaderLabel>occasion</SubHeaderLabel>
+              <OptionsContainer>
               {
                 Products.map((product) => {
-                  return <button key={product.id} className={`btn_picker ${selectedPostcard.id === product.id ? 'selected' : ''}`}
+                  return <Variants key={product.id} className={`${selectedPostcard.id === product.id ? 'selected' : ''}`}
                                  onClick={() => onPostcardSelect(product.id)}>{product.name}
-                         </button>
+                         </Variants>
                 })
               }
-              </div>
-
-              {/* <div className="options">
-                <button className={`btn_picker ${selectedPostcard.id === 'birthday' ? 'selected' : ''}`} onClick={() => selectPostcard(0)}>Birthday</button>
-                <button className={`btn_picker ${selectedPostcard.id === 'inspiration' ? 'selected' : ''}`} onClick={() => selectPostcard(1)}>Inspiration</button>
-                <button className={`btn_picker ${selectedPostcard.id === 'just-because' ? 'selected' : ''}`} onClick={() => selectPostcard(2)}>Just Because</button>
-                <button className={`btn_picker ${selectedPostcard.id === 'anniversary' ? 'selected' : ''}`} onClick={() => selectPostcard(3)}>Anniversary</button>
-              </div> */}
-
-              {/* <button
-                className="Product add snipcart-add-item"
-                data-item-id='postcard'
-                data-item-name={selectedPostcard.name}
-                data-item-url="/product"
-                data-item-price="5.99"
-                data-item-image={SampleImg}
-                data-item-max-quantity="100"
-                data-item-categories={selectedPostcard.name}
-              >
-                ADD TO BAG
-              </button> */}
-
-
-              <button
-                className="Product add snipcart-add-item"
+              </OptionsContainer>
+              <SubHeaderLabel>details</SubHeaderLabel>
+              <Description>{selectedPostcard.description}</Description>
+              {/* <Price>$12</Price> */}
+              <Checkout
+                className="Product snipcart-add-item"
                 onClick={() => addToCart(data.products.edges[0].node.variants[0].shopifyId, 1)}
               >
-                ADD TO BAG
-              </button>
-
+                $12 &mdash; ADD TO BAG
+              </Checkout>
               {/* <p>NOTE:</p>
               <p>Our postcards are sustainably sourced from individual collectors. As such, we cannot guarantee a specific card for your recipient.</p>
               <p>If you have a specific idea of a postcard or message you would like to send, include it in a message with your order and we’ll do our best to meet your request!</p> */}
