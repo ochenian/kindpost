@@ -28,6 +28,7 @@
     "gsap": "^3.4.2",
     "lodash-es": "^4.17.15",
     "node-sass": "^4.14.1",
+    "patch-package": "^6.2.2",
     "react": "^16.13.1",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "^16.13.1",
@@ -52,7 +53,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "eslint": "^7.8.1",
