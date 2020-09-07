@@ -374,6 +374,7 @@ const Cart = ({ cartStatus, toggle }) => {
         <Content>
           <CartList
             items={cartItems}
+            toggle={toggle}
             setCartLoading={setCartLoading}
             isCartLoading={state.isLoading}
           />

@@ -34,6 +34,7 @@ const Headers = styled(`div`)`
 
 const CartList = ({
   items,
+  toggle,
   setCartLoading,
   isCartLoading
 }) => (
@@ -49,6 +50,7 @@ const CartList = ({
           <CartListItem
             key={item.id}
             item={item}
+            toggle={toggle}
             setCartLoading={setCartLoading}
             isCartLoading={isCartLoading}
           />

@@ -136,6 +136,9 @@ const ProductPage = () => {
   const [selectedPostcard, setSelectedPostcard] = useState({
     id: 'birthday',
     name: 'Birthday Postcard',
+    description: `Another year to remember! Our team will select a vintage
+          postcard for you, on which we will dream up and write a lovely birthday
+          wish for you or your loved one. `,
     img: data.postcardBack.childImageSharp.fluid
   });
 
@@ -193,7 +196,7 @@ const ProductPage = () => {
   }
 
   const ProductName = styled.h1`
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   `
 
   const SubHeaderLabel = styled.div`
@@ -250,7 +253,7 @@ const ProductPage = () => {
     color: #f40075;
     border: 1px solid #f40075;
     letter-spacing: 2px;
-    max-width: 350px;
+    max-width: 316px;
   `
 
   const ZoomButton = styled(motion.div)`
@@ -342,8 +345,13 @@ const ProductPage = () => {
                 })
               }
               </OptionsContainer>
-              <SubHeaderLabel>details</SubHeaderLabel>
-              <Description>{selectedPostcard.description}</Description>
+              {
+                selectedPostcard &&
+                <>
+                  <SubHeaderLabel>details</SubHeaderLabel>
+                  <Description>{selectedPostcard.description}</Description>
+                </>
+              }
               {/* <Price>$12</Price> */}
               <Checkout
                 className="Product snipcart-add-item"

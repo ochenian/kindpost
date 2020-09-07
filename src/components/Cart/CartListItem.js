@@ -115,6 +115,7 @@ const DeleteIcon = styled(Delete)`
 
 export default ({
   item,
+  toggle,
   setCartLoading,
   isCartLoading,
 }) => {
@@ -148,6 +149,8 @@ export default ({
     try {
       await removeItemFromCart(item.variant.id)
       setCartLoading(false)
+      console.log(toggle)
+      toggle()
     } catch(e) {
       console.log(e)
     }
@@ -190,7 +193,6 @@ export default ({
   };
 
   const handleRemoveItem = event => {
-    setCartLoading(true);
     removeItem(item.variant.id);
   };
 
