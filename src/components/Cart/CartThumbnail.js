@@ -6,10 +6,8 @@ import Image from 'gatsby-image';
 import { colors, radius } from '../../utils/styles';
 
 const CartThumbnailRoot = styled(Image)`
-  /* border: 1px solid ${colors.brandLight};
-  border-radius: ${radius.default}px; */
   width: 25%;
-  max-width: 115px
+  max-width: 115px;
 `;
 
 const CartThumbnail = ({

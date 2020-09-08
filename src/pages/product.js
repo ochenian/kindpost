@@ -54,7 +54,7 @@ const ProductPage = () => {
           siteName
         }
       }
-      postcardImg: file(relativePath: { eq: "Sample.png" }) {
+      postcardImg: file(relativePath: { eq: "Hollywood.png" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -72,6 +72,15 @@ const ProductPage = () => {
           }
         }
       }
+      postcardCongratulationsFront: file(relativePath: { eq: "SantaCruz.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       postcardCongratulationsBack: file(relativePath: { eq: "Congratulations.png" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
@@ -81,7 +90,25 @@ const ProductPage = () => {
           }
         }
       }
+      postcardEncouragementFront: file(relativePath: { eq: "Twilight.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       postcardEncouragementBack: file(relativePath: { eq: "Encouragement.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 2000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      postcardLoveFront: file(relativePath: { eq: "Poppies.png" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -139,7 +166,8 @@ const ProductPage = () => {
     description: `Another year to remember! Our team will select a vintage
           postcard for you, on which we will dream up and write a lovely birthday
           wish for you or your loved one. `,
-    img: data.postcardBack.childImageSharp.fluid
+    imgFront: data.postcardImg.childImageSharp.fluid,
+    imgBack: data.postcardBack.childImageSharp.fluid
   });
 
   function selectPostcard(selected) {
@@ -151,7 +179,8 @@ const ProductPage = () => {
           description: `Another year to remember! Our team will select a vintage
           postcard for you, on which we will dream up and write a lovely birthday
           wish for you or your loved one. `,
-          img: data.postcardBack.childImageSharp.fluid
+          imgFront: data.postcardImg.childImageSharp.fluid,
+          imgBack: data.postcardBack.childImageSharp.fluid
         });
         break;
       case 'congratulations':
@@ -161,7 +190,8 @@ const ProductPage = () => {
           description: `We love to commemorate events large and small.
           Our team will choose a vintage postcard, on which we will craft a sweet
           message celebrating you or your loved one. `,
-          img: data.postcardCongratulationsBack.childImageSharp.fluid
+          imgFront: data.postcardCongratulationsFront.childImageSharp.fluid,
+          imgBack: data.postcardCongratulationsBack.childImageSharp.fluid
         });
         break;
       case 'love':
@@ -171,7 +201,8 @@ const ProductPage = () => {
           description: `Here at Kindpost, we are lovers of love. Our team will
           handpick a vintage postcard, on which we will craft a message celebrating
           love, for you or your loved one. `,
-          img: data.postcardLoveBack.childImageSharp.fluid
+          imgFront: data.postcardLoveFront.childImageSharp.fluid,
+          imgBack: data.postcardLoveBack.childImageSharp.fluid
         });
         break;
       case 'encouragement':
@@ -181,7 +212,8 @@ const ProductPage = () => {
           description: `At Kindpost, we believe in sharing positivity and support.
           Our team will select a vintage postcard, on which we will write a thoughtful
           message of encouragement for you or your loved one. `,
-          img: data.postcardEncouragementBack.childImageSharp.fluid
+          imgFront: data.postcardEncouragementFront.childImageSharp.fluid,
+          imgBack: data.postcardEncouragementBack.childImageSharp.fluid
         });
         break;
     }
@@ -314,7 +346,8 @@ const ProductPage = () => {
                     opacity: opacity.interpolate(o => 1 - o),
                     transform
                   }}
-                  fluid={data.postcardImg.childImageSharp.fluid} />
+                  // fluid={data.postcardImg.childImageSharp.fluid} />
+                  fluid={selectedPostcard.imgFront} />
 
                 <AnimatedImg
                   onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
@@ -324,7 +357,7 @@ const ProductPage = () => {
                     opacity,
                     transform: transform.interpolate(t => `${t} rotateY(-180deg)`)
                   }}
-                  fluid={selectedPostcard.img} />
+                  fluid={selectedPostcard.imgBack} />
 
 
             </motion.div>

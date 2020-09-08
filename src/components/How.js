@@ -1,8 +1,8 @@
 import React, { useRef, useCallback } from 'react'
 import BirthdaySvg from '../assets/svg/Occasion.svg'
 import PostcardSvg from '../assets/svg/Postcard.svg'
-import MailTruckSvg from '../assets/svg/Truck.svg'
-import HappyFaceSvg from '../assets/svg/Happy-Face.svg'
+import MailTruckSvg from '../assets/svg/Truck2.svg'
+import HappyFaceSvg from '../assets/svg/HappyFace2.svg'
 import {useSpring, useTrail, animated} from 'react-spring'
 import { useInView } from 'react-intersection-observer'
 

@@ -31,12 +31,27 @@ const Gallery = () => {
           }
         }
       }
-      postcardEncouragementImg: file(relativePath: { eq: "Encouragement.png" }) {
+      postcardOrangesImg: file(relativePath: { eq: "Oranges.png" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
           fluid(maxWidth: 500, quality: 90) {
             ...GatsbyImageSharpFluid
+          }
+          fixed(width: 900) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      postcardDesertImg: file(relativePath: { eq: "Desert.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+          fixed(width: 900) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -50,11 +65,11 @@ const Gallery = () => {
     },
     {
       key: 2,
-      content: <StyledImg fixed={data.postcardSampleImg.childImageSharp.fixed} />
+      content: <StyledImg fixed={data.postcardOrangesImg.childImageSharp.fixed} />
     },
     {
       key: 3,
-      content: <StyledImg fixed={data.postcardSampleImg.childImageSharp.fixed} />
+      content: <StyledImg fixed={data.postcardDesertImg.childImageSharp.fixed} />
     },
   ].map((slide, index) => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };
