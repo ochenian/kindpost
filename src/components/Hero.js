@@ -8,8 +8,12 @@ import styled from "styled-components"
 import { motion, useTransform, useViewportScroll } from "framer-motion"
 import CtaButton from './shared/Button';
 import { Link } from 'gatsby';
+import { useMediaQuery } from 'react-responsive'
 
 const Hero = () => {
+  const mobile = useMediaQuery({
+    query: '(max-width: 600px)'
+  })
   const { scrollYProgress } = useViewportScroll()
   const y = useTransform(scrollYProgress, [0, 1], [0, 2000])
   let trailConfig = { mass: 5, tension: 1000, friction: 100 }
@@ -55,6 +59,43 @@ const Hero = () => {
       }
     }
   `)
+
+  const rotatedText = [{
+    text: 'inspiration',
+    className: 'classA',
+    animation: 'fade',
+  },
+  {
+    text: 'appreciation',
+    className: 'classA',
+    animation: 'fade',
+  },
+  {
+    text: 'gratitude',
+    className: 'classA',
+    animation: 'fade',
+  },
+  {
+    text: 'positivity',
+    className: 'classA',
+    animation: 'fade',
+  },
+  {
+    text: 'well wishes',
+    className: 'classA',
+    animation: 'fade',
+  },
+  {
+    text: 'best',
+    className: 'classA',
+    animation: 'fade',
+  },
+  {
+    text: 'love',
+    className: 'classA',
+    animation: 'fade',
+  },
+];
   const clVideo = data.allCloudinaryMedia.edges[0]
 
   const SocialIcons = styled.div`
@@ -101,64 +142,22 @@ const Hero = () => {
                 </animated.span>
               ))
             }
-            <TextRotator
-              content={[{
-                text: 'inspiration',
-                className: 'classA',
-                animation: 'fade',
-              },
-              {
-                text: 'appreciation',
-                className: 'classA',
-                animation: 'fade',
-              },
-              {
-                text: 'gratitude',
-                className: 'classA',
-                animation: 'fade',
-              },
-              {
-                text: 'positivity',
-                className: 'classA',
-                animation: 'fade',
-              },
-              {
-                text: 'well wishes',
-                className: 'classA',
-                animation: 'fade',
-              },
-              {
-                text: 'best',
-                className: 'classA',
-                animation: 'fade',
-              },
-              {
-                text: 'love',
-                className: 'classA',
-                animation: 'fade',
-              },
-            ]}
+            { !mobile && <TextRotator
+              className="rotator"
+              content={rotatedText}
               time={4000}
               startDelay={1000}
-            />
+          /> }
           </div>
+          { mobile && <TextRotator
+              className="rotator"
+              content={rotatedText}
+              time={4000}
+              startDelay={1000}
+          /> }
           <Link to="product">
             <CtaButton>send</CtaButton>
           </Link>
-          {/* <animated.button
-          // animate={{ scale: 0.8 }}
-            style={buttonAnimation}
-            className="snipcart-add-item"
-            data-item-id="1"
-            data-item-name="Custom Postcard"
-            data-item-price="5.99"
-            data-item-description="Custom handwritten postcard for someone special"
-            // data-item-image={CartImg}
-            data-item-custom1-name="Message type"
-            data-item-custom1-options="Birthday|Inspiration|Just Because"
-          >
-            send a postcard
-          </animated.button> */}
         </div>
         <motion.video
           style={{ y, opacity: 0, scale: 0.75 }}
@@ -166,11 +165,6 @@ const Hero = () => {
           muted
           src={clVideo.node.secure_url}
           autoPlay loop playsInline></motion.video>
-        {/* <div className="beach">
-          <div className="waves">
-            <Waves/>
-          </div>
-        </div> */}
       </div>
       <SocialIcons>
         <StyledTwitterLogo/>

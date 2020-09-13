@@ -70,11 +70,23 @@
       letter-spacing: 0.3em;
       font-family: 'Averia Serif Libre';
 
+      @media (min-width: 600px) and (max-width: 800px) {
+        left: 60%;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 0.5rem;
+        left: 75%;
+      }
+
       & .small-text {
         font-size: 2em;
         letter-spacing: 0.18em;
-        margin-bottom: 1em;
+        margin-bottom: 16px;
 
+        @media (max-width: 600px) {
+          font-size: 24px;
+        }
         // position: relative;
         // top: 16px;
       }
@@ -88,7 +100,11 @@
         // letter-spacing: 0.18em;
 
         width: 650px;
-        margin-bottom: 1em;
+        margin-bottom: 32px;
+
+        @media (max-width: 600px) {
+          margin-bottom: 16px;
+        }
 
         span {
           display: block;
@@ -97,11 +113,33 @@
           text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
         }
 
-        span:last-of-type {
-          color: #d4004c;
-          text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-          font-weight: 900;
-        }
+        // span:last-of-type {
+        //   color: #d4004c;
+        //   text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        //   font-weight: 900;
+        // }
+      }
+    }
+
+    .rotator {
+      display: block;
+      margin-right: 0.25em;
+      overflow: hidden;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+      color: #d4004c;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      font-weight: 900;
+
+      display: flex;
+      // font-size: 3em;
+      text-transform: lowercase;
+      font-weight: bold;
+      // width: 650px;
+      // margin-bottom: 1em;
+
+      @media (max-width: 600px) {
+        font-size: 24px;
+        margin-bottom: 32px;
       }
     }
 

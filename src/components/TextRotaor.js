@@ -62,7 +62,7 @@ function TextRotator({ content, time, startDelay, transitionTime }) {
       {state => (
         <span
           key={indexRef}
-          className={className}
+          className="rotator"
           style={{
             ...styles[`${animation}-default`],
             ...styles[`${animation}-${state}`]
