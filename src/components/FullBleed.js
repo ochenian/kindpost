@@ -30,6 +30,7 @@ const TextContainer = styled.div`
 
 const Text = styled.div`
   margin-bottom: 2rem;
+  text-align: center;
 `
 
 const GrayscaleImg = styled(Img)`
