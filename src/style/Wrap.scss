@@ -229,7 +229,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 75vh;
 
   background: #fff;
 
@@ -258,6 +257,7 @@
   .step-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   .how-step {
@@ -271,6 +271,8 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
+      font-family: 'Averia Serif Libre';
     }
 
     // &:not(:last-child) {
@@ -282,11 +284,11 @@
   }
 
   .how-description {
-    font-family: 'Montserrat';
+    // font-family: 'Montserrat';
     font-weight: 100;
     text-transform: none;
     line-height: 1.5;
-    text-align: justify;
+    // text-align: justify;
   }
 
   .how-type {
