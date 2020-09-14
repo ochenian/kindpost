@@ -9,6 +9,10 @@ const StyledImg = styled(Img)`
     0px 0px 8px rgba(0,0,0,0.12),
     0px 0px 16px rgba(0,0,0,0.12),
     0px 0px 32px rgba(0,0,0,0.12);
+
+    width: 100% !important;
+    height: auto !important;
+    padding-top: 63.3%;
   `
 
 const Gallery = () => {
@@ -61,15 +65,15 @@ const Gallery = () => {
   const slides = [
     {
       key: 1,
-      content: <StyledImg fixed={data.postcardSampleImg.childImageSharp.fixed} />
+      content: <StyledImg className="img-wrapper" fixed={data.postcardSampleImg.childImageSharp.fixed} />
     },
     {
       key: 2,
-      content: <StyledImg fixed={data.postcardOrangesImg.childImageSharp.fixed} />
+      content: <StyledImg className="img-wrapper" fixed={data.postcardOrangesImg.childImageSharp.fixed} />
     },
     {
       key: 3,
-      content: <StyledImg fixed={data.postcardDesertImg.childImageSharp.fixed} />
+      content: <StyledImg className="img-wrapper" fixed={data.postcardDesertImg.childImageSharp.fixed} />
     },
   ].map((slide, index) => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };

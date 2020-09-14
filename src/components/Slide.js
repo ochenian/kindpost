@@ -4,13 +4,14 @@ import { Spring } from "react-spring/renderprops"
 
 const SlideContainer = styled.div`
   position: absolute;
-  /* width: 100%; */
+  width: 100%;
   height: 100%;
   top: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transform-origin: 50% 50%;
+
   img {
     object-fit: scale-down;
     display: block;
@@ -56,10 +57,10 @@ const Slide = ({
   }
 
   if (offsetFromCenter > 0) {
-    translateX += translateXoffset;
+    translateX += translateXoffset - 5;
     rotateZ = '2deg'
   } else if (offsetFromCenter < 0) {
-    translateX -= translateXoffset;
+    translateX -= translateXoffset - 5;
     rotateZ = '-2deg'
   }
 

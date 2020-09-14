@@ -7,6 +7,7 @@ import styled, {keyframes} from "styled-components"
 import { useStaticQuery, graphql} from 'gatsby'
 import { config } from "react-spring";
 import Circle from "../assets/svg/circle.svg"
+import { useMediaQuery } from 'react-responsive'
 
 // Arrow Keyframes
 // const stroke = keyframes`
@@ -71,7 +72,7 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  margin: 0 4em;
+  margin: 0 6em;
   max-width: 945px;
 `;
 
@@ -312,9 +313,13 @@ const Carousel = (props) => {
       moveSlide(direction)
     }
 
+    const mobile = useMediaQuery({
+      query: '(max-width: 900px)'
+    })
+
     return (
       <React.Fragment>
-        <div onClick={() =>  nextSlide(-1)} className={`arrow left ${animate.left ? 'animate': ''}`}>
+        <div onClick={() =>  nextSlide(-1)} className={`${!mobile ? 'arrow left' : ''} ${!mobile && animate.left ? 'animate': ''}`}>
           <i></i>
           <Circle />
         </div>
@@ -334,7 +339,7 @@ const Carousel = (props) => {
           )}
         </Wrapper>
         {/* {navigationButtons} */}
-        <div onClick={() =>  nextSlide(1)} className={`arrow ${animate.right ? 'animate': ''}`}>
+        <div onClick={() =>  nextSlide(1)} className={`${!mobile ? 'arrow' : ''} ${!mobile && animate.right ? 'animate': ''}`}>
           <i></i>
           <Circle />
         </div>
