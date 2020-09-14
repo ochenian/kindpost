@@ -8,6 +8,7 @@ import { useStaticQuery, graphql} from 'gatsby'
 import { config } from "react-spring";
 import Circle from "../assets/svg/circle.svg"
 import { useMediaQuery } from 'react-responsive'
+import { useSwipeable } from "react-swipeable";
 
 // Arrow Keyframes
 // const stroke = keyframes`
@@ -318,6 +319,13 @@ const Carousel = (props) => {
       query: '(max-width: 900px)'
     })
 
+    const handlers = useSwipeable({
+      onSwipedLeft: () => nextSlide(1),
+      onSwipedRight: () => nextSlide(-1),
+      preventDefaultTouchmoveEvent: true,
+      trackMouse: true
+    });
+
     return (
       <React.Fragment>
         <div onClick={() =>  nextSlide(-1)} className={`${!mobile ? 'arrow left' : ''} ${!mobile && animate.left ? 'animate': ''}`}>
@@ -325,7 +333,7 @@ const Carousel = (props) => {
           <Circle />
         </div>
 
-        <Wrapper>
+        <Wrapper {...handlers}>
           {getPresentableSlides().map(
             (slide, presentableIndex) => (
               <Slide

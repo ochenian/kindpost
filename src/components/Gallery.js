@@ -14,6 +14,42 @@ const StyledImg = styled(Img)`
     height: auto !important;
     padding-top: 63.3%;
   `
+const GalleryText = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  background: rgb(255, 227, 227);
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  letter-spacing: 0.10em;
+  margin: 2rem 0;
+  text-transform: lowercase;
+
+  div {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+  }
+
+  span {
+    text-align: center;
+  }
+`
+
+const GalleryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: #ffe3e3;
+`
+
+const CarouselContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6em;
+  background: #ffe3e3;
+`
 
 const Gallery = () => {
 
@@ -78,43 +114,6 @@ const Gallery = () => {
   ].map((slide, index) => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };
   });
-
-  const GalleryText = styled.div`
-    display: flex;
-    flex-direction: column;
-    font-weight: 300;
-    background: rgb(255, 227, 227);
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    letter-spacing: 0.10em;
-    margin: 2rem 0;
-    text-transform: lowercase;
-
-    div {
-      font-size: 1.5rem;
-      font-style: italic;
-      text-align: center;
-    }
-
-    span {
-      text-align: center;
-    }
-  `
-
-  const GalleryContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    background: #ffe3e3;
-  `
-
-  const CarouselContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 6em;
-    background: #ffe3e3;
-  `
 
   return (
     <GalleryContainer>
