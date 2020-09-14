@@ -82,23 +82,23 @@ const Gallery = () => {
   const GalleryText = styled.div`
     display: flex;
     flex-direction: column;
-    /* font-family: 'Montserrat'; */
     font-weight: 300;
     background: rgb(255, 227, 227);
     justify-content: center;
     align-items: center;
     font-size: 2em;
     letter-spacing: 0.10em;
-    /* padding-top: 1em;
-    padding-left: 6em;
-    padding-right: 6em; */
-    margin: 2em 0;
-    /* text-align: center; */
+    margin: 2rem 0;
     text-transform: lowercase;
 
     div {
       font-size: 1.5rem;
       font-style: italic;
+      text-align: center;
+    }
+
+    span {
+      text-align: center;
     }
   `
 
@@ -112,7 +112,6 @@ const Gallery = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65vh;
     margin-bottom: 6em;
     background: #ffe3e3;
   `
@@ -121,14 +120,13 @@ const Gallery = () => {
     <GalleryContainer>
       <GalleryText>
       <div>Handwritten Messages on</div>
-        VINTAGE LINEN + CHROME POSTCARDS
+      <span>VINTAGE LINEN + CHROME POSTCARDS</span>
       </GalleryText>
       <CarouselContainer style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "65vh",
-        marginBottom: "9em",
+        marginBottom: "2.75em",
         background: '#ffe3e3',
         }}>
         <Carousel
