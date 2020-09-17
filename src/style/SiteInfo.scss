@@ -3,24 +3,13 @@
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 64px 32px;
-
-  // background: #d4004c;
-  // color: white;
-  // background: white;
   background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
   color: white;
   font-family: 'Averia Serif Libre';
 
-  // font-family: lato;
-
   text-transform: lowercase;
 
-  & p {
-    font-size: 2rem;
-    margin-bottom: 16px;
-  }
-
-  & div {
+  & .links {
     display: flex;
     flex-direction: column;
     margin-bottom: 8px;
@@ -29,9 +18,13 @@
   a {
     color: white;
   }
+
+  @media (max-width: 800px) {
+    padding: 32px;
+  }
 }
 
-.subscribeContainer .emailInput {
+.emailInput {
   flex-direction: row;
 
   & input {
