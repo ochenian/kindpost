@@ -10,7 +10,7 @@ const MobileLinksSection = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 32px 0;
+  margin: 64px 0;
 
   &:first-of-type {
     margin-top: 0;
@@ -25,6 +25,8 @@ const MobileLinksSection = styled.section`
 const MobileLink = styled(Link)`
   padding: 8px;
   border: 2px solid #fff;
+  width: 100px;
+  text-align: center;
 `
 
 const PrivacyText = styled.p`
@@ -40,6 +42,7 @@ const EmailContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
+  width: 100%;
 
   & input {
     padding: 10px;
@@ -128,7 +131,7 @@ const Footer = () => {
                   <MobileLink to="/faq">FAQ</MobileLink>
                   <MobileLink to="/contact">Contact us</MobileLink>
                 </MobileLinksSection>
-                <section>
+                <section style={{ width: "66%" }}>
                   <EmailContainer>
                     <input />
                     <button>Sign Up</button>
