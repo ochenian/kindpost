@@ -131,7 +131,7 @@ const Footer = () => {
                   <MobileLink to="/faq">FAQ</MobileLink>
                   <MobileLink to="/contact">Contact us</MobileLink>
                 </MobileLinksSection>
-                <section style={{ width: "66%" }}>
+                <section>
                   <EmailContainer>
                     <input />
                     <button>Sign Up</button>
