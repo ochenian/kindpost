@@ -11,10 +11,14 @@ import styled from 'styled-components'
 import { motion, useAnimation } from "framer-motion"
 import { useAddItemToCart } from 'gatsby-theme-shopify-manager';
 import CtaButton from '../components/shared/Button'
+import { useMediaQuery } from 'react-responsive'
 
 const ProductPage = () => {
 
   const [isZoomed, setIsZoomed] = useState(false)
+  const mobile = useMediaQuery({
+    query: '(max-width: 950px)'
+  })
 
   // const handleZoomChange = useCallback(shouldZoom => {
   //   setIsZoomed(shouldZoom)
