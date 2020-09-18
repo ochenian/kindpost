@@ -238,6 +238,10 @@
     padding: 64px;
   }
 
+  @media (max-width: '450px') {
+    padding: 20px;
+  }
+
   h1 {
     font-size: 2em;
     font-weight: bold;
