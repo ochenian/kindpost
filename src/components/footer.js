@@ -24,7 +24,6 @@ const MobileLinksSection = styled.section`
 `
 const MobileLink = styled(Link)`
   padding: 8px;
-  border: 2px solid #fff;
   width: 100px;
   text-align: center;
 `
