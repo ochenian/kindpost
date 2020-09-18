@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Signature from '../assets/svg/signature.svg'
 
 const Container = styled.section`
   background: #43546a;
@@ -55,6 +56,13 @@ const StyledTextSignature = styled.p`
   font-style: italic;
 `
 
+const StyledSignature = styled(Signature)`
+  width: 20%;
+  display: block;
+  margin: 24px 0;
+  fill: #f5bc5e;
+`
+
 const Message = () => (
   <Container>
     <StyledTextHeader>the story of kindpost</StyledTextHeader>
@@ -72,7 +80,7 @@ const Message = () => (
       <StyledTextSection>We're all human. We all deserve it.</StyledTextSection>
 
       <StyledTextSection>Sending my love,</StyledTextSection>
-      <StyledTextSignature>Cate</StyledTextSignature>
+      <StyledSignature />
     </TextBody>
   </Container>
 )

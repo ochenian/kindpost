@@ -28,7 +28,7 @@ const How = () => {
 
   const [inViewRef, inView] = useInView({
     // rootMargin: '-100px 0px',
-    threshold: 0.4,
+    threshold: 0.05,
     triggerOnce: true
   })
 

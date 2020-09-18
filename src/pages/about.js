@@ -7,6 +7,7 @@ import CompanyLogo from '../assets/svg/KP_Logo.svg'
 import FacebookIcon from '../assets/svg/facebook.svg'
 import TwitterIcon from '../assets/svg/twitter.svg'
 import InstagramIcon from '../assets/svg/insta_icon.svg'
+import Signature from '../assets/svg/signature.svg'
 import styled from 'styled-components'
 
 const Contact = () => {
@@ -31,7 +32,7 @@ const Contact = () => {
     /* background: radial-gradient(farthest-corner, #43546a 60%, rgba(0,0,0,0.6) 100%); */
     color: #fff;
     font-size: 0.9em;
-    padding: 8em 10em;
+    padding: 8em 4em;
     line-height: 2;
     letter-spacing: 1.25px;
     font-family: 'Averia Serif Libre';
@@ -76,6 +77,13 @@ const Contact = () => {
   margin-bottom: 0;
   color: #f5bc5e;
   font-style: italic;
+  `
+
+  const StyledSignature = styled(Signature)`
+    width: 20%;
+    display: block;
+    margin: 24px 0;
+    fill: #f5bc5e;
   `
 
   const SocialIcons = styled.section`
@@ -143,7 +151,7 @@ const Contact = () => {
               So, settle in and make yourself comfortable.  We’re excited to meet you.
 
           </StyledTextSection>
-          <StyledTextSignature>Cate</StyledTextSignature>
+          <StyledSignature />
           <Logo/>
 
           {/* <section>
