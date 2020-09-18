@@ -328,10 +328,12 @@ const Carousel = (props) => {
 
     return (
       <React.Fragment>
-        <div onClick={() =>  nextSlide(-1)} className={`${mobile ? '' : 'arrow left'} ${animate.left ? 'animate': ''}`}>
-          <i></i>
-          <Circle />
-        </div>
+        {
+          !mobile && <div onClick={() =>  nextSlide(-1)} className={`arrow left ${animate.left ? 'animate': ''}`}>
+            <i></i>
+            <Circle />
+          </div>
+        }
 
         <Wrapper {...handlers}>
           {getPresentableSlides().map(
@@ -347,11 +349,13 @@ const Carousel = (props) => {
             )
           )}
         </Wrapper>
-        {/* {navigationButtons} */}
-        <div onClick={() =>  nextSlide(1)} className={`${mobile ? '' : 'arrow'} ${animate.right ? 'animate': ''}`}>
-          <i></i>
-          <Circle />
-        </div>
+        {
+          !mobile && <div onClick={() =>  nextSlide(1)} className={`arrow ${animate.right ? 'animate': ''}`}>
+                        <i></i>
+                        <Circle />
+                      </div>
+        }
+
       </React.Fragment>
     );
 
