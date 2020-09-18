@@ -16,7 +16,7 @@ const Contact = () => {
     /* background: radial-gradient(farthest-corner, #43546a 60%, rgba(0,0,0,0.6) 100%); */
     color: #fff;
     font-size: 0.9em;
-    padding: 8em 10em;
+    padding: 8em 4em;
     line-height: 2;
     letter-spacing: 1.25px;
     font-family: 'Averia Serif Libre';
@@ -59,7 +59,7 @@ const Contact = () => {
     }
 
     a {
-      color: #fff;
+      color: #f5bc5e;
     }
   `
 

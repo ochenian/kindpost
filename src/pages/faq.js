@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  padding-top: 8em;
+  padding-top: 5em;
 
   text-transform: lowercase;
   font-family: 'Averia Serif Libre';
@@ -20,19 +20,24 @@ const Container = styled.div`
   color: #fff;
 `
 
-const Title = styled.h1`
+const Title = styled.p`
   position: relative;
-  font-size: 2rem;
-  margin-bottom: 4em;
-  letter-spacing: 6px;
+  text-align: center;
+  margin: 0 auto;
+  margin: 4em 0;
+  font-size: 1.25em;
+  text-transform: lowercase;
+  letter-spacing: 4px;
+  width: fit-content;
+  font-style: italic;
 
   &:before {
     content: "";
     position: absolute;
-    left: 25%;
+    left: 33%;
     bottom: -8px;
     height: 1px;
-    width: 50%;
+    width: 25%;
     border-bottom: 2px solid #f5bc5e;
   }
 `
@@ -42,7 +47,8 @@ const QuestionsContainer = styled.div`
   flex-direction: column;
   width: 80%;
   height: 100%;
-  margin-bottom: 2em;
+  /* margin-bottom: 2em; */
+  margin-bottom: 120px;
 `
 
 const Faq = () => {
