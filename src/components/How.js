@@ -2,7 +2,7 @@ import React, { useRef, useCallback } from 'react'
 import BirthdaySvg from '../assets/svg/Occasion.svg'
 import PostcardSvg from '../assets/svg/Postcard.svg'
 import MailTruckSvg from '../assets/svg/Truck2.svg'
-import HappyFaceSvg from '../assets/svg/HappyFace2.svg'
+import HappyFaceSvg from '../assets/svg/HappyFace3.svg'
 import {useSpring, useTrail, animated} from 'react-spring'
 import { useInView } from 'react-intersection-observer'
 
@@ -11,18 +11,16 @@ const How = () => {
   const ref = useRef()
 
   // const props = useSpring({ opacity: 1, from: {opacity: 0}, delay: 1000})
-  const items = ['pick an occasion', 'we\'ll write a note', 'we\'ll send your postcard', 'kindness accomplished']
+  const items = ['pick an occasion', 'we\'ll write a note', 'we\'ll send your postcard']
   const descriptions = [
     'Select an occasion that conveys the message you want to send',
     'Our writers will select an appropriate postcard & develop a positive, inspiring message that represents your chosen occasion',
-    'Our delivery specialists will address, stamp, & handle the mailing of your postcard completely free of charge',
-    'Your recipient will have a beautiful postcard with a message positivity waiting in their mailbox'
+    'Our delivery specialists will address, stamp, & handle the mailing of your postcard',
   ]
   const components = [
     <BirthdaySvg className="occasion"/>,
     <PostcardSvg className="postcard"/>,
     <MailTruckSvg className="truck"/>,
-    <HappyFaceSvg className="happy-face"/>
   ]
   const config = { mass: 25, tension: 10000, friction: 1000 }
 
