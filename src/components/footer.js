@@ -110,14 +110,14 @@ const Footer = () => {
                     <button>Sign Up</button>
                   </EmailContainer>
 
-                  <PrivacyText>YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR PRIVACY POLICY</PrivacyText>
+                  <PrivacyText>YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR <Link to="/privacy-policy" style={{ textDecoration: 'underline' }}>PRIVACY POLICY</Link></PrivacyText>
                 </div>
 
                 <div className="links">
                   <SectionHeader>Follow.</SectionHeader>
-                  <Link to="https://twitter.com/kindpostco">Facebook</Link>
-                  <Link to="https://www.instagram.com/kindpostco">Instagram</Link>
-                  <Link to="https://www.facebook.com/kindpostco">Twitter</Link>
+                  <a href="https://twitter.com/kindpostco">Facebook</a>
+                  <a href="https://www.instagram.com/kindpostco">Instagram</a>
+                  <a href="https://www.facebook.com/kindpostco">Twitter</a>
                 </div>
               </>
           }
@@ -137,15 +137,15 @@ const Footer = () => {
                   </EmailContainer>
                 </section>
                 <MobileLinksSection>
-                  <Link to="https://twitter.com/kindpostco">
+                  <a href="https://twitter.com/kindpostco">
                     <StyledTwitterLogo/>
-                  </Link>
-                  <Link to="https://www.instagram.com/kindpostco">
+                  </a>
+                  <a href="https://www.instagram.com/kindpostco">
                     <StyledInstaLogo />
-                  </Link>
-                  <Link to="https://www.facebook.com/kindpostco">
+                  </a>
+                  <a href="https://www.facebook.com/kindpostco">
                     <StyledFacebookLogo />
-                  </Link>
+                  </a>
                 </MobileLinksSection>
               </>
           }

@@ -13,7 +13,6 @@ const Container = styled.div`
 
   padding-top: 5em;
 
-  text-transform: lowercase;
   font-family: 'Averia Serif Libre';
 
   background: #43546a;
@@ -47,7 +46,6 @@ const QuestionsContainer = styled.div`
   flex-direction: column;
   width: 80%;
   height: 100%;
-  /* margin-bottom: 2em; */
   margin-bottom: 120px;
 `
 

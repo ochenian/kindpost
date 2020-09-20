@@ -14,8 +14,8 @@ const Container = styled.div`
 const Header = styled(motion.header)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: transparent;
-  /* color: #000; */
   cursor: pointer;
   font-size: 1.25rem;
 `
@@ -34,6 +34,7 @@ const Body = styled(motion.div)`
 
 const Icon = styled.span`
   color: #f5bc5e;
+  font-size: 2rem;
 `
 
 const Accordion = ({ i, expanded, setExpanded, headerText, bodyText }) => {

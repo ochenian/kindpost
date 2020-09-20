@@ -182,15 +182,15 @@ const Hero = () => {
           autoPlay loop playsInline></motion.video>
       </div>
       <SocialIcons>
-        <Link to="https://twitter.com/kindpostco">
+        <a href="https://twitter.com/kindpostco">
           <StyledTwitterLogo/>
-        </Link>
-        <Link to="https://www.instagram.com/kindpostco">
+        </a>
+        <a href="https://www.instagram.com/kindpostco">
           <StyledInstaLogo />
-        </Link>
-        <Link to="https://www.facebook.com/kindpostco">
+        </a>
+        <a href="https://www.facebook.com/kindpostco">
           <StyledFacebookLogo />
-        </Link>
+        </a>
       </SocialIcons>
     </div>
 
