@@ -3,6 +3,7 @@ import {useSpring, useTrail, animated, config} from 'react-spring'
 import { useStaticQuery, graphql } from 'gatsby'
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg'
 import InstaLogo from '../assets/svg/insta_icon.svg'
+import FacebookLogo from '../assets/svg/facebook.svg'
 import TextRotator from '../components/TextRotaor'
 import styled from "styled-components"
 import { motion, useTransform, useViewportScroll } from "framer-motion"
@@ -99,6 +100,9 @@ const Hero = () => {
   const clVideo = data.allCloudinaryMedia.edges[0]
 
   const SocialIcons = styled.div`
+    display: flex;
+    align-items: center;
+
     z-index: 10;
     position: absolute;
     bottom: 40px;
@@ -121,6 +125,17 @@ const Hero = () => {
     margin: 6px 24px;
     fill: #fff;
     cursor: pointer;
+
+    :hover {
+      fill: #d4004c;
+    }
+  `
+
+  const StyledFacebookLogo = styled(FacebookLogo)`
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    margin: 0 8px;
 
     :hover {
       fill: #d4004c;
@@ -167,8 +182,15 @@ const Hero = () => {
           autoPlay loop playsInline></motion.video>
       </div>
       <SocialIcons>
-        <StyledTwitterLogo/>
-        <StyledInstaLogo />
+        <Link to="https://twitter.com/kindpostco">
+          <StyledTwitterLogo/>
+        </Link>
+        <Link to="https://www.instagram.com/kindpostco">
+          <StyledInstaLogo />
+        </Link>
+        <Link to="https://www.facebook.com/kindpostco">
+          <StyledFacebookLogo />
+        </Link>
       </SocialIcons>
     </div>
 

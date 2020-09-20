@@ -115,9 +115,9 @@ const Footer = () => {
 
                 <div className="links">
                   <SectionHeader>Follow.</SectionHeader>
-                  <div>Facebook</div>
-                  <div>Instagram</div>
-                  <div>Twitter</div>
+                  <Link to="https://twitter.com/kindpostco">Facebook</Link>
+                  <Link to="https://www.instagram.com/kindpostco">Instagram</Link>
+                  <Link to="https://www.facebook.com/kindpostco">Twitter</Link>
                 </div>
               </>
           }
@@ -137,9 +137,15 @@ const Footer = () => {
                   </EmailContainer>
                 </section>
                 <MobileLinksSection>
-                  <StyledInstaLogo />
-                  <StyledTwitterLogo />
-                  <StyledFacebookLogo />
+                  <Link to="https://twitter.com/kindpostco">
+                    <StyledTwitterLogo/>
+                  </Link>
+                  <Link to="https://www.instagram.com/kindpostco">
+                    <StyledInstaLogo />
+                  </Link>
+                  <Link to="https://www.facebook.com/kindpostco">
+                    <StyledFacebookLogo />
+                  </Link>
                 </MobileLinksSection>
               </>
           }

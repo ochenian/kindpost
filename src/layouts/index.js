@@ -13,7 +13,6 @@ const Layout = ({ children, siteName, headerClass }) => {
   const [ cartStatus, setCartStatus ] = useState('closed')
 
   const toggle = () => {
-    console.log('toggle')
     cartStatus === 'open' ? setCartStatus('closed') : setCartStatus('open')
   }
 
