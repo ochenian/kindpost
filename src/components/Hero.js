@@ -11,6 +11,49 @@ import CtaButton from './shared/Button';
 import { Link } from 'gatsby';
 import { useMediaQuery } from 'react-responsive'
 
+const SocialIcons = styled.div`
+display: flex;
+align-items: center;
+
+z-index: 10;
+position: absolute;
+bottom: 40px;
+left: 30px;
+`
+
+const StyledTwitterLogo = styled(TwitterLogo)`
+width: 36px;
+height: 36px;
+cursor: pointer;
+
+:hover {
+  .cls-2 {
+    fill: #d4004c;
+  }
+}
+`
+
+const StyledInstaLogo = styled(InstaLogo)`
+margin: 6px 24px;
+fill: #fff;
+cursor: pointer;
+
+:hover {
+  fill: #d4004c;
+}
+`
+
+const StyledFacebookLogo = styled(FacebookLogo)`
+width: 24px;
+height: 24px;
+fill: #fff;
+margin: 0 8px;
+
+:hover {
+  fill: #d4004c;
+}
+`
+
 const Hero = () => {
   const mobile = useMediaQuery({
     query: '(max-width: 600px)'
@@ -98,49 +141,6 @@ const Hero = () => {
   },
 ];
   const clVideo = data.allCloudinaryMedia.edges[0]
-
-  const SocialIcons = styled.div`
-    display: flex;
-    align-items: center;
-
-    z-index: 10;
-    position: absolute;
-    bottom: 40px;
-    left: 30px;
-  `
-
-  const StyledTwitterLogo = styled(TwitterLogo)`
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-
-    :hover {
-      .cls-2 {
-        fill: #d4004c;
-      }
-    }
-  `
-
-  const StyledInstaLogo = styled(InstaLogo)`
-    margin: 6px 24px;
-    fill: #fff;
-    cursor: pointer;
-
-    :hover {
-      fill: #d4004c;
-    }
-  `
-
-  const StyledFacebookLogo = styled(FacebookLogo)`
-    width: 24px;
-    height: 24px;
-    fill: #fff;
-    margin: 0 8px;
-
-    :hover {
-      fill: #d4004c;
-    }
-  `
 
   return (
     <div className="Hero">

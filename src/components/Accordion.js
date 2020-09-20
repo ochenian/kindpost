@@ -29,6 +29,7 @@ const Section = styled(motion.section)`
 const Body = styled(motion.div)`
   padding: 20px;
   transform-origin: top left;
+  padding-bottom: 0;
 `
 
 const Icon = styled.span`
