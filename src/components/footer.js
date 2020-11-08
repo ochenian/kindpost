@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg'
 import InstaLogo from '../assets/svg/insta_icon.svg'
 import FacebookLogo from '../assets/svg/facebook.svg'
+import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 const MobileLinksSection = styled.section`
   width: 100%;
@@ -90,6 +91,24 @@ const Footer = () => {
     query: '(max-width: 900px)'
   })
 
+  const [email, setEmail] = useState('');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    addToMailchimp(email)
+      .then((data) => {
+        console.log(data.result)
+      })
+      .catch((error) => {
+        // Errors in here are client side
+        // Mailchimp always returns a 200
+      });
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.currentTarget.value);
+  };
+
   return (
     <React.Fragment>
       <div className="siteInfoContainer">
@@ -104,13 +123,15 @@ const Footer = () => {
                 </div>
 
                 <div className="links">
+                <form onSubmit={handleSubmit}>
                   <SectionHeader>Subscribe.</SectionHeader>
                   <EmailContainer>
-                    <input />
-                    <button>Sign Up</button>
+                    <input name="email" type="text" onChange={handleEmailChange} />
+                    <button type="submit">Sign Up</button>
                   </EmailContainer>
 
                   <PrivacyText>YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR <Link to="/privacy-policy" style={{ textDecoration: 'underline' }}>PRIVACY POLICY</Link></PrivacyText>
+                </form>
                 </div>
 
                 <div className="links">

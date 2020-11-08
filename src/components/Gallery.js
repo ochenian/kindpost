@@ -53,7 +53,6 @@ const CarouselContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 6em;
   background: #ffe3e3;
 `
 
@@ -124,13 +123,12 @@ const Gallery = () => {
   return (
     <GalleryContainer>
       <GalleryText>
-      <div>handwritten</div><span>messages</span>
+      <div>handwritten</div><span>messages of kindness</span>
       </GalleryText>
       <CarouselContainer style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: "2.75em",
         background: '#ffe3e3',
         }}>
         <Carousel
