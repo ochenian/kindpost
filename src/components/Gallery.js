@@ -23,17 +23,23 @@ const GalleryText = styled.div`
   align-items: center;
   font-size: 2em;
   letter-spacing: 0.10em;
-  margin: 2rem 0;
+  margin: 6rem 0;
   text-transform: lowercase;
 
   div {
-    font-size: 1.5rem;
-    font-style: italic;
+    font-size: 7.5rem;
+    font-weight: 900;
+    font-family: 'Allura';
+    line-height: 1;
+    text-shadow: #fff 2px 2px 2px;
     text-align: center;
   }
 
   span {
     text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
   }
 `
 
@@ -118,8 +124,7 @@ const Gallery = () => {
   return (
     <GalleryContainer>
       <GalleryText>
-      <div>Handwritten Messages on</div>
-      <span>VINTAGE LINEN + CHROME POSTCARDS</span>
+      <div>handwritten</div><span>messages</span>
       </GalleryText>
       <CarouselContainer style={{
         display: "flex",
@@ -133,6 +138,9 @@ const Gallery = () => {
           goToSlide={state.goToSlide}
         />
       </CarouselContainer>
+      <GalleryText>
+      <div>vintage</div><span>linens + chromes</span>
+      </GalleryText>
     </GalleryContainer>
   )
 

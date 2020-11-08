@@ -42,10 +42,12 @@
     "react-use-gesture": "^7.0.15",
     "sharp": "^0.25.4",
     "styled-components": "^5.1.1",
+    "typeface-allura": "^1.1.13",
     "typeface-averia-sans-libre": "0.0.72",
     "typeface-averia-serif-libre": "0.0.72",
     "typeface-itim": "0.0.72",
-    "typeface-lato": "0.0.75"
+    "typeface-lato": "0.0.75",
+    "typeface-montserrat": "^1.1.13"
   },
   "keywords": [
     "gatsby"
