@@ -40,7 +40,7 @@ const TermsAndConditions = () => (
     <div className="legal-container">
       <h1>TERMS OF SERVICE</h1>
       <section>
-        <p><h3>EFFECTIVE DATE: 11/07/20</h3></p>
+        <h3>EFFECTIVE DATE: 11/07/20</h3>
         <h3>Section 1.  General Conditions</h3>
         <p>
         Thank you for visiting Kindpost.  This website, <a href="https://www.kindpostco.com">https://www.kindpostco.com</a> (“Site”), is owned and operated by Kindpost.  Kindpost (referred to as “We,” “Us,” and “Our”) offers this Site, including all information, tools, and services available from this Site, to you, the user, conditioned upon your acceptance of and compliance with all terms, conditions, policies, and notices stated herein.

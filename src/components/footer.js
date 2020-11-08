@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg'
 import InstaLogo from '../assets/svg/insta_icon.svg'
 import FacebookLogo from '../assets/svg/facebook.svg'
+import KpThumbnail from '../assets/svg/KP_Thumbnail.svg'
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 const MobileLinksSection = styled.section`
@@ -84,6 +85,23 @@ const StyledFacebookLogo = styled(FacebookLogo)`
   height: 36px;
   fill: #fff;
   cursor: pointer;
+`
+
+const LegalContainer = styled.div`
+  background: #000;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 16px;
+
+  div, a {
+    margin-right: 16px;
+    color: #fff;
+  }
+
+  svg {
+    margin-left: auto;
+  }
 `
 
 const Footer = () => {
@@ -171,11 +189,18 @@ const Footer = () => {
               </>
           }
       </div>
-      {/* <div className="legal-footer">
+      <LegalContainer>
         <div>&copy; 2020 kindpost.</div>
-        <div>terms & conditions</div>
-        <div>privacy policy</div>
-      </div> */}
+        <div>made with ♡ in california</div>
+        <Link to="/terms-of-service">terms of service</Link>
+        <Link to="/privacy-policy">privacy policy</Link>
+        <KpThumbnail style={{
+          width: '24px',
+          height: '24px',
+          marginLeft: 'auto'
+          }}
+        />
+      </LegalContainer>
     </React.Fragment>
   )
 }

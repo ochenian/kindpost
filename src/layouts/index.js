@@ -27,7 +27,6 @@ const Layout = ({ children, siteName, headerClass }) => {
       <div className="Container">
         <div className={`overlay ${cartStatus === 'open' ? 'fade' : ''}`}></div>
         <Header siteName={siteName} headerClass={headerClass} toggle={toggle}></Header>
-        {/* <div style={{height: '106px'}}></div> */}
         <div className="Wrap Wrap__main_content">{children}</div>
         <Divider />
         <How></How>
