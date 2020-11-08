@@ -44,7 +44,7 @@ const PrivacyPolicy = ({}) => {
       <section>
         <h3>Effective Date: September 7, 2020</h3>
         <p>
-          Kindpost owns and operates this website http://www.kindpost.com (“Site”). This page hereby informs you
+          Kindpost owns and operates this website <a href="https://www.kindpostco.com">https://www.kindpostco.com</a> (“Site”). This page hereby informs you
           of our policies regarding the collection, use, and disclosure of Personal Information (as that term is defined
           below) that we receive from users of the Site. We refer to these policies as our “Privacy Policy.”
         </p>
@@ -58,7 +58,7 @@ const PrivacyPolicy = ({}) => {
         </p>
 
         <p>
-          If you have not done so already, please also review our <Link to="/terms-and-conditions">Terms of Service</Link>,
+          If you have not done so already, please also review our <Link to="/terms-of-service">Terms of Service</Link>,
           as they contain important information regarding your access to and use of the Site.
         </p>
 
@@ -150,7 +150,7 @@ const PrivacyPolicy = ({}) => {
         <p>Kindpost does not process your credit card information.  Kindpost uses [INSERT NAME OF COMPANY(S)], a third-party payment processing service to collect, store, process, and transmit your credit card data when you make a purchase with us.  [INSERT NAME OF COMPANY(S)] certifies as adhering to the Payment Card Industry Data Security Standards.  Kindpost may transfer Personal Information to [INSERT NAME OF COMPANY(S)] for the purpose of facilitating the transaction.</p>
 
         <h3>Third-Party Links</h3>
-        <p>In accordance with our Terms of Service at [insert link], our Site may redirect or link to other websites on the internet, or may otherwise include references to information, content, products, or services made available by third-parties unaffiliated with Kindpost.  Our Privacy Policy does not apply to the practices of other websites and Kindpost is not responsible for and assumes no liability, obligation, or responsibility for the actions and privacy policies of third-parties.  We encourage you to be aware of when you leave our Site and to read the privacy policies of each website that you visit.</p>
+        <p>In accordance with our <Link to="/terms-of-service">Terms of Service</Link>, our Site may redirect or link to other websites on the internet, or may otherwise include references to information, content, products, or services made available by third-parties unaffiliated with Kindpost.  Our Privacy Policy does not apply to the practices of other websites and Kindpost is not responsible for and assumes no liability, obligation, or responsibility for the actions and privacy policies of third-parties.  We encourage you to be aware of when you leave our Site and to read the privacy policies of each website that you visit.</p>
 
         <h3>Security</h3>
         <p>The security of your Personal Information is important to Kindpost.  We take reasonable measures to help protect your Personal Information from loss, theft, misuse and unauthorized access, disclosure, alteration, and destruction.  We use organizational, procedural, and technical safeguards to secure data in our possession, consistent with the sensitivity level of such data.  Regardless of the precautions we take, no transmission of data over the internet, or method of electronic storage, is guaranteed to be completely secure.  It may be possible for third-parties not under our control to intercept or access transmissions or private communications unlawfully.  While we strive to use commercially acceptable means to protect Personal Information, we cannot ensure, warrant, or guarantee the security of any information that you transmit to us.</p>
@@ -159,7 +159,7 @@ const PrivacyPolicy = ({}) => {
         <p>We do not knowingly collect any Personal Information from children under the age of 13.  We do not sell products for purchase by children, and all children’s products we sell are for purchase by adults only.  If you are under 13 years old, please do not provide your information on our Site.  If we become aware that an individual is under the age of 13 and has submitted any information to Kindpost for any purposes, we will delete his or her information from our files.  If you believe that we might have any Personal Information for a child under 13, please contact us at <a href="mailto:help@kindpostco.com" >help@kindpostco.com</a>.</p>
 
         <h3>Site Users Outside the United States</h3>
-        <p>In accordance with our Terms of Service at [insert link], although this Site may be accessible worldwide, we make no representation that materials on this Site are appropriate or available for use or purchase in locations outside the United States.  Those who choose to access this Site from other locations do so on their own initiative and at their own risk.  If you choose to access this Site from outside the United States, you are responsible for compliance with local laws in your jurisdiction, including but not limited to the taxation of any products purchased over the internet.  Any offer for any product, Service, and/or information made in connection with this Site is void where prohibited.</p>
+        <p>In accordance with our <Link to="/terms-of-service">Terms of Service</Link>, although this Site may be accessible worldwide, we make no representation that materials on this Site are appropriate or available for use or purchase in locations outside the United States.  Those who choose to access this Site from other locations do so on their own initiative and at their own risk.  If you choose to access this Site from outside the United States, you are responsible for compliance with local laws in your jurisdiction, including but not limited to the taxation of any products purchased over the internet.  Any offer for any product, Service, and/or information made in connection with this Site is void where prohibited.</p>
         <p>By accessing the Site and providing us with data as a non-United States user, you acknowledge and agree that your Personal Information may be processed for the purposes identified in this Privacy Policy.  We are based in the United States and the information we collect is governed by United States federal and California state law.  By accessing or using the Site or otherwise providing information to us, you consent to the processing and transfer of information in and to the United States and other countries.</p>
         <p>You may have the following data protection rights:</p>
         <List>
@@ -196,15 +196,15 @@ const PrivacyPolicy = ({}) => {
         California Civil Code section 1798.83 permits residents of California to opt-out of disclosure of Personal Information to third-parties for their direct marketing purposes.  You may choose to opt-out of the sharing of your Personal Information with third-parties for marketing purposes at any time by submitting a request in writing to our contact address below or by emailing us at help@kindpostco.com.  We honor such opt-out requests and it is our policy not to share Personal Information with third-parties for direct marketing purposes where you have submitted such a request.  Please note that this opt-out does not prohibit disclosure made for non-marketing purposes.
         </p>
 
+        <p>
+        In accordance with California Civil Code section 1789.3, we hereby provide California residents with the following specific consumer rights information:
+        </p>
+
         <OrderedList>
           <li>The Service and Site are owned and/or operated by Kindpost, 200 S. Barrington Avenue #491367, Los Angeles, CA 90049.</li>
           <li>Unless otherwise expressly stated, the Site is provided without charge.</li>
           <li>To file a complaint regarding the Site or to receive further information regarding use of the Site, please send a letter to Kindpost at 200 S. Barrington Avenue #491367, Los Angeles, CA 90049, or contact us via email at <a href="mailto:help@kindpostco.com" >help@kindpostco.com</a>.  You may also contact the Consumer Information Division of California’s Department of Consumer Affairs in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834 or by telephone at (800) 952-5210.  Hearing-impaired persons may call TDD (800) 326-2297.</li>
         </OrderedList>
-
-        <p>
-        In accordance with California Civil Code section 1789.3, we hereby provide California residents with the following specific consumer rights information:
-        </p>
 
         <h3>Contact Us</h3>
         <p>If you have any questions about this Privacy Policy, the practices of this Site, or your dealings with this Site, please contact us at <a href="mailto:help@kindpostco.com" >help@kindpostco.com</a>.</p>
