@@ -88,7 +88,7 @@ const StyledFacebookLogo = styled(FacebookLogo)`
 `
 
 const LegalContainer = styled.div`
-  background: #000;
+  background: rgb(40,40,40);
   display: flex;
   align-items: center;
   font-size: 0.75rem;
