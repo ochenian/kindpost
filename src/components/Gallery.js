@@ -23,8 +23,12 @@ const GalleryText = styled.div`
   align-items: center;
   font-size: 2em;
   letter-spacing: 0.10em;
-  margin: 6rem 0;
   text-transform: lowercase;
+  margin: 6rem 0 6rem 0;
+
+  &:last-of-type {
+    margin: 4rem 0 8rem 0;
+  }
 
   div {
     font-size: 7.5rem;

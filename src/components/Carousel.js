@@ -74,7 +74,7 @@ const Wrapper = styled.div`
   width: 100%;
   margin: 0 6em;
   max-width: 945px;
-  height: 50vw;
+  height: 70vh;
   margin: 0 48px;
 `;
 
@@ -183,27 +183,6 @@ const Carousel = (props) => {
       }
     }
   }, [state, attributes])
-
-  // componentDidUpdate() {
-  //   const { goToSlideDelay } = this.props;
-  //   const { index, goToSlide, newSlide } = this.state;
-  //   if (typeof goToSlide === "number") {
-  //     if (newSlide) {
-  //       this.handleGoToSlide();
-  //     } else if (index !== goToSlide && typeof window !== "undefined") {
-  //       window.clearTimeout(this.goToIn);
-  //       this.goToIn = window.setTimeout(this.handleGoToSlide, goToSlideDelay);
-  //     } else if (typeof window !== "undefined") {
-  //       window.clearTimeout(this.goToIn);
-  //     }
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   if (typeof window !== "undefined") {
-  //     window.clearTimeout(this.goToIn);
-  //   }
-  // }
 
   const modBySlidesLength = (index) => {
     return mod(index, props.slides.length);

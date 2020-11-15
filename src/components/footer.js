@@ -110,16 +110,16 @@ const Footer = () => {
   })
 
   const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
 
     addToMailchimp(email)
       .then((data) => {
-        console.log(data.result)
+        setStatus(data);
       })
       .catch((error) => {
-        // Errors in here are client side
-        // Mailchimp always returns a 200
+        setStatus('error');
       });
   };
 
@@ -143,10 +143,18 @@ const Footer = () => {
                 <div className="links">
                 <form onSubmit={handleSubmit}>
                   <SectionHeader>Subscribe.</SectionHeader>
-                  <EmailContainer>
-                    <input name="email" type="text" onChange={handleEmailChange} />
-                    <button type="submit">Sign Up</button>
-                  </EmailContainer>
+                  {
+                    status.result !== 'success' && <EmailContainer>
+                                                    <input name="email" type="text" onChange={handleEmailChange} />
+                                                    <button type="submit">Sign Up</button>
+                                                  </EmailContainer>
+                  }
+                  {
+                    status.result === 'error' && <div>{status.msg}</div>
+                  }
+                  {
+                    status.result === 'success' && <div>Thanks! You'll receive a confirmation email shortly.</div>
+                  }
 
                   <PrivacyText>YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR <Link to="/privacy-policy" style={{ textDecoration: 'underline' }}>PRIVACY POLICY</Link></PrivacyText>
                 </form>
@@ -170,10 +178,18 @@ const Footer = () => {
                   <MobileLink to="/contact">Contact us</MobileLink>
                 </MobileLinksSection>
                 <section>
-                  <EmailContainer>
-                    <input />
-                    <button>Sign Up</button>
-                  </EmailContainer>
+                  {
+                    status.result !== 'success' && <EmailContainer>
+                                                    <input name="email" type="text" onChange={handleEmailChange} />
+                                                    <button type="submit">Sign Up</button>
+                                                  </EmailContainer>
+                  }
+                  {
+                    status.result === 'error' && <div>{status.msg}</div>
+                  }
+                  {
+                    status.result === 'success' && <div>Thanks! You'll receive a confirmation email shortly.</div>
+                  }
                 </section>
                 <MobileLinksSection>
                   <a href="https://twitter.com/kindpostco">
