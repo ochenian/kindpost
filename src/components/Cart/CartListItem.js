@@ -1,6 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { useUpdateItemQuantity, useRemoveItemFromCart, useCartItems } from 'gatsby-theme-shopify-manager';
+import {
+  useUpdateItemQuantity,
+  useRemoveItemFromCart,
+  useCartItems,
+} from 'gatsby-theme-shopify-manager';
 import Add from '../../assets/svg/add-24px.svg';
 import Remove from '../../assets/svg/remove-24px.svg';
 import Delete from '../../assets/svg/delete_outline-24px.svg';
@@ -8,7 +12,6 @@ import { Input } from '../shared/FormElements';
 import { Button } from '../shared/Buttons';
 import CartThumbnail from './CartThumbnail';
 import { breakpoints, colors, spacing } from '../../utils/styles';
-
 
 const CartListItemRoot = styled('li')`
   /* align-items: center; */
@@ -53,7 +56,7 @@ const Meta = styled('span')`
 const QtyContainer = styled.div`
   display: flex;
   /* margin-top: 1em; */
-`
+`;
 
 const Quantity = styled(Input)`
   border: none;
@@ -84,46 +87,25 @@ const QtyChange = styled(Button)`
     margin: 0;
     width: 16px;
   }
-`
+`;
 
 const Price = styled.div`
   align-self: flex-start;
   line-height: 1;
   margin-top: 4px;
   margin-right: 16px;
-`
+`;
 
 const DeleteIcon = styled(Delete)`
   cursor: pointer;
-`
+`;
 
-// const Remove = styled(Button)`
-//   border: 1px dotted ${colors.textLighter};
-//   display: flex;
-//   height: 44px;
-//   justify-content: center;
-//   margin-right: ${spacing['2xs']}px;
-//   padding: 0;
-//   width: 44px;
-
-//   svg {
-//     height: 24px;
-//     margin: 0;
-//     width: 24px;
-//   }
-// `;
-
-export default ({
-  item,
-  toggle,
-  setCartLoading,
-  isCartLoading,
-}) => {
+export default ({ item, toggle, setCartLoading, isCartLoading }) => {
   const cartItems = useCartItems();
   const updateItemQuantity = useUpdateItemQuantity();
   const removeItemFromCart = useRemoveItemFromCart();
-  const [quantity, setQuantity] = useState(1);
-  const quantityEl = useRef(null)
+  const [quantity, setQuantity] = useState(item.quantity);
+  const quantityEl = useRef(null);
 
   async function updateQuantity(qty) {
     if (item.variant.id == null) {
@@ -132,8 +114,8 @@ export default ({
 
     try {
       await updateItemQuantity(item.variant.id, qty);
-    } catch(e) {
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -147,12 +129,11 @@ export default ({
     }
 
     try {
-      await removeItemFromCart(item.variant.id)
-      setCartLoading(false)
-      console.log(toggle)
-      toggle()
-    } catch(e) {
-      console.log(e)
+      await removeItemFromCart(item.variant.id);
+      setCartLoading(false);
+      toggle();
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -183,7 +164,6 @@ export default ({
 
     // If the quantity is set to 0, remove the item.
     if (safeValue === 0) {
-      // handleRemove(event);
       removeItem(item.variant.id);
       return;
     }
@@ -196,28 +176,20 @@ export default ({
     removeItem(item.variant.id);
   };
 
-  // const setNativeValue = (element, value) => {
-  //   const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
-  //   const prototype = Object.getPrototypeOf(element);
-  //   const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
-
-  //   if (valueSetter && valueSetter !== prototypeValueSetter) {
-  //     prototypeValueSetter.call(element, value);
-  //   } else {
-  //     valueSetter.call(element, value);
-  //   }
-  // }
-
   const increment = event => {
     quantityEl.current.stepUp();
     // setNativeValue(quantityEl.current, quantityEl.current.value);
-    quantityEl.current.dispatchEvent(new Event('change', {bubbles: true}));
-  }
+    quantityEl.current.dispatchEvent(new Event('change', { bubbles: true }));
+  };
 
   const decrement = event => {
     quantityEl.current.stepDown();
-    quantityEl.current.dispatchEvent(new Event('change', {bubbles: true}));
-  }
+    quantityEl.current.dispatchEvent(new Event('change', { bubbles: true }));
+  };
+
+  useEffect(() => {
+    setQuantity(item.quantity);
+  }, [item.quantity]);
 
   return (
     <CartListItemRoot>
@@ -233,7 +205,7 @@ export default ({
           {/* {item.variant.title}, ${item.variant.price} */}
         </Meta>
         <QtyContainer>
-          <QtyChange onClick={(e) => decrement(e)}>
+          <QtyChange onClick={e => decrement(e)}>
             <Remove />
           </QtyChange>
           <Quantity
@@ -243,25 +215,21 @@ export default ({
             name="quantity"
             inputmode="numeric"
             min="1"
-            max="100"
+            max="10"
             step="1"
             onChange={event => handleInputChange(event)}
             onBlur={() => setQuantity(item.quantity)}
             value={quantity}
             ref={quantityEl}
           />
-          <QtyChange onClick={(e) => increment(e)}>
+          <QtyChange onClick={e => increment(e)}>
             <Add />
           </QtyChange>
         </QtyContainer>
       </Info>
 
       <Price>${item.variant.price}</Price>
-      <Delete onClick={handleRemoveItem} />
-
-      {/* <Remove onClick={handleRemoveItem}>
-        <Close />
-      </Remove> */}
+      <DeleteIcon onClick={handleRemoveItem} />
     </CartListItemRoot>
   );
 };

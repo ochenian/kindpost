@@ -44,3 +44,7 @@
 // 	}
 // 	return setPostBodyComponents(components)
 // }
+
+import Provider from './src/components/Cart/CartContext';
+
+export const wrapRootElement = Provider;

@@ -1,44 +1,38 @@
-import React, {useState} from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Footer from '../components/footer'
-import Header from '../components/header'
-import How from '../components/How'
-import Divider from '../components/Divider'
-import Cart from '../components/Cart/ShopCart'
+/* eslint-disable react/jsx-filename-extension */
+import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
-import CookieSvg from '../assets/svg/cookie-bite.svg'
+import Footer from '../components/footer';
+import Header from '../components/header';
+import How from '../components/How';
+import Divider from '../components/Divider';
+import Cart from '../components/Cart/ShopCart';
+import { CartContext } from '../components/Cart/CartContext';
+import CookieSvg from '../assets/svg/cookie-bite.svg';
 
-import '../style/index.scss'
+import '../style/index.scss';
 
 const Layout = ({ children, siteName, headerClass }) => {
-  const [ cartStatus, setCartStatus ] = useState('closed')
-
-  const toggle = () => {
-    cartStatus === 'open' ? setCartStatus('closed') : setCartStatus('open')
-  }
+  const { showCart } = useContext(CartContext);
 
   return (
     <div>
-      <Helmet
-        title="kindpost."
-      />
-      <Cart cartStatus={cartStatus} toggle={toggle} />
+      <Helmet title="kindpost." />
+      <Cart />
       <div className="Container">
-        <div className={`overlay ${cartStatus === 'open' ? 'fade' : ''}`}></div>
-        <Header siteName={siteName} headerClass={headerClass} toggle={toggle}></Header>
+        <div className={`overlay ${showCart ? 'fade' : ''}`} />
+        <Header siteName={siteName} headerClass={headerClass} />
         <div className="Wrap Wrap__main_content">{children}</div>
         <Divider />
-        <How></How>
+        <How />
         <CookieConsent
           overlay
           location="bottom"
-          buttonText="Accept"
           enableDeclineButton
-          declineButtonText="Decline"
           style={{
-            background: "#fff",
-            borderRadius: "4px",
+            background: '#fff',
+            borderRadius: '4px',
             color: '#000',
             padding: '16px',
             alignItems: 'center',
@@ -61,20 +55,26 @@ const Layout = ({ children, siteName, headerClass }) => {
             color: '#000',
             fontFamily: 'Averia Serif Libre',
           }}
-          cookieName="gatsby-gdpr-google-analytics">
-            <CookieSvg style={{ width: '48px', marginRight: '16px' }}/>
-            This website uses cookies to enhance user experience and to analyze performance and traffic on our website. We also share information about your use of our site with our social media, advertising and analytics partners.
+          cookieName="gatsby-gdpr-google-analytics"
+        >
+          <CookieSvg style={{ width: '48px', marginRight: '16px' }} />
+          This website uses cookies to enhance user experience and to analyze
+          performance and traffic on our website. We also share information
+          about your use of our site with our social media, advertising and
+          analytics partners.
         </CookieConsent>
         <div className="Wrap">
-          <Footer></Footer>
+          <Footer />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-// Layout.propTypes = {
-//   children: PropTypes.func,
-// }
+Layout.propTypes = {
+  children: PropTypes.func,
+  siteName: PropTypes.string,
+  headerClass: PropTypes.string,
+};
 
-export default Layout
+export default Layout;
