@@ -6,5 +6,4 @@
 
 import Provider from './src/components/Cart/CartContext';
 
-const wrapRootElement = Provider;
-export { wrapRootElement as default };
+export const wrapRootElement = Provider;
