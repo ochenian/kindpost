@@ -284,7 +284,7 @@ const CloseBtn = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  background: #231f20;
+  background: #f40075;
   z-index: 1;
   transition: 0.8s;
   cursor: pointer;

@@ -14,14 +14,17 @@ import CookieSvg from '../assets/svg/cookie-bite.svg';
 import '../style/index.scss';
 
 const Layout = ({ children, siteName, headerClass }) => {
-  const { showCart } = useContext(CartContext);
+  const { showCart, toggleCart } = useContext(CartContext);
 
   return (
     <div>
       <Helmet title="kindpost." />
       <Cart />
       <div className="Container">
-        <div className={`overlay ${showCart ? 'fade' : ''}`} />
+        <div
+          className={`overlay ${showCart ? 'fade' : ''}`}
+          onClick={() => toggleCart()}
+        />
         <Header siteName={siteName} headerClass={headerClass} />
         <div className="Wrap Wrap__main_content">{children}</div>
         <Divider />

@@ -27,9 +27,10 @@ const CartListItemRoot = styled('li')`
 const Thumbnail = styled(CartThumbnail)`
   flex-grow: 0;
   margin-left: ${spacing['2xs']}px;
-  margin-right: ${spacing.sm}px;
-  width: 25%;
+  margin-right: 16px;
+  width: 12%;
   max-width: 115px;
+  height: 100%;
 `;
 
 const Info = styled('div')`
@@ -205,7 +206,7 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
       <Info>
         <Name>{item.title}</Name>
         <Meta>{item.variant.selectedOptions[0].value}</Meta>
-        <QtyContainer>
+        {/* <QtyContainer>
           <QtyChange onClick={e => decrement(e)}>
             <Remove />
           </QtyChange>
@@ -226,7 +227,7 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
           <QtyChange onClick={e => increment(e)}>
             <Add />
           </QtyChange>
-        </QtyContainer>
+        </QtyContainer> */}
       </Info>
 
       <Price>${item.variant.price}</Price>
