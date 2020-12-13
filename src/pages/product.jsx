@@ -12,6 +12,64 @@ import Layout from '../layouts/index';
 import CtaButton from '../components/shared/Button';
 import { CartContext } from '../components/Cart/CartContext';
 
+const ProductName = styled.h1`
+  margin-bottom: 1rem;
+`;
+
+const SubHeaderLabel = styled.div`
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 1rem 0;
+  font-family: 'Averia Serif Libre';
+`;
+
+const Description = styled.div`
+  /* margin: 1rem 0; */
+  margin-bottom: 1rem;
+  max-width: 60ch;
+  font-family: 'Averia Serif Libre';
+  line-height: 2;
+  color: #4a4a4a;
+`;
+
+const OptionsContainer = styled.div`
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin: -12px 0 0 -12px;
+  width: calc(100% + 12px);
+
+  margin-bottom: 1rem;
+`;
+
+const Variants = styled(CtaButton)`
+  margin: 12px 0 0 12px;
+  color: #f40075;
+  border: 1px solid #f40075;
+  letter-spacing: 2px;
+
+  &.selected {
+    background: #f40075;
+    /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
+    color: #fff;
+  }
+`;
+
+const Checkout = styled(CtaButton)`
+  color: #f40075;
+  border: 1px solid #f40075;
+  letter-spacing: 2px;
+  max-width: 316px;
+`;
+
+const SoldOut = styled(CtaButton)`
+  color: #fff;
+  background: #dedede;
+  letter-spacing: 2px;
+  max-width: 316px;
+  cursor: default;
+`;
+
 const ProductPage = () => {
   const { toggleCart } = useContext(CartContext);
   const [soldOut, setSoldOut] = useState(false);
@@ -197,8 +255,7 @@ const ProductPage = () => {
   });
 
   const [selectedPostcard, setSelectedPostcard] = useState({
-    id: 'birthday',
-    name: 'Birthday Postcard',
+    ...products[0],
     description: `Another year to remember! Our team will select a vintage
           postcard for you, on which we will dream up and write a lovely birthday
           wish for you or your loved one. `,
@@ -250,8 +307,19 @@ const ProductPage = () => {
         break;
 
       default:
+        setSelectedPostcard({
+          ...selected,
+          description: `Another year to remember! Our team will select a vintage
+          postcard for you, on which we will dream up and write a lovely birthday
+          wish for you or your loved one. `,
+          imgFront: data.postcardImg.childImageSharp.fluid,
+          imgBack: data.postcardBack.childImageSharp.fluid,
+        });
+        break;
     }
   }
+
+  // selectPostcard(selectedPostcard);
 
   function onPostcardSelect(selected) {
     if (!flipped) {
@@ -260,64 +328,6 @@ const ProductPage = () => {
 
     selectPostcard(selected);
   }
-
-  const ProductName = styled.h1`
-    margin-bottom: 1rem;
-  `;
-
-  const SubHeaderLabel = styled.div`
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.8);
-    margin: 1rem 0;
-    font-family: 'Averia Serif Libre';
-  `;
-
-  const Description = styled.div`
-    /* margin: 1rem 0; */
-    margin-bottom: 1rem;
-    max-width: 60ch;
-    font-family: 'Averia Serif Libre';
-    line-height: 2;
-    color: #4a4a4a;
-  `;
-
-  const OptionsContainer = styled.div`
-    display: inline-flex;
-    flex-wrap: wrap;
-    margin: -12px 0 0 -12px;
-    width: calc(100% + 12px);
-
-    margin-bottom: 1rem;
-  `;
-
-  const Variants = styled(CtaButton)`
-    margin: 12px 0 0 12px;
-    color: #f40075;
-    border: 1px solid #f40075;
-    letter-spacing: 2px;
-
-    &.selected {
-      background: #f40075;
-      /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
-      color: #fff;
-    }
-  `;
-
-  const Checkout = styled(CtaButton)`
-    color: #f40075;
-    border: 1px solid #f40075;
-    letter-spacing: 2px;
-    max-width: 316px;
-  `;
-
-  const SoldOut = styled(CtaButton)`
-    color: #fff;
-    background: #dedede;
-    letter-spacing: 2px;
-    max-width: 316px;
-    cursor: default;
-  `;
 
   const rightControls = useAnimation();
   const leftControls = useAnimation();
