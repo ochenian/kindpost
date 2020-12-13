@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
+import { useMediaQuery } from 'react-responsive';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import How from '../components/How';
@@ -15,6 +16,9 @@ import '../style/index.scss';
 
 const Layout = ({ children, siteName, headerClass }) => {
   const { showCart, toggleCart } = useContext(CartContext);
+  const mobile = useMediaQuery({
+    query: '(max-width: 900px)',
+  });
 
   return (
     <div>
@@ -37,12 +41,15 @@ const Layout = ({ children, siteName, headerClass }) => {
             background: '#fff',
             borderRadius: '4px',
             color: '#000',
-            padding: '16px',
+            padding: mobile ? '24px' : '16px',
             alignItems: 'center',
+            justifyContent: mobile ? 'center' : 'flex-start',
           }}
           contentStyle={{
             display: 'flex',
+            margin: mobile ? '0' : '16px',
           }}
+          buttonWrapperClasses={mobile ? 'cookie-button-wrapper' : ''}
           buttonText="Accept Cookies"
           buttonStyle={{
             background: 'none',
@@ -50,6 +57,8 @@ const Layout = ({ children, siteName, headerClass }) => {
             borderRadius: '4px',
             color: '#000',
             fontFamily: 'Averia Serif Libre',
+            margin: mobile ? '24px 0' : '16px',
+            padding: '16px 10px',
           }}
           declineButtonText="Do Not Sell My Personal Information"
           declineButtonStyle={{
@@ -57,10 +66,14 @@ const Layout = ({ children, siteName, headerClass }) => {
             textDecoration: 'underline',
             color: '#000',
             fontFamily: 'Averia Serif Libre',
+            margin: mobile ? '0' : '16px',
+            padding: mobile ? '0' : '6px 10px',
           }}
           cookieName="gatsby-gdpr-google-analytics"
         >
-          <CookieSvg style={{ width: '48px', marginRight: '16px' }} />
+          {!mobile && (
+            <CookieSvg style={{ width: '48px', marginRight: '16px' }} />
+          )}
           This website uses cookies to enhance user experience and to analyze
           performance and traffic on our website. We also share information
           about your use of our site with our social media, advertising and
