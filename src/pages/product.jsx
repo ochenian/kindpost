@@ -17,8 +17,8 @@ const ProductPage = () => {
   const [soldOut, setSoldOut] = useState(false);
 
   const client = Client.buildClient({
-    domain: `${process.env.SHOP_NAME}.myshopify.com`,
-    storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+    domain: `${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com`,
+    storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
   });
   useEffect(() => {
     // Fetch 'quantityAvailable' dynamically to get an updated quantity on page entry

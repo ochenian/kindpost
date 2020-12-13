@@ -60,7 +60,7 @@ module.exports = {
       resolve: 'gatsby-theme-shopify-manager',
       options: {
         shopName: 'Kindpost',
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
       },
     },
     {
@@ -87,8 +87,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-shopify',
       options: {
-        shopName: process.env.SHOPIFY_SHOP_NAME,
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        shopName: process.env.GATSBY_SHOPIFY_SHOP_NAME,
+        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
         apiVersion: '2020-07',
         verbose: true,
         paginationSize: 250,

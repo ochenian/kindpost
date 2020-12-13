@@ -317,8 +317,8 @@ const Cart = () => {
   const checkoutUrl = useCheckoutUrl();
   const setCartLoading = bool => setState({ isLoading: bool });
   const client = Client.buildClient({
-    domain: `${process.env.SHOP_NAME}.myshopify.com`,
-    storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+    domain: `${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com`,
+    storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
   });
   const [soldOut, setSoldOut] = useState(false);
 
