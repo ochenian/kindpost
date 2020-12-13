@@ -4,6 +4,8 @@ import {
   useUpdateItemQuantity,
   useRemoveItemFromCart,
   useCartItems,
+  useCart,
+  useSetCartUnsafe,
 } from 'gatsby-theme-shopify-manager';
 import Add from '../../assets/svg/add-24px.svg';
 import Remove from '../../assets/svg/remove-24px.svg';
@@ -102,6 +104,8 @@ const DeleteIcon = styled(Delete)`
 
 export default ({ item, toggle, setCartLoading, isCartLoading }) => {
   const cartItems = useCartItems();
+  const setCart = useSetCartUnsafe();
+  let cart = useCart();
   const updateItemQuantity = useUpdateItemQuantity();
   const removeItemFromCart = useRemoveItemFromCart();
   const [quantity, setQuantity] = useState(item.quantity);
@@ -200,10 +204,7 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
       />
       <Info>
         <Name>{item.title}</Name>
-        <Meta>
-          Birthday
-          {/* {item.variant.title}, ${item.variant.price} */}
-        </Meta>
+        <Meta>{item.variant.selectedOptions[0].value}</Meta>
         <QtyContainer>
           <QtyChange onClick={e => decrement(e)}>
             <Remove />

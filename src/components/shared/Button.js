@@ -1,13 +1,14 @@
-import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styled from 'styled-components'
+import * as React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import styled from 'styled-components';
 
 import { colors, fonts, radius } from '../../utils/styles';
 
 const CtaButton = styled.button`
   align-items: center;
   background: none;
-  /* background: ${props => (props.inverse ? colors.brandDark : colors.lightest)}; */
+  /* background: ${props =>
+    props.inverse ? colors.brandDark : colors.lightest}; */
   /* border: 1px solid
     ${props => (props.inverse ? colors.brandLight : colors.brand)}; */
   border: 1px solid #fff;
@@ -40,7 +41,7 @@ const CtaButton = styled.button`
   }
 
   @media (hover: hover) {
-    &:hover {
+    &:hover:enabled {
       box-shadow: 0 0 1px 2px rgba(0,0,0,0.08),
       0 0 2px 4px rgba(0,0,0,0.08);
       /* background: #fff; */
@@ -50,6 +51,6 @@ const CtaButton = styled.button`
       border: 1px solid ${colors.brand};
     }
   }
-`
+`;
 
-export default CtaButton
+export default CtaButton;

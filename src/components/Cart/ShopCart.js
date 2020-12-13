@@ -8,6 +8,7 @@ import {
   useRemoveItemFromCart,
   useCheckoutUrl,
 } from 'gatsby-theme-shopify-manager';
+import Client from 'shopify-buy/index.unoptimized.umd';
 import Close from '../../assets/svg/clear-24px.svg';
 import { CartContext } from './CartContext';
 import CartList from './CartList';
@@ -295,6 +296,18 @@ const CloseBtn = styled.div`
   }
 `;
 
+const SoldOut = styled(Button)`
+  color: #fff;
+  background: #dedede;
+  letter-spacing: 2px;
+  cursor: default;
+  border: none;
+
+  font-size: 1.25rem;
+  margin-bottom: ${spacing.sm}px;
+  width: 100%;
+`;
+
 const Cart = () => {
   const [state, setState] = useState({ className: 'closed', isLoading: false });
   const { showCart, toggleCart } = useContext(CartContext);
@@ -303,12 +316,46 @@ const Cart = () => {
   const cart = useCart();
   const checkoutUrl = useCheckoutUrl();
   const setCartLoading = bool => setState({ isLoading: bool });
+  const client = Client.buildClient({
+    domain: `${process.env.SHOP_NAME}.myshopify.com`,
+    storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+  });
+  const [soldOut, setSoldOut] = useState(false);
 
   useEffect(() => {
     setState({
       className: showCart ? 'open' : 'closed',
     });
   }, [showCart]);
+
+  useEffect(() => {
+    // Fetch 'quantityAvailable' dynamically to get an updated quantity on page entry
+    const productsQuery = client.graphQLClient.query(root => {
+      root.addConnection('products', { args: { first: 10 } }, product => {
+        product.addConnection('variants', { args: { first: 10 } }, variant => {
+          variant.add('quantityAvailable');
+        });
+      });
+    });
+
+    client.graphQLClient.send(productsQuery).then(({ model, data }) => {
+      const products = data.products.edges[0].node.variants.edges.map(
+        variant => {
+          const { node } = variant;
+          return {
+            total: node.quantityAvailable,
+          };
+        },
+      );
+
+      setSoldOut(
+        products.reduce(
+          (accumulator, product) => accumulator + (10 - product.total),
+          0,
+        ) >= 10,
+      );
+    });
+  }, [client.graphQLClient]);
 
   const cartItems = useCartItems();
   const removeItemFromCart = useRemoveItemFromCart();
@@ -343,10 +390,14 @@ const Cart = () => {
             </Total>
           </Costs>
 
-          <CheckOut href={checkoutUrl}>
-            Checkout
-            {/* <MdArrowForward /> */}
-          </CheckOut>
+          {soldOut ? (
+            <SoldOut disabled>SOLD OUT</SoldOut>
+          ) : (
+            <CheckOut href={checkoutUrl}>
+              Checkout
+              {/* <MdArrowForward /> */}
+            </CheckOut>
+          )}
           <BackLink onClick={toggleCart}>
             {/* <MdArrowBack /> */}
             Back to shopping
