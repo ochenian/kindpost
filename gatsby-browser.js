@@ -13,4 +13,5 @@ require('typeface-averia-serif-libre');
 require('typeface-allura');
 require('typeface-montserrat');
 
-export const wrapRootElement = Provider;
+const wrapRootElement = Provider;
+export { wrapRootElement as default };
