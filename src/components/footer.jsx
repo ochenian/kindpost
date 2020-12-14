@@ -117,6 +117,10 @@ const LegalContainer = styled.div`
   }
 `;
 
+const SignUpButton = styled.button`
+  margin: 0;
+`;
+
 const Footer = () => {
   const mobile = useMediaQuery({
     query: '(max-width: 900px)',
@@ -209,7 +213,7 @@ const Footer = () => {
                       type="text"
                       onChange={handleEmailChange}
                     />
-                    <button type="submit">Sign Up</button>
+                    <SignUpButton type="submit">Sign Up</SignUpButton>
                   </EmailContainer>
                 )}
                 {status.result === 'error' && <div>{status.msg}</div>}
