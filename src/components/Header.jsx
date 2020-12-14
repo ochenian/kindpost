@@ -1,17 +1,25 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'gatsby-link';
-import Logo from '../assets/svg/KP_Logo.svg';
-import LogoThumbnail from '../assets/svg/KP_Thumbnail.svg';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
-import Bag from '../assets/svg/bag.svg';
 import { useSpring, animated, config } from 'react-spring';
-import ButtonLink from '../components/ButtonLink';
 import { useCartCount } from 'gatsby-theme-shopify-manager';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
+import Logo from '../assets/svg/KP_Logo.svg';
+import LogoThumbnail from '../assets/svg/KP_Thumbnail.svg';
+import LogoThumbnailLight from '../assets/svg/KP_Thumbnail_black-pink-whiteBg.svg';
+import Bag from '../assets/svg/bag.svg';
+import ButtonLink from './ButtonLink';
 import { CartContext } from './Cart/CartContext';
 
 const StyledLogoThumbnail = styled(LogoThumbnail)`
+  width: auto;
+  max-width: 60px;
+  height: 100%;
+  fill: #fff;
+`;
+
+const StyledLogoThumbnailLight = styled(LogoThumbnailLight)`
   width: auto;
   max-width: 60px;
   height: 100%;
@@ -39,7 +47,12 @@ const Header = ({ headerClass }) => {
         <animated.div className="Header__body" style={{ ...navSpring }}>
           <Link to="/">
             {!mobile && <Logo className="logo" />}
-            {mobile && <StyledLogoThumbnail />}
+            {mobile && !headerClass.includes('light') && (
+              <StyledLogoThumbnail />
+            )}
+            {mobile && headerClass.includes('light') && (
+              <StyledLogoThumbnailLight />
+            )}
           </Link>
           <div className="Header__nav">
             {!mobile && (
@@ -62,7 +75,7 @@ const Header = ({ headerClass }) => {
               {itemsInCart > 0 ? (
                 <span className="cart-quantity">{itemsInCart}</span>
               ) : (
-                <span></span>
+                <span />
               )}
             </button>
           </div>

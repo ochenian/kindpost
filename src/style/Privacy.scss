@@ -8,7 +8,7 @@
   max-width: 800px;
 
   font-family: Montserrat, sans-serif;
-  color: rgba(0,0,0,0.75);
+  color: rgba(0, 0, 0, 0.75);
 
   & h1 {
     margin-bottom: 4em;
@@ -33,5 +33,9 @@
     margin-bottom: 2em;
     font-size: 0.875rem;
     line-height: 1.8;
+  }
+
+  @media (max-width: 550px) {
+    padding: 8em 2em;
   }
 }
