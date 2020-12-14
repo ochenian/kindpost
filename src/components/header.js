@@ -12,7 +12,8 @@ import styled from 'styled-components';
 import { CartContext } from './Cart/CartContext';
 
 const StyledLogoThumbnail = styled(LogoThumbnail)`
-  width: 4em;
+  width: auto;
+  max-width: 60px;
   height: 100%;
   fill: #fff;
 `;

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react"
-import Slide from "./Slide"
-import leftNavigation from "../assets/LeftNavigation.png";
-import rightNavigation from "../assets/RightNavigation.png";
+import React, { useEffect, useState } from 'react';
+import Slide from './Slide';
+import leftNavigation from '../assets/LeftNavigation.png';
+import rightNavigation from '../assets/RightNavigation.png';
 // import PropTypes from "prop-types";
-import styled, {keyframes} from "styled-components"
-import { useStaticQuery, graphql} from 'gatsby'
-import { config } from "react-spring";
-import Circle from "../assets/svg/circle.svg"
-import { useMediaQuery } from 'react-responsive'
-import { useSwipeable } from "react-swipeable";
+import styled, { keyframes } from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
+import { config } from 'react-spring';
+import Circle from '../assets/svg/circle.svg';
+import { useMediaQuery } from 'react-responsive';
+import { useSwipeable } from 'react-swipeable';
 
 // Arrow Keyframes
 // const stroke = keyframes`
@@ -76,6 +76,10 @@ const Wrapper = styled.div`
   max-width: 945px;
   height: 70vh;
   margin: 0 48px;
+
+  @media (max-width: 550px) {
+    height: 35vh;
+  }
 `;
 
 const NavigationButtons = styled.div`
@@ -111,15 +115,15 @@ const DEFAULT_GO_TO_SLIDE_DELAY = 200;
 
 const mod = (a, b) => {
   return ((a % b) + b) % b;
-}
+};
 
-const Carousel = (props) => {
-  const [state, setState] =  useState({
+const Carousel = props => {
+  const [state, setState] = useState({
     index: 0,
     goToSlide: null,
     prevPropsGoToSlide: 0,
-    newSlide: false
-  })
+    newSlide: false,
+  });
 
   const [attributes, setAttributes] = useState({
     goToSlide: 0,
@@ -127,11 +131,11 @@ const Carousel = (props) => {
     showNavigation: true,
     config: config.gentle,
     goToSlideDelay: 200,
-  })
+  });
 
-  const [animate, setAnimate] = useState({left: false, right: false})
+  const [animate, setAnimate] = useState({ left: false, right: false });
 
-  let goToIn
+  let goToIn;
 
   // static propTypes = {
   //   slides: PropTypes.arrayOf(
@@ -153,7 +157,7 @@ const Carousel = (props) => {
   //   goToSlideDelay: props.goToSlideDelay || DEFAULT_GO_TO_SLIDE_DELAY,
   // };
 
-  const getDerivedStateFromProps = (props) => {
+  const getDerivedStateFromProps = props => {
     const { goToSlide } = attributes;
 
     if (goToSlide !== state.prevPropsGoToSlide) {
@@ -161,37 +165,37 @@ const Carousel = (props) => {
     }
 
     return null;
-  }
+  };
 
   useEffect(() => {
     const { goToSlideDelay } = attributes;
     const { index, goToSlide, newSlide } = state;
 
-    if (typeof goToSlide === "number") {
+    if (typeof goToSlide === 'number') {
       if (newSlide) {
         handleGoToSlide();
-      } else if (index !== goToSlide && typeof window !== "undefined") {
+      } else if (index !== goToSlide && typeof window !== 'undefined') {
         window.clearTimeout(goToIn);
         goToIn = window.setTimeout(handleGoToSlide, goToSlideDelay);
-      } else if (typeof window !== "undefined") {
+      } else if (typeof window !== 'undefined') {
         window.clearTimeout(goToIn);
       }
     }
     return () => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== 'undefined') {
         window.clearTimeout(goToIn);
       }
-    }
-  }, [state, attributes])
+    };
+  }, [state, attributes]);
 
-  const modBySlidesLength = (index) => {
+  const modBySlidesLength = index => {
     return mod(index, props.slides.length);
   };
 
-  const moveSlide = (direction) => {
+  const moveSlide = direction => {
     setState({
       index: modBySlidesLength(state.index + direction),
-      goToSlide: null
+      goToSlide: null,
     });
   };
 
@@ -206,10 +210,10 @@ const Carousel = (props) => {
       } else return 1;
     }
     return 0;
-  }
+  };
 
-  const handleGoToSlide = (state) => {
-    if (typeof state.goToSlide !== "number") {
+  const handleGoToSlide = state => {
+    if (typeof state.goToSlide !== 'number') {
       return;
     }
 
@@ -219,18 +223,17 @@ const Carousel = (props) => {
 
     if (goToSlide !== index) {
       let direction = getShortestDirection(index, goToSlide);
-      const isFinished =
-        modBySlidesLength(index + direction) === goToSlide;
+      const isFinished = modBySlidesLength(index + direction) === goToSlide;
 
-       setState({
+      setState({
         index: modBySlidesLength(index + direction),
         newSlide: isFinished,
-        goToSlide: isFinished ? null : goToSlide
+        goToSlide: isFinished ? null : goToSlide,
       });
     }
   };
 
-  const clampOffsetRadius = (offsetRadius) => {
+  const clampOffsetRadius = offsetRadius => {
     const { slides } = props;
     const upperBound = Math.floor((slides.length - 1) / 2);
 
@@ -242,7 +245,7 @@ const Carousel = (props) => {
     }
 
     return offsetRadius;
-  }
+  };
 
   const getPresentableSlides = () => {
     const { slides } = props;
@@ -256,88 +259,89 @@ const Carousel = (props) => {
     }
 
     return presentableSlides;
+  };
+
+  const { animationConfig, offsetRadius, showNavigation } = attributes;
+
+  let navigationButtons = null;
+  if (showNavigation) {
+    navigationButtons = (
+      <NavigationButtons>
+        <img
+          src={leftNavigation}
+          onClick={() => nextSlide(-1)}
+          style={{ marginRight: '2rem' }}
+        />
+
+        <img
+          src={rightNavigation}
+          onClick={() => nextSlide(1)}
+          style={{ marginLeft: '2rem' }}
+        />
+      </NavigationButtons>
+    );
   }
 
-
-    const { animationConfig, offsetRadius, showNavigation } = attributes;
-
-    let navigationButtons = null;
-    if (showNavigation) {
-      navigationButtons = (
-        <NavigationButtons>
-          <img
-            src={leftNavigation}
-            onClick={() =>  nextSlide(-1)}
-            style={{ marginRight: "2rem" }}
-          />
-
-          <img
-            src={rightNavigation}
-            onClick={() =>  nextSlide(1)}
-            style={{ marginLeft: "2rem" }}
-          />
-        </NavigationButtons>
-      );
+  const nextSlide = direction => {
+    if (direction > 0) {
+      setAnimate({ left: false, right: true });
+    } else if (direction < 0) {
+      setAnimate({ left: true, right: false });
     }
 
-    const nextSlide = (direction) => {
-      if (direction > 0) {
-        setAnimate({left: false, right: true})
-      } else if (direction < 0) {
-        setAnimate({left: true, right: false})
-      }
+    setTimeout(() => {
+      setAnimate({ left: false, right: false });
+    }, 1600);
 
-      setTimeout(() => {
-        setAnimate({left: false, right: false})
-      }, 1600)
+    moveSlide(direction);
+  };
 
-      moveSlide(direction)
-    }
+  const mobile = useMediaQuery({
+    query: '(max-width: 900px)',
+  });
 
-    const mobile = useMediaQuery({
-      query: '(max-width: 900px)'
-    })
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextSlide(1),
+    onSwipedRight: () => nextSlide(-1),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
-    const handlers = useSwipeable({
-      onSwipedLeft: () => nextSlide(1),
-      onSwipedRight: () => nextSlide(-1),
-      preventDefaultTouchmoveEvent: true,
-      trackMouse: true
-    });
+  return (
+    <React.Fragment>
+      {!mobile && (
+        <div
+          onClick={() => nextSlide(-1)}
+          className={`arrow left ${animate.left ? 'animate' : ''}`}
+        >
+          <i></i>
+          <Circle />
+        </div>
+      )}
 
-    return (
-      <React.Fragment>
-        {
-          !mobile && <div onClick={() =>  nextSlide(-1)} className={`arrow left ${animate.left ? 'animate': ''}`}>
-            <i></i>
-            <Circle />
-          </div>
-        }
+      <Wrapper {...handlers}>
+        {getPresentableSlides().map((slide, presentableIndex) => (
+          <Slide
+            key={slide.key}
+            content={slide.content}
+            onClick={slide.onClick}
+            offsetRadius={clampOffsetRadius(offsetRadius)}
+            index={presentableIndex}
+            animationConfig={animationConfig}
+          />
+        ))}
+      </Wrapper>
+      {!mobile && (
+        <div
+          onClick={() => nextSlide(1)}
+          className={`arrow ${animate.right ? 'animate' : ''}`}
+        >
+          <i></i>
+          <Circle />
+        </div>
+      )}
+    </React.Fragment>
+  );
+};
 
-        <Wrapper {...handlers}>
-          {getPresentableSlides().map(
-            (slide, presentableIndex) => (
-              <Slide
-                key={slide.key}
-                content={slide.content}
-                onClick={slide.onClick}
-                offsetRadius={clampOffsetRadius(offsetRadius)}
-                index={presentableIndex}
-                animationConfig={animationConfig}
-              />
-            )
-          )}
-        </Wrapper>
-        {
-          !mobile && <div onClick={() =>  nextSlide(1)} className={`arrow ${animate.right ? 'animate': ''}`}>
-                        <i></i>
-                        <Circle />
-                      </div>
-        }
-
-      </React.Fragment>
-    );
-
-}
-
-export default Carousel
+export default Carousel;
