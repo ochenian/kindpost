@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
 import { useMediaQuery } from 'react-responsive';
 import Footer from '../components/footer';
-import Header from '../components/header';
+import Header from '../components/Header';
 import How from '../components/How';
 import Divider from '../components/Divider';
 import Cart from '../components/Cart/ShopCart';
