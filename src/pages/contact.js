@@ -1,13 +1,13 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import Layout from '../layouts/index'
-import Logo from '../assets/svg/KP_Thumbnail.svg'
-import CompanyLogo from '../assets/svg/KP_Logo.svg'
-import FacebookIcon from '../assets/svg/facebook.svg'
-import TwitterIcon from '../assets/svg/twitter.svg'
-import InstagramIcon from '../assets/svg/insta_icon.svg'
-import styled from 'styled-components'
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import Layout from '../layouts/index';
+import Logo from '../assets/svg/KP_Thumbnail.svg';
+import CompanyLogo from '../assets/svg/KP_Logo.svg';
+import FacebookIcon from '../assets/svg/facebook.svg';
+import TwitterIcon from '../assets/svg/twitter.svg';
+import InstagramIcon from '../assets/svg/insta_icon.svg';
+import styled from 'styled-components';
 
 const Contact = () => {
   const Container = styled.section`
@@ -20,7 +20,7 @@ const Contact = () => {
     line-height: 2;
     letter-spacing: 1.25px;
     font-family: 'Averia Serif Libre';
-  `
+  `;
 
   const StyledTextHeader = styled.p`
     position: relative;
@@ -34,7 +34,7 @@ const Contact = () => {
     font-style: italic;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       left: 25%;
       bottom: -8px;
@@ -42,12 +42,12 @@ const Contact = () => {
       width: 50%;
       border-bottom: 2px solid #f5bc5e;
     }
-  `
+  `;
 
   const TextBody = styled.div`
-  margin: 0 auto;
-  max-width: 550px;
-  `
+    margin: 0 auto;
+    max-width: 550px;
+  `;
 
   const StyledTextSection = styled.div`
     display: flex;
@@ -61,13 +61,13 @@ const Contact = () => {
     a {
       color: #f5bc5e;
     }
-  `
+  `;
 
   const StyledTextSignature = styled.p`
-  margin-bottom: 0;
-  color: #f5bc5e;
-  font-style: italic;
-  `
+    margin-bottom: 0;
+    color: #f5bc5e;
+    font-style: italic;
+  `;
 
   const SocialIcons = styled.section`
     display: flex;
@@ -83,41 +83,51 @@ const Contact = () => {
       fill: #fff;
       cursor: pointer;
     }
-  `
+  `;
 
   const Logo = styled(CompanyLogo)`
     fill: #fff;
     width: 6rem;
     height: auto;
-  `
+  `;
 
   return (
     <Layout site="kindpost" headerClass="Header">
       <Container>
         <TextBody>
           <StyledTextHeader>CONTACT</StyledTextHeader>
-        {/* <Logo /> */}
-        <StyledTextSection>
-          <a href="mailto:studio@kindpost.com">help@kindpost.com</a>
-          Feel free to send us any questions on our products!
-        </StyledTextSection>
-        <StyledTextSection>
-          <a href="mailto:collaborate@kindpost.com">collaborate@kindpost.com</a>
-          For press inquiries to feature Kindpost, please contact us at the above address.
-        </StyledTextSection>
-        <StyledTextSection>
-          <a href="mailto:press@kindpost.com">media@kindpost.com</a>
-          To discuss collaborations, sponsorships, or social media engagements, please contact us at the above address.
-        </StyledTextSection>
-        <SocialIcons>
-          <InstagramIcon />
-          <TwitterIcon />
-          <FacebookIcon />
-        </SocialIcons>
+          {/* <Logo /> */}
+          <StyledTextSection>
+            <a href="mailto:studio@kindpost.com">help@kindpost.com</a>
+            Feel free to send us any questions on our products!
+          </StyledTextSection>
+          <StyledTextSection>
+            <a href="mailto:collaborate@kindpost.com">
+              collaborate@kindpost.com
+            </a>
+            For press inquiries to feature Kindpost, please contact us at the
+            above address.
+          </StyledTextSection>
+          <StyledTextSection>
+            <a href="mailto:press@kindpost.com">media@kindpost.com</a>
+            To discuss collaborations, sponsorships, or social media
+            engagements, please contact us at the above address.
+          </StyledTextSection>
+          <SocialIcons>
+            <a href="https://twitter.com/kindpostco">
+              <TwitterIcon />
+            </a>
+            <a href="https://www.instagram.com/kindpostco">
+              <InstagramIcon />
+            </a>
+            <a href="https://www.facebook.com/kindpostco">
+              <FacebookIcon />
+            </a>
+          </SocialIcons>
         </TextBody>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
