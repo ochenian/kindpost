@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import Slide from './Slide';
-import leftNavigation from '../assets/LeftNavigation.png';
-import rightNavigation from '../assets/RightNavigation.png';
 // import PropTypes from "prop-types";
 import styled, { keyframes } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { config } from 'react-spring';
-import Circle from '../assets/svg/circle.svg';
 import { useMediaQuery } from 'react-responsive';
 import { useSwipeable } from 'react-swipeable';
+import Circle from '../assets/svg/circle.svg';
+import rightNavigation from '../assets/RightNavigation.png';
+import leftNavigation from '../assets/LeftNavigation.png';
+import Slide from './Slide';
 
 // Arrow Keyframes
 // const stroke = keyframes`
@@ -92,6 +92,10 @@ const NavigationButtons = styled.div`
   justify-content: space-between;
   img {
     height: 100%;
+  }
+
+  @media (max-width: 550px) {
+    display: none;
   }
 `;
 
@@ -203,11 +207,14 @@ const Carousel = props => {
     if (from > to) {
       if (from - to > props.slides.length - 1 - from + to) {
         return 1;
-      } else return -1;
-    } else if (to > from) {
+      }
+      return -1;
+    }
+    if (to > from) {
       if (to - from > from + props.slides.length - 1 - to) {
         return -1;
-      } else return 1;
+      }
+      return 1;
     }
     return 0;
   };
@@ -222,7 +229,7 @@ const Carousel = props => {
     const goToSlide = mod(state.goToSlide, props.slides.length);
 
     if (goToSlide !== index) {
-      let direction = getShortestDirection(index, goToSlide);
+      const direction = getShortestDirection(index, goToSlide);
       const isFinished = modBySlidesLength(index + direction) === goToSlide;
 
       setState({
@@ -308,13 +315,13 @@ const Carousel = props => {
   });
 
   return (
-    <React.Fragment>
+    <>
       {!mobile && (
         <div
           onClick={() => nextSlide(-1)}
           className={`arrow left ${animate.left ? 'animate' : ''}`}
         >
-          <i></i>
+          <i />
           <Circle />
         </div>
       )}
@@ -336,11 +343,11 @@ const Carousel = props => {
           onClick={() => nextSlide(1)}
           className={`arrow ${animate.right ? 'animate' : ''}`}
         >
-          <i></i>
+          <i />
           <Circle />
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
