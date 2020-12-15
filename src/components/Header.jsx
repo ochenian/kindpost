@@ -7,20 +7,20 @@ import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import Logo from '../assets/svg/KP_Logo.svg';
 import LogoThumbnail from '../assets/svg/KP_Thumbnail.svg';
-import LogoThumbnailLight from '../assets/svg/KP_Thumbnail_black-pink-whiteBg.svg';
+import LogoThumbnailLight from '../assets/svg/KP_Thumbnail_black-pink.svg';
 import Bag from '../assets/svg/bag.svg';
 import ButtonLink from './ButtonLink';
 import { CartContext } from './Cart/CartContext';
 
 const StyledLogoThumbnail = styled(LogoThumbnail)`
-  width: auto;
+  width: 100%;
   max-width: 60px;
   height: 100%;
   fill: #fff;
 `;
 
 const StyledLogoThumbnailLight = styled(LogoThumbnailLight)`
-  width: auto;
+  width: 100%;
   max-width: 60px;
   height: 100%;
   fill: #fff;
