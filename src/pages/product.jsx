@@ -7,7 +7,7 @@ import styled from 'styled-components';
 // fetch the large, unoptimized version of the SDK
 import Client from 'shopify-buy/index.unoptimized.umd';
 import { motion, useAnimation } from 'framer-motion';
-import { useAddItemToCart } from 'gatsby-theme-shopify-manager';
+import { useAddItemToCart, useCartItems } from 'gatsby-theme-shopify-manager';
 import Layout from '../layouts/index';
 import CtaButton from '../components/shared/Button';
 import { CartContext } from '../components/Cart/CartContext';
@@ -73,6 +73,7 @@ const SoldOut = styled(CtaButton)`
 const ProductPage = () => {
   const { toggleCart } = useContext(CartContext);
   const [soldOut, setSoldOut] = useState(false);
+  const cartItems = useCartItems();
 
   const client = Client.buildClient({
     domain: `${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com`,
@@ -263,6 +264,12 @@ const ProductPage = () => {
     imgBack: data.postcardBack.childImageSharp.fluid,
   });
 
+  const [isAddToCartDisabled, setAddToCartDisabled] = useState(
+    cartItems
+      .map(item => item.variant.title.toLowerCase())
+      .includes(selectedPostcard.id),
+  );
+
   function selectPostcard(selected) {
     switch (selected.id) {
       case 'birthday':
@@ -319,14 +326,17 @@ const ProductPage = () => {
     }
   }
 
-  // selectPostcard(selectedPostcard);
-
   function onPostcardSelect(selected) {
     if (!flipped) {
       setFlipped(state => !state);
     }
 
     selectPostcard(selected);
+
+    const selectedItemInCart = cartItems
+      .map(item => item.variant.title.toLowerCase())
+      .includes(selected.id);
+    setAddToCartDisabled(selectedItemInCart);
   }
 
   const rightControls = useAnimation();
@@ -414,8 +424,10 @@ const ProductPage = () => {
                 <Description>{selectedPostcard.description}</Description>
               </>
             )}
-            {soldOut ? (
-              <SoldOut disabled>SOLD OUT</SoldOut>
+            {soldOut || isAddToCartDisabled ? (
+              <SoldOut disabled>
+                {isAddToCartDisabled ? 'ALREADY IN CART' : 'SOLD OUT'}
+              </SoldOut>
             ) : (
               <Checkout
                 className="Product snipcart-add-item"
