@@ -6,6 +6,8 @@
 
 import Provider from './src/components/Cart/CartContext';
 
+import './src/style/index.scss';
+
 require('typeface-itim');
 require('typeface-lato');
 require('typeface-averia-sans-libre');
