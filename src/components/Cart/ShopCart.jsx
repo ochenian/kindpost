@@ -321,6 +321,14 @@ const Cart = () => {
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
   });
   const [soldOut, setSoldOut] = useState(false);
+  const [showItems, setShowItems] = useState(false);
+  const cartItems = useCartItems();
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      setShowItems(true);
+    }
+  }, [cartItems]);
 
   useEffect(() => {
     setState({
@@ -357,7 +365,6 @@ const Cart = () => {
     });
   }, [client.graphQLClient]);
 
-  const cartItems = useCartItems();
   const removeItemFromCart = useRemoveItemFromCart();
 
   return (
@@ -368,7 +375,7 @@ const Cart = () => {
           <Close />
         </CloseBtn>
       </Heading>
-      {cartItems.length > 0 ? (
+      {showItems ? (
         <Content>
           <CartList
             items={cartItems}
@@ -379,10 +386,12 @@ const Cart = () => {
 
           <Costs>
             <Cost>
-              <span>Subtotal:</span> <strong>${cart.subtotalPrice}</strong>
+              <span>Subtotal:</span>
+              <strong>${cart.subtotalPrice}</strong>
             </Cost>
             <Cost>
-              <span>Shipping:</span> <strong>FREE</strong>
+              <span>Shipping:</span>
+              <strong>FREE</strong>
             </Cost>
             <Total>
               <span>Total Price:</span>
