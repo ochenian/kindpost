@@ -81,11 +81,14 @@ const ProductPage = () => {
   const { toggleCart } = useContext(CartContext);
   const [soldOut, setSoldOut] = useState(false);
   const cartItems = useCartItems();
+  const [showSoldOut, setShowSoldOut] = useState(false);
+  const [showAlreadyInCart, setShowAlreadyInCart] = useState(false);
 
   const client = Client.buildClient({
     domain: `${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com`,
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
   });
+
   useEffect(() => {
     // Fetch 'quantityAvailable' dynamically to get an updated quantity on page entry
     const productsQuery = client.graphQLClient.query(root => {
@@ -270,12 +273,27 @@ const ProductPage = () => {
     imgFront: data.postcardImg.childImageSharp.fluid,
     imgBack: data.postcardBack.childImageSharp.fluid,
   });
-
   const [isAddToCartDisabled, setAddToCartDisabled] = useState(
     cartItems
       .map(item => item.variant.title.toLowerCase())
       .includes(selectedPostcard.id),
   );
+
+  useEffect(() => {
+    if (soldOut || isAddToCartDisabled) {
+      setShowSoldOut(true);
+    } else {
+      setShowSoldOut(false);
+    }
+  }, [soldOut, isAddToCartDisabled]);
+
+  useEffect(() => {
+    if (isAddToCartDisabled) {
+      setShowAlreadyInCart(true);
+    } else {
+      setShowAlreadyInCart(false);
+    }
+  }, [isAddToCartDisabled]);
 
   function selectPostcard(selected) {
     switch (selected.id) {
@@ -431,9 +449,9 @@ const ProductPage = () => {
                 <Description>{selectedPostcard.description}</Description>
               </>
             )}
-            {soldOut || isAddToCartDisabled ? (
+            {showSoldOut ? (
               <SoldOut disabled>
-                {isAddToCartDisabled ? 'ALREADY IN CART' : 'SOLD OUT'}
+                {showAlreadyInCart ? 'ALREADY IN CART' : 'SOLD OUT'}
               </SoldOut>
             ) : (
               <Checkout
