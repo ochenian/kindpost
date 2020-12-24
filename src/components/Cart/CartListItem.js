@@ -7,8 +7,6 @@ import {
   useCart,
   useSetCartUnsafe,
 } from 'gatsby-theme-shopify-manager';
-import Add from '../../assets/svg/add-24px.svg';
-import Remove from '../../assets/svg/remove-24px.svg';
 import Delete from '../../assets/svg/delete_outline-24px.svg';
 import { Input } from '../shared/FormElements';
 import { Button } from '../shared/Buttons';
@@ -48,10 +46,11 @@ const Name = styled('span')`
 `;
 
 const Meta = styled('span')`
-  color: ${colors.textLight};
+  color: #f40075;
   display: block;
   font-size: 0.95rem;
   font-style: normal;
+  font-weight: bold;
   line-height: 1;
   text-transform: uppercase;
 `;
@@ -135,8 +134,6 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
 
     try {
       await removeItemFromCart(item.variant.id);
-      setCartLoading(false);
-      toggle();
     } catch (e) {
       console.log(e);
     }

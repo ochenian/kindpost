@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import PropTypes from "prop-types";
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { config } from 'react-spring';
 import { useMediaQuery } from 'react-responsive';
@@ -133,11 +133,15 @@ const Carousel = props => {
     goToSlide: 0,
     offsetRadius: 10,
     showNavigation: true,
-    config: config.gentle,
+    animationConfig: config.gentle,
     goToSlideDelay: 200,
   });
 
   const [animate, setAnimate] = useState({ left: false, right: false });
+
+  const mobile = useMediaQuery({
+    query: '(max-width: 900px)',
+  });
 
   let goToIn;
 
@@ -303,16 +307,14 @@ const Carousel = props => {
     moveSlide(direction);
   };
 
-  const mobile = useMediaQuery({
-    query: '(max-width: 900px)',
-  });
-
   const handlers = useSwipeable({
     onSwipedLeft: () => nextSlide(1),
     onSwipedRight: () => nextSlide(-1),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
+
+  console.log(mobile);
 
   return (
     <>

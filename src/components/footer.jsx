@@ -101,10 +101,6 @@ const LegalContainer = styled.div`
   a {
     margin-right: 16px;
     color: #fff;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
   }
 
   svg {
@@ -177,7 +173,7 @@ const Footer = () => {
                 )}
 
                 <PrivacyText>
-                  YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR
+                  YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR&nbsp;
                   <Link
                     to="/privacy-policy"
                     style={{ textDecoration: 'underline' }}

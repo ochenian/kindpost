@@ -26,6 +26,25 @@ const StyledLogoThumbnailLight = styled(LogoThumbnailLight)`
   fill: #fff;
 `;
 
+const CartQuantity = styled.span`
+  border: 1px solid #d4004c;
+  border-radius: 50% 50%;
+  height: 16px;
+  width: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  background: #d4004c;
+  font-size: 0.25em;
+
+  & .light {
+    color: #fff;
+  }
+`;
+
 const Header = ({ headerClass }) => {
   const { toggleCart } = useContext(CartContext);
   const itemsInCart = useCartCount();
@@ -70,13 +89,9 @@ const Header = ({ headerClass }) => {
                 </Link>
               </ButtonLink>
             )}
-            <button className="Header__btn snipcart-checkout">
+            <button type="button" className="Header__btn snipcart-checkout">
               <Bag onClick={() => toggleCart()} />
-              {itemsInCart > 0 ? (
-                <span className="cart-quantity">{itemsInCart}</span>
-              ) : (
-                <span />
-              )}
+              {itemsInCart > 0 && <CartQuantity>{itemsInCart}</CartQuantity>}
             </button>
           </div>
         </animated.div>

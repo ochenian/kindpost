@@ -40,12 +40,6 @@
         color: #000;
       }
     }
-
-    .Header__btn {
-      .cart-quantity {
-        color: #fff;
-      }
-    }
   }
 }
 
@@ -104,23 +98,6 @@
 
   & svg {
     width: 1.25em;
-  }
-
-  & .cart-quantity {
-    // border: 1px solid rgba(255, 199, 199, 1);
-    border: 1px solid #d4004c;
-    border-radius: 50% 50%;
-    height: 16px;
-    width: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -6px;
-    left: 20px;
-    // background: rgba(255, 199, 199, 1);
-    background: #d4004c;
-    font-size: 0.25em;
   }
 }
 
