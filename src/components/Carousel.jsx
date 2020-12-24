@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import PropTypes from "prop-types";
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { config } from 'react-spring';
@@ -318,15 +317,13 @@ const Carousel = props => {
 
   return (
     <>
-      {!mobile && (
-        <div
-          onClick={() => nextSlide(-1)}
-          className={`arrow left ${animate.left ? 'animate' : ''}`}
-        >
-          <i />
-          <Circle />
-        </div>
-      )}
+      <div
+        onClick={() => nextSlide(-1)}
+        className={`arrow left ${animate.left ? 'animate' : ''}`}
+      >
+        <i />
+        <Circle />
+      </div>
 
       <Wrapper {...handlers}>
         {getPresentableSlides().map((slide, presentableIndex) => (
@@ -340,15 +337,13 @@ const Carousel = props => {
           />
         ))}
       </Wrapper>
-      {!mobile && (
-        <div
-          onClick={() => nextSlide(1)}
-          className={`arrow ${animate.right ? 'animate' : ''}`}
-        >
-          <i />
-          <Circle />
-        </div>
-      )}
+      <div
+        onClick={() => nextSlide(1)}
+        className={`arrow ${animate.right ? 'animate' : ''}`}
+      >
+        <i />
+        <Circle />
+      </div>
     </>
   );
 };
