@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import Footer from '../components/footer';
 import Header from '../components/Header';
 import How from '../components/How';
@@ -16,9 +16,7 @@ import '../style/index.scss';
 
 const Layout = ({ children, siteName, headerClass }) => {
   const { showCart, toggleCart } = useContext(CartContext);
-  const mobile = useMediaQuery({
-    query: '(max-width: 900px)',
-  });
+  const mobile = useMediaQuery('(max-width: 900px)');
 
   return (
     <div>

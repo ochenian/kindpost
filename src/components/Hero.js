@@ -1,75 +1,73 @@
-import React from 'react'
-import {useSpring, useTrail, animated, config} from 'react-spring'
-import { useStaticQuery, graphql } from 'gatsby'
-import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg'
-import InstaLogo from '../assets/svg/insta_icon.svg'
-import FacebookLogo from '../assets/svg/facebook.svg'
-import TextRotator from '../components/TextRotaor'
-import styled from "styled-components"
-import { motion, useTransform, useViewportScroll } from "framer-motion"
+import React from 'react';
+import { useSpring, useTrail, animated, config } from 'react-spring';
+import { useStaticQuery, graphql } from 'gatsby';
+import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg';
+import InstaLogo from '../assets/svg/insta_icon.svg';
+import FacebookLogo from '../assets/svg/facebook.svg';
+import TextRotator from '../components/TextRotaor';
+import styled from 'styled-components';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import CtaButton from './shared/Button';
 import { Link } from 'gatsby';
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const SocialIcons = styled.div`
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 
-z-index: 10;
-position: absolute;
-bottom: 40px;
-left: 30px;
-`
+  z-index: 10;
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+`;
 
 const StyledTwitterLogo = styled(TwitterLogo)`
-width: 36px;
-height: 36px;
-cursor: pointer;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
 
-:hover {
-  .cls-2 {
-    fill: #d4004c;
+  :hover {
+    .cls-2 {
+      fill: #d4004c;
+    }
   }
-}
-`
+`;
 
 const StyledInstaLogo = styled(InstaLogo)`
-margin: 6px 24px;
-fill: #fff;
-cursor: pointer;
+  margin: 6px 24px;
+  fill: #fff;
+  cursor: pointer;
 
-:hover {
-  fill: #d4004c;
-}
-`
+  :hover {
+    fill: #d4004c;
+  }
+`;
 
 const StyledFacebookLogo = styled(FacebookLogo)`
-width: 24px;
-height: 24px;
-fill: #fff;
-margin: 0 8px;
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  margin: 0 8px;
 
-:hover {
-  fill: #d4004c;
-}
-`
+  :hover {
+    fill: #d4004c;
+  }
+`;
 
 const Hero = () => {
-  const mobile = useMediaQuery({
-    query: '(max-width: 600px)'
-  })
-  const { scrollYProgress } = useViewportScroll()
-  const y = useTransform(scrollYProgress, [0, 1], [0, 2000])
-  let trailConfig = { mass: 5, tension: 1000, friction: 100 }
+  const mobile = useMediaQuery('(max-width: 600px)');
+  const { scrollYProgress } = useViewportScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, 2000]);
+  let trailConfig = { mass: 5, tension: 1000, friction: 100 };
 
   const textSpring = useSpring({
-    to: {opacity: 1},
-    from: {opacity: 0},
-    delay: 500
-  })
-  const videoSpring = useSpring({ opacity: 1, from: { opacity: 0 }})
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    delay: 500,
+  });
+  const videoSpring = useSpring({ opacity: 1, from: { opacity: 0 } });
 
-  const videoText = ['send', 'your']
+  const videoText = ['send', 'your'];
 
   const trail = useTrail(videoText.length, {
     config: config.wobbly,
@@ -80,17 +78,19 @@ const Hero = () => {
       opacity: 0,
     },
     // config: {duration: 1000}
-    delay: 1000
-  })
+    delay: 1000,
+  });
 
   const buttonAnimation = useSpring({
     opacity: 1,
     transform: 'scale(1)',
     from: {
       opacity: 0,
-      transform: 'scale(0.75)'},
-      delay: 3000,
-      config: config.wobbly})
+      transform: 'scale(0.75)',
+    },
+    delay: 3000,
+    config: config.wobbly,
+  });
 
   const data = useStaticQuery(graphql`
     query CloudinaryVideo {
@@ -102,74 +102,77 @@ const Hero = () => {
         }
       }
     }
-  `)
+  `);
 
-  const rotatedText = [{
-    text: 'inspiration',
-    className: 'classA',
-    animation: 'fade',
-  },
-  {
-    text: 'appreciation',
-    className: 'classA',
-    animation: 'fade',
-  },
-  {
-    text: 'gratitude',
-    className: 'classA',
-    animation: 'fade',
-  },
-  {
-    text: 'positivity',
-    className: 'classA',
-    animation: 'fade',
-  },
-  {
-    text: 'well wishes',
-    className: 'classA',
-    animation: 'fade',
-  },
-  {
-    text: 'best',
-    className: 'classA',
-    animation: 'fade',
-  },
-  {
-    text: 'love',
-    className: 'classA',
-    animation: 'fade',
-  },
-];
-  const clVideo = data.allCloudinaryMedia.edges[0]
+  const rotatedText = [
+    {
+      text: 'inspiration',
+      className: 'classA',
+      animation: 'fade',
+    },
+    {
+      text: 'appreciation',
+      className: 'classA',
+      animation: 'fade',
+    },
+    {
+      text: 'gratitude',
+      className: 'classA',
+      animation: 'fade',
+    },
+    {
+      text: 'positivity',
+      className: 'classA',
+      animation: 'fade',
+    },
+    {
+      text: 'well wishes',
+      className: 'classA',
+      animation: 'fade',
+    },
+    {
+      text: 'best',
+      className: 'classA',
+      animation: 'fade',
+    },
+    {
+      text: 'love',
+      className: 'classA',
+      animation: 'fade',
+    },
+  ];
+  const clVideo = data.allCloudinaryMedia.edges[0];
 
   return (
     <div className="Hero">
       <div className="video-text">
         <div className="text-container">
-          <animated.div style={{...textSpring}} className="small-text">a new way to</animated.div>
+          <animated.div style={{ ...textSpring }} className="small-text">
+            a new way to
+          </animated.div>
           <div className="large-text">
-            {
-              trail.map(({opacity, ...rest}, index) => (
-                <animated.span
-                  key={index}
-                  style={{ ...rest, opacity }}>
-                  {videoText[index]}
-                </animated.span>
-              ))
-            }
-            { !mobile && <TextRotator
-              className="rotator"
-              content={rotatedText}
-              time={4000}
-              startDelay={1000}
-          /> }
+            {trail.map(({ opacity, ...rest }, index) => (
+              <animated.span key={index} style={{ ...rest, opacity }}>
+                {videoText[index]}
+              </animated.span>
+            ))}
+            {!mobile && (
+              <TextRotator
+                className="rotator"
+                content={rotatedText}
+                time={4000}
+                startDelay={1000}
+              />
+            )}
           </div>
-          { mobile && <TextRotator
+          {mobile && (
+            <TextRotator
               className="rotator"
               content={rotatedText}
               time={4000}
               startDelay={1000}
-          /> }
+            />
+          )}
           <Link to="product">
             <CtaButton>send</CtaButton>
           </Link>
@@ -179,11 +182,14 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           muted
           src={clVideo.node.secure_url}
-          autoPlay loop playsInline></motion.video>
+          autoPlay
+          loop
+          playsInline
+        ></motion.video>
       </div>
       <SocialIcons>
         <a href="https://twitter.com/kindpostco">
-          <StyledTwitterLogo/>
+          <StyledTwitterLogo />
         </a>
         <a href="https://www.instagram.com/kindpostco">
           <StyledInstaLogo />
@@ -193,9 +199,7 @@ const Hero = () => {
         </a>
       </SocialIcons>
     </div>
+  );
+};
 
-  )
-}
-
-
-export default Hero
+export default Hero;

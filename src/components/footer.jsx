@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'gatsby-link';
-import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg';
 import InstaLogo from '../assets/svg/insta_icon.svg';
 import FacebookLogo from '../assets/svg/facebook.svg';
@@ -118,9 +118,7 @@ const SignUpButton = styled.button`
 `;
 
 const Footer = () => {
-  const mobile = useMediaQuery({
-    query: '(max-width: 900px)',
-  });
+  const mobile = useMediaQuery('(max-width: 900px)');
 
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('');

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { config } from 'react-spring';
-import { useMediaQuery } from 'react-responsive';
 import { useSwipeable } from 'react-swipeable';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import Circle from '../assets/svg/circle.svg';
 import rightNavigation from '../assets/RightNavigation.png';
 import leftNavigation from '../assets/LeftNavigation.png';
@@ -138,9 +138,7 @@ const Carousel = props => {
 
   const [animate, setAnimate] = useState({ left: false, right: false });
 
-  const mobile = useMediaQuery({
-    query: '(max-width: 900px)',
-  });
+  const mobile = useMediaQuery('(max-width: 900px)');
 
   let goToIn;
 
