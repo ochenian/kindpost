@@ -39,10 +39,7 @@ const CartQuantity = styled.span`
   left: 20px;
   background: #d4004c;
   font-size: 0.25em;
-
-  & .light {
-    color: #fff;
-  }
+  color: #fff;
 `;
 
 const Header = ({ headerClass }) => {

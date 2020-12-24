@@ -81,22 +81,13 @@ const Heading = styled(`header`)`
   margin-top: 1rem;
 `;
 
-const Title = styled(`h2`)`
+const Title = styled.h2`
   flex-grow: 1;
   font-family: ${fonts.heading};
   font-size: 1.8rem;
-  // left: -${dimensions.headerHeight};
   margin: 0;
-  // margin-left: ${spacing.md}px;
   position: relative;
-
-  .open & {
-    // margin-left: calc(${dimensions.headerHeight} + ${spacing.md}px);
-
-    @media (min-width: ${breakpoints.desktop}px) {
-      // margin-left: ${spacing.md}px;
-    }
-  }
+  text-transform: uppercase;
 `;
 
 const Content = styled(`div`)`
@@ -271,12 +262,16 @@ const CheckOut = styled(PrimaryButton)`
   font-size: 1.25rem;
   margin: ${spacing.lg}px 0 ${spacing.md}px;
   width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 `;
 
 const BackLink = styled(Button)`
   font-size: 1.25rem;
   margin-bottom: ${spacing.sm}px;
   width: 100%;
+  text-transform: lowercase;
+  letter-spacing: 1px;
 `;
 
 const CloseBtn = styled.div`
@@ -306,6 +301,7 @@ const SoldOut = styled(Button)`
   font-size: 1.25rem;
   margin-bottom: ${spacing.sm}px;
   width: 100%;
+  text-transform: uppercase;
 `;
 
 const Cart = () => {

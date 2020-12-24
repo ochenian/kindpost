@@ -27,6 +27,7 @@ const TextContainer = styled.div`
   letter-spacing: 5px;
   text-transform: lowercase;
   text-shadow: 0 0 16px rgba(0, 0, 0, 1);
+  padding: 0 2rem;
 `;
 
 const Text = styled.div`

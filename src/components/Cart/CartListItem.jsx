@@ -14,7 +14,7 @@ import CartThumbnail from './CartThumbnail';
 import { breakpoints, colors, spacing } from '../../utils/styles';
 
 const CartListItemRoot = styled('li')`
-  /* align-items: center; */
+  align-items: center;
   border-bottom: 1px solid ${colors.brandLight};
   display: flex;
   /* justify-content: space-between; */
@@ -31,18 +31,35 @@ const Thumbnail = styled(CartThumbnail)`
   height: 100%;
 `;
 
-const Info = styled('div')`
-  flex-grow: 1;
+const LineContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
 `;
 
-const Name = styled('span')`
-  display: block;
-  font-size: 1.5rem;
-  /* line-height: 1.2; */
-  line-height: 0.75;
+const PrimaryLine = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const SecondaryLine = styled.div`
+  display: flex;
+  margin: 4px 0;
+`;
+
+const ProductName = styled.div`
+  font-size: 1.25rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+`;
+
+const PriceDeleteContainer = styled.div`
+  display: flex;
+`;
+
+const Price = styled.div`
+  margin-right: 24px;
 `;
 
 const Meta = styled('span')`
@@ -89,13 +106,6 @@ const QtyChange = styled(Button)`
     margin: 0;
     width: 16px;
   }
-`;
-
-const Price = styled.div`
-  align-self: flex-start;
-  line-height: 1;
-  margin-top: 4px;
-  margin-right: 16px;
 `;
 
 const DeleteIcon = styled(Delete)`
@@ -200,35 +210,18 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
         fallback={item.variant.image.src}
         alt={item.variant.image.altText}
       />
-      <Info>
-        <Name>{item.title}</Name>
-        <Meta>{item.variant.selectedOptions[0].value}</Meta>
-        {/* <QtyContainer>
-          <QtyChange onClick={e => decrement(e)}>
-            <Remove />
-          </QtyChange>
-          <Quantity
-            aria-label="Quantity"
-            id={`quantity_${item.id.substring(58, 64)}`}
-            type="number"
-            name="quantity"
-            inputmode="numeric"
-            min="1"
-            max="10"
-            step="1"
-            onChange={event => handleInputChange(event)}
-            onBlur={() => setQuantity(item.quantity)}
-            value={quantity}
-            ref={quantityEl}
-          />
-          <QtyChange onClick={e => increment(e)}>
-            <Add />
-          </QtyChange>
-        </QtyContainer> */}
-      </Info>
-
-      <Price>${item.variant.price}</Price>
-      <DeleteIcon onClick={handleRemoveItem} />
+      <LineContainer>
+        <PrimaryLine>
+          <ProductName>{item.title}</ProductName>
+          <PriceDeleteContainer>
+            <Price>${item.variant.price}</Price>
+            <DeleteIcon onClick={handleRemoveItem} />
+          </PriceDeleteContainer>
+        </PrimaryLine>
+        <SecondaryLine>
+          <Meta>{item.variant.selectedOptions[0].value}</Meta>
+        </SecondaryLine>
+      </LineContainer>
     </CartListItemRoot>
   );
 };
