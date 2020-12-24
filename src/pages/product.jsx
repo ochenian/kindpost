@@ -43,32 +43,38 @@ const OptionsContainer = styled.div`
 `;
 
 const Variants = styled(CtaButton)`
-  margin: 12px 0 0 12px;
-  color: #f40075;
-  border: 1px solid #f40075;
-  letter-spacing: 2px;
+  &&& {
+    margin: 12px 0 0 12px;
+    color: #f40075;
+    border: 1px solid #f40075;
+    letter-spacing: 2px;
 
-  &.selected {
-    background: #f40075;
-    /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
-    color: #fff;
+    &.selected {
+      background: #f40075;
+      /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
+      color: #fff;
+    }
   }
 `;
 
 const Checkout = styled(CtaButton)`
-  color: #f40075;
-  border: 1px solid #f40075;
-  letter-spacing: 2px;
-  max-width: 316px;
-  text-decoration: none;
+  &&& {
+    color: #f40075;
+    border: 1px solid #f40075;
+    letter-spacing: 2px;
+    max-width: 316px;
+    text-decoration: none;
+  }
 `;
 
 const SoldOut = styled(CtaButton)`
-  color: #fff;
-  background: #dedede;
-  letter-spacing: 2px;
-  max-width: 316px;
-  cursor: default;
+  &&& {
+    color: #fff;
+    background: #dedede;
+    letter-spacing: 2px;
+    max-width: 316px;
+    cursor: default;
+  }
 `;
 
 const ProductPage = () => {
