@@ -3,7 +3,6 @@ import Link from 'gatsby-link';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { useSpring, animated, config } from 'react-spring';
 import { useCartCount } from 'gatsby-theme-shopify-manager';
-import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import Logo from '../assets/svg/KP_Logo.svg';
 import LogoThumbnail from '../assets/svg/KP_Thumbnail.svg';
@@ -11,6 +10,7 @@ import LogoThumbnailLight from '../assets/svg/KP_Thumbnail_black-pink.svg';
 import Bag from '../assets/svg/bag.svg';
 import ButtonLink from './ButtonLink';
 import { CartContext } from './Cart/CartContext';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const StyledLogoThumbnail = styled(LogoThumbnail)`
   width: 100%;
@@ -49,9 +49,7 @@ const Header = ({ headerClass }) => {
   const { toggleCart } = useContext(CartContext);
   const itemsInCart = useCartCount();
 
-  const mobile = useMediaQuery({
-    query: '(max-width: 700px)',
-  });
+  const mobile = useMediaQuery('(max-width: 900px)');
 
   const navSpring = useSpring({
     opacity: 1,
