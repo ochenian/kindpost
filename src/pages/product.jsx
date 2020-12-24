@@ -60,6 +60,7 @@ const Checkout = styled(CtaButton)`
   border: 1px solid #f40075;
   letter-spacing: 2px;
   max-width: 316px;
+  text-decoration: none;
 `;
 
 const SoldOut = styled(CtaButton)`
@@ -430,7 +431,6 @@ const ProductPage = () => {
               </SoldOut>
             ) : (
               <Checkout
-                className="Product snipcart-add-item"
                 onClick={() => {
                   addToCart(selectedPostcard.shopifyId, 1);
                 }}
