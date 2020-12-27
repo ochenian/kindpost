@@ -78,7 +78,7 @@ const SoldOut = styled(CtaButton)`
 `;
 
 const ProductPage = () => {
-  const { toggleCart } = useContext(CartContext);
+  const { showCart, toggleCart } = useContext(CartContext);
   const [soldOut, setSoldOut] = useState(false);
   const cartItems = useCartItems();
   const [showSoldOut, setShowSoldOut] = useState(false);
@@ -363,6 +363,13 @@ const ProductPage = () => {
       .includes(selected.id);
     setAddToCartDisabled(selectedItemInCart);
   }
+
+  useEffect(() => {
+    const alreadyInCart = cartItems
+      .map(item => item.variant.title.toLowerCase())
+      .includes(selectedPostcard.id);
+    setAddToCartDisabled(alreadyInCart);
+  }, [cartItems, showCart, selectedPostcard.id]);
 
   const rightControls = useAnimation();
   const leftControls = useAnimation();

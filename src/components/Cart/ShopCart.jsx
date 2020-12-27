@@ -323,6 +323,8 @@ const Cart = () => {
   useEffect(() => {
     if (cartItems.length > 0) {
       setShowItems(true);
+    } else {
+      setShowItems(false);
     }
   }, [cartItems]);
 
