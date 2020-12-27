@@ -41,7 +41,7 @@ const CtaButton = styled.button`
   }
 
   @media (hover: hover) {
-    &:hover:enabled {
+    &&&:hover:enabled {
       box-shadow: 0 0 1px 2px rgba(0,0,0,0.08),
       0 0 2px 4px rgba(0,0,0,0.08);
       /* background: #fff; */

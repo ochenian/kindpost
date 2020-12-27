@@ -373,6 +373,7 @@ const ProductPage = () => {
     try {
       await addItemToCart(variantId, quantity);
       toggleCart();
+      setAddToCartDisabled(true);
     } catch (e) {
       console.log(e);
     }
