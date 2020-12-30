@@ -1,11 +1,11 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 const Showcase = () => {
   const data = useStaticQuery(graphql`
     query PostcardQuery {
-      postcardSampleImg: file(relativePath: { eq: "Sample.png" }) {
+      postcardSampleImg: file(relativePath: { eq: "Sample.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -14,7 +14,9 @@ const Showcase = () => {
           }
         }
       }
-      postcardEncouragementImg: file(relativePath: { eq: "Encouragement.png" }) {
+      postcardEncouragementImg: file(
+        relativePath: { eq: "Encouragement.jpg" }
+      ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -24,11 +26,14 @@ const Showcase = () => {
         }
       }
     }
-  `)
+  `);
   return (
     <React.Fragment>
       <div className="showcase">
-        <Img className="showcase-image" fluid={data.postcardSampleImg.childImageSharp.fluid} />
+        <Img
+          className="showcase-image"
+          fluid={data.postcardSampleImg.childImageSharp.fluid}
+        />
         {/* <svg viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="50"/>
         </svg> */}
@@ -42,11 +47,13 @@ const Showcase = () => {
           <div>Handwritten</div>
           <div>Positivity</div>
         </div>
-        <Img className="showcase-image" fluid={data.postcardEncouragementImg.childImageSharp.fluid} />
+        <Img
+          className="showcase-image"
+          fluid={data.postcardEncouragementImg.childImageSharp.fluid}
+        />
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
-
-export default Showcase
+export default Showcase;

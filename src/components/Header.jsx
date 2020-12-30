@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import Link from 'gatsby-link';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { useSpring, animated, config } from 'react-spring';

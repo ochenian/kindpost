@@ -5,8 +5,6 @@ import { config } from 'react-spring';
 import { useSwipeable } from 'react-swipeable';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import Circle from '../assets/svg/circle.svg';
-import rightNavigation from '../assets/RightNavigation.png';
-import leftNavigation from '../assets/LeftNavigation.png';
 import Slide from './Slide';
 
 // Arrow Keyframes
@@ -269,26 +267,7 @@ const Carousel = props => {
     return presentableSlides;
   };
 
-  const { animationConfig, offsetRadius, showNavigation } = attributes;
-
-  let navigationButtons = null;
-  if (showNavigation) {
-    navigationButtons = (
-      <NavigationButtons>
-        <img
-          src={leftNavigation}
-          onClick={() => nextSlide(-1)}
-          style={{ marginRight: '2rem' }}
-        />
-
-        <img
-          src={rightNavigation}
-          onClick={() => nextSlide(1)}
-          style={{ marginLeft: '2rem' }}
-        />
-      </NavigationButtons>
-    );
-  }
+  const { animationConfig, offsetRadius } = attributes;
 
   const nextSlide = direction => {
     if (direction > 0) {

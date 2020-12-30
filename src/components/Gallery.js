@@ -90,7 +90,7 @@ const Gallery = () => {
 
   const data = useStaticQuery(graphql`
     query Postcard5Query {
-      postcardSampleImg: file(relativePath: { eq: "Sample.png" }) {
+      postcardSampleImg: file(relativePath: { eq: "Sample.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -102,7 +102,7 @@ const Gallery = () => {
           }
         }
       }
-      postcardOrangesImg: file(relativePath: { eq: "Oranges.png" }) {
+      postcardOrangesImg: file(relativePath: { eq: "Oranges.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -114,7 +114,7 @@ const Gallery = () => {
           }
         }
       }
-      postcardDesertImg: file(relativePath: { eq: "Desert.png" }) {
+      postcardDesertImg: file(relativePath: { eq: "Desert.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.

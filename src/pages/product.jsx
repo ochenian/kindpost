@@ -147,16 +147,16 @@ const ProductPage = () => {
           siteName
         }
       }
-      postcardImg: file(relativePath: { eq: "Hollywood.png" }) {
+      postcardImg: file(relativePath: { eq: "Hollywood.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 90) {
+          fluid(maxWidth: 2000, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      postcardBack: file(relativePath: { eq: "Birthday-no-border.png" }) {
+      postcardBack: file(relativePath: { eq: "Birthday-no-border.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -166,7 +166,7 @@ const ProductPage = () => {
         }
       }
       postcardCongratulationsFront: file(
-        relativePath: { eq: "SantaCruz.png" }
+        relativePath: { eq: "SantaCruz.jpg" }
       ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
@@ -177,7 +177,7 @@ const ProductPage = () => {
         }
       }
       postcardCongratulationsBack: file(
-        relativePath: { eq: "Congratulations.png" }
+        relativePath: { eq: "Congratulations.jpg" }
       ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
@@ -187,7 +187,7 @@ const ProductPage = () => {
           }
         }
       }
-      postcardEncouragementFront: file(relativePath: { eq: "Twilight.png" }) {
+      postcardEncouragementFront: file(relativePath: { eq: "Twilight.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -197,7 +197,7 @@ const ProductPage = () => {
         }
       }
       postcardEncouragementBack: file(
-        relativePath: { eq: "Encouragement.png" }
+        relativePath: { eq: "Encouragement.jpg" }
       ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
@@ -207,7 +207,7 @@ const ProductPage = () => {
           }
         }
       }
-      postcardLoveFront: file(relativePath: { eq: "Poppies.png" }) {
+      postcardLoveFront: file(relativePath: { eq: "Poppies.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -216,7 +216,7 @@ const ProductPage = () => {
           }
         }
       }
-      postcardLoveBack: file(relativePath: { eq: "Love.png" }) {
+      postcardLoveBack: file(relativePath: { eq: "Love.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -225,7 +225,7 @@ const ProductPage = () => {
           }
         }
       }
-      postcardCartImg: file(relativePath: { eq: "Sample.png" }) {
+      postcardCartImg: file(relativePath: { eq: "Sample.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
