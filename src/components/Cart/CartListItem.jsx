@@ -154,7 +154,7 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
       return;
     }
 
-    const value = event.target.value;
+    const { value } = event.target;
 
     // Make sure the quantity is always at least 1.
     const safeValue = Math.max(Number(value), 0);
@@ -186,17 +186,6 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
 
   const handleRemoveItem = event => {
     removeItem(item.variant.id);
-  };
-
-  const increment = event => {
-    quantityEl.current.stepUp();
-    // setNativeValue(quantityEl.current, quantityEl.current.value);
-    quantityEl.current.dispatchEvent(new Event('change', { bubbles: true }));
-  };
-
-  const decrement = event => {
-    quantityEl.current.stepDown();
-    quantityEl.current.dispatchEvent(new Event('change', { bubbles: true }));
   };
 
   useEffect(() => {

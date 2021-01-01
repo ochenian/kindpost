@@ -158,6 +158,7 @@ const Footer = () => {
                     <input
                       name="email"
                       type="text"
+                      aria-label="subscribe to email"
                       onChange={handleEmailChange}
                     />
                     <button type="submit">Sign Up</button>

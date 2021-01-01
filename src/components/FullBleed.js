@@ -61,7 +61,7 @@ const FullBleed = () => {
       <TextContainer>
         <Text>sustainably sourced + carefully curated</Text>
         <Link to="/about">
-          <CtaButton>learn more</CtaButton>
+          <CtaButton>about kindpost</CtaButton>
         </Link>
       </TextContainer>
       <GrayscaleImg fluid={data.postcardSampleImg.childImageSharp.fluid} />

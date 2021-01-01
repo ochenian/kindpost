@@ -187,13 +187,13 @@ const Hero = () => {
         />
       </div>
       <SocialIcons>
-        <a href="https://twitter.com/kindpostco">
+        <a href="https://twitter.com/kindpostco" aria-label="Twitter">
           <StyledTwitterLogo />
         </a>
-        <a href="https://www.instagram.com/kindpostco">
+        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
           <StyledInstaLogo />
         </a>
-        <a href="https://www.facebook.com/kindpostco">
+        <a href="https://www.facebook.com/kindpostco" aria-label="Facebook">
           <StyledFacebookLogo />
         </a>
       </SocialIcons>

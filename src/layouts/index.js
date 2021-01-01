@@ -20,7 +20,14 @@ const Layout = ({ children, siteName, headerClass }) => {
 
   return (
     <div>
-      <Helmet title="kindpost." />
+      <Helmet>
+        <html lang="en" />
+        <title>Kindpost</title>
+        <meta
+          name="description"
+          content="Kindpost. Delivering handwritten, vintage postcards."
+        />
+      </Helmet>
       <Cart />
       <div className="Container">
         <button

@@ -84,7 +84,11 @@ const Header = ({ headerClass }) => {
                 </Link>
               </ButtonLink>
             )}
-            <button type="button" className="Header__btn snipcart-checkout">
+            <button
+              type="button"
+              aria-label="Cart Button"
+              className="Header__btn"
+            >
               <Bag onClick={() => toggleCart()} />
               {itemsInCart > 0 && <CartQuantity>{itemsInCart}</CartQuantity>}
             </button>
