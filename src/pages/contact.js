@@ -1,19 +1,13 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import styled from 'styled-components';
 import Layout from '../layouts/index';
-import Logo from '../assets/svg/KP_Thumbnail.svg';
-import CompanyLogo from '../assets/svg/KP_Logo.svg';
 import FacebookIcon from '../assets/svg/facebook.svg';
 import TwitterIcon from '../assets/svg/twitter.svg';
 import InstagramIcon from '../assets/svg/insta_icon.svg';
-import styled from 'styled-components';
 
 const Contact = () => {
   const Container = styled.section`
     background: #43546a;
-    /* background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, #43546a 15%, #43546a 85%, rgba(0,0,0,0.8) 100%); */
-    /* background: radial-gradient(farthest-corner, #43546a 60%, rgba(0,0,0,0.6) 100%); */
     color: #fff;
     font-size: 0.9em;
     padding: 8em 4em;
@@ -63,12 +57,6 @@ const Contact = () => {
     }
   `;
 
-  const StyledTextSignature = styled.p`
-    margin-bottom: 0;
-    color: #f5bc5e;
-    font-style: italic;
-  `;
-
   const SocialIcons = styled.section`
     display: flex;
     justify-content: space-around;
@@ -85,18 +73,11 @@ const Contact = () => {
     }
   `;
 
-  const Logo = styled(CompanyLogo)`
-    fill: #fff;
-    width: 6rem;
-    height: auto;
-  `;
-
   return (
     <Layout site="kindpost" headerClass="Header">
       <Container>
         <TextBody>
           <StyledTextHeader>CONTACT</StyledTextHeader>
-          {/* <Logo /> */}
           <StyledTextSection>
             <a href="mailto:studio@kindpost.com">help@kindpost.com</a>
             Feel free to send us any questions on our products!

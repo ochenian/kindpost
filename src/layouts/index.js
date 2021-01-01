@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
@@ -23,7 +23,9 @@ const Layout = ({ children, siteName, headerClass }) => {
       <Helmet title="kindpost." />
       <Cart />
       <div className="Container">
-        <div
+        <button
+          type="button"
+          aria-label="Toggle Cart"
           className={`overlay ${showCart ? 'fade' : ''}`}
           onClick={() => toggleCart()}
         />
@@ -89,6 +91,12 @@ Layout.propTypes = {
   children: PropTypes.func,
   siteName: PropTypes.string,
   headerClass: PropTypes.string,
+};
+
+Layout.defaultProps = {
+  children: '',
+  siteName: 'Kindpost',
+  headerClass: '',
 };
 
 export default Layout;

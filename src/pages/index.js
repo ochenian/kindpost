@@ -15,31 +15,11 @@ export default () => {
           siteName
         }
       }
-      postcardSampleImg: file(relativePath: { eq: "Sample.jpg" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      cartImage: file(
-        relativePath: { eq: "kasturi-roy-NO1MXvxy02o-unsplash.jpg" }
-      ) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 200, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
-      <Hero></Hero>
+      <Hero />
       <Gallery />
       <Divider />
       <Message />

@@ -127,19 +127,6 @@ const ProductPage = () => {
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
-  const calc = (x, y) => [
-    -(y - window.innerHeight / 2) / 20,
-    (x - window.innerWidth / 2) / 20,
-    1.1,
-  ];
-  const trans = (x, y, s) =>
-    `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-  // const [float, setFloat] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
-  const { xys, config } = useSpring({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 40 },
-  });
-
   const data = useStaticQuery(graphql`
     query SiteQuery {
       site {
@@ -149,18 +136,14 @@ const ProductPage = () => {
       }
       postcardImg: file(relativePath: { eq: "Hollywood.jpg" }) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       postcardBack: file(relativePath: { eq: "Birthday-no-border.jpg" }) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -169,9 +152,7 @@ const ProductPage = () => {
         relativePath: { eq: "SantaCruz.jpg" }
       ) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -180,18 +161,14 @@ const ProductPage = () => {
         relativePath: { eq: "Congratulations.jpg" }
       ) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       postcardEncouragementFront: file(relativePath: { eq: "Twilight.jpg" }) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -200,36 +177,21 @@ const ProductPage = () => {
         relativePath: { eq: "Encouragement.jpg" }
       ) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       postcardLoveFront: file(relativePath: { eq: "Poppies.jpg" }) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       postcardLoveBack: file(relativePath: { eq: "Love.jpg" }) {
         childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      postcardCartImg: file(relativePath: { eq: "Sample.jpg" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 100, quality: 90) {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -396,24 +358,15 @@ const ProductPage = () => {
             onClick={() => setFlipped(flippedState => !flippedState)}
           >
             <AnimatedImg
-              onMouseMove={({ clientX: x, clientY: y }) =>
-                set({ xys: calc(x, y) })
-              }
-              onMouseLeave={() => set({ xys: [0, 0, 1] })}
               className="c"
               style={{
                 opacity: opacity.interpolate(o => 1 - o),
                 transform,
               }}
-              // fluid={data.postcardImg.childImageSharp.fluid} />
               fluid={selectedPostcard.imgFront}
             />
 
             <AnimatedImg
-              onMouseMove={({ clientX: x, clientY: y }) =>
-                set({ xys: calc(x, y) })
-              }
-              onMouseLeave={() => set({ xys: [0, 0, 1] })}
               className="c"
               style={{
                 opacity,

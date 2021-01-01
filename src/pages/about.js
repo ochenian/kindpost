@@ -1,34 +1,15 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import styled from 'styled-components';
 import Layout from '../layouts/index';
-import Logo from '../assets/svg/KP_Thumbnail.svg';
 import CompanyLogo from '../assets/svg/KP_Logo.svg';
 import FacebookIcon from '../assets/svg/facebook.svg';
 import TwitterIcon from '../assets/svg/twitter.svg';
 import InstagramIcon from '../assets/svg/insta_icon.svg';
 import Signature from '../assets/svg/signature.svg';
-import styled from 'styled-components';
 
 const Contact = () => {
-  const data = useStaticQuery(graphql`
-    query heroQuery {
-      heroImg: file(relativePath: { eq: "Image9.jpg" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 2000, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
   const Container = styled.section`
     background: #43546a;
-    /* background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, #43546a 15%, #43546a 85%, rgba(0,0,0,0.8) 100%); */
-    /* background: radial-gradient(farthest-corner, #43546a 60%, rgba(0,0,0,0.6) 100%); */
     color: #fff;
     font-size: 0.9em;
     padding: 8em 4em;
@@ -72,12 +53,6 @@ const Contact = () => {
     }
   `;
 
-  const StyledTextSignature = styled.p`
-    margin-bottom: 0;
-    color: #f5bc5e;
-    font-style: italic;
-  `;
-
   const StyledSignature = styled(Signature)`
     width: 20%;
     display: block;
@@ -109,13 +84,9 @@ const Contact = () => {
 
   return (
     <Layout site="kindpost" headerClass="Header">
-      {/* <div className="contact-container"> */}
-      {/* <Img className="hero" fluid={data.heroImg.childImageSharp.fluid} /> */}
       <Container>
-        {/* <div className="contact-content"> */}
         <TextBody>
           <StyledTextHeader>ABOUT US</StyledTextHeader>
-          {/* <Logo /> */}
           <StyledTextSection>Hi There!</StyledTextSection>
           <StyledTextSection>We’re Kindpost!</StyledTextSection>
           <StyledTextSection>
@@ -144,13 +115,6 @@ const Contact = () => {
           <StyledSignature />
           <Logo />
 
-          {/* <section>
-            <p>
-              And so
-              <CompanyLogo />
-              was born.
-            </p>
-          </section> */}
           <SocialIcons>
             <a href="https://twitter.com/kindpostco">
               <TwitterIcon />
@@ -163,9 +127,7 @@ const Contact = () => {
             </a>
           </SocialIcons>
         </TextBody>
-        {/* </div> */}
       </Container>
-      {/* </div> */}
     </Layout>
   );
 };
