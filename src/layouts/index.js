@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useContext } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import Footer from '../components/footer';
