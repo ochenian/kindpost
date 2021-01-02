@@ -7,65 +7,6 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 import Circle from '../assets/svg/circle.svg';
 import Slide from './Slide';
 
-// Arrow Keyframes
-// const stroke = keyframes`
-//   52% {
-//       transform: rotate(-180deg);
-//       stroke-dashoffset: 0;
-//   }
-//   52.1% {
-//       transform: rotate(-360deg);
-//       stroke-dashoffset: 0;
-//   }
-//   100% {
-//       transform: rotate(-180deg);
-//       stroke-dashoffset: 126;
-//   }
-// `
-
-// const arrow = keyframes`
-//  0%,
-//     100% {
-//         transform: translateX(0);
-//         opacity: 1;
-//     }
-//     23% {
-//         transform: translateX(17px);
-//         opacity: 1;
-//     }
-//     24%,
-//     80% {
-//         transform: translateX(-22px);
-//         opacity: 0;
-//     }
-//     81% {
-//         opacity: 1;
-//         transform: translateX(-22px);
-//     }
-// `
-
-// const arrowUp = keyframes`
-//   0%,
-//     100% {
-//         transform: rotate(-40deg) scaleX(1);
-//     }
-//     20%,
-//     80% {
-//         transform: rotate(0deg) scaleX(.1);
-//     }
-// `
-
-// const arrowDown = keyframes`
-//   0%,
-//     100% {
-//         transform: rotate(40deg) scaleX(1);
-//     }
-//     20%,
-//     80% {
-//         transform: rotate(0deg) scaleX(.1);
-//     }
-// `
-
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
@@ -78,41 +19,6 @@ const Wrapper = styled.div`
     height: 35vh;
   }
 `;
-
-const NavigationButtons = styled.div`
-  position: relative;
-  display: flex;
-  height: 40px;
-  margin: 0 auto;
-  width: 20%;
-  margin-top: 1rem;
-  justify-content: space-between;
-  img {
-    height: 100%;
-  }
-
-  @media (max-width: 550px) {
-    display: none;
-  }
-`;
-
-const DEFAULT_GO_TO_SLIDE_DELAY = 200;
-
-// interface IState {
-//   index: number;
-//   goToSlide: number | null;
-//   prevPropsGoToSlide: number;
-//   newSlide: boolean;
-// }
-
-// interface IProps {
-//   slides: Slide[];
-//   goToSlide?: number;
-//   showNavigation: boolean;
-//   offsetRadius: number;
-//   animationConfig: object;
-//   goToSlideDelay: number;
-// }
 
 const mod = (a, b) => {
   return ((a % b) + b) % b;
@@ -139,36 +45,6 @@ const Carousel = props => {
   const mobile = useMediaQuery('(max-width: 900px)');
 
   let goToIn;
-
-  // static propTypes = {
-  //   slides: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       key: PropTypes.any,
-  //       content: PropTypes.object
-  //     })
-  //   ).isRequired,
-  //   goToSlide: PropTypes.number,
-  //   showNavigation: PropTypes.bool,
-  //   offsetRadius: PropTypes.number,
-  //   animationConfig: PropTypes.object,
-  //   goToSlideDelay: PropTypes.number,
-  // };
-
-  // props = {
-  //   offsetRadius: props.offsetRadius || 2,
-  //   animationConfig: props.animationConfig || { tension: 120, friction: 14 },
-  //   goToSlideDelay: props.goToSlideDelay || DEFAULT_GO_TO_SLIDE_DELAY,
-  // };
-
-  const getDerivedStateFromProps = props => {
-    const { goToSlide } = attributes;
-
-    if (goToSlide !== state.prevPropsGoToSlide) {
-      return { prevPropsGoToSlide: goToSlide, goToSlide, newSlide: true };
-    }
-
-    return null;
-  };
 
   useEffect(() => {
     const { goToSlideDelay } = attributes;

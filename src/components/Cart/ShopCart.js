@@ -1,6 +1,5 @@
 import React, { Component, useContext, useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import PropTypes from 'prop-types';
 import {
   useCart,
   useCartItems,
@@ -415,14 +414,6 @@ const Cart = () => {
       )}
     </CartRoot>
   );
-};
-
-Cart.propTypes = {
-  // status: PropTypes.string.isRequired,
-  // toggle: PropTypes.func.isRequired,
-  // contributorAreaStatus: PropTypes.string.isRequired,
-  // isDesktopViewport: PropTypes.bool,
-  // productImagesBrowserStatus: PropTypes.string
 };
 
 export default Cart;
