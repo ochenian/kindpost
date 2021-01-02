@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { colors, dimensions, radius, spacing } from '../../utils/styles';
@@ -20,7 +19,7 @@ const CartIndicatorRoot = styled(`div`)`
 class CartIndicator extends Component {
   state = {
     visible: false,
-    message: ''
+    message: '',
   };
 
   componentDidUpdate(prevProps) {
@@ -28,7 +27,7 @@ class CartIndicator extends Component {
       if (this.props.adding) {
         this.setState({
           visible: true,
-          message: 'updating cart ...'
+          message: 'updating cart ...',
         });
       } else {
         if (this.props.itemsInCart > prevProps.itemsInCart) {
@@ -42,7 +41,7 @@ class CartIndicator extends Component {
 
           setTimeout(
             () => this.setState({ visible: false, message: '' }),
-            3000
+            3000,
           );
         }
       }
@@ -55,10 +54,5 @@ class CartIndicator extends Component {
     return <CartIndicatorRoot visible={visible}>{message}</CartIndicatorRoot>;
   }
 }
-
-CartIndicator.propTypes = {
-  itemsInCart: PropTypes.number.isRequired,
-  adding: PropTypes.bool.isRequired
-};
 
 export default CartIndicator;

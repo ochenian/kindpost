@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import PropTypes from "prop-types";
-import { Transition } from "react-transition-group";
+import React, { useEffect, useState, useRef } from 'react';
+import { Transition } from 'react-transition-group';
 
 let interval;
 let timeout;
@@ -10,31 +9,31 @@ let endRotation = false;
 function TextRotator({ content, time, startDelay, transitionTime }) {
   const indexRef = useRef(0);
   const [entered, setEntered] = useState(false);
-  const { className, animation = "fade", text } =
+  const { className, animation = 'fade', text } =
     content[indexRef.current] || {};
 
   const styles = {
-    "fade-default": {
+    'fade-default': {
       transition: `opacity 500ms ease-in`,
-      opacity: 0
+      opacity: 0,
     },
 
-    "fade-entering": {
-      opacity: 0
+    'fade-entering': {
+      opacity: 0,
     },
 
-    "fade-entered": {
-      opacity: 1
+    'fade-entered': {
+      opacity: 1,
     },
 
-    "fade-exiting": {
-      opacity: 0
+    'fade-exiting': {
+      opacity: 0,
     },
 
-    "fade-exited": {
-      opacity: 0
-    }
-  }
+    'fade-exited': {
+      opacity: 0,
+    },
+  };
 
   useEffect(() => {
     timeout = setTimeout(() => {
@@ -65,7 +64,7 @@ function TextRotator({ content, time, startDelay, transitionTime }) {
           className="rotator"
           style={{
             ...styles[`${animation}-default`],
-            ...styles[`${animation}-${state}`]
+            ...styles[`${animation}-${state}`],
           }}
         >
           {text}
@@ -75,17 +74,10 @@ function TextRotator({ content, time, startDelay, transitionTime }) {
   );
 }
 
-TextRotator.propTypes = {
-  time: PropTypes.number,
-  startDelay: PropTypes.number,
-  transitionTime: PropTypes.number,
-  content: PropTypes.arrayOf(PropTypes.object).isRequired
-};
-
 TextRotator.defaultProps = {
   time: 2500,
   startDelay: 250,
-  transitionTime: 500
+  transitionTime: 500,
 };
 
 export default TextRotator;

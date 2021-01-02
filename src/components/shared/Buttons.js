@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
@@ -46,7 +45,7 @@ const ButtonAsExternalLink = styled(ButtonBase.withComponent(`a`))`
 `;
 
 const ButtonAsInternalLink = ButtonAsExternalLink.withComponent(
-  ({ iconOnLeft, inverse, ...rest }) => <Link {...rest} />
+  ({ iconOnLeft, inverse, ...rest }) => <Link {...rest} />,
 );
 
 export class Button extends Component {
@@ -88,13 +87,6 @@ export class Button extends Component {
   }
 }
 
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  inverse: PropTypes.bool,
-  to: PropTypes.string,
-  href: PropTypes.string
-};
-
 export const PrimaryButton = styled(Button)`
   background: ${colors.brand};
   color: ${colors.lightest};
@@ -108,4 +100,3 @@ export const PrimaryButton = styled(Button)`
     }
   }
 `;
-

@@ -7,18 +7,19 @@ const defaultState = {
 
 export const CartContext = createContext(defaultState);
 
-const Provider = props => {
+const Provider = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
 
   return (
-    <CartContext.Provider value={{
+    <CartContext.Provider
+      value={{
         showCart,
         toggleCart: () => setShowCart(!showCart),
-      }}>
-        {props.children}
-      </CartContext.Provider>
+      }}
+    >
+      {children}
+    </CartContext.Provider>
   );
 };
 
 export default ({ element }) => <Provider>{element}</Provider>;
-// export { Provider, CartContext };

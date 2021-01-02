@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
 import { useMediaQuery } from '../hooks/useMediaQuery';
@@ -92,12 +91,6 @@ const Layout = ({ children, siteName, headerClass }) => {
       </div>
     </div>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.func,
-  siteName: PropTypes.string,
-  headerClass: PropTypes.string,
 };
 
 Layout.defaultProps = {
