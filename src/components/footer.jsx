@@ -243,7 +243,9 @@ const Footer = () => {
         )}
       </div>
       <LegalContainer>
-        <div>&copy; 2020 kindpost.</div>
+        <div>
+          &copy; {new Date().getFullYear()} kindpost llc. all rights reserved.
+        </div>
         <div>made with ♡ in california</div>
         <Link to="/terms-of-service">terms of service</Link>
         <Link to="/privacy-policy">privacy policy</Link>
