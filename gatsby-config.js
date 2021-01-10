@@ -84,13 +84,8 @@ module.exports = {
       options: {
         googleAnalytics: {
           trackingId: process.env.GA_ID,
-          // Setting this parameter is optional
           anonymize: true,
         },
-        // facebookPixel: {
-        //   pixelId: 'YOUR_FACEBOOK_PIXEL_ID'
-        // },
-        // Defines the environments where the tracking should be available  - default is ["production"]
         environments: ['production', 'development'],
       },
     },

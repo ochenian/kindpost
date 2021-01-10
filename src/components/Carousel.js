@@ -166,8 +166,6 @@ const Carousel = props => {
     trackMouse: true,
   });
 
-  console.log(mobile);
-
   return (
     <>
       <div

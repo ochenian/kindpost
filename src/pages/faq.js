@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Layout from '../layouts/index';
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg';
 import InstaLogo from '../assets/svg/insta_icon.svg';
-import FacebookLogo from '../assets/svg/facebook.svg';
 import Accordion from '../components/Accordion';
 
 const Container = styled.div`
@@ -74,16 +73,6 @@ const StyledInstaLogo = styled(InstaLogo)`
     fill: #f5bc5e;
   }
 `;
-const StyledFacebookLogo = styled(FacebookLogo)`
-  width: 20px;
-  height: 20px;
-  fill: #fff;
-  cursor: pointer;
-
-  &:hover {
-    fill: #f5bc5e;
-  }
-`;
 
 const faqs = [
   {
@@ -97,9 +86,6 @@ const faqs = [
         </a>
         <a href="https://www.instagram.com/kindpostco">
           <StyledInstaLogo />
-        </a>
-        <a href="https://www.facebook.com/kindpostco">
-          <StyledFacebookLogo />
         </a>
       </>
     ),

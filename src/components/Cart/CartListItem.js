@@ -8,10 +8,7 @@ import {
   useSetCartUnsafe,
 } from 'gatsby-theme-shopify-manager';
 import Delete from '../../assets/svg/delete_outline-24px.svg';
-import { Input } from '../shared/FormElements';
-import { Button } from '../shared/Buttons';
 import CartThumbnail from './CartThumbnail';
-import { breakpoints, colors, spacing } from '../../utils/styles';
 
 const CartListItemRoot = styled('li')`
   align-items: center;
@@ -70,42 +67,6 @@ const Meta = styled('span')`
   font-weight: bold;
   line-height: 1;
   text-transform: uppercase;
-`;
-
-const QtyContainer = styled.div`
-  display: flex;
-  /* margin-top: 1em; */
-`;
-
-const Quantity = styled(Input)`
-  border: none;
-  flex-grow: 0;
-  height: 22px;
-  /* margin-right: ${spacing.xs}px; */
-  padding: 0 ${spacing.xs}px 0;
-  text-align: center;
-  width: 25px;
-
-  @media (min-width: ${breakpoints.desktop}px) {
-    width: 50px;
-  }
-`;
-
-const QtyChange = styled(Button)`
-  border: 1px solid ${colors.textLighter};
-  display: flex;
-  height: 22px;
-  justify-content: center;
-  /* margin-right: ${spacing['2xs']}px; */
-  padding: 0;
-  width: 22px;
-  color: #000;
-
-  svg {
-    height: 16px;
-    margin: 0;
-    width: 16px;
-  }
 `;
 
 const DeleteIcon = styled(Delete)`

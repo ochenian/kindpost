@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '../layouts/index';
 import CompanyLogo from '../assets/svg/KP_Logo.svg';
-import FacebookIcon from '../assets/svg/facebook.svg';
 import TwitterIcon from '../assets/svg/twitter.svg';
 import InstagramIcon from '../assets/svg/insta_icon.svg';
 import Signature from '../assets/svg/signature.svg';
@@ -121,9 +120,6 @@ const Contact = () => {
             </a>
             <a href="https://www.instagram.com/kindpostco">
               <InstagramIcon />
-            </a>
-            <a href="https://www.facebook.com/kindpostco">
-              <FacebookIcon />
             </a>
           </SocialIcons>
         </TextBody>

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg';
 import InstaLogo from '../assets/svg/insta_icon.svg';
-import FacebookLogo from '../assets/svg/facebook.svg';
 import TextRotator from './TextRotaor';
 import CtaButton from './shared/Button';
 import { useMediaQuery } from '../hooks/useMediaQuery';
@@ -36,17 +35,6 @@ const StyledInstaLogo = styled(InstaLogo)`
   margin: 6px 24px;
   fill: #fff;
   cursor: pointer;
-
-  :hover {
-    fill: #d4004c;
-  }
-`;
-
-const StyledFacebookLogo = styled(FacebookLogo)`
-  width: 24px;
-  height: 24px;
-  fill: #fff;
-  margin: 0 8px;
 
   :hover {
     fill: #d4004c;
@@ -192,9 +180,6 @@ const Hero = () => {
         </a>
         <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
           <StyledInstaLogo />
-        </a>
-        <a href="https://www.facebook.com/kindpostco" aria-label="Facebook">
-          <StyledFacebookLogo />
         </a>
       </SocialIcons>
     </div>

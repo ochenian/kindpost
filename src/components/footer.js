@@ -5,7 +5,6 @@ import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg';
 import InstaLogo from '../assets/svg/insta_icon.svg';
-import FacebookLogo from '../assets/svg/facebook.svg';
 import KpThumbnail from '../assets/svg/KP_Thumbnail.svg';
 
 const MobileLinksSection = styled.section`
@@ -82,12 +81,6 @@ const StyledInstaLogo = styled(InstaLogo)`
   fill: #fff;
   cursor: pointer;
   margin-right: 12px;
-`;
-const StyledFacebookLogo = styled(FacebookLogo)`
-  width: 32px;
-  height: 32px;
-  fill: #fff;
-  cursor: pointer;
 `;
 
 const LegalContainer = styled.div`
@@ -185,9 +178,8 @@ const Footer = () => {
 
             <div className="links">
               <SectionHeader>Follow.</SectionHeader>
-              <a href="https://twitter.com/kindpostco">Facebook</a>
+              <a href="https://twitter.com/kindpostco">Twitter</a>
               <a href="https://www.instagram.com/kindpostco">Instagram</a>
-              <a href="https://www.facebook.com/kindpostco">Twitter</a>
             </div>
           </>
         )}
@@ -234,9 +226,6 @@ const Footer = () => {
               </a>
               <a href="https://www.instagram.com/kindpostco">
                 <StyledInstaLogo />
-              </a>
-              <a href="https://www.facebook.com/kindpostco">
-                <StyledFacebookLogo />
               </a>
             </MobileLinksSection>
           </>
