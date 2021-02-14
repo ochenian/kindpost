@@ -37,8 +37,8 @@ const Layout = ({ children, siteName, headerClass }) => {
         />
         <Header siteName={siteName} headerClass={headerClass} />
         <div className="Wrap Wrap__main_content">{children}</div>
-        <Divider />
-        <How />
+        {/* <Divider />
+        <How /> */}
         <CookieConsent
           overlay
           location="bottom"

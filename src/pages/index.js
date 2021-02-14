@@ -6,6 +6,9 @@ import Divider from '../components/Divider';
 import Gallery from '../components/Gallery';
 import FullBleed from '../components/FullBleed';
 import Message from '../components/Message';
+import How from '../components/How';
+import QuoteBlock from '../components/QuoteBlock';
+import Postcard from '../components/PostcardShowcase/Postcard';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -25,6 +28,10 @@ export default () => {
       <Message />
       <Divider />
       <FullBleed />
+      <Postcard />
+      <Divider />
+      <How />
+      <QuoteBlock />
     </Layout>
   );
 };
