@@ -6,6 +6,7 @@
   "dependencies": {
     "@types/gsap": "^1.20.2",
     "babel-plugin-styled-components": "^1.11.1",
+    "d3": "^6.5.0",
     "datocms-client": "^2.0.7",
     "dotenv": "^8.2.0",
     "framer-motion": "^1.11.1",
@@ -31,6 +32,7 @@
     "gatsby-theme-shopify-manager": "^0.1.7",
     "gatsby-transformer-sharp": "^2.5.12",
     "gsap": "^3.4.2",
+    "intersection-observer": "^0.12.0",
     "lodash-es": "^4.17.15",
     "node-sass": "^4.14.1",
     "patch-package": "^6.2.2",
@@ -43,6 +45,7 @@
     "react-intersection-observer": "^8.26.2",
     "react-medium-image-zoom": "^4.3.1",
     "react-responsive": "^8.1.0",
+    "react-scrollama": "^2.2.15",
     "react-spring": "^8.0.27",
     "react-swipeable": "^5.5.1",
     "react-transition-group": "^4.4.1",

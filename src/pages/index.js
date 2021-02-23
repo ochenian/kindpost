@@ -8,7 +8,7 @@ import FullBleed from '../components/FullBleed';
 import Message from '../components/Message';
 import How from '../components/How';
 import QuoteBlock from '../components/QuoteBlock';
-import Postcard from '../components/PostcardShowcase/Postcard';
+import Showcase from '../components/PostcardShowcase/Showcase';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -23,12 +23,12 @@ export default () => {
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
       <Hero />
-      <Gallery />
-      <Divider />
-      <Message />
+      {/* <Gallery /> */}
+      {/* <Divider /> */}
+      {/* <Message /> */}
       <Divider />
       <FullBleed />
-      <Postcard />
+      <Showcase />
       <Divider />
       <How />
       <QuoteBlock />
