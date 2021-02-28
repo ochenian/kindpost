@@ -85,6 +85,7 @@ const StyledInstaLogo = styled(InstaLogo)`
 
 const LegalContainer = styled.div`
   background: rgb(40, 40, 40);
+  background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
   display: flex;
   align-items: center;
   font-size: 0.75rem;

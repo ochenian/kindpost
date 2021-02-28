@@ -1,128 +1,187 @@
 import React from 'react';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
+import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../layouts/index';
-import CompanyLogo from '../assets/svg/KP_Logo.svg';
-import TwitterIcon from '../assets/svg/twitter.svg';
-import InstagramIcon from '../assets/svg/insta_icon.svg';
-import Signature from '../assets/svg/signature.svg';
+import Circle from '../assets/svg/circle.svg';
+
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'orpheuspro';
+`;
+const HeaderContainer = styled.div`
+  width: 100%;
+  position: relative;
+`;
+const HeaderImg = styled(Img)`
+  width: 100%;
+`;
+
+const HeaderOverlay = styled.div`
+  position: absolute;
+  background: linear-gradient(#00000088 30%, #ffffff44 100%);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+`;
+
+const TextImgWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background: rgb(253, 250, 238);
+  padding-top: 12em;
+`;
+
+const BodyImg = styled(Img)`
+  width: 100%;
+  flex: 1;
+`;
+
+const BodyTextWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+`;
+
+const BodyTextHeader = styled.h3`
+  font-weight: bold;
+  margin-bottom: 2em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+`;
+
+const BodyText = styled.div`
+  margin: 0 8em;
+  margin-bottom: 2em;
+  line-height: 1.5;
+`;
+
+const PostcardWrapper = styled.div`
+  flex: 1;
+  background: rgb(253, 250, 238);
+  position: relative;
+`;
+
+const PostcardImg = styled(Img)`
+  width: 50%;
+  margin: 0 auto;
+  z-index: 10;
+`;
+
+const CenteredCircle = styled(Circle)`
+  position: absolute;
+  width: 55%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: rgb(242, 212, 215);
+`;
+
+const Stamp = styled(Img)`
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+`;
 
 const Contact = () => {
-  const Container = styled.section`
-    background: #43546a;
-    color: #fff;
-    font-size: 0.9em;
-    padding: 8em 4em;
-    line-height: 2;
-    letter-spacing: 1.25px;
-    font-family: 'Averia Serif Libre';
-  `;
-
-  const StyledTextHeader = styled.p`
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 4em;
-    font-size: 1.25em;
-    text-transform: lowercase;
-    letter-spacing: 4px;
-    width: fit-content;
-    font-style: italic;
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 25%;
-      bottom: -8px;
-      height: 1px;
-      width: 50%;
-      border-bottom: 2px solid #f5bc5e;
+  const data = useStaticQuery(graphql`
+    query headerQuery {
+      headerImg: file(relativePath: { eq: "KP_Card_Spread_BlueBg.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      tableOfPostcards: file(relativePath: { eq: "pc_table.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      postcardEncouragementImg: file(
+        relativePath: { eq: "Encouragement.jpg" }
+      ) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      californiaStamp: file(relativePath: { eq: "californiastamp.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
-  `;
-
-  const TextBody = styled.div`
-    margin: 0 auto;
-    max-width: 550px;
-  `;
-
-  const StyledTextSection = styled.p`
-    margin-bottom: 2em;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  `;
-
-  const StyledSignature = styled(Signature)`
-    width: 20%;
-    display: block;
-    margin: 24px 0;
-    fill: #f5bc5e;
-  `;
-
-  const SocialIcons = styled.section`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 40%;
-    margin: 0 auto;
-    margin-top: 5em;
-
-    svg {
-      width: 24px;
-      height: 24px;
-      fill: #fff;
-      cursor: pointer;
-    }
-  `;
-
-  const Logo = styled(CompanyLogo)`
-    fill: #fff;
-    width: 6rem;
-    height: auto;
-  `;
+  `);
 
   return (
     <Layout site="kindpost" headerClass="Header">
       <Container>
-        <TextBody>
-          <StyledTextHeader>ABOUT US</StyledTextHeader>
-          <StyledTextSection>Hi There!</StyledTextSection>
-          <StyledTextSection>We’re Kindpost!</StyledTextSection>
-          <StyledTextSection>
-            Over the years, we have thoughtfully curated a treasure trove of
-            vintage postcards from around the globe. For occasions big and
-            small, we have taken joy in sharing our collection by selecting a
-            postcard and mailing a sweet, hand-lettered note on that postcard to
-            family and friends. As each bespoke piece has been sent, more and
-            more people have inquired.
-          </StyledTextSection>
-          <StyledTextSection>
-            So, we opened up shop to expand this community to you! On our site,
-            you can select an occasion and purchase a postcard. Once your order
-            is placed, a member of our team will personally select for you one
-            of our vintage postcards and will write a personalized,
-            hand-lettered message to you or your loved one, based on the
-            occasion that you have selected.
-          </StyledTextSection>
-
-          <StyledTextSection>Consider it a little love note.</StyledTextSection>
-
-          <StyledTextSection>
-            So, settle in and make yourself comfortable. We’re excited to meet
-            you.
-          </StyledTextSection>
-          <StyledSignature />
-          <Logo />
-
-          <SocialIcons>
-            <a href="https://twitter.com/kindpostco">
-              <TwitterIcon />
-            </a>
-            <a href="https://www.instagram.com/kindpostco">
-              <InstagramIcon />
-            </a>
-          </SocialIcons>
-        </TextBody>
+        <HeaderContainer>
+          <HeaderOverlay />
+          <HeaderImg fluid={data.headerImg.childImageSharp.fluid} />
+        </HeaderContainer>
+        <TextImgWrapper>
+          <BodyImg fluid={data.tableOfPostcards.childImageSharp.fluid} />
+          <BodyTextWrapper>
+            <BodyTextHeader>Showing We Care.</BodyTextHeader>
+            <BodyText>
+              Kindpost was born out of the belief that finding a thoughtful,
+              caring note in your mailbox can rival the greatest experiences in
+              life.
+            </BodyText>
+            <BodyText>
+              A simple act of kindness can remind us that the feeling of love
+              and being loved is essential to being human.
+            </BodyText>
+          </BodyTextWrapper>
+        </TextImgWrapper>
+        <TextImgWrapper style={{ height: '75vh', paddingBottom: '12em' }}>
+          <BodyTextWrapper>
+            <BodyTextHeader>Tangible means more.</BodyTextHeader>
+            <BodyText>
+              There is something to be said about receiving a handwritten note.
+              Nathaniel Hawthorne is said to have washed his hands before
+              reading his wife’s letters, lest he sully them in the slightest.
+            </BodyText>
+            <BodyText>
+              To this day, some of my most prized possessions are past notes
+              written to me. No, not printed emails, or recorded Zoom calls, but
+              actual handwritten notes that I frequently revisit for when my
+              mood calls for a dose of nostalgic warmth.
+            </BodyText>
+            <Stamp
+              style={{ position: 'absolute' }}
+              fluid={data.californiaStamp.childImageSharp.fluid}
+            />
+          </BodyTextWrapper>
+          <PostcardWrapper>
+            <PostcardImg
+              fluid={data.postcardEncouragementImg.childImageSharp.fluid}
+            />
+            <CenteredCircle />
+          </PostcardWrapper>
+        </TextImgWrapper>
       </Container>
     </Layout>
   );

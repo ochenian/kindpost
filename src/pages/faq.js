@@ -13,10 +13,9 @@ const Container = styled.div`
 
   padding-top: 5em;
 
-  font-family: 'Averia Serif Libre';
-
-  background: #43546a;
-  color: #fff;
+  background-color: #f2ebe5;
+  color: rgb(40, 40, 40);
+  font-family: 'orpheuspro';
 `;
 
 const Title = styled.p`
@@ -54,6 +53,9 @@ const StyledTwitterLogo = styled(TwitterLogo)`
   height: 32px;
   cursor: pointer;
   margin: 0 6px -6px 0;
+  path {
+    fill: rgb(40, 40, 40);
+  }
 
   &:hover {
     path {
@@ -65,7 +67,7 @@ const StyledTwitterLogo = styled(TwitterLogo)`
 const StyledInstaLogo = styled(InstaLogo)`
   width: 20px;
   height: 20px;
-  fill: #fff;
+  fill: rgb(40, 40, 40);
   cursor: pointer;
   margin-right: 12px;
 
@@ -204,7 +206,7 @@ const Faq = () => {
   const [expanded, setExpanded] = useState(0);
 
   return (
-    <Layout site="kindpost" headerClass="Header">
+    <Layout site="kindpost" headerClass="Header light">
       <Container>
         <Title>frequently asked questions</Title>
         <QuestionsContainer>

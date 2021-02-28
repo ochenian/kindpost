@@ -24,6 +24,10 @@ const StyledTwitterLogo = styled(TwitterLogo)`
   height: 36px;
   cursor: pointer;
 
+  .cls-1 {
+    fill: none;
+  }
+
   :hover {
     .cls-2 {
       fill: #d4004c;
@@ -182,6 +186,10 @@ const Hero = () => {
           <StyledInstaLogo />
         </a>
       </SocialIcons>
+      <div>
+        HANDWRITTEN MESSAGES OF POSITIVITY ON VINTAGE POSTCARDS DESIGNED AND
+        DELIVERED BY OUR KINDNESS TEAM
+      </div>
     </div>
   );
 };

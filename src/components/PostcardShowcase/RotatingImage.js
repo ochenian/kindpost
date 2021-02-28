@@ -13,8 +13,8 @@ import ThreeDPostcard from './3D_Postcard';
 const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
-  margin: 3em;
-  padding: 6em;
+  // margin: 3em;
+  padding: 9em;
   // max-width: 500px;
 `;
 

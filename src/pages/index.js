@@ -9,6 +9,7 @@ import Message from '../components/Message';
 import How from '../components/How';
 import QuoteBlock from '../components/QuoteBlock';
 import Showcase from '../components/PostcardShowcase/Showcase';
+import InspirationShowcase from '../components/InspirationShowcase';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -26,8 +27,9 @@ export default () => {
       {/* <Gallery /> */}
       {/* <Divider /> */}
       {/* <Message /> */}
+      {/* <InspirationShowcase /> */}
       <Divider />
-      <FullBleed />
+      {/* <FullBleed /> */}
       <Showcase />
       <Divider />
       <How />

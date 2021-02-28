@@ -27,7 +27,7 @@ const SignatureTitle = styled.div`
 const StoryLink = styled.div`
   font-size: 0.75em;
   cursor: pointer;
-  color: #385476;
+  color: rgb(40, 40, 40);
   font-weight: bold;
 `;
 
@@ -46,8 +46,8 @@ const QuoteBlock = () => (
     </Quote>
     <Signature>Cate</Signature>
     <SignatureTitle>Founder / CEO</SignatureTitle>
-    <StyledButtonLink color="#385476">
-      <Link to="/product">
+    <StyledButtonLink color="rgb(40,40,40)">
+      <Link to="/about">
         <StoryLink>Read Our Story</StoryLink>
       </Link>
     </StyledButtonLink>
