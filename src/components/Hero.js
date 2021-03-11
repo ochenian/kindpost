@@ -15,8 +15,8 @@ const SocialIcons = styled.div`
 
   z-index: 10;
   position: absolute;
-  bottom: 40px;
-  left: 30px;
+  bottom: 2em;
+  left: 4em;
 `;
 
 const StyledTwitterLogo = styled(TwitterLogo)`
@@ -43,6 +43,14 @@ const StyledInstaLogo = styled(InstaLogo)`
   :hover {
     fill: #d4004c;
   }
+`;
+
+const Description = styled.div`
+  letter-spacing: 2px;
+  width: 660px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 2em;
 `;
 
 const Hero = () => {
@@ -164,6 +172,12 @@ const Hero = () => {
               startDelay={1000}
             />
           )}
+          <Description>
+            Delivering inspirational and uplifting messages of positivity
+            handwritten on beautiful sustainably sourced vintage postcards. For
+            you or yours in kindness.
+          </Description>
+
           <Link to="product">
             <CtaButton>send</CtaButton>
           </Link>
@@ -186,10 +200,6 @@ const Hero = () => {
           <StyledInstaLogo />
         </a>
       </SocialIcons>
-      <div>
-        HANDWRITTEN MESSAGES OF POSITIVITY ON VINTAGE POSTCARDS DESIGNED AND
-        DELIVERED BY OUR KINDNESS TEAM
-      </div>
     </div>
   );
 };

@@ -8,17 +8,19 @@ import Header from '../components/Header';
 import How from '../components/How';
 import Divider from '../components/Divider';
 import Cart from '../components/Cart/ShopCart';
+// import Scroll from '../components/locomotiveScroll';
 import { CartContext } from '../components/Cart/CartContext';
 import CookieSvg from '../assets/svg/cookie-bite.svg';
 
 import '../style/index.scss';
 
-const Layout = ({ children, siteName, headerClass }) => {
+const Layout = ({ children, siteName, headerClass, location }) => {
   const { showCart, toggleCart } = useContext(CartContext);
   const mobile = useMediaQuery('(max-width: 900px)');
 
   return (
     <div>
+      {/* <div> */}
       <Helmet>
         <html lang="en" />
         <title>Kindpost</title>
@@ -28,6 +30,7 @@ const Layout = ({ children, siteName, headerClass }) => {
         />
       </Helmet>
       <Cart />
+      {/* <Scroll /> */}
       <div className="Container">
         <button
           type="button"
@@ -36,7 +39,15 @@ const Layout = ({ children, siteName, headerClass }) => {
           onClick={() => toggleCart()}
         />
         <Header siteName={siteName} headerClass={headerClass} />
-        <div className="Wrap Wrap__main_content">{children}</div>
+        {/* Here we pass the callbacks to the component. Anything that impacts the innerHeight, for example: Font Loaded */}
+        {/* <Scroll callbacks={location} /> */}
+        <div
+          // data-scroll-container
+          // className="Wrap Wrap__main_content smooth-scroll"
+          className="Wrap Wrap__main_content"
+        >
+          {children}
+        </div>
         {/* <Divider />
         <How /> */}
         <CookieConsent

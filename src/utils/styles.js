@@ -25,20 +25,20 @@ export const colors = {
   accent: `#f5bc5e`,
   error: `#ec1818`,
   lemon: `#ffdf37`,
-  black: `#000`
+  black: `#000`,
 };
 
 export const badgeThemes = {
   BUILDWITHGATSBY: {
     level: 1,
     backgroundTheme: colors.brand,
-    textTheme: colors.lemon
+    textTheme: colors.lemon,
   },
   HOLYBUCKETS: {
     level: 2,
     backgroundTheme: colors.lemon,
-    textTheme: colors.brandDark
-  }
+    textTheme: colors.brandDark,
+  },
 };
 
 export const spacing = {
@@ -50,7 +50,7 @@ export const spacing = {
   lg: 24,
   xl: 32,
   '2xl': 40,
-  '3xl': 48
+  '3xl': 48,
 };
 
 export const breakpoints = {
@@ -58,12 +58,12 @@ export const breakpoints = {
   phablet: 550,
   tablet: 750,
   desktop: 1000,
-  hd: 1300
+  hd: 1300,
 };
 
 export const radius = {
   default: 2,
-  large: 4
+  large: 4,
 };
 
 export const defaultFontStack = [
@@ -76,7 +76,7 @@ export const defaultFontStack = [
   'Cantarell',
   'Open Sans',
   'Helvetica Neue',
-  'sans-serif'
+  'sans-serif',
 ].join();
 
 const monospaceFontStack = [
@@ -87,13 +87,13 @@ const monospaceFontStack = [
   `Consolas`,
   `Liberation Mono`,
   `Courier New`,
-  `monospace`
+  `monospace`,
 ].join();
 
 export const fonts = {
   body: defaultFontStack,
-  heading: `Averia Serif Libre, ${defaultFontStack}`,
-  monospace: monospaceFontStack
+  heading: `Montserrat, ${defaultFontStack}`,
+  monospace: monospaceFontStack,
 };
 
 export const dimensions = {
@@ -102,13 +102,13 @@ export const dimensions = {
   contributorAreaWidth: {
     closedDesktop: '60px',
     openDesktop: '340px',
-    openHd: '420px'
+    openHd: '420px',
   },
   contributorAreaBarHeight: '50px',
   pictureBrowserAction: {
     widthDesktop: '200px',
-    heightMobile: '80px'
-  }
+    heightMobile: '80px',
+  },
 };
 
 export const scrollbarStyles = {
@@ -116,23 +116,18 @@ export const scrollbarStyles = {
   '&::-webkit-scrollbar': { width: `6px`, height: `6px` },
   '&::-webkit-scrollbar-thumb': { background: colors.brandBright },
   '&::-webkit-scrollbar-thumb:hover': { background: colors.brand },
-  '&::-webkit-scrollbar-track': { background: colors.brandLight }
+  '&::-webkit-scrollbar-track': { background: colors.brandLight },
 };
 
-const simpleEntry = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-`;
-
-const deadSimpleEntry = keyframes`
-  from {
-    opacity: .25;
-  }
-`;
-
-export const animations = {
-  // simpleEntry: `${simpleEntry} .75s ease forwards`,
-  // deadSimpleEntry: `${deadSimpleEntry} .5s ease forwards`
+export const scroll = {
+  // Locomotive Scroll
+  // https://github.com/locomotivemtl/locomotive-scroll#instance-options
+  container: '[data-scroll-container]',
+  options: {
+    smooth: true,
+    smoothMobile: false,
+    getDirection: true,
+    touchMultiplier: 2.5,
+    lerp: 0.15,
+  },
 };

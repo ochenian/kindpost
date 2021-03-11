@@ -14,7 +14,7 @@ const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   // margin: 3em;
-  padding: 9em;
+  padding: 8vw;
   // max-width: 500px;
 `;
 
@@ -30,7 +30,7 @@ const ImageCover = styled(Img)`
   z-index: 10;
 `;
 
-const OverflowCoverWrapper = styled(motion.div)`
+const OverflowCoverWrapper = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -38,7 +38,7 @@ const OverflowCoverWrapper = styled(motion.div)`
   overflow: hidden;
 `;
 
-const MotionCoverContainer = styled(motion.div)`
+const MotionCoverContainer = styled.div`
   height: 100%;
 `;
 
@@ -48,26 +48,28 @@ const RotatingPostcard = ({
   imgReveal,
   imgFront,
   imgBack,
+  imageCoverRef,
+  postcardContainerRef,
 }) => {
   const ref = useRef();
   const { scrollY } = useViewportScroll();
   const [offsetTop, setOffsetTop] = useState(0);
 
   // eslint-disable-next-line consistent-return
-  useLayoutEffect(() => {
-    if (!ref.current) return undefined;
-    setOffsetTop(ref.current.getBoundingClientRect().top);
-    return undefined;
-  }, [ref]);
+  // useLayoutEffect(() => {
+  //   if (!ref.current) return undefined;
+  //   setOffsetTop(ref.current.getBoundingClientRect().top);
+  //   return undefined;
+  // }, [ref]);
 
-  const y = useSpring(
-    useTransform(scrollY, [offsetTop - 1000, offsetTop - 750], ['0%', '100%']),
-  );
+  // const y = useSpring(
+  //   useTransform(scrollY, [offsetTop - 1000, offsetTop - 750], ['0%', '100%']),
+  // );
 
-  const rotateY = useSpring(
-    useTransform(scrollY, [offsetTop - 750, offsetTop - 500], [0, 180]),
-  );
-  rotateY.updateAndNotify(0);
+  // const rotateY = useSpring(
+  //   useTransform(scrollY, [offsetTop - 750, offsetTop - 500], [0, 180]),
+  // );
+  // rotateY.updateAndNotify(0);
 
   function transformTemplate(transformProps, transformedString) {
     return `perspective(600px) ${transformedString}`;
@@ -78,20 +80,22 @@ const RotatingPostcard = ({
       <ImageCoverAnchor>
         <OverflowCoverWrapper>
           <MotionCoverContainer
+            className="imageCover"
             transformTemplate={transformTemplate}
-            ref={ref}
+            ref={imageCoverRef}
             initial={{ y: 0 }}
             style={{
               willChange: 'transform',
-              y,
-              rotateY,
+              // y,
+              // rotateY,
             }}
           >
             <ImageCover style={{ position: 'absolute' }} fluid={imgReveal} />
           </MotionCoverContainer>
         </OverflowCoverWrapper>
         <ThreeDPostcard
-          rotation={rotateY}
+          postcardContainerRef={postcardContainerRef}
+          // rotation={rotateY}
           frontImg={imgFront}
           backImg={imgBack}
         />

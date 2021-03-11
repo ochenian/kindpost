@@ -6,13 +6,13 @@
 // #FF1654
 
 .Header {
-  // font-family: Montserrat;
+  font-family: Montserrat;
   color: #fff;
 
   position: absolute;
   width: 100%;
   z-index: 20;
-  padding: 0 30px;
+  padding: 0 4em;
 
   margin-top: 1.5em;
 
@@ -68,12 +68,12 @@
   display: flex;
   align-items: center;
 
-  font-size: 1rem;
-  text-transform: lowercase;
+  font-size: 0.75rem;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
-  flex-basis: 30%;
+  // flex-basis: 30%;
   justify-content: space-between;
-
+  width: 425px;
   a {
     display: block;
     color: #fff;

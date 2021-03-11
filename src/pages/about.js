@@ -131,6 +131,17 @@ const Contact = () => {
           }
         }
       }
+      postcardsFallingImg: file(
+        relativePath: { eq: "postcards_falling_alt_4.png" }
+      ) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
@@ -138,8 +149,8 @@ const Contact = () => {
     <Layout site="kindpost" headerClass="Header">
       <Container>
         <HeaderContainer>
-          <HeaderOverlay />
-          <HeaderImg fluid={data.headerImg.childImageSharp.fluid} />
+          {/* <HeaderOverlay /> */}
+          <HeaderImg fluid={data.postcardsFallingImg.childImageSharp.fluid} />
         </HeaderContainer>
         <TextImgWrapper>
           <BodyImg fluid={data.tableOfPostcards.childImageSharp.fluid} />
