@@ -9,6 +9,7 @@ import {
 } from 'gatsby-theme-shopify-manager';
 import Delete from '../../assets/svg/delete_outline-24px.svg';
 import CartThumbnail from './CartThumbnail';
+import { colors, spacing } from '../../utils/styles';
 
 const CartListItemRoot = styled('li')`
   align-items: center;
