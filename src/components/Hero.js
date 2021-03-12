@@ -178,9 +178,9 @@ const Hero = () => {
             you or yours in kindness.
           </Description>
 
-          <Link to="product">
+          <a href="product">
             <CtaButton>send</CtaButton>
-          </Link>
+          </a>
         </div>
         <motion.video
           style={{ y, opacity: 0, scale: 0.75 }}

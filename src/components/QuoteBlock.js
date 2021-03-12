@@ -9,6 +9,10 @@ const Background = styled.div`
   font-size: 1.5em;
   font-family: 'orpheuspro';
   text-align: center;
+
+  @media (max-width: 650px) {
+    padding: 1.5em 2em;
+  }
 `;
 
 const Quote = styled.p`

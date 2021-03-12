@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import Circle from '../assets/svg/circle.svg';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const Wrapper = styled.div`
 `;
 const CopyWrapper = styled.div`
   display: flex;
+  flex-direction: ${props => (props.mobile ? 'column;' : 'row;')}
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -23,6 +25,10 @@ const ImgContainer = styled.div`
   align-content: center;
   flex: 1 1 50%;
   position: relative;
+
+  @media (max-width: 950px) {
+    width: 50%;
+  }
 `;
 const ImgBackground = styled.div`
   position: absolute;
@@ -53,6 +59,14 @@ const YouMatterImg = styled(Img)`
 
 const TextBlock = styled.div`
   width: 50%;
+
+  @media (max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
 `;
 const Text = styled.div`
   width: 75%;
@@ -61,6 +75,7 @@ const Text = styled.div`
 
 const HeadText = styled.div`
   font-size: 5rem;
+  white-space: nowrap;
 `;
 
 const Link = styled.div`
@@ -73,6 +88,8 @@ const Link = styled.div`
 `;
 
 const YouMatter = () => {
+  const mobile = useMediaQuery('(max-width: 950px)');
+
   const data = useStaticQuery(graphql`
     query YouMatterCard {
       youMatterImg: file(relativePath: { eq: "Encouragement.jpg" }) {
@@ -88,7 +105,7 @@ const YouMatter = () => {
   `);
   return (
     <Wrapper>
-      <CopyWrapper>
+      <CopyWrapper mobile={mobile}>
         <ImgContainer>
           <StyledCircle />
           <YouMatterImg fluid={data.youMatterImg.childImageSharp.fluid} />

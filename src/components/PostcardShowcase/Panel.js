@@ -6,6 +6,11 @@ import RotatingPostcard from './RotatingImage';
 import CaStamp from '../../assets/svg/ca_stamp3.svg';
 import Writing from '../../assets/svg/pc_writing.svg';
 
+if (typeof window !== `undefined`) {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.core.globals('ScrollTrigger', ScrollTrigger);
+}
+
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
@@ -21,6 +26,24 @@ const Wrapper = styled.div`
   // padding: 10px;
   padding: 0;
   margin: 0;
+`;
+
+const PinTarget = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  position: relative;
+  box-sizing: border-box;
+  // padding: 10px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  // height: 900px;
 `;
 
 const TrimContainer = styled.div`
@@ -75,11 +98,6 @@ const Panel = ({ imgFront, imgBack, imgReveal, index }) => {
   const writingRef = useRef(null);
 
   useEffect(() => {
-    if (typeof window !== `undefined`) {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.core.globals('ScrollTrigger', ScrollTrigger);
-    }
-
     const pcTl = gsap.timeline({
       scrollTrigger: {
         trigger: orangeRef.current,
@@ -111,6 +129,7 @@ const Panel = ({ imgFront, imgBack, imgReveal, index }) => {
   });
   return (
     <Wrapper ref={orangeRef}>
+      {/* <PinTarget ref={orangeRef}> */}
       {/* <WritingContainer ref={writingRef}>
         <StyledWriting />
       </WritingContainer> */}
@@ -131,6 +150,7 @@ const Panel = ({ imgFront, imgBack, imgReveal, index }) => {
           imgReveal={imgReveal}
         />
       </TrimContainer>
+      {/* </PinTarget> */}
     </Wrapper>
   );
 };

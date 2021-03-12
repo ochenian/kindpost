@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
 import Layout from '../layouts/index';
 import Hero from '../components/Hero';
 import Divider from '../components/Divider';
@@ -24,6 +26,13 @@ export default () => {
       }
     }
   `);
+
+  useEffect(() => {
+    // if (typeof window !== `undefined`) {
+    //   gsap.registerPlugin(ScrollTrigger);
+    //   gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    // }
+  });
 
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">

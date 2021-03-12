@@ -72,13 +72,15 @@
       // font-family: 'Averia Serif Libre';
       padding-left: 4em;
 
-      @media (min-width: 600px) and (max-width: 800px) {
-        left: 60%;
-      }
+      // @media (min-width: 600px) and (max-width: 800px) {
+      //   left: 60%;
+      // }
 
-      @media (max-width: 600px) {
-        font-size: 0.5rem;
-        left: 75%;
+      @media (max-width: 900px) {
+        font-size: 0.75rem;
+        // left: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       & .small-text {
@@ -313,24 +315,17 @@
   svg {
     // margin-bottom: 1em;
 
-    &.happy-face {
+    &.happy-face,
+    .postcard,
+    .occasion {
       position: absolute;
-      width: 50%;
+      // width: 50%;
+      width: 12vw;
     }
 
     &.truck {
       position: absolute;
-      width: 65%;
-    }
-
-    &.postcard {
-      position: absolute;
-      width: 50%;
-    }
-
-    &.occasion {
-      position: absolute;
-      width: 50%;
+      width: 15vw;
     }
   }
 }

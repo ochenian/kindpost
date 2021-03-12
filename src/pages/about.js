@@ -4,12 +4,14 @@ import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../layouts/index';
 import Circle from '../assets/svg/circle.svg';
+import OurPurpose from '../components/OurPurpose';
 
 const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'orpheuspro';
+  background: rgb(253, 250, 238);
 `;
 const HeaderContainer = styled.div`
   width: 100%;
@@ -32,7 +34,7 @@ const TextImgWrapper = styled.div`
   width: 100%;
   align-items: center;
   background: rgb(253, 250, 238);
-  padding-top: 12em;
+  padding-bottom: 12em;
 `;
 
 const BodyImg = styled(Img)`
@@ -49,10 +51,12 @@ const BodyTextWrapper = styled.section`
 `;
 
 const BodyTextHeader = styled.h3`
-  font-weight: bold;
-  margin-bottom: 2em;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  // font-weight: bold;
+  font-size: 5rem;
+  // margin-bottom: 2em;
+  // letter-spacing: 3px;
+  // text-transform: uppercase;
+  text-align: center;
 `;
 
 const BodyText = styled.div`
@@ -152,14 +156,16 @@ const Contact = () => {
           {/* <HeaderOverlay /> */}
           <HeaderImg fluid={data.postcardsFallingImg.childImageSharp.fluid} />
         </HeaderContainer>
+        <OurPurpose />
         <TextImgWrapper>
           <BodyImg fluid={data.tableOfPostcards.childImageSharp.fluid} />
           <BodyTextWrapper>
             <BodyTextHeader>Showing We Care.</BodyTextHeader>
             <BodyText>
-              Kindpost was born out of the belief that finding a thoughtful,
-              caring note in your mailbox can rival the greatest experiences in
-              life.
+              We believe that finding a thoughtful, caring note in your mailbox
+              can rival the greatest experiences in life. So we've established a
+              platform that allows others to know the joyful feelings of those
+              who care.
             </BodyText>
             <BodyText>
               A simple act of kindness can remind us that the feeling of love
@@ -176,9 +182,9 @@ const Contact = () => {
               reading his wife’s letters, lest he sully them in the slightest.
             </BodyText>
             <BodyText>
-              To this day, some of my most prized possessions are past notes
-              written to me. No, not printed emails, or recorded Zoom calls, but
-              actual handwritten notes that I frequently revisit for when my
+              To this day, some of our most prized possessions are past notes
+              written to us. No, not printed emails, or recorded Zoom calls, but
+              actual handwritten notes that we frequently revisit for when our
               mood calls for a dose of nostalgic warmth.
             </BodyText>
             <Stamp

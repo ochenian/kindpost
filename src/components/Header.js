@@ -42,6 +42,10 @@ const CartQuantity = styled.span`
   color: #fff;
 `;
 
+const StyledButtonLink = styled(ButtonLink)`
+  margin-right: 3em;
+`;
+
 const Header = ({ headerClass }) => {
   const { toggleCart } = useContext(CartContext);
   const itemsInCart = useCartCount();
@@ -59,7 +63,7 @@ const Header = ({ headerClass }) => {
     <div className={headerClass}>
       <div className="Wrap">
         <animated.div className="Header__body" style={{ ...navSpring }}>
-          <Link to="/">
+          <a href="/">
             {!mobile && <Logo className="logo" />}
             {mobile && !headerClass.includes('light') && (
               <StyledLogoThumbnail />
@@ -67,22 +71,22 @@ const Header = ({ headerClass }) => {
             {mobile && headerClass.includes('light') && (
               <StyledLogoThumbnailLight />
             )}
-          </Link>
+          </a>
           <div className="Header__nav">
             {!mobile && (
-              <ButtonLink>
-                <Link to="/product">
+              <StyledButtonLink style={{ marginRight: '4em' }}>
+                <a href="/product">
                   <div>send a postcard</div>
-                </Link>
-              </ButtonLink>
+                </a>
+              </StyledButtonLink>
             )}
 
             {!mobile && (
-              <ButtonLink>
-                <Link to="/#howTo">
+              <StyledButtonLink style={{ marginRight: '4em' }}>
+                <a href="/#howTo">
                   <div>how it works</div>
-                </Link>
-              </ButtonLink>
+                </a>
+              </StyledButtonLink>
             )}
             <button
               type="button"

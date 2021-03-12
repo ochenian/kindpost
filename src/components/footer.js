@@ -139,9 +139,9 @@ const Footer = () => {
           <>
             <div className="links">
               <SectionHeader>Info.</SectionHeader>
-              <Link to="/about">About us</Link>
-              <Link to="/faq">FAQ</Link>
-              <Link to="/contact">Contact us</Link>
+              <a href="/about">About us</a>
+              <a href="/faq">FAQ</a>
+              <a href="/contact">Contact us</a>
             </div>
 
             <div className="links">
@@ -167,12 +167,12 @@ const Footer = () => {
 
                 <PrivacyText>
                   YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR&nbsp;
-                  <Link
-                    to="/privacy-policy"
+                  <a
+                    href="/privacy-policy"
                     style={{ textDecoration: 'underline' }}
                   >
                     PRIVACY POLICY
-                  </Link>
+                  </a>
                 </PrivacyText>
               </form>
             </div>
@@ -213,12 +213,12 @@ const Footer = () => {
               </section>
               <PrivacyText>
                 YOUR EMAIL ADDRESS WILL BE USED IN ACCORDANCE WITH OUR&nbsp;
-                <Link
-                  to="/privacy-policy"
+                <a
+                  href="/privacy-policy"
                   style={{ textDecoration: 'underline' }}
                 >
                   PRIVACY POLICY
-                </Link>
+                </a>
               </PrivacyText>
             </form>
             <MobileLinksSection>
@@ -237,8 +237,8 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} kindpost llc. all rights reserved.
         </div>
         <div>made with ♡ in california</div>
-        <Link to="/terms-of-service">terms of service</Link>
-        <Link to="/privacy-policy">privacy policy</Link>
+        <a href="/terms-of-service">terms of service</a>
+        <a href="/privacy-policy">privacy policy</a>
         {!mobile && (
           <KpThumbnail
             style={{
