@@ -15,10 +15,10 @@ const SocialIcons = styled.div`
 
   z-index: 10;
   position: absolute;
-  bottom: 2em;
+  bottom: 5vh;
   left: 4em;
 
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
     left: 50%;
     transform: translateX(-50%);
   }
@@ -57,11 +57,12 @@ const Description = styled.div`
   line-height: 1.5;
   margin-bottom: 2em;
 
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
     font-size: 1rem;
     width: 90vw;
     margin: 2rem auto;
     letter-spacing: 1px;
+    max-width: 50ch;
   }
 `;
 

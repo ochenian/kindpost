@@ -56,7 +56,7 @@ const StyledCircle = styled(Circle)`
 const YouMatterImg = styled(Img)`
   width: 50%;
 
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -71,7 +71,7 @@ const TextBlock = styled.div`
     align-items: center;
     margin-top: 3rem;
 
-    @media (max-width: 400px) {
+    @media (max-width: 1024px) {
       margin-top: 2rem;
     }
   }
@@ -79,7 +79,7 @@ const TextBlock = styled.div`
 const Text = styled.div`
   width: 75%;
   margin-bottom: 0.5rem;
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
     width: 65vw;
   }
 `;
@@ -87,7 +87,7 @@ const Text = styled.div`
 const HeadText = styled.div`
   font-size: 5rem;
   white-space: nowrap;
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
     font-size: 3rem;
   }
 `;

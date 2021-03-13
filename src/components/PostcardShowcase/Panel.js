@@ -43,14 +43,14 @@ const PinTarget = styled.div`
   margin: 0;
   width: 100%;
   height: 100%;
-  // height: 900px;
+  // height: 1024px;
 `;
 
 const TrimContainer = styled.div`
   position: absolute;
   width: 50%;
 
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 `;

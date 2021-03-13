@@ -17,7 +17,7 @@ const ImageContainer = styled.div`
   padding: 8vw;
   // max-width: 500px;
 
-  @media (max-width: 400px) {
+  @media (max-width: 1024px) {
     padding: 22vw;
   }
 `;
