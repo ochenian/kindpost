@@ -16,6 +16,10 @@ const ImageContainer = styled.div`
   // margin: 3em;
   padding: 8vw;
   // max-width: 500px;
+
+  @media (max-width: 400px) {
+    padding: 22vw;
+  }
 `;
 
 const ImageCoverAnchor = styled.div`

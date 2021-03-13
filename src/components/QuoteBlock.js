@@ -51,9 +51,9 @@ const QuoteBlock = () => (
     <Signature>Cate</Signature>
     <SignatureTitle>Founder / CEO</SignatureTitle>
     <StyledButtonLink color="rgb(40,40,40)">
-      <Link to="/about">
+      <a href="/about">
         <StoryLink>Read Our Story</StoryLink>
-      </Link>
+      </a>
     </StyledButtonLink>
   </Background>
 );

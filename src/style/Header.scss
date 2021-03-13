@@ -16,6 +16,10 @@
 
   margin-top: 1.5em;
 
+  @media (max-width: 400px) {
+    padding: 0 1em;
+  }
+
   &.light {
     // old
     // position: static;

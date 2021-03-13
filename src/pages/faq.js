@@ -13,7 +13,7 @@ const Container = styled.div`
 
   padding-top: 5em;
 
-  background-color: #f2ebe5;
+  background: rgb(253, 250, 238);
   color: rgb(40, 40, 40);
   font-family: 'orpheuspro';
 `;

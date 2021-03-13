@@ -49,6 +49,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
+    @media (max-width: 400px) {
+      width: 100%;
+    }
+
     & p {
       position: absolute;
       color: white;
@@ -81,6 +85,14 @@
         // left: 75%;
         left: 50%;
         transform: translate(-50%, -50%);
+      }
+
+      @media (max-width: 400px) {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
       }
 
       & .small-text {
@@ -125,6 +137,11 @@
           text-transform: uppercase;
         }
 
+        @media (max-width: 400px) {
+          justify-content: center;
+          width: 100%;
+        }
+
         // span:last-of-type {
         //   color: #d4004c;
         //   text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
@@ -152,6 +169,12 @@
       @media (max-width: 600px) {
         font-size: 24px;
         margin-bottom: 32px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 2.25rem;
+        justify-content: center;
+        margin-right: 0;
       }
     }
 

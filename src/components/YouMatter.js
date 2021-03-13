@@ -55,6 +55,10 @@ const StyledCircle = styled(Circle)`
 `;
 const YouMatterImg = styled(Img)`
   width: 50%;
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 const TextBlock = styled.div`
@@ -66,19 +70,29 @@ const TextBlock = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
+
+    @media (max-width: 400px) {
+      margin-top: 2rem;
+    }
   }
 `;
 const Text = styled.div`
   width: 75%;
   margin-bottom: 0.5rem;
+  @media (max-width: 400px) {
+    width: 65vw;
+  }
 `;
 
 const HeadText = styled.div`
   font-size: 5rem;
   white-space: nowrap;
+  @media (max-width: 400px) {
+    font-size: 3rem;
+  }
 `;
 
-const Link = styled.div`
+const Link = styled.a`
   display: flex;
     margin-top: 1rem;
     letter-spacing: 1px;
@@ -119,7 +133,7 @@ const YouMatter = () => {
             else?
           </Text>
           <div style={{ fontWeight: 'bold' }}>We've got you.</div>
-          <Link>Shop Here &#x2192;</Link>
+          <Link href="/product">Shop Here &#x2192;</Link>
         </TextBlock>
       </CopyWrapper>
       {/* <Link>Shop Here</Link> */}

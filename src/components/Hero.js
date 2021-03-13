@@ -17,6 +17,11 @@ const SocialIcons = styled.div`
   position: absolute;
   bottom: 2em;
   left: 4em;
+
+  @media (max-width: 400px) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const StyledTwitterLogo = styled(TwitterLogo)`
@@ -51,6 +56,13 @@ const Description = styled.div`
   font-size: 1.25rem;
   line-height: 1.5;
   margin-bottom: 2em;
+
+  @media (max-width: 400px) {
+    font-size: 1rem;
+    width: 90vw;
+    margin: 2rem auto;
+    letter-spacing: 1px;
+  }
 `;
 
 const Hero = () => {

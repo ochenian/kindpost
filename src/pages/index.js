@@ -58,7 +58,7 @@ export default () => {
       <div
         style={{
           background: `linear-gradient(to bottom, #ffffff, #fcfafb, #faf4f5, #f7efed, #f2ebe5)`,
-          height: `25vh`,
+          height: `10vh`,
         }}
       ></div>
       <QuoteBlock />

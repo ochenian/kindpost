@@ -49,6 +49,10 @@ const PinTarget = styled.div`
 const TrimContainer = styled.div`
   position: absolute;
   width: 50%;
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 const StyledRotatingPostcard = styled(RotatingPostcard)`

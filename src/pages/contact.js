@@ -9,7 +9,7 @@ const Container = styled.section`
   padding: 8em 4em;
   line-height: 2;
   letter-spacing: 1.25px;
-  background-color: #f2ebe5;
+  background: rgb(253, 250, 238);
   color: rgb(40, 40, 40);
   font-family: 'orpheuspro';
 `;
