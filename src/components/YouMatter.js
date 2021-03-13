@@ -9,7 +9,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 75vh;
+  // height: 100vh;
   justify-content: center;
+
+  // @media (max-width: 1024px) {
+  //   height: 100%;
+  //   margin: 6em;
+  // }
 `;
 const CopyWrapper = styled.div`
   display: flex;
@@ -26,8 +32,8 @@ const ImgContainer = styled.div`
   flex: 1 1 50%;
   position: relative;
 
-  @media (max-width: 950px) {
-    width: 50%;
+  @media (max-width: 1024px) {
+    width: 100%;
   }
 `;
 const ImgBackground = styled.div`
@@ -55,6 +61,7 @@ const StyledCircle = styled(Circle)`
 `;
 const YouMatterImg = styled(Img)`
   width: 50%;
+  // width: 100%;
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -64,7 +71,11 @@ const YouMatterImg = styled(Img)`
 const TextBlock = styled.div`
   width: 50%;
 
-  @media (max-width: 950px) {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+
+  @media (max-width: 1024px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,11 +113,22 @@ const Link = styled.a`
 `;
 
 const YouMatter = () => {
-  const mobile = useMediaQuery('(max-width: 950px)');
+  const mobile = useMediaQuery('(max-width: 1024px)');
 
   const data = useStaticQuery(graphql`
     query YouMatterCard {
       youMatterImg: file(relativePath: { eq: "Encouragement.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      fancyYouMatterImg: file(
+        relativePath: { eq: "postcards_envelope_mirror_hi.png" }
+      ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -132,7 +154,7 @@ const YouMatter = () => {
             birthday idea? Had a bad day or want to brighten one for someone
             else?
           </Text>
-          <div style={{ fontWeight: 'bold' }}>We've got you.</div>
+          <div style={{ fontWeight: 'bold' }}>We&apos;ve got you.</div>
           <Link href="/product">Shop Here &#x2192;</Link>
         </TextBlock>
       </CopyWrapper>
