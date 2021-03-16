@@ -257,6 +257,16 @@ const Showcase = () => {
     //   gsap.registerPlugin(ScrollTrigger);
     //   gsap.core.globals('ScrollTrigger', ScrollTrigger);
     // }
+    // const pcTl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: containerRef.current,
+    //     scrub: 1,
+    //     pin: true,
+    //     start: 'top top',
+    //     end: '+=600%',
+    //     markers: true,
+    //   },
+    // });
     //   gsap.to(containerRef.current, {
     //     scrollTrigger: {
     //       trigger: panel2Ref.current,

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import Circle from '../assets/svg/circle.svg';
+import Blob from '../assets/svg/postcard_blob.svg';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const Wrapper = styled.div`
@@ -33,7 +34,8 @@ const ImgContainer = styled.div`
   position: relative;
 
   @media (max-width: 1024px) {
-    width: 100%;
+    width: 50%;
+    margin-bottom: 1rem;
   }
 `;
 const ImgBackground = styled.div`
@@ -59,9 +61,25 @@ const StyledCircle = styled(Circle)`
   transform: translate(-50%, -50%);
   fill: pink;
 `;
+
+const StyledBlob = styled(Blob)`
+  position: absolute;
+  width: 100%;
+  width: 80%;
+  // height: 150%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  fill: pink;
+`;
+
 const YouMatterImg = styled(Img)`
-  width: 50%;
-  // width: 100%;
+  // width: 50%;
+  width: 100%;
+  top: 12px;
+  left: 22px;
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -71,13 +89,13 @@ const YouMatterImg = styled(Img)`
 const TextBlock = styled.div`
   width: 50%;
 
-  // display: flex;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
   // align-items: center;
 
   @media (max-width: 1024px) {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
@@ -89,7 +107,7 @@ const TextBlock = styled.div`
 `;
 const Text = styled.div`
   width: 75%;
-  margin-bottom: 0.5rem;
+  // margin-bottom: 0.5rem;
   @media (max-width: 1024px) {
     width: 65vw;
   }
@@ -110,6 +128,24 @@ const Link = styled.a`
     font-size: 1rem;
     // text-transform: uppercase;
 }
+`;
+
+const ShopNowBtn = styled.a`
+  padding: 12px 32px;
+  // font-size: 1.25rem;
+  background: transparent;
+  border-color: #d4004c;
+  color: #d4004c;
+  cursor: pointer;
+  transition: 0.5s all ease-out;
+  border: 1px solid #d4004c;
+  width: fit-content;
+
+  :hover {
+    color: #fff;
+    background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    border-radius: 48px;
+  }
 `;
 
 const YouMatter = () => {
@@ -137,14 +173,24 @@ const YouMatter = () => {
           }
         }
       }
+      postcardCutout: file(relativePath: { eq: "postcard_blob_cutout.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
   return (
     <Wrapper>
       <CopyWrapper mobile={mobile}>
         <ImgContainer>
-          <StyledCircle />
-          <YouMatterImg fluid={data.youMatterImg.childImageSharp.fluid} />
+          {/* <StyledCircle /> */}
+          {/* <StyledBlob /> */}
+          <YouMatterImg fluid={data.postcardCutout.childImageSharp.fluid} />
         </ImgContainer>
 
         <TextBlock>
@@ -154,8 +200,10 @@ const YouMatter = () => {
             birthday idea? Had a bad day or want to brighten one for someone
             else?
           </Text>
-          <div style={{ fontWeight: 'bold' }}>We&apos;ve got you.</div>
-          <Link href="/product">Shop Here &#x2192;</Link>
+          <div style={{ fontWeight: 'bold', margin: '0.5rem 0' }}>
+            We&apos;ve got you.
+          </div>
+          <ShopNowBtn href="/product">Shop Here</ShopNowBtn>
         </TextBlock>
       </CopyWrapper>
       {/* <Link>Shop Here</Link> */}

@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import RotatingPostcard from './RotatingImage';
 import CaStamp from '../../assets/svg/ca_stamp3.svg';
 import Writing from '../../assets/svg/pc_writing.svg';
@@ -48,11 +50,7 @@ const PinTarget = styled.div`
 
 const TrimContainer = styled.div`
   position: absolute;
-  width: 50%;
-
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
+  width: 100%;
 `;
 
 const StyledRotatingPostcard = styled(RotatingPostcard)`
@@ -94,12 +92,52 @@ const StyledWriting = styled(Writing)`
   }
 `;
 
+const ShopNowBtn = styled.a`
+  padding: 24px 72px;
+  font-size: 1.25rem;
+  background: transparent;
+  border-color: #d4004c;
+  color: #d4004c;
+  cursor: pointer;
+  transition: 0.5s all ease-out;
+  border: 1px solid #d4004c;
+
+  :hover {
+    color: #fff;
+    background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    border-radius: 48px;
+  }
+`;
+
+const BgImg = styled(Img)`
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  opacity: 0.6;
+`;
+
 const Panel = ({ imgFront, imgBack, imgReveal, index }) => {
   const orangeRef = useRef(null);
   const postcardRef = useRef(null);
   const imageCoverRef = useRef(null);
   const postcardContainerRef = useRef(null);
   const writingRef = useRef(null);
+
+  const data = useStaticQuery(graphql`
+    query kpStampQuery {
+      kpStampImg: file(relativePath: { eq: "pc_stamp_white_lines.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
 
   useEffect(() => {
     const pcTl = gsap.timeline({
@@ -137,14 +175,17 @@ const Panel = ({ imgFront, imgBack, imgReveal, index }) => {
       {/* <WritingContainer ref={writingRef}>
         <StyledWriting />
       </WritingContainer> */}
-
+      <BgImg
+        style={{ position: 'absolute' }}
+        fluid={data.kpStampImg.childImageSharp.fluid}
+      />
       <TrimContainer ref={postcardRef} className="postcard">
-        <StyledStamp
+        {/* <StyledStamp
           index={index}
           style={{
             transform: `rotate(${index % 2 === 0 ? `25deg` : `-25deg`})`,
           }}
-        />
+        /> */}
         <StyledRotatingPostcard
           imageCoverRef={imageCoverRef}
           postcardContainerRef={postcardContainerRef}
@@ -153,7 +194,9 @@ const Panel = ({ imgFront, imgBack, imgReveal, index }) => {
           imgBack={imgBack}
           imgReveal={imgReveal}
         />
+        <ShopNowBtn href="/product">Shop Here</ShopNowBtn>
       </TrimContainer>
+
       {/* </PinTarget> */}
     </Wrapper>
   );

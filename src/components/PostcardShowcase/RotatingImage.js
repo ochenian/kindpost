@@ -14,11 +14,20 @@ const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   // margin: 3em;
-  padding: 8vw;
-  // max-width: 500px;
+  padding: 24vw;
+  padding-bottom: 20vh;
+  padding-top: 14vh;
+  max-width: 1230px;
 
-  @media (max-width: 1024px) {
-    padding: 22vw;
+  @media (max-width: 768px) {
+    padding: 10vw;
+    padding-top: 14vh;
+    padding-bottom: 20vh;
+  }
+
+  @media (min-width: 1201px) {
+    padding: 128px 296px 182px 296px;
+    margin: 0 auto;
   }
 `;
 

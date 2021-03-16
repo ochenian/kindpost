@@ -22,9 +22,9 @@ const Title = styled.p`
   position: relative;
   text-align: center;
   margin: 0 auto;
-  margin: 4em 0;
-  font-size: 1.25em;
-  text-transform: lowercase;
+  margin: 2em 0;
+  font-size: 2.5em;
+  // text-transform: lowercase;
   letter-spacing: 4px;
   width: fit-content;
   font-style: italic;
@@ -45,7 +45,7 @@ const QuestionsContainer = styled.div`
   flex-direction: column;
   width: 80%;
   height: 100%;
-  margin-bottom: 120px;
+  margin-bottom: 12em;
 `;
 
 const StyledTwitterLogo = styled(TwitterLogo)`
@@ -208,7 +208,7 @@ const Faq = () => {
   return (
     <Layout site="kindpost" headerClass="Header light">
       <Container>
-        <Title>frequently asked questions</Title>
+        <Title>FAQ</Title>
         <QuestionsContainer>
           {faqs.map(faq => (
             <Accordion

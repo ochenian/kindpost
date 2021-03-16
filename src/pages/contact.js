@@ -18,9 +18,9 @@ const StyledTextHeader = styled.p`
   position: relative;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 4em;
-  font-size: 1.25em;
-  text-transform: lowercase;
+  margin-bottom: 2em;
+  font-size: 2.5em;
+  // text-transform: lowercase;
   letter-spacing: 4px;
   width: fit-content;
   font-style: italic;
@@ -52,6 +52,8 @@ const StyledTextSection = styled.div`
 
   a {
     color: #f5bc5e;
+    font-weight: bold;
+    font-size: 1.25rem;
   }
 `;
 
@@ -76,7 +78,7 @@ const Contact = () => {
     <Layout site="kindpost" headerClass="Header light">
       <Container>
         <TextBody>
-          <StyledTextHeader>CONTACT</StyledTextHeader>
+          <StyledTextHeader>Contact</StyledTextHeader>
           <StyledTextSection>
             <a href="mailto:studio@kindpost.com">help@kindpost.com</a>
             Feel free to send us any questions on our products!
