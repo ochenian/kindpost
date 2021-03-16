@@ -19,7 +19,7 @@ const ShopTheCollectionWrapper = styled.div`
 
   background: rgba(0, 0, 0, 0.8);
   width: 50vw;
-  height: 25vw;
+  height: 308px;
   z-index: 10;
   padding: 2em;
 
