@@ -8,14 +8,21 @@ const Wrapper = styled.div`
   align-items: center;
   // margin: 8em 0;
   margin-bottom: 12em;
-  margin-top: 6em;
+  /* margin-top: 12em; */
+  background: rgb(242, 235, 229);
+  padding: 10em;
+  position: relative;
+  top: -60px;
+  z-index: 10;
 `;
 
 const Heading = styled.div`
-  font-size: 5rem;
+  font-size: 2rem;
   margin-bottom: 0.5em;
+  text-transform: uppercase;
+
   @media (max-width: 545px) {
-    font-size: 4rem;
+    font-size: 1rem;
   }
 `;
 

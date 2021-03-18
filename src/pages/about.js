@@ -26,10 +26,19 @@ const HeaderImg = styled(Img)`
 
 const HeaderOverlay = styled.div`
   position: absolute;
-  background: linear-gradient(#00000088 30%, #ffffff44 100%);
+  background: radial-gradient(#00000099 50%, #00000080 100%);
   width: 100%;
   height: 100%;
   z-index: 10;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(242, 235, 229);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat';
+  letter-spacing: 24px;
+  text-shadow: 1px 2px 4px rgb(0 0 0 / 90%);
 `;
 
 const TextImgWrapper = styled.div`
@@ -51,6 +60,7 @@ const TextImgWrapper = styled.div`
 const BodyImg = styled(Img)`
   width: 100%;
   flex: 1;
+  z-index: 10;
 `;
 
 const BodyTextWrapper = styled.section`
@@ -59,19 +69,22 @@ const BodyTextWrapper = styled.section`
   align-items: center;
   flex: 1;
   position: relative;
+  padding: 10em;
+  background: rgb(242, 235, 229);
 `;
 
 const BodyTextHeader = styled.h3`
   // font-weight: bold;
-  font-size: 5rem;
+  font-size: 2rem;
   // margin-bottom: 2em;
   // letter-spacing: 3px;
   // text-transform: uppercase;
   text-align: center;
-  margin: 0 1.5rem 0.5em 1.5rem;
+  margin: 0 1.5rem 1em 1.5rem;
+  text-transform: uppercase;
 
   @media (max-width: 545px) {
-    font-size: 4rem;
+    font-size: 1rem;
   }
 `;
 
@@ -120,10 +133,19 @@ const StyledOurPurpose = styled(OurPurpose)`
   margin-bottom: 12em;
 `;
 
+const FinalMessage = styled.div`
+  font-size: 2rem;
+  text-transform: uppercase;
+  width: 50%;
+  text-align: center;
+  margin-bottom: 3em;
+  letter-spacing: 4px;
+`;
+
 const Contact = () => {
   const data = useStaticQuery(graphql`
     query headerQuery {
-      headerImg: file(relativePath: { eq: "KP_Card_Spread_BlueBg.jpg" }) {
+      headerImg: file(relativePath: { eq: "our_story.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -132,7 +154,7 @@ const Contact = () => {
           }
         }
       }
-      tableOfPostcards: file(relativePath: { eq: "pc_table.jpg" }) {
+      postcardScatterImg: file(relativePath: { eq: "postcard_scatter.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -141,9 +163,7 @@ const Contact = () => {
           }
         }
       }
-      postcardEncouragementImg: file(
-        relativePath: { eq: "Encouragement.jpg" }
-      ) {
+      envelopeGoldImg: file(relativePath: { eq: "envelope_gold.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -189,28 +209,31 @@ const Contact = () => {
   return (
     <Layout site="kindpost" headerClass="Header">
       <Container>
-        <div
+        {/* <div
           style={{
             height: '20vh',
             background: 'rgb(223, 168, 224)',
             width: '100%',
           }}
-        />
+        /> */}
         <HeaderContainer>
-          {/* <HeaderOverlay /> */}
-          <HeaderImg fluid={data.postcardsFallingImg.childImageSharp.fluid} />
+          <HeaderOverlay />
+          <HeaderImg fluid={data.headerImg.childImageSharp.fluid} />
         </HeaderContainer>
-        <div
+        {/* <div
           style={{
             height: '10vh',
             background:
               'linear-gradient(to bottom, #e6a4e4, #ffb3cb, #ffcbc2, #ffe5d0, #fdfaee)',
             width: '100%',
           }}
-        />
+        /> */}
         <StyledOurPurpose />
         <TextImgWrapper>
-          <BodyImg fluid={data.tableOfPostcards.childImageSharp.fluid} />
+          <BodyImg
+            fluid={data.postcardScatterImg.childImageSharp.fluid}
+            style={{ left: '60px' }}
+          />
           <BodyTextWrapper>
             <BodyTextHeader>Showing We Care.</BodyTextHeader>
             <BodyText>
@@ -239,18 +262,26 @@ const Contact = () => {
               actual handwritten notes that we frequently revisit for when our
               mood calls for a dose of nostalgic warmth.
             </BodyText>
-            <Stamp
+            {/* <Stamp
               style={{ position: 'absolute' }}
               fluid={data.californiaStamp.childImageSharp.fluid}
-            />
+            /> */}
           </BodyTextWrapper>
           <PostcardWrapper>
             <PostcardImg
-              fluid={data.postcardsReflectionImg.childImageSharp.fluid}
+              fluid={data.envelopeGoldImg.childImageSharp.fluid}
+              style={{ right: '60px' }}
             />
             {/* <CenteredCircle /> */}
           </PostcardWrapper>
         </TextImgWrapper>
+        <FinalMessage>
+          Thoughtfully Selected & Handcrafted With Positivity In Mind Because
+          <span style={{ color: '#d4004c', fontWeight: 'bold' }}>
+            {' '}
+            We All Matter
+          </span>
+        </FinalMessage>
       </Container>
     </Layout>
   );
