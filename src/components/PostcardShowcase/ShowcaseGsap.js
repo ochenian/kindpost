@@ -256,13 +256,11 @@ const Showcase = () => {
   const birthdayPostcardRef = useRef(null);
   const birthdayImageCoverRef = useRef(null);
   const birthdayPostcardContainerRef = useRef(null);
-  const logoRef = useRef();
 
   gsap.set(postcardRef.current, { autoAlpha: 0 });
   gsap.set(lovePostcardRef.current, { autoAlpha: 0 });
   gsap.set(encouragePostcardRef.current, { autoAlpha: 0 });
   gsap.set(birthdayPostcardRef.current, { autoAlpha: 0 });
-  // gsap.set(logoRef.current, { autoAlpha: 0, fill: '#000' });
   gsap.set(containerRef.current, {
     backgroundColor: 'rgb(242, 235, 229)',
     autoAlpha: 1,
@@ -285,52 +283,9 @@ const Showcase = () => {
       },
     });
 
-    gsap.set(containerRef.current, { autoAlpha: 0 });
-
-    gsap.to(containerRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        scrub: 1,
-        start: 'top bottom',
-        // markers: true,
-      },
-      backgroundColor: '#e8ddee',
-      autoAlpha: 1,
-      // duration: 1,
-      // markers: true,
-    });
-
-    // gsap.to('.logo', {
-    //   scrollTrigger: {
-    //     trigger: containerRef.current,
-    //     start: 'top center',
-    //     // markers: true,
-    //   },
-    //   // autoAlpha: 1,
-    //   fill: '#000',
-    //   stroke: '#000',
-    //   duration: 1,
-    //   // markers: true,
-    // });
-
     pcTl
-      // .to(containerRef.current, {
-      //   backgroundColor: '#e8ddee',
-      // })
-      // .to(
-      //   '.logo',
-      //   {
-      //     fill: '#fff',
-      //     stroke: '#fff',
-      //     duration: 1,
-      //   },
-      //   '-=1.5',
-      // )
       .from(postcardRef.current, {
-        autoAlpha: 0,
-        // yPercent: 50,
-        xPercent: 50,
-        // duration: 1,
+        xPercent: 100,
       })
       .to(imageCoverRef.current, {
         translateY: '105%',
@@ -340,13 +295,11 @@ const Showcase = () => {
         ease: 'back',
       })
       .to(postcardRef.current, {
-        autoAlpha: 0,
-        xPercent: -50,
+        xPercent: -100,
       })
       .to(containerRef.current, { backgroundColor: '#dde5ed' })
       .from(lovePostcardRef.current, {
-        autoAlpha: 0,
-        xPercent: 50,
+        xPercent: 100,
       })
       .to(loveImageCoverRef.current, {
         translateY: '105%',
@@ -356,13 +309,11 @@ const Showcase = () => {
         ease: 'back',
       })
       .to(lovePostcardRef.current, {
-        autoAlpha: 0,
-        xPercent: -50,
+        xPercent: -100,
       })
       .to(containerRef.current, { backgroundColor: '#ddede4' })
       .from(encouragePostcardRef.current, {
-        autoAlpha: 0,
-        xPercent: 50,
+        xPercent: 100,
       })
       .to(encourageImageCoverRef.current, {
         translateY: '105%',
@@ -372,13 +323,11 @@ const Showcase = () => {
         ease: 'back',
       })
       .to(encouragePostcardRef.current, {
-        autoAlpha: 0,
-        xPercent: -50,
+        xPercent: -100,
       })
       .to(containerRef.current, { backgroundColor: '#ededdd' })
       .from(birthdayPostcardRef.current, {
-        autoAlpha: 0,
-        xPercent: 50,
+        xPercent: 100,
       })
       .to(birthdayImageCoverRef.current, {
         translateY: '105%',
@@ -388,8 +337,7 @@ const Showcase = () => {
         ease: 'back',
       })
       .to(lovePostcardRef.current, {
-        autoAlpha: 0,
-        xPercent: -50,
+        xPercent: -100,
       });
   });
 
