@@ -60,7 +60,7 @@ const MobileLinksSection = styled.section`
     margin-top: 0;
   }
 `;
-const MobileLink = styled(Link)`
+const MobileLink = styled.a`
   padding: 8px;
   // width: 100px;
   // text-align: center;
@@ -319,10 +319,17 @@ const Footer = () => {
 
         {mobile && (
           <>
-            <Img
-              fluid={data.kpThumbnail.childImageSharp.fluid}
-              style={{ width: '8vw', marginBottom: '3em', maxWidth: '60px' }}
-            />
+            <ScrollToTop onClick={() => scrollTo('#top')}>
+              <Img
+                fluid={data.kpThumbnail.childImageSharp.fluid}
+                style={{
+                  width: '8vw',
+                  marginBottom: '3em',
+                  minwidth: '40px',
+                  maxWidth: '60px',
+                }}
+              />
+            </ScrollToTop>
             <form onSubmit={handleSubmit}>
               <section>
                 {status.result !== 'success' && (
@@ -360,11 +367,11 @@ const Footer = () => {
               </PrivacyText>
             </form>
             <MobileLinksSection>
-              <MobileLink to="/faq">FAQ</MobileLink>
-              <MobileLink to="/about">About us</MobileLink>
-              <MobileLink to="/contact">Contact us</MobileLink>
-              <MobileLink to="/privacy-policy">privacy policy</MobileLink>
-              <MobileLink to="/terms-of-service">terms of service</MobileLink>
+              <MobileLink href="/faq">FAQ</MobileLink>
+              <MobileLink href="/about">About us</MobileLink>
+              <MobileLink href="/contact">Contact us</MobileLink>
+              <MobileLink href="/privacy-policy">privacy policy</MobileLink>
+              <MobileLink href="/terms-of-service">terms of service</MobileLink>
             </MobileLinksSection>
             <MobileLinksSection>
               <a href="https://twitter.com/kindpostco">
