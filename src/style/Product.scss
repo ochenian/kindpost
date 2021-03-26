@@ -176,6 +176,7 @@
 
   @media (max-width: '950px') {
     flex-direction: column;
+    margin-bottom: 200px;
   }
 
   & .left {
@@ -207,6 +208,10 @@
   & .right {
     flex-basis: 50%;
 
+    @media (max-width: '950px') {
+      margin-top: 200px;
+    }
+
     // &:before {
     //   position: absolute;
     //   // bottom: -40px;
@@ -236,7 +241,7 @@
   margin: auto;
 
   @media (max-width: '950px') {
-    padding: 64px;
+    padding: 0 64px;
   }
 
   @media (max-width: '450px') {
