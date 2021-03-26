@@ -405,20 +405,20 @@ const Showcase = () => {
   //   }
   // }
 
-  if (typeof window !== 'undefined') {
-    gsap.utils.toArray('.postcard').forEach((panel, i) => {
-      ScrollTrigger.create({
-        trigger: panel,
-        onEnter: () => goToSection(i),
-      });
+  // if (typeof window !== 'undefined') {
+  //   gsap.utils.toArray('.postcard').forEach((panel, i) => {
+  //     ScrollTrigger.create({
+  //       trigger: panel,
+  //       onEnter: () => goToSection(i),
+  //     });
 
-      ScrollTrigger.create({
-        trigger: panel,
-        start: 'bottom bottom',
-        onEnterBack: () => goToSection(i),
-      });
-    });
-  }
+  //     ScrollTrigger.create({
+  //       trigger: panel,
+  //       start: 'bottom bottom',
+  //       onEnterBack: () => goToSection(i),
+  //     });
+  //   });
+  // }
 
   return (
     <Container ref={containerRef} style={{ backgroundColor: '#e8ddee' }}>
