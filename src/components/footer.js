@@ -319,7 +319,7 @@ const Footer = () => {
 
         {mobile && (
           <>
-            <ScrollToTop onClick={() => scrollTo('#top')}>
+            <a href="/">
               <Img
                 fluid={data.kpThumbnail.childImageSharp.fluid}
                 style={{
@@ -329,7 +329,7 @@ const Footer = () => {
                   maxWidth: '60px',
                 }}
               />
-            </ScrollToTop>
+            </a>
             <form onSubmit={handleSubmit}>
               <section>
                 {status.result !== 'success' && (
