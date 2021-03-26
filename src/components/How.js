@@ -12,9 +12,14 @@ import { useInView } from 'react-intersection-observer';
 const StyledUnderline = styled(Underline)`
   width: 25%;
   margin: 0 auto;
-  margin-bottom: 8em;
+  margin-bottom: 100px;
   position: relative;
   top: -8px;
+
+  path: {
+    fill: #f2d4d7;
+    opacity: 0.11;
+  }
 `;
 
 const How = () => {
