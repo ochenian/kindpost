@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
+import { gsap } from 'gsap';
 import Circle from '../assets/svg/circle.svg';
-import Blob from '../assets/svg/postcard_blob.svg';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 100vh;
   // height: 100vh;
   justify-content: center;
+  // background: rgb(242, 235, 229);
+  background: #fff;
 
   // @media (max-width: 1024px) {
   //   height: 100%;
@@ -54,19 +56,6 @@ const StyledCircle = styled(Circle)`
   position: absolute;
   width: 100%;
   height: 150%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  fill: pink;
-`;
-
-const StyledBlob = styled(Blob)`
-  position: absolute;
-  width: 100%;
-  width: 80%;
-  // height: 150%;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -144,7 +133,6 @@ const ShopNowBtn = styled.a`
   :hover {
     color: #fff;
     background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
-    border-radius: 48px;
   }
 `;
 
@@ -184,29 +172,70 @@ const YouMatter = () => {
       }
     }
   `);
+
+  const imgRef = useRef();
+  const textRef = useRef();
+  const wrapperRef = useRef();
+
+  useEffect(() => {
+    // gsap.to(imgRef.current, {
+    //   yPercent: -100,
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: imgRef.current,
+    //     // start: "top bottom", // the default values
+    //     // end: "bottom top",
+    //     scrub: true,
+    //   },
+    // });
+
+    // gsap.to(textRef.current, {
+    //   yPercent: -100,
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: textRef.current,
+    //     // start: "top bottom", // the default values
+    //     // end: "bottom top",
+    //     scrub: true,
+    //   },
+    // });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: imgRef.current,
+        start: 'center bottom',
+        // scrub: 1,
+      },
+    });
+    tl.from(imgRef.current, {
+      autoAlpha: 0,
+      translateY: '20%',
+    }).from(textRef.current, {
+      autoAlpha: 0,
+      translateY: '20%',
+    });
+  });
+
   return (
     <Wrapper>
-      <CopyWrapper mobile={mobile}>
-        <ImgContainer>
-          {/* <StyledCircle /> */}
-          {/* <StyledBlob /> */}
+      <CopyWrapper mobile={mobile} ref={wrapperRef}>
+        <ImgContainer ref={imgRef}>
           <YouMatterImg fluid={data.postcardCutout.childImageSharp.fluid} />
         </ImgContainer>
 
-        <TextBlock>
-          <HeadText>We all matter.</HeadText>
+        <TextBlock ref={textRef}>
+          <HeadText>You deserve it.</HeadText>
           <Text>
             Nervous for a test? Anxious about an interview? Need a last minute
             birthday idea? Had a bad day or want to brighten one for someone
             else?
           </Text>
-          <div style={{ fontWeight: 'bold', margin: '0.5rem 0' }}>
+          <div style={{ fontWeight: 'bold', margin: '1rem 0' }}>
             We&apos;ve got you.
           </div>
-          <ShopNowBtn href="/product">Shop Here</ShopNowBtn>
+          <ShopNowBtn href="/product">Shop</ShopNowBtn>
         </TextBlock>
       </CopyWrapper>
-      {/* <Link>Shop Here</Link> */}
     </Wrapper>
   );
 };

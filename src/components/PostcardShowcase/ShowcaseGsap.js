@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 import Panel from './Panel';
 import RotatingPostcard from './RotatingImage';
-import KPThumb from '../../assets/svg/KP_Thumbnail.svg';
+import KPThumb from '../../assets/svg/KP_Thumbnail_white.svg';
 
 const Container = styled.div`
   // background-color: #fdfaee;
@@ -49,21 +49,24 @@ const Container = styled.div`
   // }
 `;
 
-const StyledKpThumb = styled(KPThumb)`
-  position: absolute;
-  top: 4%;
-  left: 50%;
-  opacity: 0.8;
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  height: 100%;
 `;
+
+const StyledKpThumb = styled(KPThumb)``;
 
 const BgImg = styled(Img)`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
+  width: 50%;
   opacity: 0.6;
-  max-width: 950px;
+  max-width: 600px;
 `;
 
 const ShopNowBtn = styled.a`
@@ -75,13 +78,15 @@ const ShopNowBtn = styled.a`
   cursor: pointer;
   transition: 0.5s all ease-out;
   border: 1px solid #d4004c;
-  idth: fit-content;
+  width: fit-content;
   margin-top: auto;
+  margin-bottom: 3em;
+  position: relative;
+  z-index: 10;
 
   :hover {
     color: #fff;
     background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
-    border-radius: 48px;
   }
 `;
 
@@ -251,12 +256,17 @@ const Showcase = () => {
   const birthdayPostcardRef = useRef(null);
   const birthdayImageCoverRef = useRef(null);
   const birthdayPostcardContainerRef = useRef(null);
+  const logoRef = useRef();
 
   gsap.set(postcardRef.current, { autoAlpha: 0 });
   gsap.set(lovePostcardRef.current, { autoAlpha: 0 });
   gsap.set(encouragePostcardRef.current, { autoAlpha: 0 });
   gsap.set(birthdayPostcardRef.current, { autoAlpha: 0 });
-  // gsap.set(containerRef.current, { background: '#e8ddee', autoAlpha: 1 });
+  // gsap.set(logoRef.current, { autoAlpha: 0, fill: '#000' });
+  gsap.set(containerRef.current, {
+    backgroundColor: 'rgb(242, 235, 229)',
+    autoAlpha: 1,
+  });
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -269,17 +279,58 @@ const Showcase = () => {
         scrub: 1,
         pin: true,
         start: 'top top',
-        end: '+=3600%',
+        end: '+=1600%',
         // markers: true,
         anticipatePin: 1,
       },
     });
 
+    gsap.set(containerRef.current, { autoAlpha: 0 });
+
+    gsap.to(containerRef.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        scrub: 1,
+        start: 'top bottom',
+        // markers: true,
+      },
+      backgroundColor: '#e8ddee',
+      autoAlpha: 1,
+      // duration: 1,
+      // markers: true,
+    });
+
+    // gsap.to('.logo', {
+    //   scrollTrigger: {
+    //     trigger: containerRef.current,
+    //     start: 'top center',
+    //     // markers: true,
+    //   },
+    //   // autoAlpha: 1,
+    //   fill: '#000',
+    //   stroke: '#000',
+    //   duration: 1,
+    //   // markers: true,
+    // });
+
     pcTl
+      // .to(containerRef.current, {
+      //   backgroundColor: '#e8ddee',
+      // })
+      // .to(
+      //   '.logo',
+      //   {
+      //     fill: '#fff',
+      //     stroke: '#fff',
+      //     duration: 1,
+      //   },
+      //   '-=1.5',
+      // )
       .from(postcardRef.current, {
         autoAlpha: 0,
         // yPercent: 50,
         xPercent: 50,
+        // duration: 1,
       })
       .to(imageCoverRef.current, {
         translateY: '105%',
@@ -342,12 +393,41 @@ const Showcase = () => {
       });
   });
 
+  function goToSection(i, anim) {
+    gsap.to(window, {
+      // eslint-disable-next-line no-undef
+      scrollTo: { y: i * window.innerHeight, autoKill: false },
+      duration: 1,
+    });
+
+    if (anim) {
+      anim.restart();
+    }
+  }
+
+  gsap.utils.toArray('.postcard').forEach((panel, i) => {
+    ScrollTrigger.create({
+      trigger: panel,
+      onEnter: () => goToSection(i),
+    });
+
+    ScrollTrigger.create({
+      trigger: panel,
+      start: 'bottom bottom',
+      onEnterBack: () => goToSection(i),
+    });
+  });
+
   return (
     <Container ref={containerRef} style={{ backgroundColor: '#e8ddee' }}>
       <BgImg
         style={{ position: 'absolute' }}
         fluid={data.kpStampImg.childImageSharp.fluid}
       />
+      {/* <LogoContainer ref={logoRef}>
+        <StyledKpThumb />
+      </LogoContainer> */}
+
       <TrimContainer ref={postcardRef} className="postcard">
         <StyledRotatingPostcard
           imageCoverRef={imageCoverRef}
@@ -388,7 +468,7 @@ const Showcase = () => {
           imgReveal={data.birthdayReveal.childImageSharp.fluid}
         />
       </TrimContainer>
-      <ShopNowBtn href="/product">Shop Here</ShopNowBtn>
+      <ShopNowBtn href="/product">Shop</ShopNowBtn>
       {/* <StyledKpThumb /> */}
       {/* <div ref={panel1Ref}>
         <Panel
