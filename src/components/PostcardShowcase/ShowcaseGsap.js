@@ -393,30 +393,32 @@ const Showcase = () => {
       });
   });
 
-  function goToSection(i, anim) {
-    gsap.to(window, {
-      // eslint-disable-next-line no-undef
-      scrollTo: { y: i * window.innerHeight, autoKill: false },
-      duration: 1,
-    });
+  // function goToSection(i, anim) {
+  //   gsap.to(window, {
+  //     // eslint-disable-next-line no-undef
+  //     scrollTo: { y: i * window.innerHeight, autoKill: false },
+  //     duration: 1,
+  //   });
 
-    if (anim) {
-      anim.restart();
-    }
+  //   if (anim) {
+  //     anim.restart();
+  //   }
+  // }
+
+  if (typeof window !== 'undefined') {
+    gsap.utils.toArray('.postcard').forEach((panel, i) => {
+      ScrollTrigger.create({
+        trigger: panel,
+        onEnter: () => goToSection(i),
+      });
+
+      ScrollTrigger.create({
+        trigger: panel,
+        start: 'bottom bottom',
+        onEnterBack: () => goToSection(i),
+      });
+    });
   }
-
-  gsap.utils.toArray('.postcard').forEach((panel, i) => {
-    ScrollTrigger.create({
-      trigger: panel,
-      onEnter: () => goToSection(i),
-    });
-
-    ScrollTrigger.create({
-      trigger: panel,
-      start: 'bottom bottom',
-      onEnterBack: () => goToSection(i),
-    });
-  });
 
   return (
     <Container ref={containerRef} style={{ backgroundColor: '#e8ddee' }}>
