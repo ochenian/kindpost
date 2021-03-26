@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
-import { gsap } from 'gsap';
+import gsap, { ScrollTrigger } from 'gsap';
 import Circle from '../assets/svg/circle.svg';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
@@ -173,9 +173,9 @@ const YouMatter = () => {
     }
   `);
 
-  const imgRef = useRef();
-  const textRef = useRef();
-  const wrapperRef = useRef();
+  const youDeserveImgRef = useRef();
+  const youDeserveTextRef = useRef();
+  const copyWrapperRef = useRef();
 
   useEffect(() => {
     // gsap.to(imgRef.current, {
@@ -188,7 +188,6 @@ const YouMatter = () => {
     //     scrub: true,
     //   },
     // });
-
     // gsap.to(textRef.current, {
     //   yPercent: -100,
     //   ease: 'none',
@@ -199,31 +198,31 @@ const YouMatter = () => {
     //     scrub: true,
     //   },
     // });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: imgRef.current,
-        start: 'center bottom',
-        // scrub: 1,
-      },
-    });
-    tl.from(imgRef.current, {
-      autoAlpha: 0,
-      translateY: '20%',
-    }).from(textRef.current, {
-      autoAlpha: 0,
-      translateY: '20%',
-    });
+    if (!mobile) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: copyWrapperRef.current,
+          start: 'top bottom',
+        },
+      });
+      tl.from(youDeserveImgRef.current, {
+        autoAlpha: 0,
+        translateY: '20%',
+      }).from(youDeserveTextRef.current, {
+        autoAlpha: 0,
+        translateY: '20%',
+      });
+    }
   });
 
   return (
     <Wrapper>
-      <CopyWrapper mobile={mobile} ref={wrapperRef}>
-        <ImgContainer ref={imgRef}>
+      <CopyWrapper mobile={mobile} ref={copyWrapperRef}>
+        <ImgContainer ref={youDeserveImgRef}>
           <YouMatterImg fluid={data.postcardCutout.childImageSharp.fluid} />
         </ImgContainer>
 
-        <TextBlock ref={textRef}>
+        <TextBlock ref={youDeserveTextRef}>
           <HeadText>You deserve it.</HeadText>
           <Text>
             Nervous for a test? Anxious about an interview? Need a last minute

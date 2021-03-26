@@ -9,18 +9,24 @@ import gsap, { ScrollTrigger } from 'gsap';
 
 const Background = styled.div`
   background-color: #f2ebe5;
-  padding: 6em 8em;
+  // padding: 6em 8em;
+  height: 75vh;
   font-size: 1.5em;
   font-family: 'orpheuspro';
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 650px) {
-    padding: 1.5em 2em;
+    // padding: 1.5em 2em;
   }
 `;
 
 const Quote = styled.p`
   margin-bottom: 1em;
+  width: 90%;
 `;
 
 const Signature = styled.div`
