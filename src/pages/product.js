@@ -11,6 +11,7 @@ import { useAddItemToCart, useCartItems } from 'gatsby-theme-shopify-manager';
 import Layout from '../layouts/index';
 import CtaButton from '../components/shared/Button';
 import { CartContext } from '../components/Cart/CartContext';
+import How from '../components/How';
 
 const ProductName = styled.h1`
   margin-bottom: 1rem;
@@ -75,6 +76,24 @@ const SoldOut = styled(CtaButton)`
     max-width: 316px;
     cursor: default;
   }
+`;
+
+const Note = styled.div`
+  align-self: flex-end;
+  max-width: 50ch;
+  font-size: 0.75rem;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const ClickToFlip = styled(Img)`
+  width: 25%;
+  top: -25%;
+  left: 25%;
+  max-width: 200px;
+  opacity: 0.8;
 `;
 
 const ProductPage = () => {
@@ -190,6 +209,13 @@ const ProductPage = () => {
         }
       }
       postcardLoveBack: file(relativePath: { eq: "Love.jpg" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      clickToFlip: file(relativePath: { eq: "click_to_flip.png" }) {
         childImageSharp {
           fluid(quality: 100) {
             ...GatsbyImageSharpFluid
@@ -357,11 +383,13 @@ const ProductPage = () => {
             animate={leftControls}
             onClick={() => setFlipped(flippedState => !flippedState)}
           >
+            <ClickToFlip fluid={data.clickToFlip.childImageSharp.fluid} />
             <AnimatedImg
               className="c"
               style={{
                 opacity: opacity.interpolate(o => 1 - o),
                 transform,
+                maxWidth: '550px',
               }}
               fluid={selectedPostcard.imgFront}
             />
@@ -371,9 +399,21 @@ const ProductPage = () => {
               style={{
                 opacity,
                 transform: transform.interpolate(t => `${t} rotateY(-180deg)`),
+                maxWidth: '550px',
               }}
               fluid={selectedPostcard.imgBack}
             />
+
+            <Note>
+              <div>NOTE:</div>
+              <div>
+                All Kindposts are uniquely handpicked for each order. All images
+                on this website are for illustrative purposes only and do not
+                depict the actual product that will be received.
+              </div>
+              <a href="/faq#design">Learn More</a>
+            </Note>
+            {/* </div> */}
           </motion.div>
 
           <motion.div animate={rightControls} className="product_detail right">
@@ -430,6 +470,7 @@ const ProductPage = () => {
           </motion.div>
         </div>
       </div>
+      <How />
     </Layout>
   );
 };
