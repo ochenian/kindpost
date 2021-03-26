@@ -14,8 +14,8 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-anchor-links',
     {
-      resolve: 'gatsby-source-datocms',
-      options: { apiToken: process.env.DATO_API_TOKEN },
+      resolve: 'gatsby-plugin-anchor-links',
+      options: { offset: -100 },
     },
     {
       resolve: 'gatsby-source-filesystem',

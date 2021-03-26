@@ -42,6 +42,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
         {/* Here we pass the callbacks to the component. Anything that impacts the innerHeight, for example: Font Loaded */}
         {/* <Scroll callbacks={location} /> */}
         <div
+          id="top"
           // data-scroll-container
           // className="Wrap Wrap__main_content smooth-scroll"
           className="Wrap Wrap__main_content"

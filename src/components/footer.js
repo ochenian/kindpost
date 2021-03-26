@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
+import scrollTo from './ScrollTo';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg';
 import InstaLogo from '../assets/svg/insta_icon.svg';
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
   font-family: 'Montserrat';
   background: #282828;
   // align-items: center;
-  padding: 3em;
+  padding: 6em 3em;
   text-transform: uppercase;
 
   a {
@@ -177,6 +178,13 @@ const SignUpButton = styled.button`
   }
 `;
 
+const ScrollToTop = styled.button`
+  background: transparent;
+  border: none;
+  width: 50px;
+  cursor: pointer;
+`;
+
 const Footer = () => {
   const mobile = useMediaQuery('(max-width: 768px)');
 
@@ -209,6 +217,15 @@ const Footer = () => {
           }
         }
       }
+      toTop: file(relativePath: { eq: "to_top_white.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
@@ -217,6 +234,12 @@ const Footer = () => {
       <Wrapper>
         {!mobile && (
           <>
+            <Column>
+              <Img
+                fluid={data.kpThumbnail.childImageSharp.fluid}
+                style={{ width: '5vw', marginTop: '6px', maxWidth: '50px' }}
+              />
+            </Column>
             <Column>
               <form onSubmit={handleSubmit}>
                 <SectionHeader>subscribe.</SectionHeader>
@@ -284,10 +307,12 @@ const Footer = () => {
               </LinksSectionWrapper>
             </Column>
             <Column style={{ marginLeft: '-3em' }}>
-              <Img
-                fluid={data.kpThumbnail.childImageSharp.fluid}
-                style={{ width: '5vw', marginTop: '6px', maxWidth: '50px' }}
-              />
+              <ScrollToTop onClick={() => scrollTo('#top')}>
+                <Img
+                  fluid={data.toTop.childImageSharp.fluid}
+                  style={{ width: '100%' }}
+                />
+              </ScrollToTop>
             </Column>
           </>
         )}
