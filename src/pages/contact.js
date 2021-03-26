@@ -5,39 +5,46 @@ import TwitterIcon from '../assets/svg/twitter.svg';
 import InstagramIcon from '../assets/svg/insta_icon.svg';
 
 const Container = styled.section`
-  font-size: 0.9em;
-  padding: 8em 4em;
-  line-height: 2;
+  // font-size: 0.9em;
+  // padding: 8em 4em;
+  // line-height: 2;
   letter-spacing: 1.25px;
-  background: rgb(253, 250, 238);
+  // background: rgb(253, 250, 238);
   color: rgb(40, 40, 40);
   font-family: 'orpheuspro';
+  padding-top: 5em;
 `;
 
 const StyledTextHeader = styled.p`
   position: relative;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 2em;
-  font-size: 2.5em;
-  // text-transform: lowercase;
+  // margin-bottom: 100px;
+  font-size: 1.75em;
+  text-transform: uppercase;
   letter-spacing: 4px;
   width: fit-content;
-  font-style: italic;
+  // font-style: italic;
+  font-family: 'tk-orpheuspro-n7';
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 25%;
-    bottom: -8px;
-    height: 1px;
-    width: 50%;
-    border-bottom: 2px solid #f5bc5e;
-  }
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   left: 25%;
+  //   bottom: -8px;
+  //   height: 1px;
+  //   width: 50%;
+  //   border-bottom: 2px solid #f5bc5e;
+  // }
+`;
+
+const Subtitle = styled.div`
+  margin-bottom: 100px;
+  text-align: center;
 `;
 
 const TextBody = styled.div`
-  margin: 0 auto;
+  margin: 200px auto;
   max-width: 550px;
 `;
 
@@ -51,7 +58,8 @@ const StyledTextSection = styled.div`
   }
 
   a {
-    color: #f5bc5e;
+    // color: #f5bc5e;
+    color: #d4004c;
     font-weight: bold;
     font-size: 1.25rem;
   }
@@ -63,13 +71,21 @@ const SocialIcons = styled.section`
   align-items: center;
   width: 40%;
   margin: 0 auto;
-  margin-top: 5em;
+  margin-top: 100px;
 
   svg {
     width: 24px;
     height: 24px;
     fill: rgb(40, 40, 40);
     cursor: pointer;
+
+    &:hover {
+      fill: #d4004c;
+
+      path {
+        fill: #d4004c;
+      }
+    }
   }
 `;
 
@@ -79,6 +95,7 @@ const Contact = () => {
       <Container>
         <TextBody>
           <StyledTextHeader>Contact</StyledTextHeader>
+          <Subtitle>Want to get in touch? We're here to help.</Subtitle>
           <StyledTextSection>
             <a href="mailto:studio@kindpost.com">help@kindpost.com</a>
             Feel free to send us any questions on our products!

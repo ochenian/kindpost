@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Layout from '../layouts/index';
 import TwitterLogo from '../assets/svg/Twitter_Logo_White.svg';
@@ -13,7 +13,7 @@ const Container = styled.div`
 
   padding-top: 5em;
 
-  background: rgb(253, 250, 238);
+  // background: rgb(253, 250, 238);
   color: rgb(40, 40, 40);
   font-family: 'orpheuspro';
 `;
@@ -22,22 +22,28 @@ const Title = styled.p`
   position: relative;
   text-align: center;
   margin: 0 auto;
-  margin: 2em 0;
-  font-size: 2.5em;
+  // margin: 2em 0;
+  margin-top: 200px;
+  font-size: 1.75em;
   // text-transform: lowercase;
   letter-spacing: 4px;
   width: fit-content;
-  font-style: italic;
+  // font-style: italic;
+  font-family: 'tk-orpheuspro-n7';
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 33%;
-    bottom: -8px;
-    height: 1px;
-    width: 25%;
-    border-bottom: 2px solid #f5bc5e;
-  }
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   left: 33%;
+  //   bottom: -8px;
+  //   height: 1px;
+  //   width: 25%;
+  //   border-bottom: 2px solid #f5bc5e;
+  // }
+`;
+
+const Subtitle = styled.div`
+  margin-bottom: 100px;
 `;
 
 const QuestionsContainer = styled.div`
@@ -45,7 +51,7 @@ const QuestionsContainer = styled.div`
   flex-direction: column;
   width: 80%;
   height: 100%;
-  margin-bottom: 12em;
+  margin-bottom: 200px;
 `;
 
 const StyledTwitterLogo = styled(TwitterLogo)`
@@ -59,7 +65,8 @@ const StyledTwitterLogo = styled(TwitterLogo)`
 
   &:hover {
     path {
-      fill: #f5bc5e;
+      // fill: #f5bc5e;
+      fill: #d4004c;
     }
   }
 `;
@@ -72,7 +79,8 @@ const StyledInstaLogo = styled(InstaLogo)`
   margin-right: 12px;
 
   &:hover {
-    fill: #f5bc5e;
+    // fill: #f5bc5e;
+    fill: #d4004c;
   }
 `;
 
@@ -114,16 +122,16 @@ const faqs = [
     ),
   },
   {
-    id: 3,
+    id: 'design',
     question: 'Can I select my own postcard design?',
     answer: () => (
-      <>
+      <div id="design">
         Due to the nature of our vast collection of vintage postcards, each and
         every postcard is unique, just like you! We take joy in personally
         selecting a postcard for each and every customer. At this time, our
         website does not allow for customers to select their own postcard
         design.
-      </>
+      </div>
     ),
   },
   {
@@ -147,8 +155,11 @@ const faqs = [
         Due to the age of the postcards and hand-lettered nature of each message
         we send, each postcard is unique and will vary. Each postcard is vintage
         and has its own unique distressing that it has acquired over its years.
-        In other words, each of our postcards has its own character and
-        personality. How beautiful is that?
+        Individual features, conditions, and appearances of actual products may
+        differ from the items depicted. Any distressing, inconsistencies, and
+        imperfections are normal and are to be expected. In other words, each of
+        our postcards has its own character and personality. How beautiful is
+        that?
       </>
     ),
   },
@@ -202,16 +213,25 @@ const faqs = [
   },
 ];
 
-const Faq = () => {
+const Faq = ({ location }) => {
   const [expanded, setExpanded] = useState(0);
+  const [hash, setHash] = useState(location.hash.substr(1));
+
+  useEffect(() => {
+    if (hash) {
+      setExpanded(hash);
+    }
+  }, [hash, setExpanded]);
 
   return (
     <Layout site="kindpost" headerClass="Header light">
       <Container>
         <Title>FAQ</Title>
+        <Subtitle>Questions + Answers</Subtitle>
         <QuestionsContainer>
           {faqs.map(faq => (
             <Accordion
+              id={faq.id}
               key={faq.id}
               i={faq.id}
               expanded={expanded}

@@ -42,11 +42,11 @@ const Icon = styled.span`
   font-size: 2rem;
 `;
 
-const Accordion = ({ i, expanded, setExpanded, headerText, bodyText }) => {
+const Accordion = ({ id, i, expanded, setExpanded, headerText, bodyText }) => {
   const isOpen = i === expanded;
   console.log(bodyText);
   return (
-    <Container>
+    <Container id={id}>
       <Header initial={false} onClick={() => setExpanded(isOpen ? false : i)}>
         <p>{headerText}</p>
         <Icon>{isOpen ? '-' : '+'}</Icon>
