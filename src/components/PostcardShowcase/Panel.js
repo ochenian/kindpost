@@ -105,7 +105,6 @@ const ShopNowBtn = styled.a`
   :hover {
     color: #fff;
     background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
-    border-radius: 48px;
   }
 `;
 
@@ -194,7 +193,7 @@ const Panel = ({ imgFront, imgBack, imgReveal, index }) => {
           imgBack={imgBack}
           imgReveal={imgReveal}
         />
-        <ShopNowBtn href="/product">Shop Here</ShopNowBtn>
+        <ShopNowBtn href="/product">Shop</ShopNowBtn>
       </TrimContainer>
 
       {/* </PinTarget> */}

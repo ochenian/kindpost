@@ -89,7 +89,7 @@ const PostcardRows = () => {
             Shop Our Collection
           </div>
           <Line />
-          <ShopHereBtn>Shop Here</ShopHereBtn>
+          <ShopHereBtn>Shop</ShopHereBtn>
         </ShopTheCollectionWrapper>
         <InspirationImg fluid={data.postcardRowsImg.childImageSharp.fluid} />
       </Wrapper>
