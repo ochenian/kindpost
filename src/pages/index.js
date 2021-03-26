@@ -15,6 +15,7 @@ import Showcase from '../components/PostcardShowcase/ShowcaseGsap';
 import PostcardRows from '../components/PostcardRows';
 import PostcardsFalling from '../components/PostcardsFalling';
 import YouMatter from '../components/YouMatter';
+import Instagram from '../components/Instagram';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -55,14 +56,15 @@ export default () => {
       ></div> */}
       {/* <Divider /> */}
       <How />
-      <div
+      {/* <div
         style={{
           background: `linear-gradient(to bottom, #ffffff, #fcfafb, #faf4f5, #f7efed, #f2ebe5)`,
           height: `10vh`,
         }}
-      ></div>
+      ></div> */}
       <QuoteBlock />
-      <PostcardRows />
+      {/* <PostcardRows /> */}
+      <Instagram />
     </Layout>
   );
 };
