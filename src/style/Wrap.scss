@@ -140,6 +140,8 @@
         @media (max-width: 1024px) {
           justify-content: center;
           width: 100%;
+          flex-direction: column;
+          line-height: 1.75;
         }
 
         // span:last-of-type {

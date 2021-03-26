@@ -71,7 +71,7 @@ const Description = styled.div`
     // width: 90vw;
     margin: 2rem auto;
     letter-spacing: 1px;
-    max-width: 50ch;
+    max-width: 75ch;
   }
 `;
 
@@ -215,12 +215,7 @@ const Hero = () => {
 
   useEffect(() => {
     Splitting({ by: 'chars' });
-    const tl = gsap.timeline({
-      // scrollTrigger: {
-      //   trigger: overlayRef.current,
-      //   start: '1px',
-      // },
-    });
+    const tl = gsap.timeline();
     tl.from(logoRef.current, {
       autoAlpha: 0,
     })
@@ -232,37 +227,6 @@ const Hero = () => {
       .set(rotatorTextRef.current, {
         autoAlpha: 0,
       })
-      // .to(overlayRef.current, {
-      //   scaleY: 0,
-      //   transformOrigin: 'top',
-      //   ease: 'power1.inOut',
-      //   delay: 0.5,
-      //   duration: 1.3,
-      // })
-      // .to(
-      //   logoRef.current,
-      //   {
-      //     // translateY: '500%',
-      //     // duration: 1,
-      //     autoAlpha: 0,
-      //   },
-      //   '-=1.5',
-      // )
-      // .fromTo(
-      //   videoRef.current,
-      //   {
-      //     scaleX: 1.2,
-      //     scaleY: 0.75,
-      //   },
-      //   {
-      //     scaleX: 1,
-      //     scaleY: 1,
-      //     transformOrigin: 'bottom',
-      //     duration: 1.3,
-      //     ease: 'power1.inOut',
-      //   },
-      //   '-=1.25',
-      // )
       .to('.text-container', {
         autoAlpha: 1,
       })
@@ -274,7 +238,6 @@ const Hero = () => {
           y: '0%',
         },
         timelineSettings.staggerValue,
-        // '-=0.5',
       )
       .to(rotatorTextRef.current, { autoAlpha: 1 })
       .to('.desc > div', {
@@ -287,24 +250,10 @@ const Hero = () => {
         y: '0%',
         autoAlpha: 1,
       });
-    // .staggerTo(
-    //   '.desc .char',
-    //   timelineSettings.charsDuration,
-    //   {
-    //     ease: 'Power3.easeOut',
-    //     y: '0%',
-    //   },
-    //   timelineSettings.staggerValue,
-    // );
   });
 
   return (
     <div className="Hero">
-      {/* <Overlay ref={overlayRef}>
-        <div ref={logoRef}>
-          <StyledKpLogo />
-        </div>
-      </Overlay> */}
       <div className="video-text">
         <div className="text-container">
           <ANewWayText className="line-1" data-splitting>
