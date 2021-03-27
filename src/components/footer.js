@@ -109,6 +109,7 @@ const EmailContainer = styled.div`
 
   & input {
     padding: 10px;
+    height: 40px;
     background: transparent;
     border: 1px solid #fff;
     border-right: none;
@@ -126,6 +127,7 @@ const EmailContainer = styled.div`
     // font-family: 'Averia Serif Libre';
     font-family: 'Montserrat';
     padding: 11px;
+    height: 40px;
   }
 `;
 
