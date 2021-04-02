@@ -8,7 +8,7 @@ import Burger from './Burger';
 const styles = {
   bmBurgerButton: {
     position: 'absolute',
-    left: '4em',
+    left: '36px',
     top: '36px',
   },
   bmBurgerBars: {
