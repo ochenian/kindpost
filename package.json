@@ -5,6 +5,7 @@
   "author": "Stefano Verna <s.verna@datocms.com>",
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.19",
+    "@loadable/component": "^5.14.1",
     "@types/gsap": "^1.20.2",
     "babel-plugin-styled-components": "^1.11.1",
     "d3": "^6.5.0",
@@ -40,6 +41,7 @@
     "patch-package": "^6.2.2",
     "react": "^16.13.1",
     "react-awesome-slider": "^4.1.0",
+    "react-burger-menu": "^3.0.6",
     "react-cookie-consent": "^6.1.0",
     "react-cool-inview": "^1.2.0",
     "react-dom": "^16.13.1",
