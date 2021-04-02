@@ -21,8 +21,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
 
   return (
     <div>
-      <BurgerMenu />
-      {/* <div> */}
+      {mobile && <BurgerMenu />}
       <Helmet>
         <html lang="en" />
         <title>Kindpost</title>
@@ -32,7 +31,6 @@ const Layout = ({ children, siteName, headerClass, location }) => {
         />
       </Helmet>
       <Cart />
-      {/* {mobile && <BurgerMenu />} */}
       <div className="Container">
         <button
           type="button"
