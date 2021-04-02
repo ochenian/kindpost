@@ -11,6 +11,7 @@ import Bag from '../assets/svg/bag.svg';
 import ButtonLink from './ButtonLink';
 import { CartContext } from './Cart/CartContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import BurgerMenu from './Menu/Menu';
 
 const StyledLogoThumbnail = styled(LogoThumbnail)`
   width: 100%;
@@ -25,6 +26,9 @@ const StyledLogoThumbnailLight = styled(LogoThumbnailLight)`
   height: 100%;
   fill: #fff;
 `;
+
+const Wrapper = styled.div`
+position: relative`;
 
 const CartQuantity = styled.span`
   border: 1px solid #d4004c;
@@ -60,46 +64,47 @@ const Header = ({ headerClass }) => {
   });
 
   return (
-    <div className={headerClass}>
-      <div className="Wrap">
-        <animated.div className="Header__body" style={{ ...navSpring }}>
-          <a href="/">
-            {!mobile && <Logo className="logo" />}
-            {mobile && !headerClass.includes('light') && (
-              <StyledLogoThumbnail />
-            )}
-            {mobile && headerClass.includes('light') && (
-              <StyledLogoThumbnailLight />
-            )}
-          </a>
-          <div className="Header__nav">
+    <Wrapper>
+      {mobile && <BurgerMenu />}
+      <div className={headerClass}>
+        <div className="Wrap">
+          <animated.div className="Header__body" style={{ ...navSpring }}>
             {!mobile && (
-              <StyledButtonLink style={{ marginRight: '4em' }}>
-                <a href="/product">
-                  <div>send a postcard</div>
-                </a>
-              </StyledButtonLink>
+              <a href="/">
+                <Logo className="logo" />
+              </a>
             )}
 
-            {!mobile && (
-              <StyledButtonLink style={{ marginRight: '4em' }}>
-                <a href="/#howTo">
-                  <div>how it works</div>
-                </a>
-              </StyledButtonLink>
-            )}
-            <button
-              type="button"
-              aria-label="Cart Button"
-              className="Header__btn"
-            >
-              <Bag onClick={() => toggleCart()} />
-              {itemsInCart > 0 && <CartQuantity>{itemsInCart}</CartQuantity>}
-            </button>
-          </div>
-        </animated.div>
+            <div className="Header__nav">
+              {!mobile && (
+                <StyledButtonLink style={{ marginRight: '4em' }}>
+                  <a href="/product">
+                    <div>send a postcard</div>
+                  </a>
+                </StyledButtonLink>
+              )}
+
+              {!mobile && (
+                <StyledButtonLink style={{ marginRight: '4em' }}>
+                  <a href="/#howTo">
+                    <div>how it works</div>
+                  </a>
+                </StyledButtonLink>
+              )}
+              <button
+                type="button"
+                aria-label="Cart Button"
+                className="Header__btn"
+              >
+                <Bag onClick={() => toggleCart()} />
+                {itemsInCart > 0 && <CartQuantity>{itemsInCart}</CartQuantity>}
+              </button>
+            </div>
+          </animated.div>
+        </div>
       </div>
-    </div>
+      {/* </BurgerMenu> */}
+    </Wrapper>
   );
 };
 
