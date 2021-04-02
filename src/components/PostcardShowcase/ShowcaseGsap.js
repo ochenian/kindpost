@@ -83,6 +83,7 @@ const ShopNowBtn = styled.a`
   margin-bottom: 3em;
   position: relative;
   z-index: 10;
+  box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
 
   :hover {
     color: #fff;
@@ -297,7 +298,12 @@ const Showcase = () => {
       .to(postcardRef.current, {
         xPercent: -100,
       })
-      .to(containerRef.current, { backgroundColor: '#dde5ed' })
+      .to(containerRef.current, {
+        background:
+          'linear-gradient(to right top, #dde5ed, #dce4ed, #dce2ed, #dce1ed, #dddfed)',
+        // background:
+        //   'linear-gradient(to right top, #DDE5ED, #BFEFFE, #9BF9F8, #96FFD7, #BCFFA3, #F9F871)',
+      })
       .from(lovePostcardRef.current, {
         xPercent: 100,
       })
@@ -311,7 +317,14 @@ const Showcase = () => {
       .to(lovePostcardRef.current, {
         xPercent: -100,
       })
-      .to(containerRef.current, { backgroundColor: '#ddede4' })
+      .to(containerRef.current, {
+        background:
+          'linear-gradient(to right top, #ededdd, #edebdd, #eeeadd, #ede8dd, #ede7dd)',
+        // background:
+        //   'linear-gradient(to right top, #EDEDDD, #C9D1BC, #A3B69F, #7C9C86, #548271, #266860)',
+        // background:
+        //   'linear-gradient(to right top, #DDEDE4, #B7D1CA, #90B6B5, #90B6B5, #4B7F91, #2F647F)',
+      })
       .from(encouragePostcardRef.current, {
         xPercent: 100,
       })
@@ -325,7 +338,14 @@ const Showcase = () => {
       .to(encouragePostcardRef.current, {
         xPercent: -100,
       })
-      .to(containerRef.current, { backgroundColor: '#ededdd' })
+      .to(containerRef.current, {
+        background:
+          'linear-gradient(to right top, #ddede4, #ddede3, #ddede1, #ddede0, #ddedde)',
+        //background:
+        // 'linear-gradient(to right top, #DDEDE4, #B7D1CA, #90B6B5, #90B6B5, #4B7F91, #2F647F)',
+        // background:
+        //   'linear-gradient(to right top, #EDEDDD, #C9D1BC, #A3B69F, #7C9C86, #548271, #266860)',
+      })
       .from(birthdayPostcardRef.current, {
         xPercent: 100,
       })
@@ -369,7 +389,15 @@ const Showcase = () => {
   // }
 
   return (
-    <Container ref={containerRef} style={{ backgroundColor: '#e8ddee' }}>
+    <Container
+      ref={containerRef}
+      style={{
+        background:
+          'linear-gradient(to right top, #e8ddee, #ebdcea, #eddce6, #eedde3, #eedde0)',
+        // background:
+        //   'linear-gradient(to right top, #E8DDEE, #FFD7EF, #FFD1D9, #FFD3B2)',
+      }}
+    >
       <BgImg
         style={{ position: 'absolute' }}
         fluid={data.kpStampImg.childImageSharp.fluid}
