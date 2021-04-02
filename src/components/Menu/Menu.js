@@ -1,7 +1,8 @@
 import { findLastIndex } from 'lodash-es';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import styled from 'styled-components';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Burger from './Burger';
 
 const styles = {
@@ -61,8 +62,31 @@ const MenuItem = styled.a`
 `;
 
 const BurgerMenu = () => {
+  const targetElement = document.querySelector('.bm-overlay');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (targetElement) {
+      if (menuOpen) {
+        disableBodyScroll(targetElement);
+      } else {
+        enableBodyScroll(targetElement);
+      }
+    }
+  }, [menuOpen, targetElement]);
+
+  const onMenuOpen = state => {
+    setMenuOpen(state.isOpen);
+    return state.isOpen;
+  };
+
   return (
-    <Menu customBurgerIcon={<Burger />} width="100%" styles={styles}>
+    <Menu
+      onStateChange={onMenuOpen}
+      customBurgerIcon={<Burger />}
+      width="100%"
+      styles={styles}
+    >
       <MenuItem id="home" className="menu-item" href="/">
         Home
       </MenuItem>

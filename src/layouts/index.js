@@ -11,6 +11,7 @@ import Cart from '../components/Cart/ShopCart';
 // import Scroll from '../components/locomotiveScroll';
 import { CartContext } from '../components/Cart/CartContext';
 import CookieSvg from '../assets/svg/cookie-bite.svg';
+import BurgerMenu from '../components/Menu/Menu';
 
 import '../style/index.scss';
 
@@ -20,6 +21,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
 
   return (
     <div>
+      <BurgerMenu />
       {/* <div> */}
       <Helmet>
         <html lang="en" />
@@ -30,6 +32,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
         />
       </Helmet>
       <Cart />
+      {/* {mobile && <BurgerMenu />} */}
       <div className="Container">
         <button
           type="button"
