@@ -390,6 +390,10 @@ const Cart = () => {
               <span>Shipping:</span>
               <strong>FREE</strong>
             </Cost>
+            <Cost>
+              <span>Taxes:</span>
+              <strong>${cart.totalTax}</strong>
+            </Cost>
             <Total>
               <span>Total Price:</span>
               <strong>${cart.totalPrice}</strong>
