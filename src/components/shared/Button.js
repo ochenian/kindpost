@@ -52,7 +52,7 @@ const CtaButton = styled.button`
 , rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
       // border: 1px solid ${colors.brand};
-      border: transparent;
+      border: 1px solid transparent;
     }
   }
 `;
