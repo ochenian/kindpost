@@ -16,6 +16,7 @@ import PostcardRows from '../components/PostcardRows';
 import PostcardsFalling from '../components/PostcardsFalling';
 import YouMatter from '../components/YouMatter';
 import Instagram from '../components/Instagram';
+import FreeShipping from '../components/FreeShipping';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -37,6 +38,7 @@ export default () => {
 
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
+      {/* <FreeShipping /> */}
       <Hero />
 
       <YouMatter />

@@ -104,7 +104,7 @@ const Text = styled.div`
 `;
 
 const HeadText = styled.div`
-  font-size: 5rem;
+  font-size: 4rem;
 
   @media (max-width: 1024px) {
     font-size: 3rem;
@@ -136,7 +136,7 @@ const ShopNowBtn = styled.a`
     color: #fff;
     // background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
     background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
-    border: transparent;
+    border: 1px solid transparent;
   }
 `;
 

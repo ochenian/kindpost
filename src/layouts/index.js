@@ -14,6 +14,7 @@ import CookieSvg from '../assets/svg/cookie-bite.svg';
 import BurgerMenu from '../components/Menu/Menu';
 
 import '../style/index.scss';
+import FreeShipping from '../components/FreeShipping';
 
 const Layout = ({ children, siteName, headerClass, location }) => {
   const { showCart, toggleCart } = useContext(CartContext);
@@ -38,6 +39,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
           className={`overlay ${showCart ? 'fade' : ''}`}
           onClick={() => toggleCart()}
         />
+        {/* <FreeShipping /> */}
         <Header siteName={siteName} headerClass={headerClass} />
         {/* Here we pass the callbacks to the component. Anything that impacts the innerHeight, for example: Font Loaded */}
         {/* <Scroll callbacks={location} /> */}

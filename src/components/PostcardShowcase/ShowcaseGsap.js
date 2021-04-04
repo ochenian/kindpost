@@ -89,7 +89,7 @@ const ShopNowBtn = styled.a`
     color: #fff;
     // background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
     background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
-    border: transparent;
+    border: 1px solid transparent;
   }
 `;
 
@@ -271,6 +271,9 @@ const Showcase = () => {
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
     }

@@ -119,6 +119,9 @@ const Hero = () => {
   const { scrollYProgress } = useViewportScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, 2000]);
   let trailConfig = { mass: 5, tension: 1000, friction: 100 };
+  gsap.config({
+    nullTargetWarn: false,
+  });
 
   const overlayRef = useRef();
   const videoRef = useRef();

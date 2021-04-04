@@ -396,7 +396,7 @@ const Cart = () => {
               <strong>
                 {parseFloat(cart.totalTax) === 0
                   ? 'Calculated at checkout'
-                  : `${cart.totalTax}`}
+                  : `$${cart.totalTax}`}
               </strong>
             </Cost>
             <Total>
