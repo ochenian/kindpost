@@ -11,7 +11,6 @@ import Bag from '../assets/svg/bag.svg';
 import ButtonLink from './ButtonLink';
 import { CartContext } from './Cart/CartContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import BurgerMenu from './Menu/Menu';
 
 const StyledLogoThumbnail = styled(LogoThumbnail)`
   width: 100%;
@@ -77,7 +76,7 @@ const Header = ({ headerClass }) => {
           <div className="Header__nav">
             {!mobile && (
               <StyledButtonLink style={{ marginRight: '4em' }}>
-                <a href="/product">
+                <a href="/shop">
                   <div>send a postcard</div>
                 </a>
               </StyledButtonLink>
@@ -85,8 +84,15 @@ const Header = ({ headerClass }) => {
 
             {!mobile && (
               <StyledButtonLink style={{ marginRight: '4em' }}>
-                <a href="/#howTo">
-                  <div>how it works</div>
+                <a href="/faq">
+                  <div>faq</div>
+                </a>
+              </StyledButtonLink>
+            )}
+            {!mobile && (
+              <StyledButtonLink style={{ marginRight: '4em' }}>
+                <a href="/about">
+                  <div>about us</div>
                 </a>
               </StyledButtonLink>
             )}

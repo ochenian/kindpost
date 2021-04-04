@@ -87,7 +87,9 @@ const ShopNowBtn = styled.a`
 
   :hover {
     color: #fff;
-    background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    // background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+    border: transparent;
   }
 `;
 
@@ -446,7 +448,7 @@ const Showcase = () => {
           imgReveal={data.birthdayReveal.childImageSharp.fluid}
         />
       </TrimContainer>
-      <ShopNowBtn href="/product">Shop</ShopNowBtn>
+      <ShopNowBtn href="/shop">Shop</ShopNowBtn>
       {/* <StyledKpThumb /> */}
       {/* <div ref={panel1Ref}>
         <Panel

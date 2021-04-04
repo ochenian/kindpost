@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   height: 100vh;
   // height: 100vh;
   justify-content: center;
+  align-items: center;
   // background: rgb(242, 235, 229);
   background: #fff;
 
@@ -25,7 +26,7 @@ const CopyWrapper = styled.div`
   flex-direction: ${props => (props.mobile ? 'column;' : 'row;')}
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
 `;
 
 const ImgContainer = styled.div`
@@ -104,9 +105,10 @@ const Text = styled.div`
 
 const HeadText = styled.div`
   font-size: 5rem;
-  white-space: nowrap;
+
   @media (max-width: 1024px) {
     font-size: 3rem;
+    text-align: center;
   }
 `;
 
@@ -132,7 +134,9 @@ const ShopNowBtn = styled.a`
 
   :hover {
     color: #fff;
-    background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    // background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+    background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+    border: transparent;
   }
 `;
 
@@ -223,7 +227,7 @@ const YouMatter = () => {
         </ImgContainer>
 
         <TextBlock ref={youDeserveTextRef}>
-          <HeadText>You deserve it.</HeadText>
+          <HeadText>Positive affirmations for all.</HeadText>
           <Text>
             Nervous for a test? Anxious about an interview? Need a last minute
             birthday idea? Had a bad day or want to brighten one for someone
@@ -232,7 +236,7 @@ const YouMatter = () => {
           <div style={{ fontWeight: 'bold', margin: '1rem 0' }}>
             We&apos;ve got you.
           </div>
-          <ShopNowBtn href="/product">Shop</ShopNowBtn>
+          <ShopNowBtn href="/shop">Shop</ShopNowBtn>
         </TextBlock>
       </CopyWrapper>
     </Wrapper>

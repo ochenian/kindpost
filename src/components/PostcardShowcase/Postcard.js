@@ -163,7 +163,7 @@ const PostcardShowcase = () => {
       </ColumnsContainer>
       <ShopButtonContainer>
         <StyledButtonLink color="#385476">
-          <Link to="/product">
+          <Link to="/shop">
             <ShopLink>SHOP</ShopLink>
           </Link>
         </StyledButtonLink>

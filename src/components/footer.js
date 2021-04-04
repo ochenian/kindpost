@@ -175,7 +175,8 @@ const SignUpButton = styled.button`
   cursor: pointer;
 
   :hover {
-    background: #d4004c;
+    // background: #d4004c;
+    background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
     transition: all 0.5s;
   }
 `;

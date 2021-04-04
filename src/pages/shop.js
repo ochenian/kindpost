@@ -52,8 +52,9 @@ const Variants = styled(CtaButton)`
     letter-spacing: 2px;
 
     &.selected {
-      background: #f40075;
+      // background: #f40075;
       /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
+      background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
     }
   }

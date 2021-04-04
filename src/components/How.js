@@ -28,13 +28,13 @@ const How = () => {
   // const props = useSpring({ opacity: 1, from: {opacity: 0}, delay: 1000})
   const items = [
     'pick an occasion',
-    "we'll write a note",
-    "we'll send your postcard",
+    "we'll create & handwrite a message of positivity",
+    "we'll mail your postcard",
   ];
   const descriptions = [
     'Select an occasion that conveys the message you want to send',
-    'We will hand-select a postcard and write a positive message for your chosen occasion',
-    'Our delivery specialists will address, stamp, & handle the mailing of your postcard',
+    'We will hand-select a postcard and write a positive message on the back for your chosen occasion',
+    'Our delivery specialists will address, stamp, & handle the mailing of your postcard to either you or your intended recipient',
   ];
   const components = [
     <BirthdaySvg className="occasion" />,

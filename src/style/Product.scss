@@ -38,7 +38,8 @@
       height: 0;
       top: 0;
       left: 0;
-      background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+      // background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
+      background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
     }
 
     &:hover:after,
@@ -411,13 +412,14 @@ select {
 
 .btn_picker.selected {
   // background: #FF1654;
-  background: linear-gradient(
-    180deg,
-    rgba(212, 0, 76, 1) 0%,
-    rgba(244, 0, 117, 1) 100%
-  );
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(212, 0, 76, 1) 0%,
+  //   rgba(244, 0, 117, 1) 100%
+  // );
   // border: 2px solid #FF1654;
   // border: 1px solid black;
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
   border-radius: 6px;
   color: #fff;
   outline-width: 0;

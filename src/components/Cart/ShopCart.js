@@ -278,7 +278,8 @@ const CloseBtn = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  background: #f40075;
+  // background: #f40075;
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
   z-index: 1;
   transition: 0.8s;
   cursor: pointer;
@@ -392,10 +393,16 @@ const Cart = () => {
             </Cost>
             <Cost>
               <span>Taxes:</span>
-              <strong>${cart.totalTax}</strong>
+              <strong>
+                {parseFloat(cart.totalTax) === 0
+                  ? 'Calculated at checkout'
+                  : `${cart.totalTax}`}
+              </strong>
             </Cost>
             <Total>
-              <span>Total Price:</span>
+              <span>{`Total ${
+                parseFloat(cart.totalTax) === 0 ? `(excluding taxes)` : ``
+              }:`}</span>
               <strong>${cart.totalPrice}</strong>
             </Total>
           </Costs>

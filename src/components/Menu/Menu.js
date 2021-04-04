@@ -8,7 +8,7 @@ import Burger from './Burger';
 const styles = {
   bmBurgerButton: {
     position: 'absolute',
-    left: '36px',
+    left: '64px',
     top: '36px',
   },
   bmBurgerBars: {
@@ -35,6 +35,9 @@ const styles = {
     background: 'linear-gradient(100deg, #f80759, #bc4e9c)',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em',
+    fontFamily: 'Montserrat',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
   },
   bmMorphShape: {
     fill: '#373a47',
@@ -44,6 +47,7 @@ const styles = {
     padding: '0.8em',
     display: 'flex',
     flexDirection: 'column',
+    marginTop: '3em',
   },
   bmItem: {
     display: 'inline-block',
@@ -59,6 +63,8 @@ const MenuItem = styled.a`
   font-size: 2rem;
   margin-bottom: 24px;
   transition: all 0.5s;
+  text-decoration: none;
+  letter-spacing: 4px;
 `;
 
 const BurgerMenu = () => {
@@ -90,7 +96,7 @@ const BurgerMenu = () => {
       <MenuItem id="home" className="menu-item" href="/">
         Home
       </MenuItem>
-      <MenuItem id="send" className="menu-item" href="/product">
+      <MenuItem id="send" className="menu-item" href="/shop">
         Send a Kindpost
       </MenuItem>
       <MenuItem id="faq" className="menu-item" href="/faq">

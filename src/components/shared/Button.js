@@ -46,9 +46,13 @@ const CtaButton = styled.button`
       0 0 2px 4px rgba(0,0,0,0.08);
       /* background: #fff; */
       /* color: #000; */
-      background: ${colors.brand};
+      // background: ${colors.brand};
+      background: linear-gradient(
+100deg
+, rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
-      border: 1px solid ${colors.brand};
+      // border: 1px solid ${colors.brand};
+      border: transparent;
     }
   }
 `;

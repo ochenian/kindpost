@@ -44,7 +44,7 @@ const Icon = styled.span`
 
 const Accordion = ({ id, i, expanded, setExpanded, headerText, bodyText }) => {
   const isOpen = i === expanded;
-  console.log(bodyText);
+
   return (
     <Container id={id}>
       <Header initial={false} onClick={() => setExpanded(isOpen ? false : i)}>

@@ -44,12 +44,15 @@ const PrimaryLine = styled.div`
 const SecondaryLine = styled.div`
   display: flex;
   margin: 4px 0;
+  letter-spacing: 1px;
 `;
 
 const ProductName = styled.div`
   font-size: 1.25rem;
   line-height: 1.1;
   text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
 `;
 
 const PriceDeleteContainer = styled.div`
