@@ -210,6 +210,7 @@ const YouMatter = () => {
     //   },
     // });
     if (!mobile) {
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: copyWrapperRef.current,

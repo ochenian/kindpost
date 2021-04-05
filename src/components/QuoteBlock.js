@@ -91,6 +91,7 @@ const QuoteBlock = () => {
     //     timelineSettings.staggerValue,
     //     // '-=0.5',
     //   )
+    gsap.core.globals('ScrollTrigger', ScrollTrigger);
     gsap.utils.toArray('.fadeIn').forEach((panel, i) => {
       gsap.from(panel, {
         scrollTrigger: {

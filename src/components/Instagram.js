@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import gsap from 'gsap';
+import gsap, { ScrollTrigger } from 'gsap';
 import InstaLogo from '../assets/svg/instagram.svg';
 
 const Wrapper = styled.section`
@@ -38,6 +38,7 @@ const FollowText = styled.div`
 
 const Instagram = () => {
   useEffect(() => {
+    gsap.core.globals('ScrollTrigger', ScrollTrigger);
     gsap.utils.toArray('.fadeInBlock').forEach((panel, i) => {
       gsap.from(panel, {
         scrollTrigger: {

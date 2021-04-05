@@ -46,6 +46,7 @@ const PurposeText = styled.div`
 const OurPurpose = () => {
   const wrapperRef = useRef();
   useEffect(() => {
+    gsap.core.globals('ScrollTrigger', ScrollTrigger);
     gsap.from(wrapperRef.current, {
       scrollTrigger: {
         trigger: wrapperRef.current,

@@ -280,6 +280,7 @@ const Contact = () => {
   const imgWrapperRef = useRef();
 
   useEffect(() => {
+    gsap.core.globals('ScrollTrigger', ScrollTrigger);
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: imgWrapperRef.current,
