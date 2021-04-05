@@ -27,6 +27,15 @@ const StyledInstaLogo = styled(InstaLogo)`
   min-width: 33px;
 `;
 
+const FollowText = styled.div`
+  font-size: 2rem;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: #282828;
+`;
+
 const Instagram = () => {
   useEffect(() => {
     gsap.utils.toArray('.fadeInBlock').forEach((panel, i) => {
@@ -49,12 +58,7 @@ const Instagram = () => {
       >
         <StyledInstaLogo />
       </a>
-      <div
-        className="fadeInBlock"
-        style={{ marginBottom: '2rem', fontSize: '2rem' }}
-      >
-        Follow us on Instagram
-      </div>
+      <FollowText className="fadeInBlock">Follow us on Instagram</FollowText>
       <a
         href="https://www.instagram.com/kindpostco"
         aria-label="Instagram"

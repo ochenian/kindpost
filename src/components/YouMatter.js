@@ -105,6 +105,10 @@ const Text = styled.div`
 
 const HeadText = styled.div`
   font-size: 4rem;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: #282828;
+  text-transform: uppercase;
 
   @media (max-width: 1024px) {
     font-size: 3rem;
@@ -131,6 +135,9 @@ const ShopNowBtn = styled.a`
   transition: 0.5s all ease-out;
   border: 1px solid #d4004c;
   width: fit-content;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  border-radius: 8px;
 
   :hover {
     color: #fff;
@@ -227,7 +234,8 @@ const YouMatter = () => {
         </ImgContainer>
 
         <TextBlock ref={youDeserveTextRef}>
-          <HeadText>Positive affirmations for all.</HeadText>
+          <HeadText>Positivity</HeadText>
+          <HeadText>for all.</HeadText>
           <Text>
             Nervous for a test? Anxious about an interview? Need a last minute
             birthday idea? Had a bad day or want to brighten one for someone

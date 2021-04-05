@@ -30,6 +30,7 @@ const Title = styled.p`
   width: fit-content;
   // font-style: italic;
   font-family: 'tk-orpheuspro-n7';
+  font-weight: bold;
 
   // &:before {
   //   content: '';

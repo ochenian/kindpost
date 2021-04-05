@@ -115,16 +115,14 @@
         font-size: 3em;
         text-transform: lowercase;
         font-weight: bold;
-        // letter-spacing: 0.18em;
-
-        width: 650px;
+        text-transform: uppercase;
         margin-bottom: 32px;
 
         @media (max-width: 600px) {
           margin-bottom: 16px;
         }
 
-        width: 800px;
+        width: fit-content;
         margin-bottom: 0.5em;
         line-height: 1.2;
         // text-transform: uppercase;

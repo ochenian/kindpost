@@ -16,23 +16,25 @@ import Divider from '../components/Divider';
 
 const ProductName = styled.h1`
   margin-bottom: 1rem;
+  color: #282828;
 `;
 
 const SubHeaderLabel = styled.div`
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.8);
+  color: #282828;
   margin: 1rem 0;
-  font-family: 'Averia Serif Libre';
+  font-family: 'Montserrat';
 `;
 
 const Description = styled.div`
   /* margin: 1rem 0; */
   margin-bottom: 1rem;
   max-width: 60ch;
-  font-family: 'Averia Serif Libre';
+  font-family: 'orpheuspro';
+  letter-spacing: 0.5px;
   line-height: 2;
-  color: #4a4a4a;
+  color: #282828;
 `;
 
 const OptionsContainer = styled.div`
@@ -50,12 +52,14 @@ const Variants = styled(CtaButton)`
     color: #f40075;
     border: 1px solid #f40075;
     letter-spacing: 2px;
+    border-radius: 0;
 
     &.selected {
       // background: #f40075;
       /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
       background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
+      border: 1px solid transparent;
     }
   }
 `;
@@ -67,6 +71,7 @@ const Checkout = styled(CtaButton)`
     letter-spacing: 2px;
     max-width: 316px;
     text-decoration: none;
+    border-radius: 0;
   }
 `;
 
@@ -77,6 +82,7 @@ const SoldOut = styled(CtaButton)`
     letter-spacing: 2px;
     max-width: 316px;
     cursor: default;
+    border-radius: 0;
   }
 `;
 
@@ -88,6 +94,8 @@ const Note = styled.div`
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-family: 'orpheuspro';
+  letter-spacing: 0.5px;
 `;
 
 const ClickToFlip = styled(Img)`

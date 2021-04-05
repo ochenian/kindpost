@@ -92,7 +92,14 @@ const Header = ({ headerClass }) => {
             {!mobile && (
               <StyledButtonLink style={{ marginRight: '4em' }}>
                 <a href="/about">
-                  <div>about us</div>
+                  <div>our story</div>
+                </a>
+              </StyledButtonLink>
+            )}
+            {!mobile && (
+              <StyledButtonLink style={{ marginRight: '4em' }}>
+                <a href="/contact">
+                  <div>contact</div>
                 </a>
               </StyledButtonLink>
             )}

@@ -96,7 +96,7 @@ const StyledKpLogo = styled(KpLogo)`
 `;
 
 const SendYourText = styled.div`
-  margin-right: 0.25em;
+  margin-right: 0.5em;
   overflow: hidden;
   text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
 `;
@@ -106,6 +106,9 @@ const ANewWayText = styled.div`
   font-size: 2em;
   letter-spacing: 0.18em;
   margin-bottom: 16px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-transform: uppercase;
 
   @media (max-width: 600px) {
     font-size: 24px;

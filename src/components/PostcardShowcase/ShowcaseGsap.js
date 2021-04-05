@@ -84,6 +84,9 @@ const ShopNowBtn = styled.a`
   position: relative;
   z-index: 10;
   box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  border-radius: 8px;
 
   :hover {
     color: #fff;

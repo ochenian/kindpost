@@ -291,7 +291,7 @@ const Footer = () => {
               <LinksSectionWrapper>
                 <LinksSection>
                   <SectionHeader>Info.</SectionHeader>
-                  <a href="/about">About us</a>
+                  <a href="/about">Our Story</a>
                   <a href="/faq">FAQ</a>
                   <a href="/contact">Contact us</a>
                 </LinksSection>
@@ -371,7 +371,7 @@ const Footer = () => {
             </form>
             <MobileLinksSection>
               <MobileLink href="/faq">FAQ</MobileLink>
-              <MobileLink href="/about">About us</MobileLink>
+              <MobileLink href="/about">Our Story</MobileLink>
               <MobileLink href="/contact">Contact us</MobileLink>
               <MobileLink href="/privacy-policy">privacy policy</MobileLink>
               <MobileLink href="/terms-of-service">terms of service</MobileLink>

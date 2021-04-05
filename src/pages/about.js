@@ -15,6 +15,7 @@ const Container = styled.section`
   font-family: 'orpheuspro';
   background: rgb(253, 250, 238);
   // background: rgb(230 164 228);
+  color: #282828;
 `;
 const HeaderContainer = styled.div`
   width: 100%;
@@ -131,6 +132,9 @@ const BodyTextHeader = styled.h3`
   text-align: center;
   margin: 0 1.5rem 1em 1.5rem;
   text-transform: uppercase;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  font-weight: bold;
 
   @media (max-width: 545px) {
     font-size: 1rem;
@@ -199,6 +203,8 @@ const FinalMessage = styled.div`
   // margin-bottom: 6em;
   letter-spacing: 4px;
   margin-bottom: 200px;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
 
   @media (max-width: 545px) {
     width: 95%;

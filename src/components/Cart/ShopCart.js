@@ -33,6 +33,7 @@ const CartRoot = styled(`div`)`
   width: 100%;
   will-change: transform;
   z-index: 1000;
+  font-family: 'Montserrat';
 
   &.open {
     transform: translateX(0%);
