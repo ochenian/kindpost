@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import gsap, { ScrollTrigger } from 'gsap';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import InstaLogo from '../assets/svg/instagram.svg';
 
 const Wrapper = styled.section`
@@ -16,7 +17,6 @@ const Wrapper = styled.section`
 const Hashtag = styled.div`
   color: #d4004c;
   font-family: 'Averia Serif Libre';
-  // text-transform: uppercase;
   font-size: 1.5rem;
 `;
 
@@ -38,7 +38,13 @@ const FollowText = styled.div`
 
 const Instagram = () => {
   useEffect(() => {
-    gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    }
     gsap.utils.toArray('.fadeInBlock').forEach((panel, i) => {
       gsap.from(panel, {
         scrollTrigger: {

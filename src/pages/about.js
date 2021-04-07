@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
-import gsap, { ScrollTrigger } from 'gsap';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import Layout from '../layouts/index';
 import Circle from '../assets/svg/circle.svg';
@@ -280,7 +281,13 @@ const Contact = () => {
   const imgWrapperRef = useRef();
 
   useEffect(() => {
-    gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    }
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: imgWrapperRef.current,

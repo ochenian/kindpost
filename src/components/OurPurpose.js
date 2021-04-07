@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import gsap, { ScrollTrigger } from 'gsap';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Wrapper = styled.div`
   display: flex;
@@ -46,7 +47,13 @@ const PurposeText = styled.div`
 const OurPurpose = () => {
   const wrapperRef = useRef();
   useEffect(() => {
-    gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    }
     gsap.from(wrapperRef.current, {
       scrollTrigger: {
         trigger: wrapperRef.current,

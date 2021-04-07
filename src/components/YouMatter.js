@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
-import gsap, { ScrollTrigger } from 'gsap';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Circle from '../assets/svg/circle.svg';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
@@ -189,28 +190,14 @@ const YouMatter = () => {
   const copyWrapperRef = useRef();
 
   useEffect(() => {
-    // gsap.to(imgRef.current, {
-    //   yPercent: -100,
-    //   ease: 'none',
-    //   scrollTrigger: {
-    //     trigger: imgRef.current,
-    //     // start: "top bottom", // the default values
-    //     // end: "bottom top",
-    //     scrub: true,
-    //   },
-    // });
-    // gsap.to(textRef.current, {
-    //   yPercent: -100,
-    //   ease: 'none',
-    //   scrollTrigger: {
-    //     trigger: textRef.current,
-    //     // start: "top bottom", // the default values
-    //     // end: "bottom top",
-    //     scrub: true,
-    //   },
-    // });
     if (!mobile) {
-      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+      if (typeof window !== `undefined`) {
+        gsap.config({
+          nullTargetWarn: false,
+        });
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.core.globals('ScrollTrigger', ScrollTrigger);
+      }
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: copyWrapperRef.current,
