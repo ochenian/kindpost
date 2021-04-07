@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
 import ButtonLink from './ButtonLink';
-import Splitting from 'splitting';
-import 'splitting/dist/splitting.css';
-import 'splitting/dist/splitting-cells.css';
-import gsap, { ScrollTrigger } from 'gsap';
 
 const Background = styled.div`
   background-color: #f2ebe5;
-  // padding: 6em 8em;
   height: 75vh;
   font-size: 1.5em;
   font-family: 'orpheuspro';
@@ -20,13 +16,14 @@ const Background = styled.div`
   align-items: center;
 
   @media (max-width: 650px) {
-    // padding: 1.5em 2em;
+    padding: 3em 0;
   }
 `;
 
 const Quote = styled.p`
   margin-bottom: 1em;
-  width: 90%;
+  width: 60%;
+  max-width: 715px;
 `;
 
 const Signature = styled.div`
@@ -53,45 +50,13 @@ const StyledButtonLink = styled(ButtonLink)`
 
 const QuoteBlock = () => {
   useEffect(() => {
-    // Splitting({ by: 'lines' });
-
-    const timelineSettings = {
-      staggerValue: 0.014,
-      charsDuration: 0.5,
-    };
-
-    // gsap.set('.line', {
-    //   y: '100%',
-    //   autoAlpha: 0,
-    // });
-
-    const tl = gsap.timeline();
-
-    // tl.staggerTo(
-    //   '.line',
-    //   timelineSettings.charsDuration,
-    //   {
-    //     scrollTrigger: {
-    //       trigger: '.line',
-    //       start: 'top bottom-=200',
-    //     },
-    //     y: 0,
-    //     autoAlpha: 1,
-    //   },
-    //   timelineSettings.staggerValue,
-    // );
-
-    // .staggerTo(
-    //     '.line',
-    //     timelineSettings.charsDuration,
-    //     {
-    //       ease: 'Power3.easeOut',
-    //       y: '0%',
-    //     },
-    //     timelineSettings.staggerValue,
-    //     // '-=0.5',
-    //   )
-    gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    }
     gsap.utils.toArray('.fadeIn').forEach((panel, i) => {
       gsap.from(panel, {
         scrollTrigger: {
@@ -105,13 +70,11 @@ const QuoteBlock = () => {
   });
   return (
     <Background>
-      {/* <div style={{ overflow: 'hidden' }}> */}
       <Quote className="fadeIn">
         “Whether it’s a pick-me-up, inspiration, or a message of empowerment,
         our goal is promoting a sense of hope and building connection through
         the transformative nature of kindness.”
       </Quote>
-      {/* </div> */}
 
       <Signature className="fadeIn">Cate</Signature>
       <SignatureTitle className="fadeIn">Founder / CEO</SignatureTitle>
