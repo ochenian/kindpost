@@ -12,6 +12,7 @@ const Wrapper = styled.section`
 
   width: 100%;
   height: 75vh;
+  background: #fff;
 `;
 
 const Hashtag = styled.div`

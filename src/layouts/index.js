@@ -2,19 +2,15 @@
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
+import { motion } from 'framer-motion';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import Footer from '../components/footer';
 import Header from '../components/Header';
-import How from '../components/How';
-import Divider from '../components/Divider';
 import Cart from '../components/Cart/ShopCart';
-// import Scroll from '../components/locomotiveScroll';
 import { CartContext } from '../components/Cart/CartContext';
-import CookieSvg from '../assets/svg/cookie-bite.svg';
 import BurgerMenu from '../components/Menu/Menu';
 
 import '../style/index.scss';
-import FreeShipping from '../components/FreeShipping';
 
 const Layout = ({ children, siteName, headerClass, location }) => {
   const { showCart, toggleCart } = useContext(CartContext);
@@ -43,14 +39,24 @@ const Layout = ({ children, siteName, headerClass, location }) => {
         <Header siteName={siteName} headerClass={headerClass} />
         {/* Here we pass the callbacks to the component. Anything that impacts the innerHeight, for example: Font Loaded */}
         {/* <Scroll callbacks={location} /> */}
-        <div
+        <motion.div
           id="top"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{ duration: 2 }}
           // data-scroll-container
           // className="Wrap Wrap__main_content smooth-scroll"
           className="Wrap Wrap__main_content"
         >
           {children}
-        </div>
+        </motion.div>
 
         <CookieConsent
           overlay

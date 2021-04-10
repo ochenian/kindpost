@@ -9,10 +9,14 @@ const Container = styled.section`
   // padding: 8em 4em;
   // line-height: 2;
   letter-spacing: 1.25px;
-  // background: rgb(253, 250, 238);
+  background: #fff;
   color: rgb(40, 40, 40);
   font-family: 'orpheuspro';
   padding-top: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 `;
 
 const StyledTextHeader = styled.p`
@@ -45,7 +49,7 @@ const Subtitle = styled.div`
 `;
 
 const TextBody = styled.div`
-  margin: 200px auto;
+  // margin: 200px auto;
   max-width: 550px;
 `;
 

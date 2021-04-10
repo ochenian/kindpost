@@ -186,7 +186,7 @@
     flex-basis: 50%;
     align-items: center;
     position: relative;
-    background: rgba(255, 199, 199, 0.5);
+    background: #fadbdb;
     // border-right: 1px solid #f5bc5e;
 
     @media (max-width: '950px') {
@@ -208,6 +208,7 @@
 
   & .right {
     flex-basis: 50%;
+    background: #fff;
 
     @media (max-width: '950px') {
       margin-top: 200px;
@@ -239,7 +240,7 @@
 
   padding: 8em 4em;
 
-  margin: auto;
+  // margin: auto;
 
   @media (max-width: '950px') {
     padding: 0 64px;
