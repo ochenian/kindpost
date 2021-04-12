@@ -10,24 +10,24 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  // height: 100vh;
   justify-content: center;
   align-items: center;
-  // background: rgb(242, 235, 229);
-  background: #fff;
-
-  // @media (max-width: 1024px) {
-  //   height: 100%;
-  //   margin: 6em;
-  // }
+  background: #fdfbf5;
+  padding: 8em 0;
 `;
 const CopyWrapper = styled.div`
   display: flex;
-  flex-direction: ${props => (props.mobile ? 'column;' : 'row;')}
-  justify-content: center;
+  flex-direction: ${props => (props.mobile ? 'column;' : 'row-reverse;')}
+  justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
+  max-width: 1200px;
+
+  @media (max-width: 1024px) {
+    &:nth-of-type(2) {
+      flex-direction: column-reverse;
+    }
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -36,6 +36,8 @@ const ImgContainer = styled.div`
   align-content: center;
   flex: 1 1 50%;
   position: relative;
+  max-width: 600px;
+  top: 16px;
 
   @media (max-width: 1024px) {
     width: 50%;
@@ -67,52 +69,45 @@ const StyledCircle = styled(Circle)`
 `;
 
 const YouMatterImg = styled(Img)`
-  // width: 50%;
   width: 100%;
-  top: 12px;
-  left: 22px;
-
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
+  max-width: 500px;
 `;
 
 const TextBlock = styled.div`
-  width: 50%;
-
   display: flex;
   flex-direction: column;
-  // align-items: center;
+  font-family: 'proxima-nova';
+  margin: 0 auto;
+  max-width: 600px;
+  padding-left: 32px;
 
   @media (max-width: 1024px) {
-    // display: flex;
-    // flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
-
-    @media (max-width: 1024px) {
-      margin-top: 2rem;
-    }
+    margin: 2rem 0 0 0;
+    padding-left: 0;
+    text-align: center;
   }
 `;
 const Text = styled.div`
-  width: 75%;
+  width: 40ch;
+  font-family: 'skolar latin';
   // margin-bottom: 0.5rem;
+  margin: 1em 0 2em 0;
   @media (max-width: 1024px) {
     width: 65vw;
   }
 `;
 
 const HeadText = styled.div`
-  font-size: 4rem;
-  font-family: 'Montserrat';
+  font-size: 3rem;
   font-weight: bold;
   color: #282828;
   text-transform: uppercase;
+  line-height: 1.2;
 
   @media (max-width: 1024px) {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
   }
 `;
@@ -136,9 +131,7 @@ const ShopNowBtn = styled.a`
   transition: 0.5s all ease-out;
   border: 1px solid #d4004c;
   width: fit-content;
-  font-family: 'Montserrat';
   text-transform: uppercase;
-  border-radius: 8px;
 
   :hover {
     color: #fff;
@@ -182,6 +175,26 @@ const YouMatter = () => {
           }
         }
       }
+      postcardFront: file(
+        relativePath: { eq: "postcard_front_off_white.png" }
+      ) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      postcardBack: file(relativePath: { eq: "postcard_back_off_white.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
@@ -200,14 +213,14 @@ const YouMatter = () => {
       }
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: copyWrapperRef.current,
-          start: 'top bottom',
+          trigger: '.blurb-img',
+          start: 'center bottom',
         },
       });
-      tl.from(youDeserveImgRef.current, {
+      tl.from('.blurb-img', {
         autoAlpha: 0,
         translateY: '20%',
-      }).from(youDeserveTextRef.current, {
+      }).from('.blurb-text', {
         autoAlpha: 0,
         translateY: '20%',
       });
@@ -216,24 +229,53 @@ const YouMatter = () => {
 
   return (
     <Wrapper>
-      <CopyWrapper mobile={mobile} ref={copyWrapperRef}>
-        <ImgContainer ref={youDeserveImgRef}>
-          <YouMatterImg fluid={data.postcardCutout.childImageSharp.fluid} />
+      <CopyWrapper
+        mobile={mobile}
+        ref={copyWrapperRef}
+        style={{ marginBottom: '8em' }}
+      >
+        <ImgContainer className="blurb-img">
+          <YouMatterImg fluid={data.postcardFront.childImageSharp.fluid} />
         </ImgContainer>
 
-        <TextBlock ref={youDeserveTextRef}>
-          <HeadText>Positivity</HeadText>
-          <HeadText>for all.</HeadText>
+        <TextBlock className="blurb-text">
+          <HeadText>Vintage</HeadText>
+          <HeadText>Postcards</HeadText>
           <Text>
-            Nervous for a test? Anxious about an interview? Need a last minute
-            birthday idea? Had a bad day or want to brighten one for someone
-            else?
+            Each kindpost starts with a selection from our curated collection of
+            beautiful linen + chrome vintage postcards.
           </Text>
-          <div style={{ fontWeight: 'bold', margin: '1rem 0' }}>
+          {/* <div style={{ fontWeight: 'bold', margin: '1rem 0' }}>
             We&apos;ve got you.
-          </div>
+          </div> */}
           <ShopNowBtn href="/shop">Shop</ShopNowBtn>
         </TextBlock>
+      </CopyWrapper>
+      <CopyWrapper
+        mobile={mobile}
+        style={{
+          paddingLeft: 0,
+        }}
+      >
+        <TextBlock
+          className="blurb-text"
+          style={{ right: 0, zIndex: 10, width: '40%' }}
+        >
+          <HeadText>Positively</HeadText>
+          <HeadText>Handwritten</HeadText>
+          <Text>
+            All kindposts include a message of positivity uniquely created +
+            hand-lettered by our team.
+          </Text>
+          {/* <div style={{ fontWeight: 'bold', margin: '1rem 0' }}>
+            We&apos;ve got you.
+          </div> */}
+          <ShopNowBtn href="/shop">Shop</ShopNowBtn>
+        </TextBlock>
+
+        <ImgContainer className="blurb-img">
+          <YouMatterImg fluid={data.postcardBack.childImageSharp.fluid} />
+        </ImgContainer>
       </CopyWrapper>
     </Wrapper>
   );

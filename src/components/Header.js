@@ -96,13 +96,6 @@ const Header = ({ headerClass }) => {
                 </a>
               </StyledButtonLink>
             )}
-            {!mobile && (
-              <StyledButtonLink style={{ marginRight: '4em' }}>
-                <a href="/contact">
-                  <div>contact</div>
-                </a>
-              </StyledButtonLink>
-            )}
             <button
               type="button"
               aria-label="Cart Button"

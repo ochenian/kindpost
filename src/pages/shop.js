@@ -31,7 +31,7 @@ const Description = styled.div`
   /* margin: 1rem 0; */
   margin-bottom: 1rem;
   max-width: 60ch;
-  font-family: 'orpheuspro';
+  font-family: 'calluna';
   letter-spacing: 0.5px;
   line-height: 2;
   color: #282828;
@@ -94,7 +94,7 @@ const Note = styled.div`
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'orpheuspro';
+  font-family: 'calluna';
   letter-spacing: 0.5px;
 `;
 

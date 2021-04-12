@@ -59,6 +59,7 @@ const Description = styled.div`
   letter-spacing: 2px;
   // width: 660px;
   font-size: 1.25rem;
+  font-family: 'skolar latin';
   line-height: 1.5;
   margin-bottom: 2em;
 
@@ -106,9 +107,9 @@ const ANewWayText = styled.div`
   font-size: 2em;
   letter-spacing: 0.18em;
   margin-bottom: 16px;
-  font-family: 'Montserrat';
   font-weight: bold;
   text-transform: uppercase;
+  font-family: 'proxima-nova';
 
   @media (max-width: 600px) {
     font-size: 24px;
@@ -296,7 +297,7 @@ const Hero = () => {
             <div>For you or yours in kindness.</div>
           </Description>
 
-          <a href="product">
+          <a href="/shop">
             <CtaButton>send</CtaButton>
           </a>
         </div>

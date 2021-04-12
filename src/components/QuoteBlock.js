@@ -8,7 +8,8 @@ const Background = styled.div`
   background-color: #f2ebe5;
   height: 75vh;
   font-size: 1.5em;
-  font-family: 'orpheuspro';
+  // font-family: 'orpheuspro';
+  font-family: 'calluna';
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -15,7 +15,7 @@ const Container = styled.div`
 
   background: #fff;
   color: rgb(40, 40, 40);
-  font-family: 'orpheuspro';
+  font-family: 'calluna';
 `;
 
 const Title = styled.p`
@@ -29,7 +29,8 @@ const Title = styled.p`
   letter-spacing: 4px;
   width: fit-content;
   // font-style: italic;
-  font-family: 'tk-orpheuspro-n7';
+  // font-family: 'tk-orpheuspro-n7';
+  font-family: 'calluna';
   font-weight: bold;
 
   // &:before {

@@ -17,7 +17,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  font-family: 'orpheuspro';
+  font-family: 'calluna';
 `;
 
 const ColumnsContainer = styled.div`

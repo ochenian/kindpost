@@ -11,7 +11,7 @@ const Container = styled.section`
   letter-spacing: 1.25px;
   background: #fff;
   color: rgb(40, 40, 40);
-  font-family: 'orpheuspro';
+  font-family: 'calluna';
   padding-top: 5em;
   display: flex;
   justify-content: center;
@@ -29,7 +29,8 @@ const StyledTextHeader = styled.p`
   letter-spacing: 4px;
   width: fit-content;
   // font-style: italic;
-  font-family: 'tk-orpheuspro-n7';
+  // font-family: 'tk-orpheuspro-n7';
+  font-family: 'calluna';
   font-weight: bold;
 
   // &:before {

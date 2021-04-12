@@ -13,7 +13,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'orpheuspro';
+  font-family: 'calluna';
   background: rgb(253, 250, 238);
   // background: rgb(230 164 228);
   color: #282828;

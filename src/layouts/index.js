@@ -63,7 +63,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
           location="bottom"
           enableDeclineButton
           style={{
-            background: 'rgba(35, 34, 33, 0.95)',
+            // background: 'rgba(35, 34, 33, 0.95)',
             // borderRadius: '4px',
             color: '#fff',
             padding: mobile ? '24px' : '16px',
@@ -72,6 +72,12 @@ const Layout = ({ children, siteName, headerClass, location }) => {
             flexDirection: 'column',
             width: mobile ? '100%' : '600px',
             margin: '24px',
+            background: 'rgba( 0, 0, 0, 0.25 )',
+            boxShadow: '0 8px 32px 0 rgba( 0, 0, 0, 0.37 )',
+            backdropFilter: 'blur( 9.0px )',
+            WebkitBackdropFilter: 'blur( 9.0px )',
+            borderRadius: '10px',
+            border: '1px solid rgba( 0, 0, 0, 0.18 )',
           }}
           contentStyle={{
             display: 'flex',

@@ -26,9 +26,9 @@ const CtaButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 6px;
   text-indent: 6px;
-  font-family: 'Montserrat';
+  // font-family: 'Montserrat';
     text-transform: uppercase;
-    border-radius: 8px;
+    // border-radius: 8px;
 
   :focus {
     box-shadow: 0 0 0 3px ${colors.accent};
