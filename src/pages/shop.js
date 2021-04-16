@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { useSpring, animated } from 'react-spring';
@@ -46,7 +46,7 @@ const OptionsContainer = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Variants = styled(CtaButton)`
+const SelectButton = styled(CtaButton)`
   &&& {
     margin: 12px 0 0 12px;
     color: #f40075;
@@ -55,13 +55,78 @@ const Variants = styled(CtaButton)`
     border-radius: 0;
 
     &.selected {
-      // background: #f40075;
-      /* background: linear-gradient(180deg, #d4004c 0%, #f40075 100%); */
       background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
       border: 1px solid transparent;
     }
   }
+`;
+
+const AddresseeContainer = styled.div`
+  display: flex;
+  margin-bottom: 2rem;
+
+  &&& button {
+    margin: 0;
+    flex: 1;
+
+    &:first-of-type {
+      border-right: 1px solid transparent;
+    }
+
+    &.selected {
+      background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+      color: #fff;
+      border: 1px solid transparent;
+    }
+  }
+`;
+
+const AddresseeInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+
+  input {
+    transiton: 0.5s all;
+    padding: 1em 3em;
+    font-size: 1.1rem;
+    border: 1px solid #f40075;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+
+    ::placeholder {
+      color: #afafaf;
+    }
+  }
+
+  textarea {
+    resize: none;
+    transiton: 0.5s all;
+    padding: 1em 3em;
+    font-size: 1.1rem;
+    border: 1px solid #f40075;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+
+    ::placeholder {
+      color: #afafaf;
+    }
+  }
+`;
+
+const CharsRemaining = styled.div`
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  margin-left: auto;
+`;
+
+const SpecialRequestsDisclaimer = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
 `;
 
 const Checkout = styled(CtaButton)`
@@ -271,6 +336,9 @@ const ProductPage = () => {
     imgFront: data.postcardImg.childImageSharp.fluid,
     imgBack: data.postcardBack.childImageSharp.fluid,
   });
+
+  const [selectedAddressee, setSelectedAddressee] = useState(null);
+
   const [isAddToCartDisabled, setAddToCartDisabled] = useState(
     cartItems
       .map(item => item.variant.title.toLowerCase())
@@ -374,15 +442,36 @@ const ProductPage = () => {
 
   const addItemToCart = useAddItemToCart();
 
-  async function addToCart(variantId, quantity) {
+  async function addToCart(variantId, quantity, customAttributes) {
     try {
-      await addItemToCart(variantId, quantity);
+      await addItemToCart(variantId, quantity, customAttributes);
       toggleCart();
       setAddToCartDisabled(true);
     } catch (e) {
       console.log(e);
     }
   }
+
+  const specialRequestsRef = useRef();
+  const [specialRequests, setSpecialRequests] = useState('');
+  const [charsRemaining, setCharsRemaining] = useState(255);
+  const handleSpecialRequestsChange = () => {
+    const chars = 255 - specialRequestsRef.current.value.length;
+    setCharsRemaining(chars);
+    setSpecialRequests(specialRequestsRef.current.value);
+  };
+
+  const toInputRef = useRef();
+  const [toInputValue, setToInputValue] = useState('');
+  const handleToInputChange = () => {
+    setToInputValue(toInputRef.current.value);
+  };
+
+  const fromInputRef = useRef();
+  const [fromInputValue, setFromInputValue] = useState('');
+  const handleFromInputChange = () => {
+    setFromInputValue(fromInputRef.current.value);
+  };
 
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header light">
@@ -442,7 +531,7 @@ const ProductPage = () => {
             <OptionsContainer>
               {products.map(product => {
                 return (
-                  <Variants
+                  <SelectButton
                     key={product.id}
                     className={`${
                       selectedPostcard.id === product.id ? 'selected' : ''
@@ -450,16 +539,81 @@ const ProductPage = () => {
                     onClick={() => onPostcardSelect(product)}
                   >
                     {product.name}
-                  </Variants>
+                  </SelectButton>
                 );
               })}
             </OptionsContainer>
             {selectedPostcard && (
               <>
-                <SubHeaderLabel>details</SubHeaderLabel>
+                {/* <SubHeaderLabel>details</SubHeaderLabel> */}
                 <Description>{selectedPostcard.description}</Description>
               </>
             )}
+
+            <SubHeaderLabel>RECIPIENT</SubHeaderLabel>
+            <AddresseeContainer>
+              <SelectButton
+                className={`${selectedAddressee === 'me' ? 'selected' : ''}`}
+                onClick={() => setSelectedAddressee('me')}
+              >
+                for me
+              </SelectButton>
+              <SelectButton
+                className={`${selectedAddressee === 'else' ? 'selected' : ''}`}
+                onClick={() => setSelectedAddressee('else')}
+              >
+                for someone else
+              </SelectButton>
+            </AddresseeContainer>
+
+            {selectedAddressee && (
+              <AddresseeInfoContainer>
+                {selectedAddressee === 'else' && (
+                  <>
+                    <SubHeaderLabel htmlFor="to">TO</SubHeaderLabel>
+                    <input
+                      id="to"
+                      ref={toInputRef}
+                      value={toInputValue}
+                      onChange={handleToInputChange}
+                      maxLength="50"
+                      placeholder="Who are we sending this to?"
+                    />
+
+                    <SubHeaderLabel htmlFor="from">FROM</SubHeaderLabel>
+                    <input
+                      id="from"
+                      ref={fromInputRef}
+                      value={fromInputValue}
+                      onChange={handleFromInputChange}
+                      maxLength="50"
+                      placeholder="Who are we sending this from?"
+                    />
+                  </>
+                )}
+                <SubHeaderLabel htmlFor="instructions">
+                  SPECIAL REQUESTS
+                </SubHeaderLabel>
+                <textarea
+                  id="instructions"
+                  ref={specialRequestsRef}
+                  value={specialRequests}
+                  maxLength="255"
+                  rows="5"
+                  placeholder="Any special requests or relevant information? Kindpost's mission is positivity, so please keep it kind :)"
+                  onChange={() => handleSpecialRequestsChange()}
+                />
+                <CharsRemaining>{`${charsRemaining} characters remaining`}</CharsRemaining>
+                <SpecialRequestsDisclaimer>
+                  PLEASE NOTE:
+                  <div>
+                    We cannot guarantee that we will be able to accomodate any
+                    special requests.
+                  </div>
+                </SpecialRequestsDisclaimer>
+              </AddresseeInfoContainer>
+            )}
+
             {showSoldOut ? (
               <SoldOut disabled>
                 {showAlreadyInCart ? 'ALREADY IN CART' : 'SOLD OUT'}
@@ -467,7 +621,24 @@ const ProductPage = () => {
             ) : (
               <Checkout
                 onClick={() => {
-                  addToCart(selectedPostcard.shopifyId, 1);
+                  const keys = [];
+                  if (toInputValue !== '') {
+                    keys.push({ key: 'To', value: toInputValue });
+                  }
+
+                  if (fromInputValue !== '') {
+                    keys.push({ key: 'From', value: fromInputValue });
+                  }
+
+                  if (specialRequests !== '') {
+                    keys.push({ key: 'Requests', value: specialRequests });
+                  }
+
+                  if (keys.length > 0) {
+                    addToCart(selectedPostcard.shopifyId, 1, keys);
+                  } else {
+                    addToCart(selectedPostcard.shopifyId, 1);
+                  }
                 }}
               >
                 $12 &mdash; ADD TO BAG

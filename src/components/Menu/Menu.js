@@ -1,37 +1,31 @@
-import { findLastIndex } from 'lodash-es';
 import React, { useEffect, useRef, useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import styled from 'styled-components';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import Burger from './Burger';
+import Burger from '@animated-burgers/burger-squeeze';
+import '@animated-burgers/burger-squeeze/dist/styles.css';
 
 const styles = {
   bmBurgerButton: {
     position: 'absolute',
     left: '64px',
     top: '36px',
+    width: '36px',
+    height: '36px',
+    zIndex: '10000',
+    cursor: 'pointer',
   },
   bmBurgerBars: {
-    background: '#fff',
-  },
-  bmBurgerBarsHover: {
-    background: '#a90000',
+    background: '#000',
   },
   bmCrossButton: {
-    height: '24px',
-    width: '24px',
-  },
-  bmCross: {
-    background: '#bdc3c7',
-    width: '4px',
-    height: '13px',
+    display: 'none',
   },
   bmMenuWrap: {
     position: 'fixed',
     height: '100%',
   },
   bmMenu: {
-    // background: '#282828',
     background: 'linear-gradient(100deg, #f80759, #bc4e9c)',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em',
@@ -39,12 +33,9 @@ const styles = {
     textTransform: 'uppercase',
     fontWeight: 'bold',
   },
-  bmMorphShape: {
-    fill: '#373a47',
-  },
   bmItemList: {
     color: '#b8b7ad',
-    padding: '0.8em',
+    padding: '0.8em 2.5em',
     display: 'flex',
     flexDirection: 'column',
     marginTop: '3em',
@@ -67,7 +58,7 @@ const MenuItem = styled.a`
   letter-spacing: 4px;
 `;
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ theme }) => {
   const targetElement = document.querySelector('.bm-overlay');
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -86,10 +77,12 @@ const BurgerMenu = () => {
     return state.isOpen;
   };
 
+  const burgerClass = theme.includes('light') ? 'light' : '';
+
   return (
     <Menu
       onStateChange={onMenuOpen}
-      customBurgerIcon={<Burger />}
+      customBurgerIcon={<Burger className={burgerClass} isOpen={menuOpen} />}
       width="100%"
       styles={styles}
     >

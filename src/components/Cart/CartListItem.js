@@ -43,6 +43,7 @@ const PrimaryLine = styled.div`
 
 const SecondaryLine = styled.div`
   display: flex;
+  flex-direction: column;
   margin: 4px 0;
   letter-spacing: 1px;
 `;
@@ -75,6 +76,21 @@ const Meta = styled('span')`
 
 const DeleteIcon = styled(Delete)`
   cursor: pointer;
+`;
+
+const NotesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 4px 0;
+`;
+
+const Note = styled.div`
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
 `;
 
 export default ({ item, toggle, setCartLoading, isCartLoading }) => {
@@ -174,6 +190,11 @@ export default ({ item, toggle, setCartLoading, isCartLoading }) => {
         </PrimaryLine>
         <SecondaryLine>
           <Meta>{item.variant.selectedOptions[0].value}</Meta>
+          <NotesContainer>
+            {item.customAttributes.map(attribute => (
+              <Note>{`${attribute.key}: ${attribute.value}`}</Note>
+            ))}
+          </NotesContainer>
         </SecondaryLine>
       </LineContainer>
     </CartListItemRoot>

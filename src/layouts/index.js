@@ -18,7 +18,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
 
   return (
     <div>
-      {mobile && <BurgerMenu />}
+      {mobile && <BurgerMenu theme={headerClass} />}
       <Helmet>
         <html lang="en" />
         <title>Kindpost</title>

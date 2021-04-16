@@ -32,7 +32,7 @@ export default () => {
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
       <Hero />
 
-      <YouMatter />
+      {/* <YouMatter /> */}
       <Showcase />
       <How />
       <QuoteBlock />

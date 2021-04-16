@@ -1,23 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Panel from './Panel';
 import RotatingPostcard from './RotatingImage';
-import KPThumb from '../../assets/svg/KP_Thumbnail_white.svg';
 
 const Container = styled.div`
-  // background-color: #fdfaee;
   font-family: 'proxima-nova';
-  // background: linear-gradient(
-  //   180deg,
-  //   hsl(279deg 66% 90%),
-  //   hsl(210deg 62% 90%),
-  //   hsl(146deg 62% 90%),
-  //   hsl(60deg 62% 90%)
-  // );
 
   position: relative;
   overflow: hidden;
@@ -27,37 +17,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  // &:after {
-  //   content: '';
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 25vw;
-  //   z-index: 1;
-  //   background-image: linear-gradient(
-  //     to bottom,
-  //     #ededdd,
-  //     #faefe6,
-  //     #fef3f2,
-  //     #fef9fc,
-  //     #ffffff
-  //   );
-
-  //   pointer-events: none;
-  // }
 `;
-
-const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 33%;
-  height: 100%;
-`;
-
-const StyledKpThumb = styled(KPThumb)``;
 
 const BgImg = styled(Img)`
   position: absolute;
@@ -84,13 +44,10 @@ const ShopNowBtn = styled.a`
   position: relative;
   z-index: 10;
   box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
-  // font-family: 'Montserrat';
   text-transform: uppercase;
-  // border-radius: 8px;
 
   :hover {
     color: #fff;
-    // background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
     background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
     border: 1px solid transparent;
   }
@@ -103,16 +60,9 @@ const StyledRotatingPostcard = styled(RotatingPostcard)`
 const TrimContainer = styled.div`
   position: absolute;
   width: 100%;
-  // opacity: 0;
 `;
 
 const Showcase = () => {
-  // useEffect(() => {
-  //   if (typeof window !== `undefined`) {
-  //     gsap.registerPlugin(ScrollTrigger);
-  //     gsap.core.globals('ScrollTrigger', ScrollTrigger);
-  //   }
-  // });
   const data = useStaticQuery(graphql`
     query Postcards3Query {
       postcardOrangesImg: file(relativePath: { eq: "Oranges.jpg" }) {
@@ -309,8 +259,6 @@ const Showcase = () => {
       .to(containerRef.current, {
         background:
           'linear-gradient(to right top, #dde5ed, #dce4ed, #dce2ed, #dce1ed, #dddfed)',
-        // background:
-        //   'linear-gradient(to right top, #DDE5ED, #BFEFFE, #9BF9F8, #96FFD7, #BCFFA3, #F9F871)',
       })
       .from(lovePostcardRef.current, {
         xPercent: 100,
@@ -328,10 +276,6 @@ const Showcase = () => {
       .to(containerRef.current, {
         background:
           'linear-gradient(to right top, #ededdd, #edebdd, #eeeadd, #ede8dd, #ede7dd)',
-        // background:
-        //   'linear-gradient(to right top, #EDEDDD, #C9D1BC, #A3B69F, #7C9C86, #548271, #266860)',
-        // background:
-        //   'linear-gradient(to right top, #DDEDE4, #B7D1CA, #90B6B5, #90B6B5, #4B7F91, #2F647F)',
       })
       .from(encouragePostcardRef.current, {
         xPercent: 100,
@@ -349,10 +293,6 @@ const Showcase = () => {
       .to(containerRef.current, {
         background:
           'linear-gradient(to right top, #ddede4, #ddede3, #ddede1, #ddede0, #ddedde)',
-        //background:
-        // 'linear-gradient(to right top, #DDEDE4, #B7D1CA, #90B6B5, #90B6B5, #4B7F91, #2F647F)',
-        // background:
-        //   'linear-gradient(to right top, #EDEDDD, #C9D1BC, #A3B69F, #7C9C86, #548271, #266860)',
       })
       .from(birthdayPostcardRef.current, {
         xPercent: 100,
@@ -402,17 +342,12 @@ const Showcase = () => {
       style={{
         background:
           'linear-gradient(to right top, #e8ddee, #ebdcea, #eddce6, #eedde3, #eedde0)',
-        // background:
-        //   'linear-gradient(to right top, #E8DDEE, #FFD7EF, #FFD1D9, #FFD3B2)',
       }}
     >
       <BgImg
         style={{ position: 'absolute' }}
         fluid={data.kpStampImg.childImageSharp.fluid}
       />
-      {/* <LogoContainer ref={logoRef}>
-        <StyledKpThumb />
-      </LogoContainer> */}
 
       <TrimContainer ref={postcardRef} className="postcard">
         <StyledRotatingPostcard
@@ -455,44 +390,6 @@ const Showcase = () => {
         />
       </TrimContainer>
       <ShopNowBtn href="/shop">Shop</ShopNowBtn>
-      {/* <StyledKpThumb /> */}
-      {/* <div ref={panel1Ref}>
-        <Panel
-          index="0"
-          imgFront={data.postcardOrangesImg.childImageSharp.fluid}
-          imgBack={data.postcardCongratulationsImg.childImageSharp.fluid}
-          imgReveal={data.postcardOrangesReveal.childImageSharp.fluid}
-        />
-      </div>
-      <div ref={panel2Ref}>
-        <Panel
-          // ref={panel2Ref}
-          index="1"
-          imgFront={data.postcardTwilightImg.childImageSharp.fluid}
-          imgBack={data.postcardLoveImg.childImageSharp.fluid}
-          imgReveal={data.postcardLoveReveal.childImageSharp.fluid}
-        />
-      </div>
-
-      <div ref={panel3Ref}>
-        <Panel
-          // ref={panel3Ref}
-          index="2"
-          imgFront={data.postcardRedwoodsImg.childImageSharp.fluid}
-          imgBack={data.postcardEncouragementImg.childImageSharp.fluid}
-          imgReveal={data.postcardEncouragementReveal.childImageSharp.fluid}
-        />
-      </div>
-
-      <div ref={panel4Ref}>
-        <Panel
-          // ref={panel4Ref}
-          index="3"
-          imgFront={data.postcardWavesImg.childImageSharp.fluid}
-          imgBack={data.postcardBirthdayImg.childImageSharp.fluid}
-          imgReveal={data.birthdayReveal.childImageSharp.fluid}
-        />
-      </div> */}
     </Container>
   );
 };

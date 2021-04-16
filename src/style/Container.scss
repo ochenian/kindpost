@@ -25,3 +25,9 @@
   display: flex;
   align-self: flex-end;
 }
+
+.burger.light:not(.open) .burger-lines,
+.burger.light:not(.open) .burger-lines:after,
+.burger.light:not(.open) .burger-lines:before {
+  background-color: #000;
+}
