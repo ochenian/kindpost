@@ -31,10 +31,10 @@ export default () => {
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
       <Hero />
-
+      <How />
       {/* <YouMatter /> */}
       <Showcase />
-      <How />
+
       <QuoteBlock />
       <Instagram />
     </Layout>

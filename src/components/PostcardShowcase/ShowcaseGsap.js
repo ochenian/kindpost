@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
@@ -222,6 +222,8 @@ const Showcase = () => {
     autoAlpha: 1,
   });
 
+  // const [progress, setProgress] = useState(0);
+
   useEffect(() => {
     if (typeof window !== `undefined`) {
       gsap.config({
@@ -239,6 +241,7 @@ const Showcase = () => {
         end: '+=1600%',
         // markers: true,
         anticipatePin: 1,
+        // onUpdate: self => console.log(self.progress),
       },
     });
 

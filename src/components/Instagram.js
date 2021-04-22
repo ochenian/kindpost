@@ -35,6 +35,7 @@ const FollowText = styled.div`
   text-transform: uppercase;
   margin-bottom: 2rem;
   color: #282828;
+  text-align: center;
 `;
 
 const Instagram = () => {

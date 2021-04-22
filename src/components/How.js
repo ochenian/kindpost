@@ -1,18 +1,15 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
 import BirthdaySvg from '../assets/svg/Occasion.svg';
 import PostcardSvg from '../assets/svg/Postcard.svg';
 import MailTruckSvg from '../assets/svg/Truck2.svg';
-import HappyFaceSvg from '../assets/svg/HappyFace3.svg';
 import Underline from '../assets/svg/marker_underline.svg';
 
-import { useSpring, useTrail, animated } from 'react-spring';
-import { useInView } from 'react-intersection-observer';
-
 const StyledUnderline = styled(Underline)`
-  width: 25%;
+  width: 12%;
   margin: 0 auto;
-  margin-bottom: 100px;
   position: relative;
   top: -8px;
 
@@ -22,90 +19,158 @@ const StyledUnderline = styled(Underline)`
   }
 `;
 
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 75vh;
+  @media (max-width: 800px) {
+    height: 100vh;
+  }
+  overflow: hidden;
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.h1`
+  font-size: 6rem;
+  font-family: 'Les Mores';
+  margin: 0 auto;
+`;
+
+const StepContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+`;
+
+const Step = styled.div`
+  flex-basis: 25%;
+  text-align: center;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  @media (max-width: 800px) {
+    flex-basis: 100%;
+    padding: 2em;
+  }
+`;
+
+const Icon = styled.div`
+  margin: 0 auto;
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  min-width: 60px;
+  min-height: 60px;
+  background: rgba(255, 227, 227, 1);
+
+  @media (max-width: 411px) {
+    width: 25vw;
+    height: 25vw;
+  }
+`;
+
+const Type = styled.div`
+  height: 15vh;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  font-family: 'proxima-nova';
+  margin: 8px 0;
+
+  @media (max-width: 800px) {
+    height: 6vh;
+  }
+`;
+
+const Description = styled.div`
+  font-family: 'calluna';
+  width: 50ch;
+  text-align: center;
+`;
+
+const StyledBirthdaySvg = styled(BirthdaySvg)`
+  position: absolute;
+  width: 4vw;
+  min-width: 60px;
+`;
+
+const StyledPostcardSvg = styled(PostcardSvg)`
+  position: absolute;
+  width: 4vw;
+  min-width: 60px;
+`;
+
+const StyledTruckSvg = styled(MailTruckSvg)`
+  position: absolute;
+  width: 6vw;
+  min-width: 90px;
+
+  @media (max-width: 411px) {
+    width: 33vw;
+  }
+`;
+
 const How = () => {
-  const ref = useRef();
-
-  // const props = useSpring({ opacity: 1, from: {opacity: 0}, delay: 1000})
   const items = [
-    'pick an occasion',
-    "we'll create & handwrite a message of positivity",
-    "we'll mail your postcard",
-  ];
-  const descriptions = [
-    'Select an occasion that conveys the message you want to send',
-    'We will hand-select a postcard and write a positive message on the back for your chosen occasion',
-    'Our delivery specialists will address, stamp, & handle the mailing of your postcard to either you or your intended recipient',
-  ];
-  const components = [
-    <BirthdaySvg className="occasion" />,
-    <PostcardSvg className="postcard" />,
-    <MailTruckSvg className="truck" />,
-  ];
-  const config = { mass: 25, tension: 10000, friction: 1000 };
-
-  const [inViewRef, inView] = useInView({
-    // rootMargin: '-100px 0px',
-    threshold: 0.05,
-    triggerOnce: true,
-  });
-
-  // Use `useCallback` so we don't recreate the function on each render - Could result in infinite loop
-  const setRefs = useCallback(
-    node => {
-      // Ref's from useRef needs to have the node assigned to `current`
-      ref.current = node;
-      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-      inViewRef(node);
+    {
+      id: 1,
+      illustration: <StyledBirthdaySvg />,
+      header: 'pick an occasion',
+      description:
+        'Select an occasion that conveys the message you want to send',
     },
-    [inViewRef],
-  );
-
-  const props = useSpring({ opacity: inView ? 1 : 0 });
-  const trail = useTrail(components.length, {
-    config,
-    opacity: inView ? 1 : 0,
-    x: inView ? 0 : 20,
-    // height: inView ? 80 : 0,
-    from: {
-      opacity: 0,
-      x: 20,
-      // height: 0
+    {
+      id: 2,
+      illustration: <StyledPostcardSvg />,
+      header: `we'll handwrite a message of positivity`,
+      description:
+        'We will hand-select a postcard and write a positive message on the back for your chosen occasion',
     },
+    {
+      id: 3,
+      illustration: <StyledTruckSvg />,
+      header: `we'll mail your postcard`,
+      description:
+        'Our delivery specialists will address, stamp, & handle the mailing of your postcard to either you or your intended recipient',
+    },
+  ];
+
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    }
   });
 
   return (
-    <animated.div id="howTo" className="how-container">
-      <animated.div ref={setRefs} style={{ ...props }} className="how-title">
-        how it works
-      </animated.div>
-      <StyledUnderline />
-      <animated.div
-        ref={setRefs}
-        style={{ ...props }}
-        className="step-container"
-      >
-        {trail.map(({ x, height, ...rest }, index) => (
-          <animated.div
-            key={index}
-            className="how-step"
-            style={{
-              ...rest,
-              transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
-            }}
-          >
-            <animated.div className="how-icon" style={{ height }}>
-              {components[index]}
-            </animated.div>
-            <animated.div className="how-type" style={{ height }}>
-              {items[index]}
-            </animated.div>
-            <animated.div className="how-description" style={{ height }}>
-              {descriptions[index]}
-            </animated.div>
-          </animated.div>
+    <Container id="howTo">
+      <Header>
+        <Title>how it works</Title>
+        <StyledUnderline />
+      </Header>
+      <StepContainer>
+        {items.map(item => (
+          <Step key={item.id}>
+            <Icon>{item.illustration}</Icon>
+            <Type>{item.header}</Type>
+            <Description>{item.description}</Description>
+          </Step>
         ))}
-      </animated.div>
-    </animated.div>
+      </StepContainer>
+    </Container>
   );
 };
 

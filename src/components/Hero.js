@@ -4,6 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import { Ease, gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 import Splitting from 'splitting';
@@ -221,6 +222,25 @@ const Hero = () => {
   };
 
   useEffect(() => {
+    if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    }
+
+    gsap.to(videoRef.current, {
+      scrollTrigger: {
+        trigger: '.Hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+      y: 600,
+      ease: 'none',
+      scale: 1.2,
+    });
     Splitting({ by: 'chars' });
     const tl = gsap.timeline();
     tl.from(logoRef.current, {

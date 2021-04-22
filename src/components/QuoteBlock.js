@@ -5,10 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ButtonLink from './ButtonLink';
 
 const Background = styled.div`
-  background-color: #f2ebe5;
   height: 75vh;
-  font-size: 1.5em;
-  // font-family: 'orpheuspro';
+  font-size: 1.5rem;
   font-family: 'calluna';
   text-align: center;
   display: flex;

@@ -482,7 +482,8 @@ const ProductPage = () => {
             animate={leftControls}
             onClick={() => setFlipped(flippedState => !flippedState)}
           >
-            <ClickToFlip fluid={data.clickToFlip.childImageSharp.fluid} />
+            {/* <div> */}
+            {/* <ClickToFlip fluid={data.clickToFlip.childImageSharp.fluid} /> */}
             <AnimatedImg
               className="c"
               style={{
