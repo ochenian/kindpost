@@ -14,19 +14,24 @@ const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   // margin: 3em;
-  padding: 24vw;
-  padding-bottom: 20vh;
-  padding-top: 14vh;
+  // padding: 24vw;
+  // padding-bottom: 20vh;
+  // padding-top: 14vh;
   max-width: 1230px;
-
+  flex-grow: 1;
+  // margin: 0 32px;
+  padding: 128px 24px;
+  // min-width: 560px;
+  min-width: 0;
+  max-width: 640px;
   @media (max-width: 768px) {
-    padding: 10vw;
-    padding-top: 14vh;
-    padding-bottom: 20vh;
+    // padding: 10vw;
+    // padding-top: 14vh;
+    // padding-bottom: 20vh;
   }
 
   @media (min-width: 1201px) {
-    padding: 128px 296px 182px 296px;
+    // padding: 128px 296px 182px 296px;
     margin: 0 auto;
   }
 `;
@@ -89,7 +94,7 @@ const RotatingPostcard = ({
   }
 
   return (
-    <ImageContainer>
+    <ImageContainer id="imageContainer">
       <ImageCoverAnchor>
         <OverflowCoverWrapper>
           <MotionCoverContainer

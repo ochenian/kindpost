@@ -16,13 +16,14 @@ const Background = styled.div`
 
   @media (max-width: 650px) {
     padding: 3em 0;
+    height: auto;
   }
 `;
 
 const Quote = styled.p`
   margin-bottom: 1em;
-  width: 60%;
-  max-width: 715px;
+  width: calc(100% - 24px);
+  max-width: 50ch;
 `;
 
 const Signature = styled.div`

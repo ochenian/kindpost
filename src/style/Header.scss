@@ -15,10 +15,6 @@
 
   margin-top: 1.5em;
 
-  @media (max-width: 411px) {
-    padding: 0 1em;
-  }
-
   &.light {
     // old
     // position: static;
@@ -50,7 +46,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 4em;
+  width: calc(100% - 128px);
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    width: calc(100% - 32px);
+  }
 }
 
 .logo {
@@ -99,7 +100,7 @@
   }
 
   & svg {
-    width: 1.25em;
+    width: 24px;
   }
 }
 

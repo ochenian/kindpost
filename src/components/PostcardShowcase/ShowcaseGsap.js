@@ -1,32 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RotatingPostcard from './RotatingImage';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const Container = styled.div`
   font-family: 'proxima-nova';
 
   position: relative;
   overflow: hidden;
-  padding: 3em 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const BgImg = styled(Img)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  opacity: 0.6;
-  max-width: 600px;
 `;
 
 const ShopNowBtn = styled.a`
@@ -58,11 +47,13 @@ const StyledRotatingPostcard = styled(RotatingPostcard)`
 `;
 
 const TrimContainer = styled.div`
-  position: absolute;
   width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const Showcase = () => {
+  const mobile = useMediaQuery('(max-width: 1215px)');
   const data = useStaticQuery(graphql`
     query Postcards3Query {
       postcardOrangesImg: file(relativePath: { eq: "Oranges.jpg" }) {
@@ -213,17 +204,6 @@ const Showcase = () => {
   const birthdayImageCoverRef = useRef(null);
   const birthdayPostcardContainerRef = useRef(null);
 
-  gsap.set(postcardRef.current, { autoAlpha: 0 });
-  gsap.set(lovePostcardRef.current, { autoAlpha: 0 });
-  gsap.set(encouragePostcardRef.current, { autoAlpha: 0 });
-  gsap.set(birthdayPostcardRef.current, { autoAlpha: 0 });
-  gsap.set(containerRef.current, {
-    backgroundColor: 'rgb(242, 235, 229)',
-    autoAlpha: 1,
-  });
-
-  // const [progress, setProgress] = useState(0);
-
   useEffect(() => {
     if (typeof window !== `undefined`) {
       gsap.config({
@@ -232,126 +212,36 @@ const Showcase = () => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
     }
-    const pcTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        scrub: 1,
-        pin: true,
-        start: 'top top',
-        end: '+=1600%',
-        // markers: true,
-        anticipatePin: 1,
-        // onUpdate: self => console.log(self.progress),
-      },
-    });
-
-    pcTl
-      .from(postcardRef.current, {
-        xPercent: 100,
-      })
-      .to(imageCoverRef.current, {
-        translateY: '105%',
-      })
-      .to(postcardContainerRef.current, {
-        rotateY: '-180deg',
-        ease: 'back',
-      })
-      .to(postcardRef.current, {
-        xPercent: -100,
-      })
-      .to(containerRef.current, {
-        background:
-          'linear-gradient(to right top, #dde5ed, #dce4ed, #dce2ed, #dce1ed, #dddfed)',
-      })
-      .from(lovePostcardRef.current, {
-        xPercent: 100,
-      })
-      .to(loveImageCoverRef.current, {
-        translateY: '105%',
-      })
-      .to(lovePostcardContainerRef.current, {
-        rotateY: '-180deg',
-        ease: 'back',
-      })
-      .to(lovePostcardRef.current, {
-        xPercent: -100,
-      })
-      .to(containerRef.current, {
-        background:
-          'linear-gradient(to right top, #ededdd, #edebdd, #eeeadd, #ede8dd, #ede7dd)',
-      })
-      .from(encouragePostcardRef.current, {
-        xPercent: 100,
-      })
-      .to(encourageImageCoverRef.current, {
-        translateY: '105%',
-      })
-      .to(encouragePostcardContainerRef.current, {
-        rotateY: '-180deg',
-        ease: 'back',
-      })
-      .to(encouragePostcardRef.current, {
-        xPercent: -100,
-      })
-      .to(containerRef.current, {
-        background:
-          'linear-gradient(to right top, #ddede4, #ddede3, #ddede1, #ddede0, #ddedde)',
-      })
-      .from(birthdayPostcardRef.current, {
-        xPercent: 100,
-      })
-      .to(birthdayImageCoverRef.current, {
-        translateY: '105%',
-      })
-      .to(birthdayPostcardContainerRef.current, {
-        rotateY: '-180deg',
-        ease: 'back',
-      })
-      .to(lovePostcardRef.current, {
-        xPercent: -100,
-      });
   });
 
-  // function goToSection(i, anim) {
-  //   gsap.to(window, {
-  //     // eslint-disable-next-line no-undef
-  //     scrollTo: { y: i * window.innerHeight, autoKill: false },
-  //     duration: 1,
-  //   });
-
-  //   if (anim) {
-  //     anim.restart();
-  //   }
-  // }
-
-  // if (typeof window !== 'undefined') {
-  //   gsap.utils.toArray('.postcard').forEach((panel, i) => {
-  //     ScrollTrigger.create({
-  //       trigger: panel,
-  //       onEnter: () => goToSection(i),
-  //     });
-
-  //     ScrollTrigger.create({
-  //       trigger: panel,
-  //       start: 'bottom bottom',
-  //       onEnterBack: () => goToSection(i),
-  //     });
-  //   });
-  // }
+  useEffect(() => {
+    const postcards = gsap.utils.toArray('.postcard');
+    postcards.forEach(card => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: card.querySelector('.postcardContainer'),
+            start: 'top center',
+            end: 'top top',
+            scrub: 1,
+          },
+        })
+        .to(card.querySelector('.imageCover'), {
+          translateY: '105%',
+        })
+        .to(
+          card.querySelector('.postcardContainer'),
+          {
+            rotateY: -180,
+            ease: 'back',
+          },
+          '>',
+        );
+    });
+  });
 
   return (
-    <Container
-      ref={containerRef}
-      style={{
-        background:
-          'linear-gradient(to right top, #e8ddee, #ebdcea, #eddce6, #eedde3, #eedde0)',
-      }}
-    >
-      <BgImg
-        style={{ position: 'absolute' }}
-        fluid={data.kpStampImg.childImageSharp.fluid}
-      />
-
+    <Container ref={containerRef}>
       <TrimContainer ref={postcardRef} className="postcard">
         <StyledRotatingPostcard
           imageCoverRef={imageCoverRef}
@@ -366,7 +256,6 @@ const Showcase = () => {
         <StyledRotatingPostcard
           imageCoverRef={loveImageCoverRef}
           postcardContainerRef={lovePostcardContainerRef}
-          index="Love"
           imgFront={data.postcardTwilightImg.childImageSharp.fluid}
           imgBack={data.postcardLoveImg.childImageSharp.fluid}
           imgReveal={data.postcardLoveReveal.childImageSharp.fluid}
@@ -376,7 +265,6 @@ const Showcase = () => {
         <StyledRotatingPostcard
           imageCoverRef={encourageImageCoverRef}
           postcardContainerRef={encouragePostcardContainerRef}
-          index="Love"
           imgFront={data.postcardRedwoodsImg.childImageSharp.fluid}
           imgBack={data.postcardEncouragementImg.childImageSharp.fluid}
           imgReveal={data.postcardEncouragementReveal.childImageSharp.fluid}
@@ -386,12 +274,12 @@ const Showcase = () => {
         <StyledRotatingPostcard
           imageCoverRef={birthdayImageCoverRef}
           postcardContainerRef={birthdayPostcardContainerRef}
-          index="Love"
           imgFront={data.postcardWavesImg.childImageSharp.fluid}
           imgBack={data.postcardBirthdayImg.childImageSharp.fluid}
           imgReveal={data.birthdayReveal.childImageSharp.fluid}
         />
       </TrimContainer>
+
       <ShopNowBtn href="/shop">Shop</ShopNowBtn>
     </Container>
   );

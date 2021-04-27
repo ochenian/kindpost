@@ -58,11 +58,11 @@ const StyledInstaLogo = styled(InstaLogo)`
 
 const Description = styled.div`
   letter-spacing: 2px;
-  // width: 660px;
   font-size: 1.25rem;
   font-family: 'skolar latin';
   line-height: 1.5;
   margin-bottom: 2em;
+  width: calc(100% - 32px);
 
   div {
     overflow: hidden;
@@ -70,7 +70,6 @@ const Description = styled.div`
 
   @media (max-width: 1024px) {
     font-size: 1rem;
-    // width: 90vw;
     margin: 2rem auto;
     letter-spacing: 1px;
     max-width: 75ch;
@@ -121,9 +120,6 @@ const ANewWayText = styled.div`
 
 const Hero = () => {
   const mobile = useMediaQuery('(max-width: 600px)');
-  const { scrollYProgress } = useViewportScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 2000]);
-  let trailConfig = { mass: 5, tension: 1000, friction: 100 };
   gsap.config({
     nullTargetWarn: false,
   });
@@ -131,37 +127,7 @@ const Hero = () => {
   const overlayRef = useRef();
   const videoRef = useRef();
 
-  const textSpring = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    delay: 500,
-  });
-  const videoSpring = useSpring({ opacity: 1, from: { opacity: 0 } });
-
   const videoText = ['send', 'your'];
-
-  const trail = useTrail(videoText.length, {
-    config: config.wobbly,
-    opacity: 1,
-    transform: 'translateY(0)',
-    from: {
-      transform: 'translateY(16px)',
-      opacity: 0,
-    },
-    // config: {duration: 1000}
-    delay: 1000,
-  });
-
-  const buttonAnimation = useSpring({
-    opacity: 1,
-    transform: 'scale(1)',
-    from: {
-      opacity: 0,
-      transform: 'scale(0.75)',
-    },
-    delay: 3000,
-    config: config.wobbly,
-  });
 
   const data = useStaticQuery(graphql`
     query CloudinaryVideo {

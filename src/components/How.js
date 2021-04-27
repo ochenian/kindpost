@@ -25,7 +25,8 @@ const Container = styled.section`
   justify-content: space-evenly;
   height: 75vh;
   @media (max-width: 800px) {
-    height: 100vh;
+    height: 100%;
+    padding: 96px 24px;
   }
   overflow: hidden;
 `;
@@ -33,6 +34,7 @@ const Container = styled.section`
 const Header = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 48px;
 `;
 
 const Title = styled.h1`
@@ -48,7 +50,8 @@ const StepContainer = styled.div`
 `;
 
 const Step = styled.div`
-  flex-basis: 25%;
+  padding: 24px;
+  flex: 1;
   text-align: center;
 
   div {
@@ -75,8 +78,8 @@ const Icon = styled.div`
   background: rgba(255, 227, 227, 1);
 
   @media (max-width: 411px) {
-    width: 25vw;
-    height: 25vw;
+    width: 8vw;
+    height: 8vw;
   }
 `;
 
@@ -88,14 +91,15 @@ const Type = styled.div`
   margin: 8px 0;
 
   @media (max-width: 800px) {
-    height: 6vh;
+    height: auto;
+    margin: 32px 0;
   }
 `;
 
 const Description = styled.div`
   font-family: 'calluna';
-  width: 50ch;
-  text-align: center;
+  max-width: 50ch;
+  margin: 0 auto;
 `;
 
 const StyledBirthdaySvg = styled(BirthdaySvg)`
@@ -116,7 +120,7 @@ const StyledTruckSvg = styled(MailTruckSvg)`
   min-width: 90px;
 
   @media (max-width: 411px) {
-    width: 33vw;
+    width: 24vw;
   }
 `;
 
