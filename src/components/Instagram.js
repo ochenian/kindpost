@@ -47,32 +47,14 @@ const Instagram = () => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
     }
-    gsap.utils.toArray('.fadeInBlock').forEach((panel, i) => {
-      gsap.from(panel, {
-        scrollTrigger: {
-          trigger: panel,
-          start: 'top bottom-=200',
-        },
-        autoAlpha: 0,
-        translateY: '20%',
-      });
-    });
   });
   return (
     <Wrapper>
-      <a
-        href="https://www.instagram.com/kindpostco"
-        aria-label="Instagram"
-        className="fadeInBlock"
-      >
+      <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <StyledInstaLogo />
       </a>
-      <FollowText className="fadeInBlock">Follow us on Instagram</FollowText>
-      <a
-        href="https://www.instagram.com/kindpostco"
-        aria-label="Instagram"
-        className="fadeInBlock"
-      >
+      <FollowText>Follow us on Instagram</FollowText>
+      <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <Hashtag>#kindpost</Hashtag>
       </a>
     </Wrapper>

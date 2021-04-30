@@ -5,9 +5,6 @@ import TwitterIcon from '../assets/svg/twitter.svg';
 import InstagramIcon from '../assets/svg/insta_icon.svg';
 
 const Container = styled.section`
-  // font-size: 0.9em;
-  // padding: 8em 4em;
-  // line-height: 2;
   letter-spacing: 1.25px;
   background: #fff;
   color: rgb(40, 40, 40);
@@ -23,25 +20,12 @@ const StyledTextHeader = styled.p`
   position: relative;
   text-align: center;
   margin: 0 auto;
-  // margin-bottom: 100px;
   font-size: 1.75em;
   text-transform: uppercase;
   letter-spacing: 4px;
   width: fit-content;
-  // font-style: italic;
-  // font-family: 'tk-orpheuspro-n7';
   font-family: 'calluna';
   font-weight: bold;
-
-  // &:before {
-  //   content: '';
-  //   position: absolute;
-  //   left: 25%;
-  //   bottom: -8px;
-  //   height: 1px;
-  //   width: 50%;
-  //   border-bottom: 2px solid #f5bc5e;
-  // }
 `;
 
 const Subtitle = styled.div`
@@ -50,7 +34,7 @@ const Subtitle = styled.div`
 `;
 
 const TextBody = styled.div`
-  // margin: 200px auto;
+  width: calc(100% - 32px);
   max-width: 550px;
 `;
 
@@ -64,7 +48,6 @@ const StyledTextSection = styled.div`
   }
 
   a {
-    // color: #f5bc5e;
     color: #d4004c;
     font-weight: bold;
     font-size: 1.25rem;

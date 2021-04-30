@@ -12,7 +12,7 @@ import Layout from '../layouts/index';
 import CtaButton from '../components/shared/Button';
 import { CartContext } from '../components/Cart/CartContext';
 import How from '../components/How';
-import Divider from '../components/Divider';
+import Instagram from '../components/Instagram';
 
 const ProductName = styled.h1`
   margin-bottom: 1rem;
@@ -652,8 +652,8 @@ const ProductPage = () => {
           </motion.div>
         </div>
       </div>
-      <Divider />
       <How />
+      <Instagram />
     </Layout>
   );
 };

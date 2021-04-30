@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Link from 'gatsby-link';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -39,20 +38,13 @@ const Column = styled.div`
 const MobileLinksSection = styled.section`
   width: 100%;
   display: flex;
-  // justify-content: space-between;
-  // margin: 64px 0;
   flex-direction: column;
   text-transform: uppercase;
   align-items: center;
   margin: 3em 0;
 
-  &:first-of-type {
-    // margin-top: 0;
-  }
-
   &:last-of-type {
     display: flex;
-    // align-items: center;
     margin-bottom: 0;
     width: 50%;
     flex-direction: row;
@@ -62,19 +54,18 @@ const MobileLinksSection = styled.section`
 `;
 const MobileLink = styled.a`
   padding: 8px;
-  // width: 100px;
-  // text-align: center;
 `;
 
 const LinksSectionWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  column-gap: 6em;
 `;
 
 const LinksSection = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 6em 3em 0;
+  margin-bottom: 3em;
   font-size: 0.75rem;
 
   a {
@@ -143,30 +134,6 @@ const StyledInstaLogo = styled(InstaLogo)`
   fill: #fff;
   cursor: pointer;
   margin-right: 12px;
-`;
-
-const LegalContainer = styled.div`
-  background: rgb(40, 40, 40);
-  background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
-  display: flex;
-  align-items: center;
-  font-size: 0.75rem;
-  padding: 16px;
-
-  div,
-  a {
-    margin-right: 16px;
-    color: #fff;
-  }
-
-  svg {
-    margin-left: auto;
-  }
-
-  @media (max-width: 900px) {
-    justify-content: center;
-    text-align: center;
-  }
 `;
 
 const SignUpButton = styled.button`
@@ -238,12 +205,6 @@ const Footer = () => {
         {!mobile && (
           <>
             <Column>
-              <Img
-                fluid={data.kpThumbnail.childImageSharp.fluid}
-                style={{ width: '5vw', marginTop: '6px', maxWidth: '50px' }}
-              />
-            </Column>
-            <Column>
               <form onSubmit={handleSubmit}>
                 <SectionHeader>subscribe.</SectionHeader>
                 <SignUpDescription>
@@ -278,6 +239,15 @@ const Footer = () => {
                   </a>
                 </PrivacyText>
               </form>
+              <Img
+                fluid={data.kpThumbnail.childImageSharp.fluid}
+                style={{
+                  width: '5vw',
+                  marginTop: 'auto',
+                  marginBottom: '1em',
+                  maxWidth: '50px',
+                }}
+              />
               <div style={{ fontSize: '0.5rem', marginTop: 'auto' }}>
                 made with ♡ in california
               </div>
@@ -387,23 +357,6 @@ const Footer = () => {
           </>
         )}
       </Wrapper>
-      {/* <LegalContainer> */}
-      {/* <div>
-          &copy; {new Date().getFullYear()} kindpost llc. all rights reserved.
-        </div>
-        <div>made with ♡ in california</div> */}
-      {/* <a href="/terms-of-service">terms of service</a>
-        <a href="/privacy-policy">privacy policy</a> */}
-      {/* {!mobile && (
-          <KpThumbnail
-            style={{
-              width: '24px',
-              height: '24px',
-              marginLeft: 'auto',
-            }}
-          />
-        )} */}
-      {/* </LegalContainer> */}
     </>
   );
 };
