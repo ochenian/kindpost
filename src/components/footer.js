@@ -248,7 +248,7 @@ const Footer = () => {
                   maxWidth: '50px',
                 }}
               />
-              <div style={{ fontSize: '0.5rem', marginTop: 'auto' }}>
+              <div style={{ fontSize: '0.5rem' }}>
                 made with ♡ in california
               </div>
               <div style={{ fontSize: '0.5rem' }}>
