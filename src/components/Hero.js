@@ -109,7 +109,7 @@ const ANewWayText = styled.div`
   margin-bottom: 16px;
   font-weight: bold;
   text-transform: uppercase;
-  font-family: 'proxima-nova';
+  font-family: 'Montserrat';
 
   @media (max-width: 600px) {
     font-size: 24px;
