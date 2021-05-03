@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
+import Img from 'gatsby-image';
+import { useStaticQuery, graphql } from 'gatsby';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import InstaLogo from '../assets/svg/instagram.svg';
 
@@ -9,6 +11,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   width: 100%;
   height: 75vh;
@@ -36,9 +39,100 @@ const FollowText = styled.div`
   margin-bottom: 2rem;
   color: #282828;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+const MediaContainer = styled.div`
+  position: absolute;
+
+  &:first-of-type {
+    border-radius: 1rem 0 0 1rem;
+    height: 13rem;
+    right: 0;
+    top: 10rem;
+    width: 23rem;
+  }
+
+  &:nth-of-type(2) {
+    height: 14rem;
+    right: 14rem;
+    top: 22.8rem;
+    width: 12rem;
+  }
+
+  &:nth-of-type(3) {
+    height: 16rem;
+    left: 6rem;
+    top: 6rem;
+    width: 13rem;
+    z-index: 1;
+  }
+
+  &:nth-of-type(4) {
+    height: 13rem;
+    left: 1rem;
+    top: 24.3rem;
+    width: 23rem;
+  }
+`;
+
+const StyledImg = styled(Img).attrs(({ dataSpeed }) => ({
+  'data-speed': dataSpeed,
+}))`
+  border-radius: 1rem;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
 `;
 
 const Instagram = () => {
+  const data = useStaticQuery(graphql`
+    query InstaPhotos {
+      mtnSwitchback: file(
+        relativePath: { eq: "mountain_switchback_backlit.jpg" }
+      ) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      cardAssembly: file(relativePath: { eq: "rocky_beach_on_the_rocks.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      cardOnRock: file(relativePath: { eq: "harbor_on_the_rocks.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      orangesGarden: file(relativePath: { eq: "oranges_in_the_garden.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 500, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   useEffect(() => {
     if (typeof window !== `undefined`) {
       gsap.config({
@@ -47,13 +141,40 @@ const Instagram = () => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
     }
+
+    gsap.to('.parallax', {
+      scrollTrigger: {
+        trigger: '#wrapper',
+        start: 'top bottom',
+        scrub: true,
+      },
+      y: (i, target) => {
+        return 200 * target.dataset.speed;
+      },
+      ease: 'none',
+    });
   });
   return (
-    <Wrapper>
+    <Wrapper id="wrapper">
+      <MediaContainer data-speed="1.5" className="parallax">
+        <StyledImg fluid={data.mtnSwitchback.childImageSharp.fluid} />
+      </MediaContainer>
+      <MediaContainer data-speed="-0.5" className="parallax">
+        <StyledImg fluid={data.cardAssembly.childImageSharp.fluid} />
+      </MediaContainer>
+      <MediaContainer data-speed="1" className="parallax">
+        <StyledImg fluid={data.cardOnRock.childImageSharp.fluid} />
+      </MediaContainer>
+      <MediaContainer data-speed="-2" className="parallax">
+        <StyledImg fluid={data.orangesGarden.childImageSharp.fluid} />
+      </MediaContainer>
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <StyledInstaLogo />
       </a>
-      <FollowText>Follow us on Instagram</FollowText>
+      <FollowText>
+        <div>Follow us on</div>
+        <div>Instagram</div>
+      </FollowText>
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <Hashtag>#kindpost</Hashtag>
       </a>

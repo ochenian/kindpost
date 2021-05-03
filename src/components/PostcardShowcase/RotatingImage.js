@@ -20,7 +20,7 @@ const ImageContainer = styled.div`
   max-width: 1230px;
   flex-grow: 1;
   // margin: 0 32px;
-  padding: 128px 24px;
+  padding: 128px 96px;
   // min-width: 560px;
   min-width: 0;
   max-width: 640px;

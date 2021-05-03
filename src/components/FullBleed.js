@@ -8,7 +8,8 @@ import CtaButton from './shared/Button';
 const Container = styled.div`
   width: 100vw;
   position: relative;
-  background: radial-gradient(transparent, rgba(0, 0, 0, 0.5) 90%);
+  margin: 6em auto;
+  // background: radial-gradient(transparent, rgba(0, 0, 0, 0.5) 90%);
 `;
 
 const TextContainer = styled.div`
@@ -22,30 +23,47 @@ const TextContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Averia Serif Libre';
   font-weight: bold;
-  letter-spacing: 5px;
-  text-transform: lowercase;
-  text-shadow: 0 0 16px rgba(0, 0, 0, 1);
+  // letter-spacing: 5px;
+  // text-transform: lowercase;
+  // text-shadow: 0 0 16px rgba(0, 0, 0, 1);
   padding: 0 2rem;
+  width: 50%;
+  margin-left: 50%;
+  font-family: 'Montserrat';
+  font-size: 4rem;
 `;
 
 const Text = styled.div`
-  margin-bottom: 2rem;
+  // margin-bottom: 2rem;
   text-align: center;
+  line-height: 1.2;
+  margin-top: 32px;
 `;
 
 const GrayscaleImg = styled(Img)`
-  filter: brightness(60%) grayscale(0.5);
-  height: 75vh;
-  position: relative;
-  z-index: -10;
+  // filter: brightness(60%) grayscale(0.5);
+  // height: 75vh;
+  // position: relative;
+  // z-index: -10;
+`;
+
+const StyledCtaButton = styled(CtaButton)`
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+  border: none;
+
+  &&:hover {
+    background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+    border: none;
+  }
 `;
 
 const FullBleed = () => {
   const data = useStaticQuery(graphql`
     query {
-      postcardSampleImg: file(relativePath: { eq: "hanging_postcards.jpg" }) {
+      mtnSwitchback: file(
+        relativePath: { eq: "mountain_switchback_campsite.jpg" }
+      ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -59,12 +77,12 @@ const FullBleed = () => {
   return (
     <Container>
       <TextContainer>
-        <Text>sustainably sourced + carefully curated</Text>
-        <Link to="/about">
-          <CtaButton>about kindpost</CtaButton>
+        <Text>TREAT YOURSELF</Text>
+        <Link to="/shop">
+          <StyledCtaButton>SHOP NOW</StyledCtaButton>
         </Link>
       </TextContainer>
-      <GrayscaleImg fluid={data.postcardSampleImg.childImageSharp.fluid} />
+      <GrayscaleImg fluid={data.mtnSwitchback.childImageSharp.fluid} />
     </Container>
   );
 };

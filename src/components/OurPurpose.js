@@ -16,19 +16,23 @@ const Wrapper = styled.div`
   position: relative;
   // top: -60px;
   // z-index: 10;
-  margin: 200px 0;
+  // margin: 200px 0;
 
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     padding: 0;
+    margin-bottom: 3em;
   }
 `;
 
 const Heading = styled.div`
-  font-size: 2rem;
-  margin-bottom: 0.5em;
+  font-size: 1.25rem;
+  margin-bottom: 2em;
   text-transform: uppercase;
+  font-weight: bold;
+  // font-style: italic;
+  font-family: 'proxima-nova';
 
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     font-size: 1rem;
   }
 `;
@@ -37,10 +41,11 @@ const PurposeText = styled.div`
   width: 100%;
   // margin-bottom: 0.5em;
   max-width: 50ch;
-  font-size: 1.5rem;
+  font-size: 1rem;
 
-  @media (max-width: 545px) {
-    padding: 0 3em;
+  @media (max-width: 1000px) {
+    // padding: 0 3em;
+    width: 90%;
   }
 `;
 
@@ -54,26 +59,34 @@ const OurPurpose = () => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
     }
-    gsap.from(wrapperRef.current, {
-      scrollTrigger: {
-        trigger: wrapperRef.current,
-        start: 'top bottom-=200',
+    ScrollTrigger.matchMedia({
+      // desktop
+      '(min-width: 1000px)': function() {
+        // setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
+        // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
+
+        gsap.from(wrapperRef.current, {
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: 'top bottom-=200',
+          },
+          autoAlpha: 0,
+          translateY: '20%',
+        });
       },
-      autoAlpha: 0,
-      translateY: '20%',
     });
   });
 
   return (
     <Wrapper ref={wrapperRef}>
-      {/* <Heading>Our Purpose</Heading> */}
+      <Heading>To hold love in your hands.</Heading>
       <PurposeText>
-        Kindpost was founded on the belief the everyone deserves to be loved.
-        With a particular focus on mental health, we seek to provide a path to
-        happiness for those who love and those who need love.
-        <div style={{ alignSelf: 'start', marginTop: '1em' }}>
-          We are and always will be&nbsp;
-          <span style={{ fontWeight: 'bold' }}>here for you</span>.
+        We love a handwritten note. We miss opening Grandma’s snail mailed
+        letters, with her curlicue cursive and loving words of encouragement.
+        And back when people were traveling, we happily awaited receiving
+        postcards from friends on their travels.
+        <div style={{ alignSelf: 'start', marginTop: '1em', color: '#d4004c' }}>
+          We’re bringing that back.
         </div>
       </PurposeText>
     </Wrapper>

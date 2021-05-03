@@ -13,6 +13,10 @@ const Background = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // background: #ffb5c23d;
+  margin: 0 auto;
+  border-radius: 12px;
+  width: 90%;
 
   @media (max-width: 650px) {
     padding: 3em 0;
@@ -22,7 +26,7 @@ const Background = styled.div`
 
 const Quote = styled.p`
   margin-bottom: 1em;
-  width: calc(100% - 24px);
+  width: calc(100% - 72px);
   max-width: 50ch;
 `;
 
@@ -48,6 +52,10 @@ const StyledButtonLink = styled(ButtonLink)`
   margin-top: 3em;
 `;
 
+const PinkText = styled.span`
+  color: #d4004c;
+`;
+
 const QuoteBlock = () => {
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -71,9 +79,12 @@ const QuoteBlock = () => {
   return (
     <Background>
       <Quote className="fadeIn">
-        “Whether it’s a pick-me-up, inspiration, or a message of empowerment,
-        our goal is promoting a sense of hope and building connection through
-        the transformative nature of kindness.”
+        “Whether it’s a pick-me-up, <PinkText>inspiration</PinkText>, or a
+        message of <PinkText>empowerment</PinkText>, our goal is promoting a
+        sense of <PinkText>hope</PinkText> and building{' '}
+        <PinkText>connection</PinkText> through the transformative nature
+        of&nbsp;
+        <PinkText>kindness</PinkText>.”
       </Quote>
 
       <Signature className="fadeIn">Cate</Signature>

@@ -14,19 +14,20 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   font-family: 'calluna';
-  background: rgb(253, 250, 238);
+  // background: rgb(253, 250, 238);
   // background: rgb(230 164 228);
   color: #282828;
 `;
 const HeaderContainer = styled.div`
   width: 100%;
   position: relative;
-      // margin-bottom: 12em;
+      margin-bottom: 6em;
 }
 `;
 const HeaderImg = styled(Img)`
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
+  height: 500px;
 `;
 
 const HeaderOverlay = styled.div`
@@ -44,17 +45,19 @@ const HeaderOverlay = styled.div`
   font-family: 'Montserrat';
   letter-spacing: 24px;
   text-shadow: 1px 2px 4px rgb(0 0 0 / 90%);
+  text-align: center;
 `;
 
 const TextImgWrapper = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  background: rgb(253, 250, 238);
-  margin-bottom: 200px;
+  // background: rgb(253, 250, 238);
+  // margin-bottom: 200px;
 
-  @media (max-width: 545px) {
-    flex-direction: column-reverse;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    margin-bottom: 3em;
   }
 `;
 
@@ -66,9 +69,9 @@ const ImgWrapper = styled.div`
     overflow: hidden;
     left: 60px;
 
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     left: 0;
-    top: -60px;
+    // top: -60px;
     width: 90%;
 
     &:last-of-type {
@@ -84,7 +87,7 @@ const ImgOverlay = styled.div`
   height: 100%;
   background: pink;
   z-index: 20;
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 `;
@@ -97,7 +100,7 @@ const RightImgOverlay = styled.div`
   z-index: 20;
   right: 60px;
 
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 `;
@@ -114,13 +117,16 @@ const BodyTextWrapper = styled.section`
   justify-content: center;
   align-items: center;
   flex: 1;
-  height: 100vh;
+  height: 75vh;
   position: relative;
-  padding: 6em;
-  background: rgb(242, 235, 229);
+  padding: 0 6em;
+  // background: rgb(242, 235, 229);
 
-  @media (max-width: 545px) {
-    padding: 6em 0;
+  @media (max-width: 1000px) {
+    // padding: 6em 0;
+    padding: 0;
+    height: auto;
+    margin: 1em;
   }
 `;
 
@@ -137,8 +143,9 @@ const BodyTextHeader = styled.h3`
   text-transform: uppercase;
   font-weight: bold;
 
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     font-size: 1rem;
+    margin: 1em;
   }
 `;
 
@@ -147,6 +154,12 @@ const BodyText = styled.div`
   margin-bottom: 2em;
   line-height: 1.5;
   max-width: 50ch;
+
+  @media (max-width: 1000px) {
+    margin: 0;
+    width: 90%;
+    // top: -60px;
+  }
 `;
 
 const PostcardWrapper = styled.div`
@@ -154,7 +167,7 @@ const PostcardWrapper = styled.div`
   background: rgb(253, 250, 238);
   position: relative;
 
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     width: 100%;
   }
 `;
@@ -166,10 +179,10 @@ const PostcardImg = styled(Img)`
   z-index: 10;
   right: 60px;
 
-  @media (max-width: 545px) {
+  @media (max-width: 1000px) {
     right: 0;
     width: 90%;
-    top: -60px;
+    // top: -60px;
   }
 `;
 
@@ -191,31 +204,27 @@ const Stamp = styled(Img)`
 `;
 
 const StyledOurPurpose = styled(OurPurpose)`
-  margin-bottom: 12em;
+  margin-top: 200px;
 `;
 
 const FinalMessage = styled.div`
   font-size: 1.5rem;
   text-transform: uppercase;
-  width: 45%;
+  width: 90%;
   // height: 30vh;
-  max-width: 25ch;
+  max-width: 50ch;
   text-align: center;
   // margin-bottom: 6em;
   letter-spacing: 4px;
   margin-bottom: 200px;
   font-family: 'Montserrat';
   text-transform: uppercase;
-
-  @media (max-width: 545px) {
-    width: 95%;
-  }
 `;
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
     query headerQuery {
-      headerImg: file(relativePath: { eq: "our_story.jpg" }) {
+      headerImg: file(relativePath: { eq: "card_creation_pen_cup.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -233,7 +242,7 @@ const Contact = () => {
           }
         }
       }
-      envelopeGoldImg: file(relativePath: { eq: "envelope_gold.jpg" }) {
+      harborPostcardImg: file(relativePath: { eq: "harbor_on_the_rocks.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -242,7 +251,7 @@ const Contact = () => {
           }
         }
       }
-      californiaStamp: file(relativePath: { eq: "californiastamp.png" }) {
+      palmTreesImg: file(relativePath: { eq: "palm_trees.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -279,6 +288,8 @@ const Contact = () => {
   const overlayRef = useRef();
   const overlayRightRef = useRef();
   const imgWrapperRef = useRef();
+  const overlayRef1 = useRef();
+  const imgWrapperRef1 = useRef();
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -288,59 +299,89 @@ const Contact = () => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
     }
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: imgWrapperRef.current,
-        start: 'top bottom',
-        // markers: true,
+
+    ScrollTrigger.matchMedia({
+      // desktop
+      '(min-width: 1000px)': function() {
+        // setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
+        // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
+
+        const tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: imgWrapperRef1.current,
+            start: 'top bottom',
+            // markers: true,
+          },
+        });
+
+        tl1
+          .from('.img1', {
+            xPercent: -100,
+            ease: 'power1.inOut',
+            duration: 0.5,
+          })
+          .to(overlayRef1.current, {
+            scaleX: 0,
+            transformOrigin: 'right',
+            ease: 'power1.inOut',
+            duration: 0.5,
+          });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: imgWrapperRef.current,
+            start: 'top bottom',
+            // markers: true,
+          },
+        });
+
+        tl.from('.img', {
+          xPercent: -100,
+          ease: 'power1.inOut',
+          duration: 0.5,
+        }).to(overlayRef.current, {
+          scaleX: 0,
+          transformOrigin: 'right',
+          ease: 'power1.inOut',
+          duration: 0.5,
+        });
+
+        const tlRight = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.imgRight',
+            start: 'top bottom',
+            // markers: true,
+          },
+        });
+
+        tlRight
+          .from('.imgRight', {
+            xPercent: 100,
+            ease: 'power1.inOut',
+            duration: 0.5,
+          })
+          .to(overlayRightRef.current, {
+            scaleX: 0,
+            transformOrigin: 'left',
+            ease: 'power1.inOut',
+            duration: 0.5,
+          });
+
+        gsap.utils.toArray('.fadeIn').forEach((panel, i) => {
+          gsap.from(panel, {
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top bottom-=200',
+            },
+            autoAlpha: 0,
+            translateY: '20%',
+          });
+        });
       },
-    });
-
-    tl.from('.img', {
-      xPercent: -100,
-      ease: 'power1.inOut',
-      duration: 0.5,
-    }).to(overlayRef.current, {
-      scaleX: 0,
-      transformOrigin: 'right',
-      ease: 'power1.inOut',
-      duration: 0.5,
-    });
-
-    const tlRight = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.imgRight',
-        start: 'top bottom',
-        // markers: true,
-      },
-    });
-
-    tlRight
-      .from('.imgRight', {
-        xPercent: 100,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      })
-      .to(overlayRightRef.current, {
-        scaleX: 0,
-        transformOrigin: 'left',
-        ease: 'power1.inOut',
-        duration: 0.5,
-      });
-
-    gsap.utils.toArray('.fadeIn').forEach((panel, i) => {
-      gsap.from(panel, {
-        scrollTrigger: {
-          trigger: panel,
-          start: 'top bottom-=200',
-        },
-        autoAlpha: 0,
-        translateY: '20%',
-      });
     });
   });
 
-  const mobile = useMediaQuery('(max-width: 545px)');
+  const mobile = useMediaQuery('(max-width: 1000px)');
 
   return (
     <Layout site="kindpost" headerClass="Header">
@@ -364,7 +405,57 @@ const Contact = () => {
             width: '100%',
           }}
         /> */}
-        <StyledOurPurpose />
+        <StyledOurPurpose style={{ marginBottom: '3em' }} />
+        <TextImgWrapper>
+          <ImgWrapper ref={imgWrapperRef1}>
+            <ImgOverlay className="img1" ref={overlayRef1} />
+            <BodyImg
+              className="img1"
+              fluid={data.palmTreesImg.childImageSharp.fluid}
+              // style={{ left: '60px' }}
+            />
+          </ImgWrapper>
+
+          <BodyTextWrapper>
+            <BodyTextHeader className="fadeIn">
+              Life is fast, unpredictable, and beautiful.
+            </BodyTextHeader>
+            <BodyText className="fadeIn">
+              Kindpost’s mission is to slow down and honor the special moments
+              in life, from celebrating birthdays to sharing declarations of
+              love, and from welcoming new babies to encouraging each other when
+              we’re feeling down.
+            </BodyText>
+          </BodyTextWrapper>
+        </TextImgWrapper>
+        <TextImgWrapper
+          style={{ flexDirection: mobile ? 'column-reverse' : 'row' }}
+        >
+          <BodyTextWrapper>
+            <BodyTextHeader className="fadeIn">
+              Let’s celebrate together.
+            </BodyTextHeader>
+            <BodyText className="fadeIn">
+              Kindpost makes it easy for you to send some positivity to yourself
+              or to a loved one.
+            </BodyText>
+            <BodyText className="fadeIn">
+              Our goal is that Kindpost will inspire people to connect with each
+              other by sharing and capturing these important life moments. A
+              simple act of kindness can remind us that the feeling of love and
+              being loved is essential to being human. We believe in self-care,
+              self-love, and sharing the love. It’s at the heart of our company.
+            </BodyText>
+          </BodyTextWrapper>
+          <PostcardWrapper>
+            <RightImgOverlay className="imgRight" ref={overlayRightRef} />
+            <PostcardImg
+              className="imgRight"
+              fluid={data.harborPostcardImg.childImageSharp.fluid}
+            />
+            {/* <CenteredCircle /> */}
+          </PostcardWrapper>
+        </TextImgWrapper>
         <TextImgWrapper>
           <ImgWrapper ref={imgWrapperRef}>
             <ImgOverlay className="img" ref={overlayRef} />
@@ -376,52 +467,26 @@ const Contact = () => {
           </ImgWrapper>
 
           <BodyTextWrapper>
-            <BodyTextHeader className="fadeIn">Showing We Care.</BodyTextHeader>
-            <BodyText className="fadeIn">
-              We believe that finding a thoughtful, caring note in your mailbox
-              can rival the greatest experiences in life. So we've established a
-              platform that allows others to know the joyful feelings of those
-              who care.
-            </BodyText>
-            <BodyText className="fadeIn">
-              A simple act of kindness can remind us that the feeling of love
-              and being loved is essential to being human.
-            </BodyText>
-          </BodyTextWrapper>
-        </TextImgWrapper>
-        <TextImgWrapper style={{ flexDirection: mobile ? 'column' : 'row' }}>
-          <BodyTextWrapper>
             <BodyTextHeader className="fadeIn">
-              Tangible Means More.
+              Curated positivity.
             </BodyTextHeader>
             <BodyText className="fadeIn">
-              There is something to be said about receiving a handwritten note.
-              Nathaniel Hawthorne is said to have washed his hands before
-              reading his wife’s letters, lest he sully them in the slightest.
+              Our founder, Cate, has spent years thoughtfully collecting vintage
+              postcards from around the world. For each Kindpost sent, our team
+              selects one of these unique, vintage postcards and carefully
+              crafts a handwritten message of positivity commemorating a special
+              moment in life.
             </BodyText>
             <BodyText className="fadeIn">
-              To this day, some of our most prized possessions are past notes
-              written to us. No, not printed emails, or recorded Zoom calls, but
-              actual handwritten notes that we frequently revisit for when our
-              mood calls for a dose of nostalgic warmth.
+              Each Kindpost is a tangible way to celebrate those special moments
+              and carry them with you. We hope our postcards brighten your desk
+              and your day.
             </BodyText>
-            {/* <Stamp
-              style={{ position: 'absolute' }}
-              fluid={data.californiaStamp.childImageSharp.fluid}
-            /> */}
           </BodyTextWrapper>
-          <PostcardWrapper>
-            <RightImgOverlay className="imgRight" ref={overlayRightRef} />
-            <PostcardImg
-              className="imgRight"
-              fluid={data.envelopeGoldImg.childImageSharp.fluid}
-            />
-            {/* <CenteredCircle /> */}
-          </PostcardWrapper>
         </TextImgWrapper>
         <FinalMessage className="fadeIn">
-          Thoughtfully Selected & Handcrafted With Positivity In Mind For You &
-          Those You
+          Thoughtfully Selected & Handcrafted With Positivity For You & Those
+          You
           <span style={{ color: '#d4004c', fontWeight: 'bold' }}> Love</span>
         </FinalMessage>
       </Container>

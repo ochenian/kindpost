@@ -9,6 +9,7 @@ import QuoteBlock from '../components/QuoteBlock';
 import Showcase from '../components/PostcardShowcase/ShowcaseGsap';
 import YouMatter from '../components/YouMatter';
 import Instagram from '../components/Instagram';
+import FullBleed from '../components/FullBleed';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -34,7 +35,7 @@ export default () => {
       <How />
       {/* <YouMatter /> */}
       <Showcase />
-
+      <FullBleed />
       <QuoteBlock />
       <Instagram />
     </Layout>
