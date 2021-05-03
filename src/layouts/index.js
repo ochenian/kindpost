@@ -70,7 +70,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
             alignItems: 'center',
             justifyContent: mobile ? 'center' : 'flex-start',
             flexDirection: 'column',
-            width: mobile ? '100%' : '600px',
+            width: mobile ? '90%' : '600px',
             margin: '24px',
             background: 'rgba( 0, 0, 0, 0.25 )',
             boxShadow: '0 8px 32px 0 rgba( 0, 0, 0, 0.37 )',
