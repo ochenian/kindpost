@@ -177,7 +177,6 @@
 
   @media (max-width: '950px') {
     flex-direction: column;
-    margin-bottom: 200px;
   }
 
   & .left {
@@ -189,8 +188,27 @@
     background: #fadbdb;
     // border-right: 1px solid #f5bc5e;
 
+    @media (min-width: '951px') and (max-width: '1500px') {
+      padding-bottom: 20em;
+    }
+
     @media (max-width: '950px') {
-      height: 100vh;
+      height: 850px;
+      flex-basis: unset;
+    }
+
+    @media (max-width: '600px') {
+      height: 700px;
+      flex-basis: unset;
+    }
+
+    @media (max-width: '400px') {
+      height: 550px;
+      flex-basis: unset;
+    }
+
+    @media (max-width: '300px') {
+      height: 450px;
       flex-basis: unset;
     }
 
@@ -209,10 +227,6 @@
   & .right {
     flex-basis: 50%;
     background: #fff;
-
-    @media (max-width: '950px') {
-      margin-top: 200px;
-    }
 
     // &:before {
     //   position: absolute;
@@ -243,11 +257,11 @@
   // margin: auto;
 
   @media (max-width: '950px') {
-    padding: 0 64px;
+    padding: 64px;
   }
 
   @media (max-width: '450px') {
-    padding: 64px 20px;
+    padding: 64px 24px;
   }
 
   h1 {

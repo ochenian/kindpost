@@ -161,6 +161,23 @@ const Note = styled.div`
   transform: translate(-50%, -50%);
   font-family: 'calluna';
   letter-spacing: 0.5px;
+  width: 90%;
+
+  @media (min-width: 1500px) {
+    top: 75%;
+  }
+
+  @media (min-width: 1101px) and (max-width: 1499px) {
+    top: 60%;
+  }
+
+  @media (max-width: 1100px) {
+    top: 55%;
+  }
+
+  @media (max-width: 950px) {
+    top: 80%;
+  }
 `;
 
 const ClickToFlip = styled(Img)`
