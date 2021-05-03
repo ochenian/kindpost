@@ -205,7 +205,7 @@ const Footer = () => {
         {!mobile && (
           <>
             <Column>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} style={{ marginBottom: '6em' }}>
                 <SectionHeader>subscribe.</SectionHeader>
                 <SignUpDescription>
                   Get uplifting stories and special offers delivered to your

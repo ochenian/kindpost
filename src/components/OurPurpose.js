@@ -25,8 +25,8 @@ const Wrapper = styled.div`
 `;
 
 const Heading = styled.div`
-  font-size: 1.25rem;
-  margin-bottom: 2em;
+  font-size: 2rem;
+  margin: 0 1.5rem 1em 1.5rem;
   text-transform: uppercase;
   font-weight: bold;
   // font-style: italic;

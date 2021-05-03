@@ -107,6 +107,7 @@ const RightImgOverlay = styled.div`
 
 const BodyImg = styled(Img)`
   width: 100%;
+  max-width: 500px;
   // flex: 1;
   // z-index: 10;
 `;
