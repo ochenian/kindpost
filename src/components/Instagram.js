@@ -52,6 +52,13 @@ const MediaContainer = styled.div`
     right: 0;
     top: 10rem;
     width: 23rem;
+
+    @media (max-width: 600px) {
+          width: 9rem;
+    height: 7rem;
+    top: 1rem;
+}
+    }
   }
 
   &:nth-of-type(2) {
@@ -59,6 +66,13 @@ const MediaContainer = styled.div`
     right: 14rem;
     top: 22.8rem;
     width: 12rem;
+
+    @media (max-width: 600px) {
+      width: 6rem;
+    height: 7rem;
+    right: 4rem;
+    top: 12rem;
+    }
   }
 
   &:nth-of-type(3) {
@@ -67,6 +81,13 @@ const MediaContainer = styled.div`
     top: 6rem;
     width: 13rem;
     z-index: 1;
+
+    @media (max-width: 600px) {
+      height: 8rem;
+    width: 6rem;
+    left: 1rem;
+    top: 15rem;
+    }
   }
 
   &:nth-of-type(4) {
@@ -74,6 +95,12 @@ const MediaContainer = styled.div`
     left: 1rem;
     top: 24.3rem;
     width: 23rem;
+
+    @media (max-width: 600px) {
+          width: 11rem;
+    height: 6rem;
+    top: 37rem;
+    }
   }
 `;
 

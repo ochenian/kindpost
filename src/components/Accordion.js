@@ -27,9 +27,8 @@ const Section = styled(motion.section)`
 `;
 
 const Body = styled(motion.div)`
-  padding: 20px;
+  padding-top: 20px;
   transform-origin: top left;
-  padding-bottom: 0;
 
   a {
     margin: 1px;

@@ -14,6 +14,11 @@ const Container = styled.section`
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  @media (max-width: 600px) {
+    height: auto;
+    padding: 10em 0;
+  }
 `;
 
 const StyledTextHeader = styled.p`
@@ -31,6 +36,10 @@ const StyledTextHeader = styled.p`
 const Subtitle = styled.div`
   margin-bottom: 100px;
   text-align: center;
+
+  @media (max-width: 600px) {
+    margin-bottom: 64px;
+  }
 `;
 
 const TextBody = styled.div`
@@ -83,8 +92,9 @@ const Contact = () => {
     <Layout site="kindpost" headerClass="Header light">
       <Container>
         <TextBody>
-          <StyledTextHeader>Contact</StyledTextHeader>
-          <Subtitle>Want to get in touch? We're here to help.</Subtitle>
+          <Subtitle>
+            Want to get in touch? <div>We're here to help.</div>
+          </Subtitle>
           <StyledTextSection>
             <a href="mailto:studio@kindpost.com">help@kindpost.com</a>
             Feel free to send us any questions on our products!

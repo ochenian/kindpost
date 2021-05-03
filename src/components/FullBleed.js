@@ -32,6 +32,11 @@ const TextContainer = styled.div`
   margin-left: 50%;
   font-family: 'Montserrat';
   font-size: 4rem;
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
+    padding: 0;
+  }
 `;
 
 const Text = styled.div`
@@ -39,6 +44,11 @@ const Text = styled.div`
   text-align: center;
   line-height: 1.2;
   margin-top: 32px;
+
+  @media (max-width: 600px) {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
 `;
 
 const GrayscaleImg = styled(Img)`
@@ -51,6 +61,11 @@ const GrayscaleImg = styled(Img)`
 const StyledCtaButton = styled(CtaButton)`
   background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
   border: none;
+
+  @media (max-width: 600px) {
+    padding: 16px;
+    letter-spacing: 0;
+  }
 
   &&:hover {
     background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));

@@ -217,26 +217,59 @@ const Showcase = () => {
   useEffect(() => {
     const postcards = gsap.utils.toArray('.postcard');
     postcards.forEach(card => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: card.querySelector('.postcardContainer'),
-            start: 'top center',
-            end: 'top top',
-            scrub: 1,
-          },
-        })
-        .to(card.querySelector('.imageCover'), {
-          translateY: '105%',
-        })
-        .to(
-          card.querySelector('.postcardContainer'),
-          {
-            rotateY: -180,
-            ease: 'back',
-          },
-          '>',
-        );
+      ScrollTrigger.matchMedia({
+        // desktop
+        '(min-width: 800px)': function() {
+          // setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
+          // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: card.querySelector('.postcardContainer'),
+                start: 'top center',
+                end: 'top top',
+                scrub: 1,
+              },
+            })
+            .to(card.querySelector('.imageCover'), {
+              translateY: '105%',
+            })
+            .to(
+              card.querySelector('.postcardContainer'),
+              {
+                rotateY: -180,
+                ease: 'back',
+              },
+              '>',
+            );
+        },
+
+        // mobile
+        '(max-width: 799px)': function() {
+          // The ScrollTriggers created inside these functions are segregated and get
+          // reverted/killed when the media query doesn't match anymore.
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: card.querySelector('.postcardContainer'),
+                start: 'top bottom-=10%',
+                end: 'top top',
+                scrub: 1,
+              },
+            })
+            .to(card.querySelector('.imageCover'), {
+              translateY: '105%',
+            })
+            .to(
+              card.querySelector('.postcardContainer'),
+              {
+                rotateY: -180,
+                ease: 'back',
+              },
+              '>',
+            );
+        },
+      });
     });
   });
 

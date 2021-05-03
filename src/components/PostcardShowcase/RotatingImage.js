@@ -28,6 +28,7 @@ const ImageContainer = styled.div`
     // padding: 10vw;
     // padding-top: 14vh;
     // padding-bottom: 20vh;
+    padding: 96px;
   }
 
   @media (min-width: 1201px) {
