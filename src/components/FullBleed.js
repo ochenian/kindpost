@@ -61,10 +61,10 @@ const GrayscaleImg = styled(Img)`
 const StyledCtaButton = styled(CtaButton)`
   background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
   border: none;
+  letter-spacing: 0;
 
   @media (max-width: 600px) {
     padding: 16px;
-    letter-spacing: 0;
   }
 
   &&:hover {
@@ -94,7 +94,7 @@ const FullBleed = () => {
       <TextContainer>
         <Text>TREAT YOURSELF</Text>
         <Link to="/shop">
-          <StyledCtaButton>SHOP NOW</StyledCtaButton>
+          <StyledCtaButton>SHOP</StyledCtaButton>
         </Link>
       </TextContainer>
       <GrayscaleImg fluid={data.mtnSwitchback.childImageSharp.fluid} />

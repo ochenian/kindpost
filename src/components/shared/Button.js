@@ -24,7 +24,7 @@ const CtaButton = styled.button`
   padding: 1em 3em;
   transition: 0.5s;
   text-transform: uppercase;
-  letter-spacing: 6px;
+  // letter-spacing: 6px;
   text-indent: 6px;
   // font-family: 'Montserrat';
     text-transform: uppercase;
