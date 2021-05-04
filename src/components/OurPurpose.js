@@ -30,7 +30,7 @@ const Heading = styled.div`
   text-transform: uppercase;
   font-weight: bold;
   // font-style: italic;
-  font-family: 'proxima-nova';
+  font-family: 'Montserrat';
 
   @media (max-width: 1000px) {
     font-size: 1rem;
