@@ -8,45 +8,27 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin: 8em 0;
-  // margin-bottom: 12em;
-  /* margin-top: 12em; */
-  // background: rgb(242, 235, 229);
   padding: 0 10em;
   position: relative;
-  // top: -60px;
-  // z-index: 10;
-  // margin: 200px 0;
 
   @media (max-width: 1000px) {
     padding: 0;
-    margin-bottom: 3em;
   }
 `;
 
 const Heading = styled.div`
   font-size: 2rem;
-  margin: 0 1.5rem 1em 1.5rem;
+  margin-bottom: 1em;
   text-transform: uppercase;
   font-weight: bold;
-  // font-style: italic;
   font-family: 'Montserrat';
-
-  @media (max-width: 1000px) {
-    font-size: 1rem;
-  }
+  text-align: center;
 `;
 
 const PurposeText = styled.div`
   width: 100%;
-  // margin-bottom: 0.5em;
   max-width: 50ch;
-  font-size: 1rem;
-
-  @media (max-width: 1000px) {
-    // padding: 0 3em;
-    width: 90%;
-  }
+  font-size: 1.25rem;
 `;
 
 const OurPurpose = () => {
@@ -59,12 +41,9 @@ const OurPurpose = () => {
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
     }
-    ScrollTrigger.matchMedia({
-      // desktop
-      '(min-width: 1000px)': function() {
-        // setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
-        // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
 
+    ScrollTrigger.matchMedia({
+      '(min-width: 1000px)': function() {
         gsap.from(wrapperRef.current, {
           scrollTrigger: {
             trigger: wrapperRef.current,

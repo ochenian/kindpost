@@ -6,7 +6,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import Layout from '../layouts/index';
-import Circle from '../assets/svg/circle.svg';
 import OurPurpose from '../components/OurPurpose';
 
 const Container = styled.section`
@@ -14,20 +13,19 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   font-family: 'calluna';
-  // background: rgb(253, 250, 238);
-  // background: rgb(230 164 228);
   color: #282828;
+  gap: 128px;
 `;
+
 const HeaderContainer = styled.div`
   width: 100%;
   position: relative;
-      margin-bottom: 6em;
 }
 `;
+
 const HeaderImg = styled(Img)`
   width: 100%;
-  // height: 100vh;
-  height: 500px;
+  height: 100vh;
 `;
 
 const HeaderOverlay = styled.div`
@@ -48,32 +46,34 @@ const HeaderOverlay = styled.div`
   text-align: center;
 `;
 
+const BodyContainer = styled.section`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 128px;
+`;
+
 const TextImgWrapper = styled.div`
   display: flex;
-  width: 100%;
   align-items: center;
-  // background: rgb(253, 250, 238);
-  // margin-bottom: 200px;
+  gap: 32px;
+  width: 100%;
 
   @media (max-width: 1000px) {
     flex-direction: column;
-    margin-bottom: 3em;
   }
 `;
 
 const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
-    flex: 1;
-    z-index: 10;
-    overflow: hidden;
-    left: 60px;
+  flex: 1;
+  z-index: 10;
+  overflow: hidden;
 
   @media (max-width: 1000px) {
-    left: 0;
-    // top: -60px;
-    width: 90%;
-
     &:last-of-type {
       flex-direction: column;
     }
@@ -87,6 +87,7 @@ const ImgOverlay = styled.div`
   height: 100%;
   background: pink;
   z-index: 20;
+
   @media (max-width: 1000px) {
     display: none;
   }
@@ -98,7 +99,6 @@ const RightImgOverlay = styled.div`
   height: 100%;
   background: pink;
   z-index: 20;
-  right: 60px;
 
   @media (max-width: 1000px) {
     display: none;
@@ -108,8 +108,10 @@ const RightImgOverlay = styled.div`
 const BodyImg = styled(Img)`
   width: 100%;
   max-width: 500px;
-  // flex: 1;
-  // z-index: 10;
+
+  @media (max-width: 1000px) {
+    margin: 0 auto;
+  }
 `;
 
 const BodyTextWrapper = styled.section`
@@ -118,54 +120,27 @@ const BodyTextWrapper = styled.section`
   justify-content: center;
   align-items: center;
   flex: 1;
-  height: 75vh;
   position: relative;
-  padding: 0 6em;
-  // background: rgb(242, 235, 229);
-
-  @media (max-width: 1000px) {
-    // padding: 6em 0;
-    padding: 0;
-    height: auto;
-    margin: 1em;
-  }
 `;
 
 const BodyTextHeader = styled.h3`
-  // font-weight: bold;
   font-size: 2rem;
-  // margin-bottom: 2em;
-  // letter-spacing: 3px;
-  // text-transform: uppercase;
   text-align: center;
-  margin: 0 1.5rem 1em 1.5rem;
+  margin-bottom: 1em;
   text-transform: uppercase;
   font-family: 'Montserrat';
   text-transform: uppercase;
   font-weight: bold;
-
-  @media (max-width: 1000px) {
-    font-size: 1rem;
-    margin: 1em;
-  }
 `;
 
 const BodyText = styled.div`
-  margin: 0 3rem;
-  margin-bottom: 2em;
   line-height: 1.5;
-  max-width: 50ch;
-
-  @media (max-width: 1000px) {
-    margin: 0;
-    width: 90%;
-    // top: -60px;
-  }
+  max-width: 60ch;
+  font-size: 1.25rem;
 `;
 
 const PostcardWrapper = styled.div`
   flex: 1;
-  background: rgb(253, 250, 238);
   position: relative;
 
   @media (max-width: 1000px) {
@@ -174,48 +149,20 @@ const PostcardWrapper = styled.div`
 `;
 
 const PostcardImg = styled(Img)`
-  // width: 50%;
   width: 100%;
-  margin: 0 auto;
   z-index: 10;
-  right: 60px;
 
   @media (max-width: 1000px) {
-    right: 0;
-    width: 90%;
-    // top: -60px;
+    margin: 0 auto;
   }
-`;
-
-const CenteredCircle = styled(Circle)`
-  position: absolute;
-  width: 55%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  fill: rgb(242, 212, 215);
-`;
-
-const Stamp = styled(Img)`
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.05;
-`;
-
-const StyledOurPurpose = styled(OurPurpose)`
-  margin-top: 200px;
 `;
 
 const FinalMessage = styled.div`
   font-size: 1.5rem;
   text-transform: uppercase;
   width: 90%;
-  // height: 30vh;
-  max-width: 50ch;
+  max-width: 60ch;
   text-align: center;
-  // margin-bottom: 6em;
   letter-spacing: 4px;
   margin-bottom: 200px;
   font-family: 'Montserrat';
@@ -387,109 +334,94 @@ const Contact = () => {
   return (
     <Layout site="kindpost" headerClass="Header">
       <Container>
-        {/* <div
-          style={{
-            height: '20vh',
-            background: 'rgb(223, 168, 224)',
-            width: '100%',
-          }}
-        /> */}
         <HeaderContainer>
           <HeaderOverlay>OUR STORY</HeaderOverlay>
           <HeaderImg fluid={data.headerImg.childImageSharp.fluid} />
         </HeaderContainer>
-        {/* <div
-          style={{
-            height: '10vh',
-            background:
-              'linear-gradient(to bottom, #e6a4e4, #ffb3cb, #ffcbc2, #ffe5d0, #fdfaee)',
-            width: '100%',
-          }}
-        /> */}
-        <StyledOurPurpose style={{ marginBottom: '3em' }} />
-        <TextImgWrapper>
-          <ImgWrapper ref={imgWrapperRef1}>
-            <ImgOverlay className="img1" ref={overlayRef1} />
-            <BodyImg
-              className="img1"
-              fluid={data.palmTreesImg.childImageSharp.fluid}
-              // style={{ left: '60px' }}
-            />
-          </ImgWrapper>
+        <BodyContainer>
+          <OurPurpose />
+          <TextImgWrapper>
+            <ImgWrapper ref={imgWrapperRef1}>
+              <ImgOverlay className="img1" ref={overlayRef1} />
+              <BodyImg
+                className="img1"
+                fluid={data.palmTreesImg.childImageSharp.fluid}
+              />
+            </ImgWrapper>
 
-          <BodyTextWrapper>
-            <BodyTextHeader className="fadeIn">
-              Life is fast, unpredictable, and beautiful.
-            </BodyTextHeader>
-            <BodyText className="fadeIn">
-              Kindpost’s mission is to slow down and honor the special moments
-              in life, from celebrating birthdays to sharing declarations of
-              love, and from welcoming new babies to encouraging each other when
-              we’re feeling down.
-            </BodyText>
-          </BodyTextWrapper>
-        </TextImgWrapper>
-        <TextImgWrapper
-          style={{ flexDirection: mobile ? 'column-reverse' : 'row' }}
-        >
-          <BodyTextWrapper>
-            <BodyTextHeader className="fadeIn">
-              Let’s celebrate together.
-            </BodyTextHeader>
-            <BodyText className="fadeIn">
-              Kindpost makes it easy for you to send some positivity to yourself
-              or to a loved one.
-            </BodyText>
-            <BodyText className="fadeIn">
-              Our goal is that Kindpost will inspire people to connect with each
-              other by sharing and capturing these important life moments. A
-              simple act of kindness can remind us that the feeling of love and
-              being loved is essential to being human. We believe in self-care,
-              self-love, and sharing the love. It’s at the heart of our company.
-            </BodyText>
-          </BodyTextWrapper>
-          <PostcardWrapper>
-            <RightImgOverlay className="imgRight" ref={overlayRightRef} />
-            <PostcardImg
-              className="imgRight"
-              fluid={data.harborPostcardImg.childImageSharp.fluid}
-            />
-            {/* <CenteredCircle /> */}
-          </PostcardWrapper>
-        </TextImgWrapper>
-        <TextImgWrapper>
-          <ImgWrapper ref={imgWrapperRef}>
-            <ImgOverlay className="img" ref={overlayRef} />
-            <BodyImg
-              className="img"
-              fluid={data.postcardScatterImg.childImageSharp.fluid}
-              // style={{ left: '60px' }}
-            />
-          </ImgWrapper>
+            <BodyTextWrapper>
+              <BodyTextHeader className="fadeIn">
+                Life is fast, unpredictable, and beautiful.
+              </BodyTextHeader>
+              <BodyText className="fadeIn">
+                Kindpost’s mission is to slow down and honor the special moments
+                in life, from celebrating birthdays to sharing declarations of
+                love, and from welcoming new babies to encouraging each other
+                when we’re feeling down.
+              </BodyText>
+            </BodyTextWrapper>
+          </TextImgWrapper>
+          <TextImgWrapper
+            style={{ flexDirection: mobile ? 'column-reverse' : 'row' }}
+          >
+            <BodyTextWrapper>
+              <BodyTextHeader className="fadeIn">
+                Let’s celebrate together.
+              </BodyTextHeader>
+              <BodyText className="fadeIn">
+                Kindpost makes it easy for you to send some positivity to
+                yourself or to a loved one.
+              </BodyText>
+              <BodyText className="fadeIn">
+                Our goal is that Kindpost will inspire people to connect with
+                each other by sharing and capturing these important life
+                moments. A simple act of kindness can remind us that the feeling
+                of love and being loved is essential to being human. We believe
+                in self-care, self-love, and sharing the love. It’s at the heart
+                of our company.
+              </BodyText>
+            </BodyTextWrapper>
+            <PostcardWrapper>
+              <RightImgOverlay className="imgRight" ref={overlayRightRef} />
+              <PostcardImg
+                className="imgRight"
+                fluid={data.harborPostcardImg.childImageSharp.fluid}
+              />
+            </PostcardWrapper>
+          </TextImgWrapper>
+          <TextImgWrapper>
+            <ImgWrapper ref={imgWrapperRef}>
+              <ImgOverlay className="img" ref={overlayRef} />
+              <BodyImg
+                className="img"
+                fluid={data.postcardScatterImg.childImageSharp.fluid}
+              />
+            </ImgWrapper>
 
-          <BodyTextWrapper>
-            <BodyTextHeader className="fadeIn">
-              Curated positivity.
-            </BodyTextHeader>
-            <BodyText className="fadeIn">
-              Our founder, Cate, has spent years thoughtfully collecting vintage
-              postcards from around the world. For each Kindpost sent, our team
-              selects one of these unique, vintage postcards and carefully
-              crafts a handwritten message of positivity commemorating a special
-              moment in life.
-            </BodyText>
-            <BodyText className="fadeIn">
-              Each Kindpost is a tangible way to celebrate those special moments
-              and carry them with you. We hope our postcards brighten your desk
-              and your day.
-            </BodyText>
-          </BodyTextWrapper>
-        </TextImgWrapper>
-        <FinalMessage className="fadeIn">
-          Thoughtfully Selected & Handcrafted With Positivity For You & Those
-          You
-          <span style={{ color: '#d4004c', fontWeight: 'bold' }}> Love</span>
-        </FinalMessage>
+            <BodyTextWrapper>
+              <BodyTextHeader className="fadeIn">
+                Curated positivity.
+              </BodyTextHeader>
+              <BodyText className="fadeIn">
+                Our founder, Cate, has spent years thoughtfully collecting
+                vintage postcards from around the world. For each Kindpost sent,
+                our team selects one of these unique, vintage postcards and
+                carefully crafts a handwritten message of positivity
+                commemorating a special moment in life.
+              </BodyText>
+              <BodyText className="fadeIn">
+                Each Kindpost is a tangible way to celebrate those special
+                moments and carry them with you. We hope our postcards brighten
+                your desk and your day.
+              </BodyText>
+            </BodyTextWrapper>
+          </TextImgWrapper>
+          <FinalMessage className="fadeIn">
+            Thoughtfully Selected & Handcrafted With Positivity For You & Those
+            You
+            <span style={{ color: '#d4004c', fontWeight: 'bold' }}> Love</span>
+          </FinalMessage>
+        </BodyContainer>
       </Container>
     </Layout>
   );
