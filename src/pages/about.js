@@ -87,6 +87,7 @@ const ImgOverlay = styled.div`
   height: 100%;
   background: pink;
   z-index: 20;
+  max-width: 1000px;
 
   @media (max-width: 1000px) {
     display: none;
@@ -99,6 +100,7 @@ const RightImgOverlay = styled.div`
   height: 100%;
   background: pink;
   z-index: 20;
+  max-width: 1000px;
 
   @media (max-width: 1000px) {
     display: none;
@@ -107,7 +109,7 @@ const RightImgOverlay = styled.div`
 
 const BodyImg = styled(Img)`
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
 
   @media (max-width: 1000px) {
     margin: 0 auto;
