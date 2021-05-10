@@ -20,6 +20,7 @@
     "gatsby-link": "^2.4.13",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-gdpr-cookies": "^1.0.10",
+    "gatsby-plugin-google-gtag": "^3.4.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^2.4.22",
     "gatsby-plugin-react-helmet": "^3.7.0",

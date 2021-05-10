@@ -98,6 +98,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [process.env.GA_ID],
+      },
+    },
+    {
       resolve: 'gatsby-source-shopify',
       options: {
         shopName: process.env.GATSBY_SHOPIFY_SHOP_NAME,
