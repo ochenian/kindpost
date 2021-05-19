@@ -7,7 +7,7 @@ import Hero from '../components/Hero';
 import How from '../components/How';
 import QuoteBlock from '../components/QuoteBlock';
 import Showcase from '../components/PostcardShowcase/ShowcaseGsap';
-import ShowcaseFullPage from '../components/PostcardShowcase/ShowcaseFullPage';
+// import ShowcaseFullPage from '../components/PostcardShowcase/ShowcaseFullPage';
 import YouMatter from '../components/YouMatter';
 import Instagram from '../components/Instagram';
 import FullBleed from '../components/FullBleed';
