@@ -25,6 +25,7 @@ const TextBlock = styled.div`
   flex-direction: column;
 
   padding: 1rem;
+  width: 100%;
   color: #172345;
   position: relative;
   z-index: 10;
@@ -36,6 +37,20 @@ const HeaderText = styled.h1`
   text-align: center;
   font-family: 'proxima-nova';
   font-weight: 600;
+  line-height: 1.25;
+
+  @media (max-width: 550px) {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 250px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const SubText = styled.p`
@@ -44,6 +59,14 @@ const SubText = styled.p`
   text-align: center;
 
   margin-bottom: 2rem;
+
+  @media (max-width: 550px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 1rem;
+  }
 `;
 
 const StyledCtaButton = styled(CtaButton)`
@@ -64,6 +87,8 @@ const StyledCtaButton = styled(CtaButton)`
 
 const Postcard = styled(Img)`
   width: 20%;
+  min-width: 160px;
+  max-width: 300px;
   position: absolute !important;
 `;
 
