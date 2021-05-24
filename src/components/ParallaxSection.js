@@ -308,7 +308,9 @@ const ParallaxSection = () => {
             No robots. No printers.{' '}
             <div>Handwritten by humans for kindness.</div>
           </SubText>
-          <StyledCtaButton>Get started</StyledCtaButton>
+          <a href="/shop">
+            <StyledCtaButton>Get started</StyledCtaButton>
+          </a>
         </TextBlock>
       </TextContainer>
     </SectionWrapper>

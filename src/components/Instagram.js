@@ -31,6 +31,18 @@ const StyledInstaLogo = styled(InstaLogo)`
   min-width: 33px;
 `;
 
+const MicroInstaLogo = styled(InstaLogo)`
+  width: 2vw;
+  max-width: 40px;
+  min-width: 20px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+`;
+
 const FollowText = styled.div`
   font-size: 2rem;
   font-family: 'Montserrat';
@@ -45,6 +57,15 @@ const FollowText = styled.div`
 
 const MediaContainer = styled.div`
   position: absolute;
+  transition: all 0.25s;
+
+  &:hover {
+    filter: brightness(0.5);
+
+    ${MicroInstaLogo} {
+      display: block;
+    }
+  }
 
   &:first-of-type {
     border-radius: 1rem 0 0 1rem;
@@ -184,24 +205,42 @@ const Instagram = () => {
   return (
     <Wrapper id="wrapper">
       <MediaContainer data-speed="1.5" className="parallax">
-        <StyledImg fluid={data.mtnSwitchback.childImageSharp.fluid} />
+        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+          <MicroInstaLogo />
+          <StyledImg fluid={data.mtnSwitchback.childImageSharp.fluid} />
+        </a>
       </MediaContainer>
+
       <MediaContainer data-speed="-0.5" className="parallax">
-        <StyledImg fluid={data.cardAssembly.childImageSharp.fluid} />
+        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+          <MicroInstaLogo />
+          <StyledImg fluid={data.cardAssembly.childImageSharp.fluid} />
+        </a>
       </MediaContainer>
+
       <MediaContainer data-speed="1" className="parallax">
-        <StyledImg fluid={data.cardOnRock.childImageSharp.fluid} />
+        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+          <MicroInstaLogo />
+          <StyledImg fluid={data.cardOnRock.childImageSharp.fluid} />
+        </a>
       </MediaContainer>
+
       <MediaContainer data-speed="-2" className="parallax">
-        <StyledImg fluid={data.orangesGarden.childImageSharp.fluid} />
+        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+          <MicroInstaLogo />
+          <StyledImg fluid={data.orangesGarden.childImageSharp.fluid} />
+        </a>
       </MediaContainer>
+
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <StyledInstaLogo />
       </a>
-      <FollowText>
-        <div>Follow us on</div>
-        <div>Instagram</div>
-      </FollowText>
+      <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+        <FollowText>
+          <div>Follow us on</div>
+          <div>Instagram</div>
+        </FollowText>
+      </a>
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <Hashtag>#kindpost</Hashtag>
       </a>
