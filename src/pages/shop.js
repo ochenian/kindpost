@@ -8,11 +8,14 @@ import styled from 'styled-components';
 import Client from 'shopify-buy/index.unoptimized.umd';
 import { motion, useAnimation } from 'framer-motion';
 import { useAddItemToCart, useCartItems } from 'gatsby-theme-shopify-manager';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../layouts/index';
 import CtaButton from '../components/shared/Button';
 import { CartContext } from '../components/Cart/CartContext';
 import How from '../components/How';
 import Instagram from '../components/Instagram';
+import ThreeDPostcard from '../components/PostcardShowcase/3D_Postcard';
 
 const ProductName = styled.h1`
   margin-bottom: 1rem;
@@ -72,6 +75,11 @@ const AddresseeContainer = styled.div`
 
     &:first-of-type {
       border-right: 1px solid transparent;
+
+      @media (max-width: 950px) {
+        margin-bottom: 1rem;
+        border-right: 1px solid #d4004c;
+      }
     }
 
     &.selected {
@@ -79,6 +87,10 @@ const AddresseeContainer = styled.div`
       color: #fff;
       border: 1px solid transparent;
     }
+  }
+
+  @media (max-width: 950px) {
+    flex-direction: column;
   }
 `;
 
@@ -152,40 +164,102 @@ const SoldOut = styled(CtaButton)`
 `;
 
 const Note = styled.div`
-  align-self: flex-end;
+  // align-self: flex-end;
   max-width: 50ch;
   font-size: 0.75rem;
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  // position: absolute;
+  // top: 80%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
   font-family: 'calluna';
   letter-spacing: 0.5px;
   width: 90%;
+  margin-top: 64px;
 
-  @media (min-width: 1500px) {
-    top: 75%;
-  }
+  // @media (min-width: 1500px) {
+  //   top: 75%;
+  // }
 
-  @media (min-width: 1101px) and (max-width: 1499px) {
-    top: 60%;
-  }
+  // @media (min-width: 1101px) and (max-width: 1499px) {
+  //   top: 60%;
+  // }
 
-  @media (max-width: 1100px) {
-    top: 55%;
-  }
+  // @media (max-width: 1100px) {
+  //   top: 55%;
+  // }
+
+  // @media (max-width: 950px) {
+  //   top: 80%;
+  // }
+`;
+
+const ProductContainer = styled.div`
+  display: flex;
+  width: 100%;
+  font-family: calluna;
+  height: 100vh;
+  overflow: hidden;
 
   @media (max-width: 950px) {
-    top: 80%;
+    flex-direction: column;
+    overflow: unset;
   }
 `;
 
-const ClickToFlip = styled(Img)`
-  width: 25%;
-  top: -25%;
-  left: 25%;
-  max-width: 200px;
-  opacity: 0.8;
+const LeftSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 50%;
+  align-items: center;
+  position: relative;
+  background: #fadbdb;
+  padding: 64px;
+
+  @media (max-width: 950px) {
+    padding: 128px 64px;
+  }
+`;
+
+const StyledThreeDPostcard = styled(ThreeDPostcard)`
+  max-width: 550px;
+  width: 100%;
+  min-width: 150px;
+`;
+
+const RightSide = styled.div`
+  flex: 1 1 50%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  padding: 8em 4em;
+
+  @media (max-width: 950px) {
+    padding: 64px;
+    overflow: unset;
+  }
+
+  @media (max-width: 450px) {
+    padding: 64px 24px;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: lowercase;
+    font-family: 'Averia Serif Libre';
+    line-height: 0.75;
+  }
+
+  p {
+    font-size: 0.9em;
+    margin: 1em 0;
+    font-weight: 400;
+    color: rgb(74, 74, 74);
+    width: 75%;
+  }
 `;
 
 const ProductPage = () => {
@@ -229,14 +303,7 @@ const ProductPage = () => {
     });
   }, [client.graphQLClient]);
 
-  const AnimatedImg = animated(Img);
-
   const [flipped, setFlipped] = useState(false);
-  const { transform, opacity } = useSpring({
-    opacity: flipped ? 1 : 0,
-    transform: `perspective(600px) rotateY(${flipped ? -180 : 0}deg)`,
-    config: { mass: 5, tension: 500, friction: 80 },
-  });
 
   const data = useStaticQuery(graphql`
     query SiteQuery {
@@ -363,6 +430,25 @@ const ProductPage = () => {
   );
 
   useEffect(() => {
+    if (typeof window !== `undefined`) {
+      gsap.config({
+        nullTargetWarn: false,
+      });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.core.globals('ScrollTrigger', ScrollTrigger);
+    }
+  });
+
+  const rightSide = useRef();
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    rightSide.current.addEventListener('scroll', () => {
+      console.log(rightSide.current);
+      setScroll(rightSide.current.scrollY > 10);
+    });
+  }, []);
+
+  useEffect(() => {
     if (soldOut || isAddToCartDisabled) {
       setShowSoldOut(true);
     } else {
@@ -434,6 +520,8 @@ const ProductPage = () => {
     }
   }
 
+  const postcardContainerRef = useRef();
+
   function onPostcardSelect(selected) {
     if (!flipped) {
       setFlipped(state => !state);
@@ -453,9 +541,6 @@ const ProductPage = () => {
       .includes(selectedPostcard.id);
     setAddToCartDisabled(alreadyInCart);
   }, [cartItems, showCart, selectedPostcard.id]);
-
-  const rightControls = useAnimation();
-  const leftControls = useAnimation();
 
   const addItemToCart = useAddItemToCart();
 
@@ -490,37 +575,30 @@ const ProductPage = () => {
     setFromInputValue(fromInputRef.current.value);
   };
 
+  function onScroll() {
+    const scrollY = window.scrollY; //Don't get confused by what's scrolling - It's not the window
+    const scrollTop = rightSide.current.scrollTop;
+    console.log(
+      `onScroll, window.scrollY: ${scrollY} myRef.scrollTop: ${scrollTop}`,
+    );
+    setScroll(scrollTop > 10);
+  }
+
   return (
-    <Layout site={data.site.siteMetadata.siteName} headerClass="Header light">
+    <Layout
+      site={data.site.siteMetadata.siteName}
+      headerClass={`Header light ${scroll ? 'scrolled' : ''}`}
+    >
       <div>
-        <div className="product_container">
-          <motion.div
-            className="left"
-            animate={leftControls}
-            onClick={() => setFlipped(flippedState => !flippedState)}
-          >
-            {/* <div> */}
-            {/* <ClickToFlip fluid={data.clickToFlip.childImageSharp.fluid} /> */}
-            <AnimatedImg
-              className="c"
-              style={{
-                opacity: opacity.interpolate(o => 1 - o),
-                transform,
-                maxWidth: '550px',
-              }}
-              fluid={selectedPostcard.imgFront}
+        <ProductContainer>
+          <LeftSide>
+            <StyledThreeDPostcard
+              frontImg={selectedPostcard.imgFront}
+              backImg={selectedPostcard.imgBack}
+              postcardContainerRef={postcardContainerRef}
+              flip={flipped}
+              onClick={() => setFlipped(flippedState => !flippedState)}
             />
-
-            <AnimatedImg
-              className="c"
-              style={{
-                opacity,
-                transform: transform.interpolate(t => `${t} rotateY(-180deg)`),
-                maxWidth: '550px',
-              }}
-              fluid={selectedPostcard.imgBack}
-            />
-
             <Note>
               <div>NOTE:</div>
               <div>
@@ -530,10 +608,9 @@ const ProductPage = () => {
               </div>
               <a href="/faq#design">Learn More</a>
             </Note>
-            {/* </div> */}
-          </motion.div>
+          </LeftSide>
 
-          <motion.div animate={rightControls} className="product_detail right">
+          <RightSide onScroll={onScroll} ref={rightSide}>
             <ProductName>KINDPOST</ProductName>
             <SubHeaderLabel>description</SubHeaderLabel>
             <Description>
@@ -563,7 +640,6 @@ const ProductPage = () => {
             </OptionsContainer>
             {selectedPostcard && (
               <>
-                {/* <SubHeaderLabel>details</SubHeaderLabel> */}
                 <Description>{selectedPostcard.description}</Description>
               </>
             )}
@@ -662,15 +738,9 @@ const ProductPage = () => {
                 $12 &mdash; ADD TO BAG
               </Checkout>
             )}
-
-            {/* <p>NOTE:</p>
-              <p>Our postcards are sustainably sourced from individual collectors. As such, we cannot guarantee a specific card for your recipient.</p>
-              <p>If you have a specific idea of a postcard or message you would like to send, include it in a message with your order and we’ll do our best to meet your request!</p> */}
-          </motion.div>
-        </div>
+          </RightSide>
+        </ProductContainer>
       </div>
-      <How />
-      <Instagram />
     </Layout>
   );
 };

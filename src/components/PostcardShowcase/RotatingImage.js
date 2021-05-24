@@ -113,7 +113,7 @@ const RotatingPostcard = ({
           </MotionCoverContainer>
         </OverflowCoverWrapper>
         <ThreeDPostcard
-          postcardContainerRef={postcardContainerRef}
+          // postcardContainerRef={postcardContainerRef}
           // rotation={rotateY}
           frontImg={imgFront}
           backImg={imgBack}

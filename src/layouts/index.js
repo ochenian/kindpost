@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
 import { motion } from 'framer-motion';
+import { useLocation } from '@reach/router';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import Footer from '../components/footer';
 import Header from '../components/Header';
@@ -12,9 +13,10 @@ import BurgerMenu from '../components/Menu/Menu';
 
 import '../style/index.scss';
 
-const Layout = ({ children, siteName, headerClass, location }) => {
+const Layout = ({ children, siteName, headerClass }) => {
   const { showCart, toggleCart } = useContext(CartContext);
   const mobile = useMediaQuery('(max-width: 900px)');
+  const location = useLocation();
 
   return (
     <div>
@@ -84,7 +86,7 @@ const Layout = ({ children, siteName, headerClass, location }) => {
             margin: mobile ? '0' : '16px',
             flex: '1',
           }}
-          buttonWrapperClasses={'cookie-button-wrapper'}
+          buttonWrapperClasses="cookie-button-wrapper"
           buttonText="ACCEPT"
           buttonStyle={{
             background: 'none',
@@ -112,9 +114,11 @@ const Layout = ({ children, siteName, headerClass, location }) => {
           about your use of our site with our social media, advertising and
           analytics partners.
         </CookieConsent>
-        <div className="Wrap">
-          <Footer />
-        </div>
+        {!location.pathname.includes('shop') && (
+          <div className="Wrap">
+            <Footer />
+          </div>
+        )}
       </div>
     </div>
   );

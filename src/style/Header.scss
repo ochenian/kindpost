@@ -40,6 +40,13 @@
       }
     }
   }
+
+  &.scrolled {
+    background: #fff;
+    margin: 0;
+    padding: 2em;
+    transition: all 0.2s;
+  }
 }
 
 .Header__body {

@@ -53,7 +53,7 @@ const HeaderText = styled.h1`
   }
 `;
 
-const SubText = styled.p`
+const SubText = styled.div`
   font-size: 2rem;
   width: 100%;
   text-align: center;
@@ -305,7 +305,7 @@ const ParallaxSection = () => {
         <TextBlock>
           <HeaderText>Postcards, reimagined</HeaderText>
           <SubText>
-            No robots. No printers.{' '}
+            No robots. No printers.
             <div>Handwritten by humans for kindness.</div>
           </SubText>
           <a href="/shop">
