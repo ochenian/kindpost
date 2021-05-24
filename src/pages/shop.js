@@ -262,6 +262,11 @@ const RightSide = styled.div`
   }
 `;
 
+const Price = styled.h2`
+  font-size: 1.5rem;
+  font-family: 'Montserrat';
+`;
+
 const ProductPage = () => {
   const { showCart, toggleCart } = useContext(CartContext);
   const [soldOut, setSoldOut] = useState(false);
@@ -578,9 +583,6 @@ const ProductPage = () => {
   function onScroll() {
     const scrollY = window.scrollY; //Don't get confused by what's scrolling - It's not the window
     const scrollTop = rightSide.current.scrollTop;
-    console.log(
-      `onScroll, window.scrollY: ${scrollY} myRef.scrollTop: ${scrollTop}`,
-    );
     setScroll(scrollTop > 10);
   }
 
@@ -612,6 +614,7 @@ const ProductPage = () => {
 
           <RightSide onScroll={onScroll} ref={rightSide}>
             <ProductName>KINDPOST</ProductName>
+            <Price>$12</Price>
             <SubHeaderLabel>description</SubHeaderLabel>
             <Description>
               A kindpost is a carefully curated vintage postcard with a unique
