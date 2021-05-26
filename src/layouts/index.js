@@ -114,11 +114,9 @@ const Layout = ({ children, siteName, headerClass }) => {
           about your use of our site with our social media, advertising and
           analytics partners.
         </CookieConsent>
-        {!location.pathname.includes('shop') && (
-          <div className="Wrap">
-            <Footer />
-          </div>
-        )}
+        <div className="Wrap">
+          <Footer />
+        </div>
       </div>
     </div>
   );

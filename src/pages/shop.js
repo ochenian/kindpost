@@ -1,12 +1,9 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import { useSpring, animated } from 'react-spring';
 import 'react-medium-image-zoom/dist/styles.css';
 import styled from 'styled-components';
 // fetch the large, unoptimized version of the SDK
 import Client from 'shopify-buy/index.unoptimized.umd';
-import { motion, useAnimation } from 'framer-motion';
 import { useAddItemToCart, useCartItems } from 'gatsby-theme-shopify-manager';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -164,45 +161,22 @@ const SoldOut = styled(CtaButton)`
 `;
 
 const Note = styled.div`
-  // align-self: flex-end;
   max-width: 50ch;
   font-size: 0.75rem;
-  // position: absolute;
-  // top: 80%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   font-family: 'calluna';
   letter-spacing: 0.5px;
   width: 90%;
   margin-top: 64px;
-
-  // @media (min-width: 1500px) {
-  //   top: 75%;
-  // }
-
-  // @media (min-width: 1101px) and (max-width: 1499px) {
-  //   top: 60%;
-  // }
-
-  // @media (max-width: 1100px) {
-  //   top: 55%;
-  // }
-
-  // @media (max-width: 950px) {
-  //   top: 80%;
-  // }
 `;
 
 const ProductContainer = styled.div`
   display: flex;
   width: 100%;
   font-family: calluna;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
 
   @media (max-width: 950px) {
     flex-direction: column;
-    overflow: unset;
   }
 `;
 
@@ -215,9 +189,10 @@ const LeftSide = styled.div`
   position: relative;
   background: #fadbdb;
   padding: 64px;
+  height: 100vh;
 
   @media (max-width: 950px) {
-    padding: 128px 64px;
+    padding: 164px 64px;
   }
 `;
 
@@ -232,13 +207,11 @@ const RightSide = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
-  overflow: auto;
 
   padding: 8em 4em;
 
   @media (max-width: 950px) {
     padding: 64px;
-    overflow: unset;
   }
 
   @media (max-width: 450px) {
@@ -448,7 +421,6 @@ const ProductPage = () => {
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     rightSide.current.addEventListener('scroll', () => {
-      console.log(rightSide.current);
       setScroll(rightSide.current.scrollY > 10);
     });
   }, []);
@@ -526,6 +498,8 @@ const ProductPage = () => {
   }
 
   const postcardContainerRef = useRef();
+  const productContainerRef = useRef();
+  const leftSideRef = useRef();
 
   function onPostcardSelect(selected) {
     if (!flipped) {
@@ -586,14 +560,27 @@ const ProductPage = () => {
     setScroll(scrollTop > 10);
   }
 
+  useEffect(() => {
+    ScrollTrigger.matchMedia({
+      '(min-width: 950px)': () => {
+        ScrollTrigger.create({
+          trigger: productContainerRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          pin: leftSideRef.current,
+        });
+      },
+    });
+  });
+
   return (
     <Layout
       site={data.site.siteMetadata.siteName}
       headerClass={`Header light ${scroll ? 'scrolled' : ''}`}
     >
       <div>
-        <ProductContainer>
-          <LeftSide>
+        <ProductContainer ref={productContainerRef}>
+          <LeftSide ref={leftSideRef}>
             <StyledThreeDPostcard
               frontImg={selectedPostcard.imgFront}
               backImg={selectedPostcard.imgBack}
@@ -651,13 +638,19 @@ const ProductPage = () => {
             <AddresseeContainer>
               <SelectButton
                 className={`${selectedAddressee === 'me' ? 'selected' : ''}`}
-                onClick={() => setSelectedAddressee('me')}
+                onClick={() => {
+                  setSelectedAddressee('me');
+                  ScrollTrigger.refresh(true);
+                }}
               >
                 for me
               </SelectButton>
               <SelectButton
                 className={`${selectedAddressee === 'else' ? 'selected' : ''}`}
-                onClick={() => setSelectedAddressee('else')}
+                onClick={() => {
+                  setSelectedAddressee('else');
+                  ScrollTrigger.refresh(true);
+                }}
               >
                 for someone else
               </SelectButton>
@@ -674,7 +667,7 @@ const ProductPage = () => {
                       value={toInputValue}
                       onChange={handleToInputChange}
                       maxLength="50"
-                      placeholder="Who are we sending this to?"
+                      placeholder="Who should we list as the recipient? (e.g., Dinah)"
                     />
 
                     <SubHeaderLabel htmlFor="from">FROM</SubHeaderLabel>
@@ -684,7 +677,7 @@ const ProductPage = () => {
                       value={fromInputValue}
                       onChange={handleFromInputChange}
                       maxLength="50"
-                      placeholder="Who are we sending this from?"
+                      placeholder="Who should we list as the sender? (e.g., Alice)"
                     />
                   </>
                 )}
@@ -743,6 +736,8 @@ const ProductPage = () => {
             )}
           </RightSide>
         </ProductContainer>
+        <How />
+        <Instagram />
       </div>
     </Layout>
   );
