@@ -14,9 +14,8 @@ const Wrapper = styled.section`
   position: relative;
 
   width: 100%;
-  height: 75vh;
   background: #fff;
-  max-width: 1200px;
+  max-width: 2000px;
   margin: 0 auto;
 `;
 
@@ -58,8 +57,9 @@ const FollowText = styled.div`
 `;
 
 const MediaContainer = styled.div`
-  position: absolute;
   transition: all 0.25s;
+  width: 100%;
+  min-width: 200px;
 
   &:hover {
     filter: brightness(0.5);
@@ -68,69 +68,12 @@ const MediaContainer = styled.div`
       display: block;
     }
   }
-
-  &:first-of-type {
-    border-radius: 1rem 0 0 1rem;
-    height: 13rem;
-    right: 0;
-    top: 10rem;
-    width: 23rem;
-
-    @media (max-width: 600px) {
-          width: 9rem;
-    height: 7rem;
-    top: 1rem;
-}
-    }
-  }
-
-  &:nth-of-type(2) {
-    height: 14rem;
-    right: 14rem;
-    top: 22.8rem;
-    width: 12rem;
-
-    @media (max-width: 600px) {
-      width: 6rem;
-    height: 7rem;
-    right: 4rem;
-    top: 12rem;
-    }
-  }
-
-  &:nth-of-type(3) {
-    height: 16rem;
-    left: 6rem;
-    top: 6rem;
-    width: 13rem;
-    z-index: 1;
-
-    @media (max-width: 600px) {
-      height: 8rem;
-    width: 6rem;
-    left: 1rem;
-    top: 15rem;
-    }
-  }
-
-  &:nth-of-type(4) {
-    height: 13rem;
-    left: 1rem;
-    top: 24.3rem;
-    width: 23rem;
-
-    @media (max-width: 600px) {
-          width: 11rem;
-    height: 6rem;
-    top: 37rem;
-    }
-  }
 `;
 
 const StyledImg = styled(Img).attrs(({ dataSpeed }) => ({
   'data-speed': dataSpeed,
 }))`
-  border-radius: 1rem;
+  // border-radius: 1rem;
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -139,11 +82,19 @@ const StyledImg = styled(Img).attrs(({ dataSpeed }) => ({
   width: 100%;
 `;
 
+const PostsWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 96px;
+  position: relative;
+  overflow: auto;
+`;
+
 const Instagram = () => {
   const data = useStaticQuery(graphql`
     query InstaPhotos {
-      mtnSwitchback: file(
-        relativePath: { eq: "mountain_switchback_backlit.jpg" }
+      postcards_falling: file(
+        relativePath: { eq: "postcards_falling_alt_4.png" }
       ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
@@ -153,7 +104,7 @@ const Instagram = () => {
           }
         }
       }
-      cardAssembly: file(relativePath: { eq: "rocky_beach_on_the_rocks.jpg" }) {
+      cardAssembly: file(relativePath: { eq: "macaron_encouragement.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -162,7 +113,7 @@ const Instagram = () => {
           }
         }
       }
-      cardOnRock: file(relativePath: { eq: "harbor_on_the_rocks.jpg" }) {
+      cardOnRock: file(relativePath: { eq: "2021-05-24 - 5.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -171,7 +122,9 @@ const Instagram = () => {
           }
         }
       }
-      orangesGarden: file(relativePath: { eq: "oranges_in_the_garden.jpg" }) {
+      orangesGarden: file(
+        relativePath: { eq: "Lilacs and Trees - Cropped.jpg" }
+      ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -183,57 +136,29 @@ const Instagram = () => {
     }
   `);
 
-  useEffect(() => {
-    if (typeof window !== `undefined`) {
-      gsap.config({
-        nullTargetWarn: false,
-      });
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.core.globals('ScrollTrigger', ScrollTrigger);
-    }
+  // useEffect(() => {
+  //   if (typeof window !== `undefined`) {
+  //     gsap.config({
+  //       nullTargetWarn: false,
+  //     });
+  //     gsap.registerPlugin(ScrollTrigger);
+  //     gsap.core.globals('ScrollTrigger', ScrollTrigger);
+  //   }
 
-    gsap.to('.parallax', {
-      scrollTrigger: {
-        trigger: '#wrapper',
-        start: 'top bottom',
-        scrub: true,
-      },
-      y: (i, target) => {
-        return 200 * target.dataset.speed;
-      },
-      ease: 'none',
-    });
-  });
+  //   gsap.to('.parallax', {
+  //     scrollTrigger: {
+  //       trigger: '#wrapper',
+  //       start: 'top bottom',
+  //       scrub: true,
+  //     },
+  //     y: (i, target) => {
+  //       return 200 * target.dataset.speed;
+  //     },
+  //     ease: 'none',
+  //   });
+  // });
   return (
     <Wrapper id="wrapper">
-      <MediaContainer data-speed="1.5" className="parallax">
-        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
-          <MicroInstaLogo />
-          <StyledImg fluid={data.mtnSwitchback.childImageSharp.fluid} />
-        </a>
-      </MediaContainer>
-
-      <MediaContainer data-speed="-0.5" className="parallax">
-        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
-          <MicroInstaLogo />
-          <StyledImg fluid={data.cardAssembly.childImageSharp.fluid} />
-        </a>
-      </MediaContainer>
-
-      <MediaContainer data-speed="1" className="parallax">
-        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
-          <MicroInstaLogo />
-          <StyledImg fluid={data.cardOnRock.childImageSharp.fluid} />
-        </a>
-      </MediaContainer>
-
-      <MediaContainer data-speed="-2" className="parallax">
-        <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
-          <MicroInstaLogo />
-          <StyledImg fluid={data.orangesGarden.childImageSharp.fluid} />
-        </a>
-      </MediaContainer>
-
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <StyledInstaLogo />
       </a>
@@ -246,6 +171,35 @@ const Instagram = () => {
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <Hashtag>#kindpost</Hashtag>
       </a>
+      <PostsWrapper>
+        <MediaContainer data-speed="1.5" className="parallax">
+          <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+            <MicroInstaLogo />
+            <StyledImg fluid={data.orangesGarden.childImageSharp.fluid} />
+          </a>
+        </MediaContainer>
+
+        <MediaContainer data-speed="-0.5" className="parallax">
+          <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+            <MicroInstaLogo />
+            <StyledImg fluid={data.cardAssembly.childImageSharp.fluid} />
+          </a>
+        </MediaContainer>
+
+        <MediaContainer data-speed="1" className="parallax">
+          <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+            <MicroInstaLogo />
+            <StyledImg fluid={data.cardOnRock.childImageSharp.fluid} />
+          </a>
+        </MediaContainer>
+
+        <MediaContainer data-speed="-2" className="parallax">
+          <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
+            <MicroInstaLogo />
+            <StyledImg fluid={data.postcards_falling.childImageSharp.fluid} />
+          </a>
+        </MediaContainer>
+      </PostsWrapper>
     </Wrapper>
   );
 };

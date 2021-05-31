@@ -4,7 +4,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RotatingPostcard from './RotatingImage';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
+import CircularLogo from '../../assets/svg/kp_circular.svg';
+import ThumbnailLogo from '../../assets/svg/KP_Thumbnail_black-pink.svg';
 
 const Container = styled.div`
   font-family: 'proxima-nova';
@@ -16,6 +17,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  background: #ffecef;
 `;
 
 const ShopNowBtn = styled.a`
@@ -26,19 +29,20 @@ const ShopNowBtn = styled.a`
   color: #d4004c;
   cursor: pointer;
   transition: 0.5s all ease-out;
-  border: 1px solid #d4004c;
+  border: 2px solid #d4004c;
   width: fit-content;
   margin-top: auto;
   margin-bottom: 3em;
   position: relative;
   z-index: 10;
-  box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
+  // box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
   text-transform: uppercase;
+  font-family: 'tk-futura-pt-n7';
 
   :hover {
     color: #fff;
     background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
-    border: 1px solid transparent;
+    border: 2px solid transparent;
   }
 `;
 
@@ -50,10 +54,62 @@ const TrimContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+
+  position: absolute;
+  z-index: 100;
+`;
+
+const CardWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
+const StyledCircularLogo = styled(CircularLogo)`
+  position: absolute;
+  top: 48px;
+  right: 48px;
+  width: 10%;
+
+  text {
+    fill: #000;
+  }
+
+  @media (max-width: 800px) {
+    width: 20%;
+    top: 32px;
+    right: 32px;
+  }
+
+  @media (max-width: 500px) {
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%) !important;
+  }
+`;
+
+const StyledThumbnailLogo = styled(ThumbnailLogo)`
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  width: 5%;
+
+  @media (max-width: 800px) {
+    width: 10%;
+    top: 32px;
+    left: 32px;
+  }
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const Showcase = () => {
-  const mobile = useMediaQuery('(max-width: 1215px)');
   const data = useStaticQuery(graphql`
     query Postcards3Query {
       postcardOrangesImg: file(relativePath: { eq: "Oranges.jpg" }) {
@@ -216,104 +272,111 @@ const Showcase = () => {
 
   useEffect(() => {
     const postcards = gsap.utils.toArray('.postcard');
-    postcards.forEach(card => {
-      ScrollTrigger.matchMedia({
-        // desktop
-        '(min-width: 800px)': function() {
-          // setup animations and ScrollTriggers for screens 800px wide or greater (desktop) here...
-          // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: card.querySelector('.postcardContainer'),
-                start: 'top center',
-                end: 'top top',
-                scrub: 1,
-              },
-            })
-            .to(card.querySelector('.imageCover'), {
-              translateY: '105%',
-            })
-            .to(
-              card.querySelector('.postcardContainer'),
-              {
-                rotateY: -180,
-                ease: 'back',
-              },
-              '>',
-            );
-        },
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top top',
+        end: '+=400%',
+        pin: true,
+        scrub: true,
+      },
+    });
 
-        // mobile
-        '(max-width: 799px)': function() {
-          // The ScrollTriggers created inside these functions are segregated and get
-          // reverted/killed when the media query doesn't match anymore.
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: card.querySelector('.postcardContainer'),
-                start: 'top bottom-=10%',
-                end: 'top top',
-                scrub: 1,
-              },
-            })
-            .to(card.querySelector('.imageCover'), {
-              translateY: '105%',
-            })
-            .to(
-              card.querySelector('.postcardContainer'),
-              {
-                rotateY: -180,
-                ease: 'back',
-              },
-              '>',
-            );
-        },
-      });
+    postcards.forEach((card, i) => {
+      if (i !== 0) {
+        gsap.set(card, {
+          translateY: `100vh`,
+        });
+
+        timeline.add(
+          gsap.to(card, {
+            translateY: '0%',
+          }),
+        );
+      }
+
+      timeline.add(
+        gsap.to(card.querySelector('.imageCover'), {
+          translateY: '105%',
+        }),
+      );
+      timeline.add(
+        gsap.to(
+          card.querySelector('.postcardContainer'),
+          {
+            rotateY: -180,
+            ease: 'back',
+          },
+          '>',
+        ),
+      );
+
+      if (i !== 3) {
+        timeline.add(
+          gsap.to(card, {
+            translateY: '-105vh',
+          }),
+        );
+      }
+    });
+  });
+
+  useEffect(() => {
+    gsap.to('.circular', {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top top',
+        end: '+=400%',
+        scrub: true,
+      },
+      rotateZ: 360,
     });
   });
 
   return (
     <Container ref={containerRef}>
-      <TrimContainer ref={postcardRef} className="postcard">
-        <StyledRotatingPostcard
-          imageCoverRef={imageCoverRef}
-          postcardContainerRef={postcardContainerRef}
-          index="Congratulations"
-          imgFront={data.postcardOrangesImg.childImageSharp.fluid}
-          imgBack={data.postcardCongratulationsImg.childImageSharp.fluid}
-          imgReveal={data.postcardOrangesReveal.childImageSharp.fluid}
-        />
-      </TrimContainer>
-      <TrimContainer ref={lovePostcardRef} className="postcard">
-        <StyledRotatingPostcard
-          imageCoverRef={loveImageCoverRef}
-          postcardContainerRef={lovePostcardContainerRef}
-          imgFront={data.postcardTwilightImg.childImageSharp.fluid}
-          imgBack={data.postcardLoveImg.childImageSharp.fluid}
-          imgReveal={data.postcardLoveReveal.childImageSharp.fluid}
-        />
-      </TrimContainer>
-      <TrimContainer ref={encouragePostcardRef} className="postcard">
-        <StyledRotatingPostcard
-          imageCoverRef={encourageImageCoverRef}
-          postcardContainerRef={encouragePostcardContainerRef}
-          imgFront={data.postcardRedwoodsImg.childImageSharp.fluid}
-          imgBack={data.postcardEncouragementImg.childImageSharp.fluid}
-          imgReveal={data.postcardEncouragementReveal.childImageSharp.fluid}
-        />
-      </TrimContainer>
-      <TrimContainer ref={birthdayPostcardRef} className="postcard">
-        <StyledRotatingPostcard
-          imageCoverRef={birthdayImageCoverRef}
-          postcardContainerRef={birthdayPostcardContainerRef}
-          imgFront={data.postcardWavesImg.childImageSharp.fluid}
-          imgBack={data.postcardBirthdayImg.childImageSharp.fluid}
-          imgReveal={data.birthdayReveal.childImageSharp.fluid}
-        />
-      </TrimContainer>
-
-      <ShopNowBtn href="/shop">Shop</ShopNowBtn>
+      <StyledThumbnailLogo />
+      <CardWrapper className="card-wrapper">
+        <TrimContainer ref={postcardRef} className="postcard">
+          <StyledRotatingPostcard
+            imageCoverRef={imageCoverRef}
+            postcardContainerRef={postcardContainerRef}
+            index="Congratulations"
+            imgFront={data.postcardOrangesImg.childImageSharp.fluid}
+            imgBack={data.postcardCongratulationsImg.childImageSharp.fluid}
+            imgReveal={data.postcardOrangesReveal.childImageSharp.fluid}
+          />
+        </TrimContainer>
+        <TrimContainer ref={lovePostcardRef} className="postcard">
+          <StyledRotatingPostcard
+            imageCoverRef={loveImageCoverRef}
+            postcardContainerRef={lovePostcardContainerRef}
+            imgFront={data.postcardTwilightImg.childImageSharp.fluid}
+            imgBack={data.postcardLoveImg.childImageSharp.fluid}
+            imgReveal={data.postcardLoveReveal.childImageSharp.fluid}
+          />
+        </TrimContainer>
+        <TrimContainer ref={encouragePostcardRef} className="postcard">
+          <StyledRotatingPostcard
+            imageCoverRef={encourageImageCoverRef}
+            postcardContainerRef={encouragePostcardContainerRef}
+            imgFront={data.postcardRedwoodsImg.childImageSharp.fluid}
+            imgBack={data.postcardEncouragementImg.childImageSharp.fluid}
+            imgReveal={data.postcardEncouragementReveal.childImageSharp.fluid}
+          />
+        </TrimContainer>
+        <TrimContainer ref={birthdayPostcardRef} className="postcard">
+          <StyledRotatingPostcard
+            imageCoverRef={birthdayImageCoverRef}
+            postcardContainerRef={birthdayPostcardContainerRef}
+            imgFront={data.postcardWavesImg.childImageSharp.fluid}
+            imgBack={data.postcardBirthdayImg.childImageSharp.fluid}
+            imgReveal={data.birthdayReveal.childImageSharp.fluid}
+          />
+        </TrimContainer>
+        <ShopNowBtn href="/shop">Shop</ShopNowBtn>
+      </CardWrapper>
+      <StyledCircularLogo className="circular" />
     </Container>
   );
 };

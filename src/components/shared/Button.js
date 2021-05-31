@@ -11,7 +11,7 @@ const CtaButton = styled.button`
     props.inverse ? colors.brandDark : colors.lightest}; */
   /* border: 1px solid
     ${props => (props.inverse ? colors.brandLight : colors.brand)}; */
-  border: 1px solid #fff;
+  border: 2px solid #fff;
 
   border-radius: ${radius.default}px;
   color: #fff;
@@ -21,7 +21,7 @@ const CtaButton = styled.button`
   font-family: ${fonts.heading};
   font-size: 1.1rem;
   justify-content: center;
-  padding: 1em 3em;
+  padding: 1em 2em;
   transition: 0.5s;
   text-transform: uppercase;
   // letter-spacing: 6px;
@@ -29,6 +29,8 @@ const CtaButton = styled.button`
   // font-family: 'Montserrat';
     text-transform: uppercase;
     // border-radius: 8px;
+  font-family: 'tk-futura-pt-n7';
+  letter-spacing: 2px;
 
   :focus {
     box-shadow: 0 0 0 3px ${colors.accent};
@@ -55,7 +57,7 @@ const CtaButton = styled.button`
 , rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
       // border: 1px solid ${colors.brand};
-      border: 1px solid transparent;
+      border: 2px solid transparent;
     }
   }
 `;

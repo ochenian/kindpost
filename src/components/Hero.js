@@ -30,24 +30,7 @@ const SocialIcons = styled.div`
   }
 `;
 
-const StyledTwitterLogo = styled(TwitterLogo)`
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-
-  .cls-1 {
-    fill: none;
-  }
-
-  :hover {
-    .cls-2 {
-      fill: #d4004c;
-    }
-  }
-`;
-
 const StyledInstaLogo = styled(InstaLogo)`
-  margin: 6px 24px;
   fill: #fff;
   cursor: pointer;
 
@@ -59,7 +42,7 @@ const StyledInstaLogo = styled(InstaLogo)`
 const Description = styled.div`
   letter-spacing: 2px;
   font-size: 1.25rem;
-  font-family: 'skolar latin';
+  font-family: 'bicyclette';
   line-height: 1.5;
   margin-bottom: 2em;
   width: calc(100% - 32px);
@@ -104,15 +87,15 @@ const SendYourText = styled.div`
 
 const ANewWayText = styled.div`
   overflow: hidden;
-  font-size: 2em;
   letter-spacing: 0.18em;
   margin-bottom: 16px;
   font-weight: bold;
   text-transform: uppercase;
-  font-family: 'Montserrat';
+  font-family: 'tk-futura-pt-bold-n7';
+  font-size: 1.25rem;
 
   @media (max-width: 600px) {
-    font-size: 24px;
+    font-size: 1rem;
   }
 
   margin-bottom: 0.5em;
@@ -178,7 +161,8 @@ const Hero = () => {
       animation: 'fade',
     },
   ];
-  const clVideo = data.allCloudinaryMedia.edges[0];
+
+  const clVideo = data.allCloudinaryMedia.edges[2];
 
   const logoRef = useRef();
   const rotatorTextRef = useRef();
@@ -284,7 +268,7 @@ const Hero = () => {
           </Description>
 
           <a href="/shop">
-            <CtaButton>send</CtaButton>
+            <CtaButton>send a kindpost</CtaButton>
           </a>
         </div>
         <video
@@ -297,9 +281,6 @@ const Hero = () => {
         />
       </div>
       <SocialIcons>
-        <a href="https://twitter.com/kindpostco" aria-label="Twitter">
-          <StyledTwitterLogo />
-        </a>
         <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
           <StyledInstaLogo />
         </a>

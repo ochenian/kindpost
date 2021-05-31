@@ -7,11 +7,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CtaButton from './shared/Button';
 
 const SectionWrapper = styled.section`
-  width: calc(100% - 32px);
+  width: 100%;
   max-width: 1800px;
   padding: 1rem;
-  margin: 1.5rem auto;
-  border-radius: 16px;
+  // margin: 96px 0;
 
   background: linear-gradient(180deg, #d4004c2e, #ffffff, #d4004c2e);
   position: relative;
@@ -26,7 +25,7 @@ const TextBlock = styled.div`
 
   padding: 1rem;
   width: 100%;
-  color: #172345;
+  color: #282828;
   position: relative;
   z-index: 10;
 `;
@@ -35,7 +34,7 @@ const HeaderText = styled.h1`
   font-size: 5rem;
   width: 100%;
   text-align: center;
-  font-family: 'proxima-nova';
+  font-family: 'futura-pt';
   font-weight: 600;
   line-height: 1.25;
 
@@ -57,6 +56,7 @@ const SubText = styled.div`
   font-size: 2rem;
   width: 100%;
   text-align: center;
+  font-family: 'bicyclette';
 
   margin-bottom: 2rem;
 
@@ -70,10 +70,11 @@ const SubText = styled.div`
 `;
 
 const StyledCtaButton = styled(CtaButton)`
-  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
-  border: none;
   letter-spacing: 0;
-  border-radius: 16px;
+  background: transparent;
+  border: 2px solid #d4004c;
+  color: #d4004c;
+  font-family: 'tk-futura-pt-n7';
 
   @media (max-width: 600px) {
     padding: 16px;
@@ -81,7 +82,7 @@ const StyledCtaButton = styled(CtaButton)`
 
   &&:hover {
     background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
-    border: none;
+    border: 1px solid transparent;
   }
 `;
 

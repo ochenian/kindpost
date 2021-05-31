@@ -92,7 +92,7 @@ const monospaceFontStack = [
 
 export const fonts = {
   body: defaultFontStack,
-  heading: `Montserrat, ${defaultFontStack}`,
+  heading: `tk-futura-pt-bold-n7, ${defaultFontStack}`,
   monospace: monospaceFontStack,
 };
 

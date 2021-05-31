@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  border-bottom: 1px solid #f5bc5e;
+  border-bottom: 1px solid #f0c379;
   padding: 40px 0;
 
   &:first-of-type {
-    border-top: 1px solid #f5bc5e;
+    border-top: 1px solid #f0c379;
   }
 `;
 
@@ -32,12 +32,12 @@ const Body = styled(motion.div)`
 
   a {
     margin: 1px;
-    color: #f5bc5e;
+    color: #f0c379;
   }
 `;
 
 const Icon = styled.span`
-  color: #f5bc5e;
+  color: #f0c379;
   font-size: 2rem;
 `;
 

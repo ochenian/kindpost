@@ -12,8 +12,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fdfbf5;
-  padding: 8em 0;
+  height: 100vh;
 `;
 const CopyWrapper = styled.div`
   display: flex;
@@ -44,29 +43,6 @@ const ImgContainer = styled.div`
     margin-bottom: 1rem;
   }
 `;
-const ImgBackground = styled.div`
-  position: absolute;
-  width: 75%;
-  height: 75%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  background: pink;
-`;
-
-const StyledCircle = styled(Circle)`
-  position: absolute;
-  width: 100%;
-  height: 150%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  fill: pink;
-`;
 
 const YouMatterImg = styled(Img)`
   width: 100%;
@@ -76,7 +52,7 @@ const YouMatterImg = styled(Img)`
 const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: 'proxima-nova';
+  font-family: 'futura-pt';
   margin: 0 auto;
   max-width: 600px;
   padding-left: 32px;
@@ -90,9 +66,8 @@ const TextBlock = styled.div`
   }
 `;
 const Text = styled.div`
-  width: 40ch;
-  font-family: 'skolar latin';
-  // margin-bottom: 0.5rem;
+  width: 50ch;
+  font-family: 'bicyclette';
   margin: 1em 0 2em 0;
   @media (max-width: 1024px) {
     width: 65vw;
@@ -103,7 +78,6 @@ const HeadText = styled.div`
   font-size: 3rem;
   font-weight: bold;
   color: #282828;
-  text-transform: uppercase;
   line-height: 1.2;
 
   @media (max-width: 1024px) {
@@ -112,32 +86,22 @@ const HeadText = styled.div`
   }
 `;
 
-const Link = styled.a`
-  display: flex;
-    margin-top: 1rem;
-    letter-spacing: 1px;
-    font-size: 1rem;
-    // text-transform: uppercase;
-}
-`;
-
 const ShopNowBtn = styled.a`
   padding: 12px 32px;
-  // font-size: 1.25rem;
   background: transparent;
   border-color: #d4004c;
   color: #d4004c;
   cursor: pointer;
   transition: 0.5s all ease-out;
-  border: 1px solid #d4004c;
+  border: 2px solid #d4004c;
   width: fit-content;
   text-transform: uppercase;
+  font-family: 'tk-futura-pt-n7';
 
   :hover {
     color: #fff;
-    // background: linear-gradient(180deg, #d4004c 0%, #f40075 100%);
     background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
-    border: 1px solid transparent;
+    border: 2px solid transparent;
   }
 `;
 
@@ -155,9 +119,7 @@ const YouMatter = () => {
           }
         }
       }
-      fancyYouMatterImg: file(
-        relativePath: { eq: "postcards_envelope_mirror_hi.png" }
-      ) {
+      fancyYouMatterImg: file(relativePath: { eq: "Bicycling.jpg" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
@@ -198,8 +160,6 @@ const YouMatter = () => {
     }
   `);
 
-  const youDeserveImgRef = useRef();
-  const youDeserveTextRef = useRef();
   const copyWrapperRef = useRef();
 
   useEffect(() => {
@@ -229,53 +189,22 @@ const YouMatter = () => {
 
   return (
     <Wrapper>
-      <CopyWrapper
-        mobile={mobile}
-        ref={copyWrapperRef}
-        style={{ marginBottom: '8em' }}
-      >
+      <CopyWrapper mobile={mobile} ref={copyWrapperRef}>
         <ImgContainer className="blurb-img">
-          <YouMatterImg fluid={data.postcardFront.childImageSharp.fluid} />
+          <YouMatterImg fluid={data.youMatterImg.childImageSharp.fluid} />
         </ImgContainer>
+
+        {/* <YouMatterImg fluid={data.fancyYouMatterImg.childImageSharp.fluid} /> */}
 
         <TextBlock className="blurb-text">
-          <HeadText>Vintage</HeadText>
-          <HeadText>Postcards</HeadText>
+          <HeadText>A Sharing of Support</HeadText>
           <Text>
-            Each kindpost starts with a selection from our curated collection of
-            beautiful linen + chrome vintage postcards.
+            Whether you want to brighten someone's day, or just need a
+            pick-me-up. One kindpost can make all the difference. Let's all
+            support one another.
           </Text>
-          {/* <div style={{ fontWeight: 'bold', margin: '1rem 0' }}>
-            We&apos;ve got you.
-          </div> */}
           <ShopNowBtn href="/shop">Shop</ShopNowBtn>
         </TextBlock>
-      </CopyWrapper>
-      <CopyWrapper
-        mobile={mobile}
-        style={{
-          paddingLeft: 0,
-        }}
-      >
-        <TextBlock
-          className="blurb-text"
-          style={{ right: 0, zIndex: 10, width: '40%' }}
-        >
-          <HeadText>Positively</HeadText>
-          <HeadText>Handwritten</HeadText>
-          <Text>
-            All kindposts include a message of positivity uniquely created +
-            hand-lettered by our team.
-          </Text>
-          {/* <div style={{ fontWeight: 'bold', margin: '1rem 0' }}>
-            We&apos;ve got you.
-          </div> */}
-          <ShopNowBtn href="/shop">Shop</ShopNowBtn>
-        </TextBlock>
-
-        <ImgContainer className="blurb-img">
-          <YouMatterImg fluid={data.postcardBack.childImageSharp.fluid} />
-        </ImgContainer>
       </CopyWrapper>
     </Wrapper>
   );

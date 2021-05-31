@@ -35,6 +35,10 @@ const ImageContainer = styled.div`
     // padding: 128px 296px 182px 296px;
     margin: 0 auto;
   }
+
+  @media (max-width: 500px) {
+    padding: 96px 32px;
+  }
 `;
 
 const ImageCoverAnchor = styled.div`

@@ -38,6 +38,7 @@ export default () => {
       <Showcase />
       {/* <ShowcaseFullPage /> */}
       {/* <FullBleed /> */}
+      <YouMatter />
       <ParallaxSection />
       <QuoteBlock />
       <Instagram />
