@@ -11,6 +11,7 @@ import YouMatter from '../components/YouMatter';
 import Instagram from '../components/Instagram';
 import FullBleed from '../components/FullBleed';
 import ParallaxSection from '../components/ParallaxSection';
+import Elevator from '../components/Elevator';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -33,6 +34,7 @@ export default () => {
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
       <Hero />
+      <Elevator />
       <How />
       {/* <YouMatter /> */}
       <Showcase />

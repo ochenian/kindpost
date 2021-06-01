@@ -23,7 +23,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 96px;
+  margin: 48px 96px 96px;
 
   @media (max-width: 800px) {
     height: 100%;
