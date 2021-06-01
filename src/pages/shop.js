@@ -50,14 +50,14 @@ const SelectButton = styled(CtaButton)`
   &&& {
     margin: 12px 0 0 12px;
     color: #f40075;
-    border: 1px solid #f40075;
+    border: 2px solid #f40075;
     letter-spacing: 2px;
     border-radius: 0;
 
     &.selected {
       background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
     }
   }
 `;
@@ -82,7 +82,7 @@ const AddresseeContainer = styled.div`
     &.selected {
       background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
       color: #fff;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
     }
   }
 
@@ -100,7 +100,7 @@ const AddresseeInfoContainer = styled.div`
     transiton: 0.5s all;
     padding: 1em 3em;
     font-size: 1.1rem;
-    border: 1px solid #f40075;
+    border: 2px solid #f40075;
     letter-spacing: 0.5px;
     margin-bottom: 2rem;
 
@@ -114,7 +114,7 @@ const AddresseeInfoContainer = styled.div`
     transiton: 0.5s all;
     padding: 1em 3em;
     font-size: 1.1rem;
-    border: 1px solid #f40075;
+    border: 2px solid #f40075;
     letter-spacing: 0.5px;
     margin-bottom: 1rem;
 
@@ -141,7 +141,7 @@ const SpecialRequestsDisclaimer = styled.div`
 const Checkout = styled(CtaButton)`
   &&& {
     color: #f40075;
-    border: 1px solid #f40075;
+    border: 2px solid #f40075;
     letter-spacing: 2px;
     max-width: 316px;
     text-decoration: none;
