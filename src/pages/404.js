@@ -203,6 +203,10 @@ const FastFlicker = styled.span`
   animation: ${shine} 2s forwards, ${blink} 10s 1s infinite;
 `;
 
+const MediumFlicker = styled.span`
+  animation: ${shine} 2s forwards, ${blink} 6.5s 1.5s infinite;
+`;
+
 const SlowFlicker = styled.span`
   animation: ${shine} 2s forwards, ${blink} 3s 2s infinite;
 `;
@@ -234,7 +238,7 @@ const NotFoundPage = () => (
         <SlowFlicker>p</SlowFlicker>
         ost
         <Heart>
-          <SlowFlicker>&hearts; </SlowFlicker>
+          <MediumFlicker>&hearts; </MediumFlicker>
         </Heart>
       </Sign>
       <Sign>
