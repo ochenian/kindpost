@@ -6,13 +6,15 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    siteName: ' kindpost',
+    siteName: 'kindpost',
+    siteUrl: 'https://www.kindpostco.com',
   },
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-anchor-links',
+    'gatsby-plugin-advanced-sitemap',
     {
       resolve: 'gatsby-plugin-anchor-links',
       options: { offset: -100 },
