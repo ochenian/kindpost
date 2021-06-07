@@ -37,7 +37,7 @@ const Subtitle = styled.div`
 const QuestionsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: calc(100% - 192px);
   height: 100%;
   margin-bottom: 200px;
 `;
