@@ -4,11 +4,7 @@ import styled from 'styled-components';
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 96px;
-  // position: absolute;
-  // left: 50%;
-  // transform: translateX(-50%);
-  // top: 0;
+  margin-bottom: 128px;
 }
 `;
 

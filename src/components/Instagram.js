@@ -17,6 +17,7 @@ const Wrapper = styled.section`
   background: #fff;
   max-width: 2000px;
   margin: 0 auto;
+  padding: 5em 0;
 `;
 
 const Hashtag = styled.div`
@@ -86,7 +87,7 @@ const PostsWrapper = styled.div`
   display: flex;
   gap: 32px;
   width: 100%;
-  margin: 96px 0;
+  margin-top: 96px;
   position: relative;
   overflow: auto;
 `;

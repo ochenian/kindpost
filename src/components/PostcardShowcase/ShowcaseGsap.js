@@ -8,7 +8,7 @@ import CircularLogo from '../../assets/svg/kp_circular.svg';
 import ThumbnailLogo from '../../assets/svg/KP_Thumbnail_black-pink.svg';
 
 const Container = styled.div`
-  font-family: 'proxima-nova';
+  font-family: 'futura-pt';
 
   position: relative;
   overflow: hidden;

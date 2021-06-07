@@ -16,7 +16,7 @@ const Background = styled.div`
   margin: 0 auto;
   width: 100%;
   background: #d4004c12;
-  padding: 3em;
+  padding: 5em;
 
   // @media (max-width: 650px) {
   //   padding: 3em;
