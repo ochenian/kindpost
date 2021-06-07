@@ -6,7 +6,7 @@
 // #FF1654
 
 .Header {
-  font-family: Montserrat;
+  font-family: futura-pt;
   color: #fff;
 
   position: absolute;
@@ -53,12 +53,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - 128px);
-  margin: 0 auto;
-  font-family: 'tk-futura-pt-n7';
+  font-family: 'futura-pt';
+  margin: 0 96px;
 
   @media (max-width: 900px) {
-    width: calc(100% - 32px);
+    margin: 0 64px;
   }
 }
 

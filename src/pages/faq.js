@@ -22,30 +22,16 @@ const Title = styled.p`
   position: relative;
   text-align: center;
   margin: 0 auto;
-  // margin: 2em 0;
   margin-top: 200px;
   font-size: 1.75em;
-  // text-transform: lowercase;
   letter-spacing: 4px;
   width: fit-content;
-  // font-style: italic;
-  // font-family: 'tk-orpheuspro-n7';
-  font-family: 'calluna';
-  font-weight: bold;
-
-  // &:before {
-  //   content: '';
-  //   position: absolute;
-  //   left: 33%;
-  //   bottom: -8px;
-  //   height: 1px;
-  //   width: 25%;
-  //   border-bottom: 2px solid #f5bc5e;
-  // }
+  font-family: 'futura-pt';
 `;
 
 const Subtitle = styled.div`
   margin-bottom: 100px;
+  font-family: 'futura-pt';
 `;
 
 const QuestionsContainer = styled.div`

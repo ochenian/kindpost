@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ButtonLink from './ButtonLink';
+import CtaButton from '../components/shared/Button';
 
 const Background = styled.div`
-  height: 75vh;
   font-size: 1.5rem;
   font-family: 'calluna';
   text-align: center;
@@ -13,21 +13,42 @@ const Background = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // background: #ffb5c23d;
   margin: 0 auto;
-  border-radius: 12px;
-  width: 90%;
+  width: 100%;
+  background: #d4004c12;
+  padding: 3em;
 
-  @media (max-width: 650px) {
-    padding: 3em 0;
-    height: auto;
-  }
+  // @media (max-width: 650px) {
+  //   padding: 3em;
+  // }
 `;
 
-const Quote = styled.p`
+const Quote = styled.blockquote`
   margin-bottom: 1em;
   width: calc(100% - 72px);
-  max-width: 50ch;
+  max-width: 54ch;
+  font-family: 'Averia Serif Libre';
+
+  &:before,
+  &:after {
+    position: absolute;
+    color: #d4004c1f;
+    font-size: 8rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &:before {
+    content: '“';
+    left: 0rem;
+    top: -4rem;
+  }
+
+  &:after {
+    content: '”';
+    right: -1rem;
+    bottom: 0rem;
+  }
 `;
 
 const Signature = styled.div`
@@ -37,6 +58,7 @@ const Signature = styled.div`
 
 const SignatureTitle = styled.div`
   font-size: 0.75em;
+  font-family: 'futura-pt';
 `;
 
 const StoryLink = styled.div`
@@ -54,6 +76,12 @@ const StyledButtonLink = styled(ButtonLink)`
 
 const PinkText = styled.span`
   color: #d4004c;
+`;
+
+const StyledCtaButton = styled(CtaButton)`
+  margin-top: 3rem;
+  border-color: #282828;
+  color: #282828;
 `;
 
 const QuoteBlock = () => {
@@ -79,21 +107,17 @@ const QuoteBlock = () => {
   return (
     <Background>
       <Quote className="fadeIn">
-        “Whether it’s a pick-me-up, <PinkText>inspiration</PinkText>, or a
+        Whether it’s a pick-me-up, <PinkText>inspiration</PinkText>, or a
         message of <PinkText>empowerment</PinkText>, our goal is promoting a
         sense of <PinkText>hope</PinkText> and building{' '}
         <PinkText>connection</PinkText> through the transformative nature
         of&nbsp;
-        <PinkText>kindness</PinkText>.”
+        <PinkText>kindness</PinkText>.
       </Quote>
 
       <Signature className="fadeIn">Cate</Signature>
       <SignatureTitle className="fadeIn">Founder / CEO</SignatureTitle>
-      <StyledButtonLink color="rgb(40,40,40)">
-        <a className="fadeIn" href="/about">
-          <StoryLink>Read Our Story</StoryLink>
-        </a>
-      </StyledButtonLink>
+      <StyledCtaButton>Read Our Story</StyledCtaButton>
     </Background>
   );
 };

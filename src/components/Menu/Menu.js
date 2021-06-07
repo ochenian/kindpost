@@ -8,7 +8,7 @@ import '@animated-burgers/burger-squeeze/dist/styles.css';
 const styles = {
   bmBurgerButton: {
     position: 'absolute',
-    left: '24px',
+    left: '64px',
     top: '32px',
     width: '36px',
     height: '36px',
@@ -29,7 +29,7 @@ const styles = {
     background: 'linear-gradient(100deg, #f80759, #bc4e9c)',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em',
-    fontFamily: 'Montserrat',
+    fontFamily: 'futura-pt',
     textTransform: 'uppercase',
     fontWeight: 'bold',
   },

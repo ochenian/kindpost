@@ -34,15 +34,39 @@ export default () => {
   return (
     <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
       <Hero />
-      <Elevator />
+      {/* <Elevator /> */}
       <How />
       {/* <YouMatter /> */}
+      {/* <div
+        style={{
+          background: 'linear-gradient(180deg, #fff, #d4004c12)',
+          height: '96px',
+        }}
+      /> */}
       <Showcase />
+      {/* <div
+        style={{
+          background: 'linear-gradient(180deg, #d4004c12, #fff)',
+          height: '96px',
+        }}
+      /> */}
       {/* <ShowcaseFullPage /> */}
       {/* <FullBleed /> */}
       <YouMatter />
-      <ParallaxSection />
+      {/* <ParallaxSection /> */}
+      {/* <div
+        style={{
+          background: 'linear-gradient(180deg, #fff, #d4004c12)',
+          height: '96px',
+        }}
+      /> */}
       <QuoteBlock />
+      {/* <div
+        style={{
+          background: 'linear-gradient(180deg, #d4004c12, #fff)',
+          height: '96px',
+        }}
+      /> */}
       <Instagram />
     </Layout>
   );

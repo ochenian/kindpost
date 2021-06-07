@@ -10,13 +10,10 @@ import InstaLogo from '../assets/svg/insta_icon.svg';
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-around;
-  // flex-wrap: wrap;
   color: rgb(242, 235, 229);
-  font-family: 'Montserrat';
+  font-family: 'futura-pt';
   background: #282828;
-  // align-items: center;
-  padding: 6em 3em;
+  padding: 6em;
   text-transform: uppercase;
 
   a {
@@ -26,13 +23,18 @@ const Wrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    padding: 4em;
   }
 `;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 3em;
+  margin-right: 6em;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 `;
 
 const MobileLinksSection = styled.section`
@@ -74,7 +76,7 @@ const LinksSection = styled.div`
 `;
 
 const PrivacyText = styled.p`
-  font-size: 0.5rem;
+  font-size: 0.75rem;
 `;
 
 const SectionHeader = styled.div`
@@ -116,7 +118,7 @@ const EmailContainer = styled.div`
     cursor: pointer;
     letter-spacing: 0.1em;
     // font-family: 'Averia Serif Libre';
-    font-family: 'Montserrat';
+    font-family: 'futura-pt';
     padding: 11px;
     height: 40px;
   }
@@ -248,10 +250,10 @@ const Footer = () => {
                   maxWidth: '50px',
                 }}
               />
-              <div style={{ fontSize: '0.5rem' }}>
+              <div style={{ fontSize: '0.75rem' }}>
                 made with ♡ in california
               </div>
-              <div style={{ fontSize: '0.5rem' }}>
+              <div style={{ fontSize: '0.75rem' }}>
                 &copy; {new Date().getFullYear()} kindpost llc. all rights
                 reserved.
               </div>

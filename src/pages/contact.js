@@ -52,13 +52,14 @@ const StyledTextSection = styled.div`
   flex-direction: column;
   margin-bottom: 2em;
 
+  font-family: 'futura-pt';
+
   &:last-of-type {
     margin-bottom: 0;
   }
 
   a {
     color: #d4004c;
-    font-weight: bold;
     font-size: 1.25rem;
   }
 `;

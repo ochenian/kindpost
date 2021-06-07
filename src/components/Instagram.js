@@ -46,7 +46,7 @@ const MicroInstaLogo = styled(InstaLogo)`
 
 const FollowText = styled.div`
   font-size: 2rem;
-  font-family: 'Montserrat';
+  font-family: 'futura-pt';
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 2rem;
@@ -84,8 +84,9 @@ const StyledImg = styled(Img).attrs(({ dataSpeed }) => ({
 
 const PostsWrapper = styled.div`
   display: flex;
+  gap: 32px;
   width: 100%;
-  margin-top: 96px;
+  margin: 96px 0;
   position: relative;
   overflow: auto;
 `;

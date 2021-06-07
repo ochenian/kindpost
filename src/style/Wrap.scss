@@ -14,7 +14,7 @@
     background: #ff1654;
     color: #fff;
     padding: 0.25em 1em;
-    font-family: 'Montserrat';
+    font-family: 'futura-pt';
     font-size: 0.75em;
     justify-content: space-around;
 
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     // position: relative;
-    font-family: Montserrat;
+    font-family: futura-pt;
 
     position: absolute;
     width: calc(100vh * (1000 / 960));
@@ -74,9 +74,9 @@
 
       letter-spacing: 0.3em;
       // font-family: 'Averia Serif Libre';
-      padding-left: 4em;
+      padding-left: 96px;
       opacity: 0;
-      font-family: 'Montserrat';
+      font-family: 'futura-pt';
       width: 100%;
       // @media (min-width: 600px) and (max-width: 800px) {
       //   left: 60%;
@@ -223,7 +223,7 @@
 .card-example_container {
   display: flex;
 
-  font-family: Montserrat;
+  font-family: futura-pt;
   letter-spacing: 0.1em;
 }
 
@@ -256,7 +256,7 @@
 
 .how-container {
   // font-family: 'Averia Serif Libre';
-  font-family: 'Montserrat';
+  font-family: 'futura-pt';
   // padding: 0 2em 6em 2em;
   // padding-bottom: 6em;
   padding: 200px 2em;
@@ -303,7 +303,7 @@
   }
 
   .how-description {
-    // font-family: 'Montserrat';
+    // font-family: 'futura-pt';
     font-family: 'calluna';
     font-weight: 100;
     text-transform: none;

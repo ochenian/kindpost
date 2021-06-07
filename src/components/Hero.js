@@ -22,7 +22,7 @@ const SocialIcons = styled.div`
   z-index: 10;
   position: absolute;
   bottom: 5vh;
-  left: 4em;
+  left: 96px;
 
   @media (max-width: 1024px) {
     left: 50%;
@@ -42,7 +42,7 @@ const StyledInstaLogo = styled(InstaLogo)`
 const Description = styled.div`
   letter-spacing: 2px;
   font-size: 1.25rem;
-  font-family: 'bicyclette';
+  font-family: 'futura-pt';
   line-height: 1.5;
   margin-bottom: 2em;
   width: calc(100% - 32px);
@@ -258,13 +258,9 @@ const Hero = () => {
             />
           )}
           <Description className="desc">
-            <div>
-              Delivering inspirational and uplifting messages of positivity.
-            </div>
-            <div>
-              Handwritten on beautiful, sustainably-sourced, vintage postcards.
-            </div>
-            <div>For you or yours in kindness.</div>
+            <div>Handwritten encouraging messages</div>
+            <div>personalized for you & your loved ones</div>
+            <div>on beautiful vintage postcards.</div>
           </Description>
 
           <a href="/shop">

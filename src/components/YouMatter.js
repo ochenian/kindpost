@@ -6,13 +6,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Circle from '../assets/svg/circle.svg';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import SectionHeader from '../components/SectionHeader';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin: 96px;
 `;
 const CopyWrapper = styled.div`
   display: flex;
@@ -34,9 +35,7 @@ const ImgContainer = styled.div`
   justify-content: center;
   align-content: center;
   flex: 1 1 50%;
-  position: relative;
   max-width: 600px;
-  top: 16px;
 
   @media (max-width: 1024px) {
     width: 50%;
@@ -55,7 +54,7 @@ const TextBlock = styled.div`
   font-family: 'futura-pt';
   margin: 0 auto;
   max-width: 600px;
-  padding-left: 32px;
+  margin-right: 64px;
 
   @media (max-width: 1024px) {
     justify-content: center;
@@ -66,8 +65,8 @@ const TextBlock = styled.div`
   }
 `;
 const Text = styled.div`
-  width: 50ch;
-  font-family: 'bicyclette';
+  max-width: 50ch;
+  font-family: 'futura-pt';
   margin: 1em 0 2em 0;
   @media (max-width: 1024px) {
     width: 65vw;
@@ -128,35 +127,6 @@ const YouMatter = () => {
           }
         }
       }
-      postcardCutout: file(relativePath: { eq: "postcard_blob_cutout.png" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      postcardFront: file(
-        relativePath: { eq: "postcard_front_off_white.png" }
-      ) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      postcardBack: file(relativePath: { eq: "postcard_back_off_white.png" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
 
@@ -189,6 +159,7 @@ const YouMatter = () => {
 
   return (
     <Wrapper>
+      <SectionHeader title="a postcard-sized hug" />
       <CopyWrapper mobile={mobile} ref={copyWrapperRef}>
         <ImgContainer className="blurb-img">
           <YouMatterImg fluid={data.youMatterImg.childImageSharp.fluid} />

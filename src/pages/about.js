@@ -40,19 +40,20 @@ const HeaderOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Montserrat';
+  font-family: 'futura-pt';
   letter-spacing: 24px;
   text-shadow: 1px 2px 4px rgb(0 0 0 / 90%);
   text-align: center;
 `;
 
 const BodyContainer = styled.section`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 128px;
+  padding: 0 96px;
 `;
 
 const TextImgWrapper = styled.div`
@@ -85,7 +86,7 @@ const ImgOverlay = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: pink;
+  background: #d4004c;
   z-index: 20;
   max-width: 1000px;
 
@@ -98,7 +99,7 @@ const RightImgOverlay = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: pink;
+  background: #d4004c;
   z-index: 20;
   max-width: 1000px;
 
@@ -120,25 +121,24 @@ const BodyTextWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   flex: 1;
   position: relative;
 `;
 
 const BodyTextHeader = styled.h3`
-  font-size: 2rem;
-  text-align: center;
+  font-size: 1.25rem;
   margin-bottom: 1em;
   text-transform: uppercase;
-  font-family: 'Montserrat';
+  font-family: 'futura-pt';
   text-transform: uppercase;
   font-weight: bold;
+  color: #d4004c;
 `;
 
 const BodyText = styled.div`
   line-height: 1.5;
   max-width: 60ch;
-  font-size: 1.25rem;
+  font-size: 1rem;
 `;
 
 const PostcardWrapper = styled.div`
@@ -160,14 +160,14 @@ const PostcardImg = styled(Img)`
 `;
 
 const FinalMessage = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
-  width: 90%;
+  width: 100%;
   max-width: 60ch;
   text-align: center;
-  letter-spacing: 4px;
-  margin-bottom: 200px;
-  font-family: 'Montserrat';
+  letter-spacing: 2px;
+  margin-bottom: 128px;
+  font-family: 'futura-pt';
   text-transform: uppercase;
 `;
 

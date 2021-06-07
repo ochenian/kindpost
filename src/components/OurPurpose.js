@@ -7,7 +7,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 0 10em;
   position: relative;
 
@@ -17,18 +16,18 @@ const Wrapper = styled.div`
 `;
 
 const Heading = styled.div`
-  font-size: 2rem;
+  font-size: 1.25rem;
   margin-bottom: 1em;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: 'Montserrat';
-  text-align: center;
+  font-family: 'futura-pt';
+  color: #d4004c;
 `;
 
 const PurposeText = styled.div`
   width: 100%;
   max-width: 50ch;
-  font-size: 1.25rem;
+  font-size: 1rem;
 `;
 
 const OurPurpose = () => {

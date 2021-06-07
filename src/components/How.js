@@ -22,12 +22,12 @@ const StyledUnderline = styled(Underline)`
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin: 48px 96px 96px;
 
   @media (max-width: 800px) {
     height: 100%;
-    padding: 96px 24px;
+    padding: 96px 64px;
     margin: 0;
   }
 `;
@@ -65,17 +65,9 @@ const StepContainer = styled.div`
 `;
 
 const Step = styled.div`
-  padding: 24px;
   flex: 1;
   text-align: center;
   position: relative;
-
-  // div {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   flex-direction: column;
-  // }
 
   @media (max-width: 800px) {
     flex-basis: 100%;
@@ -102,7 +94,7 @@ const Icon = styled.div`
   height: 4vw;
   min-width: 60px;
   min-height: 60px;
-  background: rgba(255, 227, 227, 1);
+  background: #d4004c12;
 
   display: flex;
   justify-content: center;
@@ -135,7 +127,7 @@ const Type = styled.div`
   font-size: 1em;
   font-family: 'tk-futura-pt-n7';
   height: 72px;
-  color: #282828;
+  color: #d4004c;
 
   @media (max-width: 800px) {
     height: auto;
@@ -146,7 +138,7 @@ const Type = styled.div`
 const Description = styled.div`
   max-width: 50ch;
   margin: 0 auto;
-  font-family: 'tk-bicyclette-n4';
+  font-family: 'futura-pt';
   color: #282828;
 
   @media (max-width: 800px) {
