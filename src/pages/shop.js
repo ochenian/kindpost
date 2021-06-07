@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import 'react-medium-image-zoom/dist/styles.css';
 import styled from 'styled-components';
 // fetch the large, unoptimized version of the SDK
@@ -16,7 +17,11 @@ import ThreeDPostcard from '../components/PostcardShowcase/3D_Postcard';
 
 const ProductName = styled.h1`
   margin-bottom: 1rem;
-  color: #282828;
+  background: linear-gradient(100deg,rgb(248,7,89),rgb(188,78,156));
+  color: #fff;
+  padding: 12px;
+  width: fit-content;
+}
 `;
 
 const SubHeaderLabel = styled.div`
@@ -24,17 +29,16 @@ const SubHeaderLabel = styled.div`
   text-transform: uppercase;
   color: #282828;
   margin: 1rem 0;
-  font-family: 'Montserrat';
 `;
 
 const Description = styled.div`
   /* margin: 1rem 0; */
   margin-bottom: 1rem;
   max-width: 60ch;
-  font-family: 'calluna';
   letter-spacing: 0.5px;
   line-height: 2;
   color: #282828;
+  font-family: 'calluna';
 `;
 
 const OptionsContainer = styled.div`
@@ -163,16 +167,16 @@ const SoldOut = styled(CtaButton)`
 const Note = styled.div`
   max-width: 50ch;
   font-size: 0.75rem;
-  font-family: 'calluna';
   letter-spacing: 0.5px;
   width: 90%;
   margin-top: 64px;
+  font-family: 'calluna';
 `;
 
 const ProductContainer = styled.div`
   display: flex;
   width: 100%;
-  font-family: calluna;
+  font-family: 'futura-pt';
   height: 100%;
 
   @media (max-width: 950px) {
@@ -188,7 +192,7 @@ const LeftSide = styled.div`
   align-items: center;
   position: relative;
   background: #fadbdb;
-  padding: 64px;
+  padding: 96px;
   height: 100vh;
 
   @media (max-width: 950px) {
@@ -202,13 +206,18 @@ const StyledThreeDPostcard = styled(ThreeDPostcard)`
   min-width: 150px;
 `;
 
+const StyledPostcardAccents = styled(Img)`
+  width: 100%;
+  position: absolute;
+`;
+
 const RightSide = styled.div`
   flex: 1 1 50%;
   background: #fff;
   display: flex;
   flex-direction: column;
 
-  padding: 8em 4em;
+  padding: 8em 96px;
 
   @media (max-width: 950px) {
     padding: 64px;
@@ -237,7 +246,6 @@ const RightSide = styled.div`
 
 const Price = styled.h2`
   font-size: 1.5rem;
-  font-family: 'Montserrat';
 `;
 
 const ProductPage = () => {
@@ -352,7 +360,7 @@ const ProductPage = () => {
           }
         }
       }
-      clickToFlip: file(relativePath: { eq: "click_to_flip.png" }) {
+      confetti: file(relativePath: { eq: "confetti_hi.png" }) {
         childImageSharp {
           fluid(quality: 100) {
             ...GatsbyImageSharpFluid
