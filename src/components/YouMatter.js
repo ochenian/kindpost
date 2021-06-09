@@ -73,7 +73,7 @@ const Text = styled.div`
 `;
 
 const HeadText = styled.div`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #282828;
   line-height: 1.2;
