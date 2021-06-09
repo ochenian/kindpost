@@ -112,11 +112,11 @@ const Contact = () => {
             engagements, please contact us at the above address.
           </StyledTextSection>
           <SocialIcons>
-            <a href="https://twitter.com/kindpostco">
-              <TwitterIcon />
-            </a>
             <a href="https://www.instagram.com/kindpostco">
               <InstagramIcon />
+            </a>
+            <a href="https://twitter.com/kindpostco">
+              <TwitterIcon />
             </a>
           </SocialIcons>
         </TextBody>
