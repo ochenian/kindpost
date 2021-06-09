@@ -97,6 +97,10 @@ const SendYourText = styled.div`
   text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
 
   @media (max-width: 1024px) {
+    margin: 0 0 8px 0;
+  }
+
+  @media (max-width: 600px) {
     margin: 0;
   }
 `;

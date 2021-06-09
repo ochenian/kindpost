@@ -167,11 +167,10 @@ const YouMatter = () => {
         {/* <YouMatterImg fluid={data.fancyYouMatterImg.childImageSharp.fluid} /> */}
 
         <TextBlock className="blurb-text">
-          <HeadText>A Sharing of Support</HeadText>
+          <HeadText>SHARE A KIND NOTE</HeadText>
           <Text>
-            Whether you want to brighten someone's day, or just need a
-            pick-me-up. One kindpost can make all the difference. Let's all
-            support one another.
+            Want to brighten someone's day or just need a pick-me-up? One
+            kindpost can make all the difference.
           </Text>
           <ShopNowBtn href="/shop">Shop</ShopNowBtn>
         </TextBlock>
