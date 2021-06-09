@@ -95,6 +95,10 @@ const SendYourText = styled.div`
   margin-right: 0.5em;
   overflow: hidden;
   text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
+
+  @media (max-width: 1024px) {
+    margin: 0;
+  }
 `;
 
 const ANewWayText = styled.div`
