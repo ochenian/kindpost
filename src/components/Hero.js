@@ -47,7 +47,9 @@ const StyledTwitterLogo = styled(TwitterLogo)`
   margin-left: 16px;
 
   :hover {
-    fill: #d4004c;
+    path {
+      fill: #d4004c;
+    }
   }
 `;
 
