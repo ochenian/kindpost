@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ButtonLink from './ButtonLink';
-import CtaButton from '../components/shared/Button';
+import CtaButton from './shared/Button';
 
 const Background = styled.div`
   font-size: 1.5rem;
@@ -16,11 +16,11 @@ const Background = styled.div`
   margin: 0 auto;
   width: 100%;
   background: #d4004c12;
-  padding: 5em;
+  padding: 96px;
 
-  // @media (max-width: 650px) {
-  //   padding: 3em;
-  // }
+  @media (max-width: 900px) {
+    padding: 96px 32px;
+  }
 `;
 
 const Quote = styled.blockquote`

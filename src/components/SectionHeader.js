@@ -23,6 +23,10 @@ const Title = styled.h1`
     margin: 0 auto;
     border-radius: 12px;
   }
+
+  @media (max-width: 900px) {
+    font-size: 4rem;
+  }
 `;
 
 const SectionHeader = ({ title }) => (

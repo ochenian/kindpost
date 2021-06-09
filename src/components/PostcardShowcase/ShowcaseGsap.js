@@ -114,11 +114,10 @@ const StyledThumbnailLogo = styled(ThumbnailLogo)`
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 96px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 0;
+  top: 3em;
 }
 `;
 
@@ -136,6 +135,10 @@ const Title = styled.h1`
     display: block;
     margin: 0 auto;
     border-radius: 12px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 4rem;
   }
 `;
 

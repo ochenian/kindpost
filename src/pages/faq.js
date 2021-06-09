@@ -79,11 +79,11 @@ const faqs = [
     answer: () => (
       <>
         <div>Follow Kindpost on social!</div>
-        <a href="https://twitter.com/kindpostco">
-          <StyledTwitterLogo />
-        </a>
         <a href="https://www.instagram.com/kindpostco">
           <StyledInstaLogo />
+        </a>
+        <a href="https://twitter.com/kindpostco">
+          <StyledTwitterLogo />
         </a>
       </>
     ),

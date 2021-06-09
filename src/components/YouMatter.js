@@ -14,7 +14,12 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 96px;
+
+  @media (max-width: 900px) {
+    margin: 96px 32px;
+  }
 `;
+
 const CopyWrapper = styled.div`
   display: flex;
   flex-direction: ${props => (props.mobile ? 'column;' : 'row-reverse;')}
@@ -22,12 +27,6 @@ const CopyWrapper = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-
-  @media (max-width: 1024px) {
-    &:nth-of-type(2) {
-      flex-direction: column-reverse;
-    }
-  }
 `;
 
 const ImgContainer = styled.div`

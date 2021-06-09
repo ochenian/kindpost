@@ -15,9 +15,9 @@ const Container = styled.section`
   align-items: center;
   height: 100vh;
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     height: auto;
-    padding: 10em 0;
+    padding: 10em 32px;
   }
 `;
 
@@ -43,7 +43,6 @@ const Subtitle = styled.div`
 `;
 
 const TextBody = styled.div`
-  width: calc(100% - 32px);
   max-width: 550px;
 `;
 

@@ -25,9 +25,9 @@ const Container = styled.section`
   justify-content: space-between;
   margin: 48px 96px 96px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     height: 100%;
-    padding: 96px 64px;
+    padding: 96px 32px;
     margin: 0;
   }
 `;
@@ -52,6 +52,10 @@ const Title = styled.h1`
     display: block;
     margin: 0 auto;
     border-radius: 12px;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 4rem;
   }
 `;
 

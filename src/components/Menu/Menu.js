@@ -8,7 +8,7 @@ import '@animated-burgers/burger-squeeze/dist/styles.css';
 const styles = {
   bmBurgerButton: {
     position: 'absolute',
-    left: '64px',
+    left: '32px',
     top: '32px',
     width: '36px',
     height: '36px',

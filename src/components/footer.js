@@ -270,8 +270,8 @@ const Footer = () => {
 
                 <LinksSection>
                   <SectionHeader>Follow.</SectionHeader>
-                  <a href="https://twitter.com/kindpostco">Twitter</a>
                   <a href="https://www.instagram.com/kindpostco">Instagram</a>
+                  <a href="https://twitter.com/kindpostco">Twitter</a>
                 </LinksSection>
 
                 <LinksSection>
@@ -349,11 +349,11 @@ const Footer = () => {
               <MobileLink href="/terms-of-service">terms of service</MobileLink>
             </MobileLinksSection>
             <MobileLinksSection>
-              <a href="https://twitter.com/kindpostco">
-                <StyledTwitterLogo />
-              </a>
               <a href="https://www.instagram.com/kindpostco">
                 <StyledInstaLogo />
+              </a>
+              <a href="https://twitter.com/kindpostco">
+                <StyledTwitterLogo />
               </a>
             </MobileLinksSection>
           </>

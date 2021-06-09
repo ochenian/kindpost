@@ -17,6 +17,7 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const SocialIcons = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
 
   z-index: 10;
@@ -33,6 +34,17 @@ const SocialIcons = styled.div`
 const StyledInstaLogo = styled(InstaLogo)`
   fill: #fff;
   cursor: pointer;
+
+  :hover {
+    fill: #d4004c;
+  }
+`;
+
+const StyledTwitterLogo = styled(TwitterLogo)`
+  fill: #fff;
+  cursor: pointer;
+  width: 48px;
+  margin-left: 16px;
 
   :hover {
     fill: #d4004c;
@@ -279,6 +291,9 @@ const Hero = () => {
       <SocialIcons>
         <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
           <StyledInstaLogo />
+        </a>
+        <a href="https://www.twitter.com/kindpostco" aria-label="Twitter">
+          <StyledTwitterLogo />
         </a>
       </SocialIcons>
     </div>
