@@ -33,8 +33,8 @@ const Wrapper = styled.div`
 const CartQuantity = styled.span`
   border: 1px solid #d4004c;
   border-radius: 50% 50%;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +42,7 @@ const CartQuantity = styled.span`
   top: -6px;
   left: 20px;
   background: #d4004c;
-  font-size: 0.25em;
+  font-size: 0.75rem;
   color: #fff;
 `;
 

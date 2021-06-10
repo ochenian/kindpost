@@ -102,7 +102,7 @@ const AddresseeInfoContainer = styled.div`
 
   input {
     transiton: 0.5s all;
-    padding: 1em 3em;
+    padding: 1em;
     font-size: 1.1rem;
     border: 2px solid #f40075;
     letter-spacing: 0.5px;
@@ -116,7 +116,7 @@ const AddresseeInfoContainer = styled.div`
   textarea {
     resize: none;
     transiton: 0.5s all;
-    padding: 1em 3em;
+    padding: 1em;
     font-size: 1.1rem;
     border: 2px solid #f40075;
     letter-spacing: 0.5px;
@@ -675,7 +675,7 @@ const ProductPage = () => {
                       value={toInputValue}
                       onChange={handleToInputChange}
                       maxLength="50"
-                      placeholder="Who should we list as the recipient? (e.g., Dinah)"
+                      placeholder="Recipient (e.g., Dinah)"
                     />
 
                     <SubHeaderLabel htmlFor="from">FROM</SubHeaderLabel>
@@ -685,7 +685,7 @@ const ProductPage = () => {
                       value={fromInputValue}
                       onChange={handleFromInputChange}
                       maxLength="50"
-                      placeholder="Who should we list as the sender? (e.g., Alice)"
+                      placeholder="Sender (e.g., Alice)"
                     />
                   </>
                 )}
