@@ -118,6 +118,7 @@ const Header = styled.div`
   left: 50%;
   transform: translateX(-50%);
   top: 3em;
+  width: 100%;
 }
 `;
 
@@ -137,7 +138,7 @@ const Title = styled.h1`
     border-radius: 12px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     font-size: 4rem;
   }
 `;
