@@ -261,7 +261,7 @@ const Hero = () => {
             <SendYourText data-splitting>
               A handwritten postcard{' '}
               <div>
-                to inspire a <span style={{ color: '#d4004c' }}>brighter</span>{' '}
+                to inspire a <span style={{ color: '#d4004c' }}>brighter </span>
                 day.
               </div>
             </SendYourText>
