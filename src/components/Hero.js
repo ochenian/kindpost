@@ -58,8 +58,7 @@ const Description = styled.div`
   font-size: 1.25rem;
   font-family: 'futura-pt';
   line-height: 1.5;
-  margin-bottom: 2em;
-  width: calc(100% - 32px);
+  margin: 1rem 0 1.5rem 0;
 
   div {
     overflow: hidden;
@@ -67,7 +66,7 @@ const Description = styled.div`
 
   @media (max-width: 1024px) {
     font-size: 1rem;
-    margin: 2rem auto;
+    margin: 0.75rem auto 2rem;
     letter-spacing: 1px;
     max-width: 75ch;
   }
@@ -255,12 +254,18 @@ const Hero = () => {
     <div className="Hero">
       <div className="video-text">
         <div className="text-container">
-          <ANewWayText className="line-1" data-splitting>
+          {/* <ANewWayText className="line-1" data-splitting>
             a new way to
-          </ANewWayText>
+          </ANewWayText> */}
           <div className="large-text">
-            <SendYourText data-splitting>send your</SendYourText>
-            <div ref={rotatorTextRef}>
+            <SendYourText data-splitting>
+              A handwritten postcard{' '}
+              <div>
+                to inspire a <span style={{ color: '#d4004c' }}>brighter</span>{' '}
+                day.
+              </div>
+            </SendYourText>
+            {/* <div ref={rotatorTextRef}>
               {!mobile && (
                 <TextRotator
                   className="rotator"
@@ -269,20 +274,24 @@ const Hero = () => {
                   startDelay={1000}
                 />
               )}
-            </div>
+            </div> */}
           </div>
-          {mobile && (
+          {/* {mobile && (
             <TextRotator
               className="rotator"
               content={rotatedText}
               time={4000}
               startDelay={1000}
             />
-          )}
+          )} */}
           <Description className="desc">
-            <div>Handwritten encouraging messages</div>
-            <div>personalized for you & your loved ones</div>
-            <div>on beautiful vintage postcards.</div>
+            <div style={{ maxWidth: '50ch' }}>
+              Handwritten encouraging messages personalized for you & your loved
+              ones on beautiful vintage postcards. Created in seconds. Delivered
+              by us.
+            </div>
+            {/* <div>personalized for you & your loved ones</div> */}
+            {/* <div>on beautiful vintage postcards.</div> */}
           </Description>
 
           <a href="/shop">

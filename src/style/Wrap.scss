@@ -78,9 +78,9 @@
       opacity: 0;
       font-family: 'futura-pt';
       width: 100%;
-      // @media (min-width: 600px) and (max-width: 800px) {
-      //   left: 60%;
-      // }
+
+      display: flex;
+      flex-direction: column;
 
       @media (max-width: 1024px) {
         font-size: 0.75rem;
@@ -92,7 +92,7 @@
       @media (max-width: 1024px) {
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 100%;
+        width: calc(100% - 64px);
         text-align: center;
         padding-left: 0;
       }
@@ -116,17 +116,15 @@
 
         font-size: 3em;
         font-family: 'tk-futura-pt-n7';
-        text-transform: lowercase;
+        // text-transform: lowercase;
         font-weight: bold;
-        text-transform: uppercase;
-        margin-bottom: 32px;
+        // text-transform: uppercase;
 
-        @media (max-width: 600px) {
-          margin-bottom: 0;
-        }
+        // @media (max-width: 600px) {
+        //   width: calc(100% - 64px);
+        // }
 
         width: fit-content;
-        margin-bottom: 0.5em;
         line-height: 1.2;
         // text-transform: uppercase;
 
