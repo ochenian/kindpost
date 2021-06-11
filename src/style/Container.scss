@@ -31,3 +31,7 @@
 .burger.light:not(.open) .burger-lines:before {
   background-color: #000;
 }
+
+.burger {
+  font-size: 8px !important;
+}

@@ -10,7 +10,7 @@ const styles = {
     position: 'absolute',
     left: '32px',
     top: '32px',
-    width: '36px',
+    width: '24px',
     height: '36px',
     zIndex: '10000',
     cursor: 'pointer',

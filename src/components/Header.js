@@ -50,6 +50,20 @@ const StyledButtonLink = styled(ButtonLink)`
   margin-right: 3em;
 `;
 
+const StyledLogo = styled(Logo)`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  text-transform: lowercase;
+  height: 100%;
+  fill: #fff;
+
+  & g > g:last-child {
+    fill: #d4004c;
+  }
+`;
+
 const Header = ({ headerClass }) => {
   const { toggleCart } = useContext(CartContext);
   const itemsInCart = useCartCount();
@@ -96,6 +110,7 @@ const Header = ({ headerClass }) => {
                 </a>
               </StyledButtonLink>
             )}
+            {mobile && <StyledLogo />}
             <button
               type="button"
               aria-label="Cart Button"
