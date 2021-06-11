@@ -254,44 +254,26 @@ const Hero = () => {
     <div className="Hero">
       <div className="video-text">
         <div className="text-container">
-          {/* <ANewWayText className="line-1" data-splitting>
-            a new way to
-          </ANewWayText> */}
           <div className="large-text">
-            <SendYourText data-splitting>
-              A handwritten postcard{' '}
+            <SendYourText>
+              A{' '}
+              <span style={{ fontFamily: 'Les Mores', fontSize: '4rem' }}>
+                {' '}
+                handwritten{' '}
+              </span>{' '}
+              postcard{' '}
               <div>
                 to inspire a <span style={{ color: '#d4004c' }}>brighter </span>
                 day.
               </div>
             </SendYourText>
-            {/* <div ref={rotatorTextRef}>
-              {!mobile && (
-                <TextRotator
-                  className="rotator"
-                  content={rotatedText}
-                  time={4000}
-                  startDelay={1000}
-                />
-              )}
-            </div> */}
           </div>
-          {/* {mobile && (
-            <TextRotator
-              className="rotator"
-              content={rotatedText}
-              time={4000}
-              startDelay={1000}
-            />
-          )} */}
           <Description className="desc">
             <div style={{ maxWidth: '50ch' }}>
               Handwritten encouraging messages personalized for you & your loved
               ones on beautiful vintage postcards. Created in seconds. Delivered
               by us.
             </div>
-            {/* <div>personalized for you & your loved ones</div> */}
-            {/* <div>on beautiful vintage postcards.</div> */}
           </Description>
 
           <a href="/shop">
