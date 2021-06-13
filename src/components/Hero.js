@@ -270,9 +270,8 @@ const Hero = () => {
           </div>
           <Description className="desc">
             <div style={{ maxWidth: '50ch' }}>
-              Handwritten encouraging messages personalized for you & your loved
-              ones on beautiful vintage postcards. Created in seconds. Delivered
-              by us.
+              We handwrite personalized positive messages sent via snail mail to
+              you or a loved one on a carefully selected vintage postcard.
             </div>
           </Description>
 
