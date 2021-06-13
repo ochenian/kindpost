@@ -636,72 +636,35 @@ const ProductPage = () => {
                 );
               })}
             </OptionsContainer>
-            {selectedPostcard && (
-              <>
-                <Description>{selectedPostcard.description}</Description>
-              </>
-            )}
-
-            <SubHeaderLabel>RECIPIENT</SubHeaderLabel>
-            <AddresseeContainer>
-              <SelectButton
-                className={`${selectedAddressee === 'me' ? 'selected' : ''}`}
-                onClick={() => {
-                  setSelectedAddressee('me');
-                  ScrollTrigger.refresh(true);
+            <AddresseeInfoContainer>
+              <SubHeaderLabel htmlFor="from">FROM</SubHeaderLabel>
+              <input
+                id="from"
+                ref={fromInputRef}
+                value={fromInputValue}
+                onChange={handleFromInputChange}
+                maxLength="50"
+                placeholder="e.g., Alice"
+              />
+              <SubHeaderLabel htmlFor="instructions">
+                SPECIAL REQUESTS
+              </SubHeaderLabel>
+              <textarea
+                id="instructions"
+                ref={specialRequestsRef}
+                value={specialRequests}
+                maxLength="255"
+                rows="5"
+                placeholder="Any special requests or relevant information? Kindpost's mission is positivity, so please keep it kind :)"
+                onChange={() => handleSpecialRequestsChange()}
+              />
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '1rem',
                 }}
               >
-                for me
-              </SelectButton>
-              <SelectButton
-                className={`${selectedAddressee === 'else' ? 'selected' : ''}`}
-                onClick={() => {
-                  setSelectedAddressee('else');
-                  ScrollTrigger.refresh(true);
-                }}
-              >
-                for someone else
-              </SelectButton>
-            </AddresseeContainer>
-
-            {selectedAddressee && (
-              <AddresseeInfoContainer>
-                {selectedAddressee === 'else' && (
-                  <>
-                    <SubHeaderLabel htmlFor="to">TO</SubHeaderLabel>
-                    <input
-                      id="to"
-                      ref={toInputRef}
-                      value={toInputValue}
-                      onChange={handleToInputChange}
-                      maxLength="50"
-                      placeholder="Recipient (e.g., Dinah)"
-                    />
-
-                    <SubHeaderLabel htmlFor="from">FROM</SubHeaderLabel>
-                    <input
-                      id="from"
-                      ref={fromInputRef}
-                      value={fromInputValue}
-                      onChange={handleFromInputChange}
-                      maxLength="50"
-                      placeholder="Sender (e.g., Alice)"
-                    />
-                  </>
-                )}
-                <SubHeaderLabel htmlFor="instructions">
-                  SPECIAL REQUESTS
-                </SubHeaderLabel>
-                <textarea
-                  id="instructions"
-                  ref={specialRequestsRef}
-                  value={specialRequests}
-                  maxLength="255"
-                  rows="5"
-                  placeholder="Any special requests or relevant information? Kindpost's mission is positivity, so please keep it kind :)"
-                  onChange={() => handleSpecialRequestsChange()}
-                />
-                <CharsRemaining>{`${charsRemaining} characters remaining`}</CharsRemaining>
                 <SpecialRequestsDisclaimer>
                   PLEASE NOTE:
                   <div>
@@ -709,8 +672,9 @@ const ProductPage = () => {
                     special requests.
                   </div>
                 </SpecialRequestsDisclaimer>
-              </AddresseeInfoContainer>
-            )}
+                <CharsRemaining>{`${charsRemaining} characters remaining`}</CharsRemaining>
+              </div>
+            </AddresseeInfoContainer>
 
             {showSoldOut ? (
               <SoldOut disabled>
