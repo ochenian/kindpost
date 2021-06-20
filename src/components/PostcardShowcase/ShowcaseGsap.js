@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RotatingPostcard from './RotatingImage';
@@ -17,10 +18,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: #d4004c12;
+  // height: 100vh;
+  // background: #d4004c12;
   width: 100%;
   margin: 0 auto;
+  padding: 0 96px;
 `;
 
 const ShopNowBtn = styled.a`
@@ -114,11 +116,12 @@ const StyledThumbnailLogo = styled(ThumbnailLogo)`
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 3em;
+  // position: absolute;
+  // left: 50%;
+  // transform: translateX(-50%);
+  // top: 3em;
   width: 100%;
+  margin-bottom: 128px;
 }
 `;
 
@@ -141,6 +144,54 @@ const Title = styled.h1`
   @media (max-width: 900px) {
     font-size: 4rem;
   }
+`;
+
+const ImgContainer = styled.div`
+  display: flex;
+  width: 100%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+const Example = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px;
+  margin-right: 64px;
+  margin-bottom: 64px;
+`;
+
+const StyledImg = styled(Img)`
+  width: 100%;
+  margin-bottom: 64px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2), 2px 4px 8px rgba(0, 0, 0, 0.1),
+    4px 8px 16px rgba(0, 0, 0, 0.05);
+  max-width: 550px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+`;
+
+const CardDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-family: 'futura-pt';
+  color: #282828;
+`;
+
+const CardTitle = styled.div`
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 `;
 
 const Showcase = () => {
@@ -285,78 +336,78 @@ const Showcase = () => {
   const birthdayImageCoverRef = useRef(null);
   const birthdayPostcardContainerRef = useRef(null);
 
-  useEffect(() => {
-    if (typeof window !== `undefined`) {
-      gsap.config({
-        nullTargetWarn: false,
-      });
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.core.globals('ScrollTrigger', ScrollTrigger);
-    }
-  });
+  // useEffect(() => {
+  //   if (typeof window !== `undefined`) {
+  //     gsap.config({
+  //       nullTargetWarn: false,
+  //     });
+  //     gsap.registerPlugin(ScrollTrigger);
+  //     gsap.core.globals('ScrollTrigger', ScrollTrigger);
+  //   }
+  // });
 
-  useEffect(() => {
-    const postcards = gsap.utils.toArray('.postcard');
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top top',
-        end: '+=400%',
-        pin: true,
-        scrub: true,
-      },
-    });
+  // useEffect(() => {
+  //   const postcards = gsap.utils.toArray('.postcard');
+  //   const timeline = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: containerRef.current,
+  //       start: 'top top',
+  //       end: '+=400%',
+  //       pin: true,
+  //       scrub: true,
+  //     },
+  //   });
 
-    postcards.forEach((card, i) => {
-      if (i !== 0) {
-        gsap.set(card, {
-          translateY: `100vh`,
-        });
+  //   postcards.forEach((card, i) => {
+  //     if (i !== 0) {
+  //       gsap.set(card, {
+  //         translateY: `100vh`,
+  //       });
 
-        timeline.add(
-          gsap.to(card, {
-            translateY: '0%',
-          }),
-        );
-      }
+  //       timeline.add(
+  //         gsap.to(card, {
+  //           translateY: '0%',
+  //         }),
+  //       );
+  //     }
 
-      timeline.add(
-        gsap.to(card.querySelector('.imageCover'), {
-          translateY: '105%',
-        }),
-      );
-      timeline.add(
-        gsap.to(
-          card.querySelector('.postcardContainer'),
-          {
-            rotateY: -180,
-            ease: 'back',
-          },
-          '>',
-        ),
-      );
+  //     timeline.add(
+  //       gsap.to(card.querySelector('.imageCover'), {
+  //         translateY: '105%',
+  //       }),
+  //     );
+  //     timeline.add(
+  //       gsap.to(
+  //         card.querySelector('.postcardContainer'),
+  //         {
+  //           rotateY: -180,
+  //           ease: 'back',
+  //         },
+  //         '>',
+  //       ),
+  //     );
 
-      if (i !== 3) {
-        timeline.add(
-          gsap.to(card, {
-            translateY: '-105vh',
-          }),
-        );
-      }
-    });
-  });
+  //     if (i !== 3) {
+  //       timeline.add(
+  //         gsap.to(card, {
+  //           translateY: '-105vh',
+  //         }),
+  //       );
+  //     }
+  //   });
+  // });
 
-  useEffect(() => {
-    gsap.to('.circular', {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top top',
-        end: '+=400%',
-        scrub: true,
-      },
-      rotateZ: 360,
-    });
-  });
+  // useEffect(() => {
+  //   gsap.to('.circular', {
+  //     scrollTrigger: {
+  //       trigger: containerRef.current,
+  //       start: 'top top',
+  //       end: '+=400%',
+  //       scrub: true,
+  //     },
+  //     rotateZ: 360,
+  //   });
+  // });
 
   return (
     <>
@@ -365,7 +416,42 @@ const Showcase = () => {
         <Header>
           <Title>a few examples</Title>
         </Header>
-        <CardWrapper className="card-wrapper">
+        <ImgContainer>
+          <Example>
+            <StyledImg
+              fluid={data.postcardCongratulationsImg.childImageSharp.fluid}
+            />
+            <CardDescription>
+              <CardTitle>Congratulations</CardTitle>
+              <div>$12</div>
+            </CardDescription>
+          </Example>
+          <Example>
+            <StyledImg fluid={data.postcardLoveImg.childImageSharp.fluid} />
+            <CardDescription>
+              <CardTitle>Love</CardTitle>
+              <div>$12</div>
+            </CardDescription>
+          </Example>
+          <Example>
+            <StyledImg
+              fluid={data.postcardEncouragementImg.childImageSharp.fluid}
+            />
+            <CardDescription>
+              <CardTitle>Inspiration</CardTitle>
+              <div>$12</div>
+            </CardDescription>
+          </Example>
+          <Example>
+            <StyledImg fluid={data.postcardBirthdayImg.childImageSharp.fluid} />
+            <CardDescription>
+              <CardTitle>Birthday</CardTitle>
+              <div>$12</div>
+            </CardDescription>
+          </Example>
+        </ImgContainer>
+        <ShopNowBtn href="/shop">Shop</ShopNowBtn>
+        {/* <CardWrapper className="card-wrapper">
           <TrimContainer ref={postcardRef} className="postcard">
             <StyledRotatingPostcard
               imageCoverRef={imageCoverRef}
@@ -404,7 +490,7 @@ const Showcase = () => {
             />
           </TrimContainer>
           <ShopNowBtn href="/shop">Shop</ShopNowBtn>
-        </CardWrapper>
+        </CardWrapper> */}
         {/* <StyledCircularLogo className="circular" /> */}
       </Container>
     </>

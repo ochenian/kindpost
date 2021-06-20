@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 96px;
+  // padding: 16px;
 
   @media (max-width: 900px) {
     margin: 96px 32px;
@@ -22,7 +23,7 @@ const Wrapper = styled.div`
 
 const CopyWrapper = styled.div`
   display: flex;
-  flex-direction: ${props => (props.mobile ? 'column;' : 'row-reverse;')}
+  // flex-direction: ${props => (props.mobile ? 'column;' : 'row-reverse;')}
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -103,6 +104,21 @@ const ShopNowBtn = styled.a`
   }
 `;
 
+const Gradient = styled.span`
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
+const ImgBackground = styled.div`
+  position: absolute;
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 1%;
+`;
+
 const YouMatter = () => {
   const mobile = useMediaQuery('(max-width: 1024px)');
 
@@ -158,19 +174,22 @@ const YouMatter = () => {
 
   return (
     <Wrapper>
+      {/* <ImgBackground /> */}
       <SectionHeader title="a postcard-sized hug" />
       <CopyWrapper mobile={mobile} ref={copyWrapperRef}>
-        <ImgContainer className="blurb-img">
+        <ImgContainer style={{ marginRight: '64px' }} className="blurb-img">
           <YouMatterImg fluid={data.youMatterImg.childImageSharp.fluid} />
         </ImgContainer>
 
         {/* <YouMatterImg fluid={data.fancyYouMatterImg.childImageSharp.fluid} /> */}
 
         <TextBlock className="blurb-text">
-          <HeadText>SHARE A KIND NOTE</HeadText>
+          <HeadText>
+            Creating <Gradient>Sparks of Joy</Gradient>
+          </HeadText>
           <Text>
-            Want to brighten someone's day or just need a pick-me-up? One
-            kindpost can make all the difference.
+            Want to brighten someone's day or just need a pick-me-up? Let us
+            light the way.
           </Text>
           <ShopNowBtn href="/shop">Shop</ShopNowBtn>
         </TextBlock>
