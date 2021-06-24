@@ -270,7 +270,7 @@ const BackLink = styled(Button)`
   font-size: 1.25rem;
   margin-bottom: ${spacing.sm}px;
   width: 100%;
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 1px;
 `;
 
@@ -412,7 +412,7 @@ const Cart = () => {
             <SoldOut disabled>SOLD OUT</SoldOut>
           ) : (
             <CheckOut href={checkoutUrl}>
-              Checkout
+              Proceed to Checkout
               {/* <MdArrowForward /> */}
             </CheckOut>
           )}

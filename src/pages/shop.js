@@ -289,7 +289,7 @@ const ProductPage = () => {
     });
   }, [client.graphQLClient]);
 
-  const [flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = useState(true);
 
   const data = useStaticQuery(graphql`
     query SiteQuery {
