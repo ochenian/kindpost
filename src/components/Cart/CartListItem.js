@@ -24,9 +24,13 @@ const Thumbnail = styled(CartThumbnail)`
   flex-grow: 0;
   margin-left: ${spacing['2xs']}px;
   margin-right: 16px;
-  width: 12%;
+  width: 100%;
   max-width: 115px;
   height: 100%;
+
+  @media (max-width: 400px) {
+    width: 33%;
+  }
 `;
 
 const LineContainer = styled.div`

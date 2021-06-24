@@ -34,6 +34,7 @@ const CartRoot = styled(`div`)`
   will-change: transform;
   z-index: 11000;
   font-family: 'futura-pt';
+  color: #282828;
 
   &.open {
     transform: translateX(0%);
@@ -84,7 +85,7 @@ const Heading = styled(`header`)`
 const Title = styled.h2`
   flex-grow: 1;
   font-family: ${fonts.heading};
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin: 0;
   position: relative;
   text-transform: uppercase;
@@ -172,7 +173,7 @@ const Cost = styled(`div`)`
 
 const Total = styled(Cost)`
   border-top: 1px solid ${colors.brandBright};
-  color: ${colors.black};
+  color: #282828;
   margin-top: ${spacing.xs}px;
   padding-top: ${spacing.sm}px;
 
@@ -259,7 +260,7 @@ const CartToggle = styled(Button)`
 `;
 
 const CheckOut = styled(PrimaryButton)`
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin: ${spacing.lg}px 0 ${spacing.md}px;
   width: 100%;
   text-transform: uppercase;
@@ -267,7 +268,7 @@ const CheckOut = styled(PrimaryButton)`
 `;
 
 const BackLink = styled(Button)`
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-bottom: ${spacing.sm}px;
   width: 100%;
   text-transform: uppercase;
@@ -279,16 +280,24 @@ const CloseBtn = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  // background: #f40075;
-  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+  background: transparent;
+  border: 1px solid #d4004c;
   z-index: 1;
   transition: 0.8s;
   cursor: pointer;
   width: 2.5rem;
   height: 2.5rem;
 
+  &:hover {
+    background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+
+    svg {
+      fill: #fff;
+    }
+  }
+
   svg {
-    fill: #fff;
+    fill: #d4004c;
   }
 `;
 
