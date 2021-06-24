@@ -11,6 +11,7 @@ import Bag from '../assets/svg/bag.svg';
 import ButtonLink from './ButtonLink';
 import { CartContext } from './Cart/CartContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import { head } from 'lodash';
 
 const StyledLogoThumbnail = styled(LogoThumbnail)`
   width: 100%;
@@ -57,7 +58,7 @@ const StyledLogo = styled(Logo)`
   width: 100px;
   text-transform: lowercase;
   height: 100%;
-  fill: #fff;
+  fill: ${props => (props.light === 'true' ? '#282828' : '#fff')};
 
   & g > g:last-child {
     fill: #d4004c;
@@ -110,7 +111,9 @@ const Header = ({ headerClass }) => {
                 </a>
               </StyledButtonLink>
             )}
-            {mobile && <StyledLogo />}
+            {mobile && (
+              <StyledLogo light={`${headerClass.includes('light')}`} />
+            )}
             <button
               type="button"
               aria-label="Cart Button"
