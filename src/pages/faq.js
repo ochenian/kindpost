@@ -40,6 +40,10 @@ const QuestionsContainer = styled.div`
   width: calc(100% - 192px);
   height: 100%;
   margin-bottom: 200px;
+
+  @media (max-width: 900px) {
+    width: calc(100% - 64px);
+  }
 `;
 
 const StyledTwitterLogo = styled(TwitterLogo)`
