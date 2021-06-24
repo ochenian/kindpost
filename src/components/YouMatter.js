@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 
 const CopyWrapper = styled.div`
   display: flex;
-  // flex-direction: ${props => (props.mobile ? 'column;' : 'row-reverse;')}
+  flex-direction: ${props => (props.mobile ? 'column;' : 'row;')}
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -36,9 +36,11 @@ const ImgContainer = styled.div`
   align-content: center;
   flex: 1 1 50%;
   max-width: 600px;
+  margin-right: 64px;
 
   @media (max-width: 1024px) {
     width: 50%;
+    margin: 0;
     margin-bottom: 1rem;
   }
 `;
@@ -177,7 +179,7 @@ const YouMatter = () => {
       {/* <ImgBackground /> */}
       <SectionHeader title="a postcard-sized hug" />
       <CopyWrapper mobile={mobile} ref={copyWrapperRef}>
-        <ImgContainer style={{ marginRight: '64px' }} className="blurb-img">
+        <ImgContainer className="blurb-img">
           <YouMatterImg fluid={data.youMatterImg.childImageSharp.fluid} />
         </ImgContainer>
 

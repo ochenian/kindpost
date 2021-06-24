@@ -23,6 +23,10 @@ const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 0 96px;
+
+  @media (max-width: 900px) {
+    padding: 0 32px;
+  }
 `;
 
 const ShopNowBtn = styled.a`

@@ -54,6 +54,10 @@ const BodyContainer = styled.section`
   align-items: center;
   gap: 128px;
   padding: 0 96px;
+
+  @media (max-width: 900px) {
+    padding: 0 32px;
+  }
 `;
 
 const TextImgWrapper = styled.div`
