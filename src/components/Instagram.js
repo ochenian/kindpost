@@ -92,6 +92,12 @@ const PostsWrapper = styled.div`
   overflow: auto;
 `;
 
+const Gradient = styled.span`
+  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
 const Instagram = () => {
   const data = useStaticQuery(graphql`
     query InstaPhotos {
@@ -166,9 +172,12 @@ const Instagram = () => {
       </a>
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <FollowText>
-          <div>Follow us on</div>
-          <div>Instagram</div>
+          <div>Follow us</div>
+          <div>
+            <Gradient>@kindpostco</Gradient>
+          </div>
         </FollowText>
+        <div></div>
       </a>
       <a href="https://www.instagram.com/kindpostco" aria-label="Instagram">
         <Hashtag>#kindpost</Hashtag>
