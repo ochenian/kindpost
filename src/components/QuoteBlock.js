@@ -106,7 +106,7 @@ const QuoteBlock = () => {
   });
   return (
     <Background>
-      <Quote className="fadeIn">
+      <Quote>
         Whether it’s a pick-me-up, <PinkText>inspiration</PinkText>, or a
         message of <PinkText>empowerment</PinkText>, our goal is promoting a
         sense of <PinkText>hope</PinkText> and building{' '}
@@ -115,8 +115,8 @@ const QuoteBlock = () => {
         <PinkText>kindness</PinkText>.
       </Quote>
 
-      <Signature className="fadeIn">Cate</Signature>
-      <SignatureTitle className="fadeIn">Founder / CEO</SignatureTitle>
+      <Signature>Cate</Signature>
+      <SignatureTitle>Founder / CEO</SignatureTitle>
       <StyledCtaButton>Read Our Story</StyledCtaButton>
     </Background>
   );

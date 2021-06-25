@@ -176,18 +176,15 @@ const YouMatter = () => {
 
   return (
     <Wrapper>
-      {/* <ImgBackground /> */}
       <SectionHeader title="a postcard-sized hug" />
       <CopyWrapper mobile={mobile} ref={copyWrapperRef}>
-        <ImgContainer className="blurb-img">
+        <ImgContainer>
           <YouMatterImg fluid={data.youMatterImg.childImageSharp.fluid} />
         </ImgContainer>
 
-        {/* <YouMatterImg fluid={data.fancyYouMatterImg.childImageSharp.fluid} /> */}
-
-        <TextBlock className="blurb-text">
+        <TextBlock>
           <HeadText>
-            Creating <Gradient>Sparks of Joy</Gradient>
+            Create A <Gradient>Spark of Joy</Gradient>
           </HeadText>
           <Text>
             Want to brighten someone's day or just need a pick-me-up? Let us
