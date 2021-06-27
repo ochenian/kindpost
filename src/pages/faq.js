@@ -168,10 +168,11 @@ const faqs = [
         are provided below: Orders to West Coast addresses typically take 2 to 3
         business days. Orders to Southern states and Midwestern states typically
         take 3 to 4 business days. Orders to East Coast addresses typically take
-        4 to 5 business days. Kindpost is not responsible for delivery delays
-        via the U.S. Postal Service or other delivery methods, including but not
-        limited to those delays related to COVID-19. For more information,
-        please see our Terms of Service.
+        4 to 5 business days. Orders shipped to countries outside of the U.S.
+        can take up to 18 business days or longer. Kindpost is not responsible
+        for delivery delays via the U.S. Postal Service or other delivery
+        methods, including but not limited to those delays related to COVID-19.
+        For more information, please see our Terms of Service.
       </>
     ),
   },
