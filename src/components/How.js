@@ -1,23 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import ModalVideo from 'react-modal-video';
 import BirthdaySvg from '../assets/svg/Occasion.svg';
 import PostcardSvg from '../assets/svg/Postcard.svg';
 import MailTruckSvg from '../assets/svg/Truck2.svg';
-import Underline from '../assets/svg/marker_underline.svg';
-
-const StyledUnderline = styled(Underline)`
-  width: 12%;
-  margin: 0 auto;
-  position: relative;
-  top: -8px;
-
-  path: {
-    fill: #f2d4d7;
-    opacity: 0.11;
-  }
-`;
+import CtaButton from './shared/Button';
+import PlayIcon from '../assets/svg/play_icon.svg';
 
 const Container = styled.section`
   display: flex;
@@ -66,6 +56,7 @@ const StepContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   gap: 32px;
+  margin-bottom: 32px;
 `;
 
 const Step = styled.div`
@@ -79,19 +70,7 @@ const Step = styled.div`
   }
 `;
 
-const VerticalLine = styled.div`
-  width: 5px;
-  height: 50%;
-  border-radius: 12px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
-`;
-
 const Icon = styled.div`
-  // margin: 0 auto;
-  // background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
   border-radius: 50%;
   background: transparent;
   width: 4vw;
@@ -151,19 +130,16 @@ const Description = styled.div`
 `;
 
 const StyledBirthdaySvg = styled(BirthdaySvg)`
-  // position: absolute;
   width: 4vw;
   min-width: 60px;
 `;
 
 const StyledPostcardSvg = styled(PostcardSvg)`
-  // position: absolute;
   width: 4vw;
   min-width: 60px;
 `;
 
 const StyledTruckSvg = styled(MailTruckSvg)`
-  // position: absolute;
   width: 6vw;
   min-width: 90px;
 
@@ -172,44 +148,24 @@ const StyledTruckSvg = styled(MailTruckSvg)`
   }
 `;
 
-const Stamp = styled.div`
-  width: 50%;
-  height: 50%;
-  max-width: 160px;
-  min-width: 60px;
-  background: radial-gradient(
-    transparent 0%,
-    transparent 50%,
-    #fff 50%,
-    #fff 100%
-  );
-  background-size: 10% 10%;
-  background-position: 6% 6%;
-  padding: 2%;
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
-  margin: 0 auto;
+const StyledPlayIcon = styled(PlayIcon)`
+  fill: #d4004c;
 `;
 
-const StampImageBackground = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const StyledCtaButton = styled(CtaButton)`
+  border: 2px solid #d4004c;
+  background: transparent;
+  color: #d4004c;
+  width: 200px;
+  align-self: center;
 
-  position: relative;
-  top: 3%;
-  left: 3%;
-  width: 95%;
-  height: 95%;
-  background: #fff;
-  overflow: hidden;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-`;
+  &:hover {
+    background: linear-gradient(100deg, rgb(248, 7, 89), rgb(188, 78, 156));
 
-const StampBackground = styled.div`
-  background: #fff;
-  width: 100%;
-  height: 100%;
-  padding: 5%;
+    ${StyledPlayIcon} {
+      fill: #fff;
+    }
+  }
 `;
 
 const How = () => {
@@ -237,6 +193,8 @@ const How = () => {
     },
   ];
 
+  const [isModalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
     if (typeof window !== `undefined`) {
       gsap.config({
@@ -251,30 +209,32 @@ const How = () => {
     <Container id="howTo">
       <Header>
         <Title>how it works</Title>
-        {/* <StyledUnderline /> */}
       </Header>
       <StepContainer>
         {items.map((item, index) => (
           <>
             <Step key={item.id}>
-              {/* <Stamp>
-                <StampBackground>
-                  <StampImageBackground> */}
               <IconContainer>
                 <Icon>{item.illustration}</Icon>
               </IconContainer>
-              {/* </StampImageBackground>
-                </StampBackground>
-              </Stamp> */}
               <CopyContainer>
                 <Type>{item.header}</Type>
                 <Description>{item.description}</Description>
               </CopyContainer>
             </Step>
-            {/* {index !== items.length - 1 && <VerticalLine />} */}
           </>
         ))}
       </StepContainer>
+      <ModalVideo
+        channel="custom"
+        url="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
+        isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+      />
+      <StyledCtaButton onClick={() => setModalOpen(true)}>
+        WATCH
+        <StyledPlayIcon />
+      </StyledCtaButton>
     </Container>
   );
 };

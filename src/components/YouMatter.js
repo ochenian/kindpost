@@ -187,8 +187,8 @@ const YouMatter = () => {
             Create A <Gradient>Spark of Joy</Gradient>
           </HeadText>
           <Text>
-            Want to brighten someone's day or just need a pick-me-up? Let us
-            light the way.
+            Want to brighten someone's day or just need a pick-me-up?
+            <div>Let us light the way.</div>
           </Text>
           <ShopNowBtn href="/shop">Shop</ShopNowBtn>
         </TextBlock>

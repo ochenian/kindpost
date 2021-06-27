@@ -154,7 +154,7 @@ const ImgContainer = styled.div`
   display: flex;
   width: 100%;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1300px) {
     flex-direction: column;
   }
 `;
@@ -162,6 +162,7 @@ const ImgContainer = styled.div`
 const Example = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   padding: 16px;
   margin-right: 64px;
@@ -173,7 +174,7 @@ const StyledImg = styled(Img)`
   margin-bottom: 64px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2), 2px 4px 8px rgba(0, 0, 0, 0.1),
     4px 8px 16px rgba(0, 0, 0, 0.05);
-  max-width: 550px;
+  max-width: 350px;
 
   &:last-of-type {
     margin-right: 0;

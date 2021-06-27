@@ -183,7 +183,7 @@ const Hero = () => {
     },
   ];
 
-  const clVideo = data.allCloudinaryMedia.edges[2];
+  const clVideo = data.allCloudinaryMedia.edges[1];
 
   const logoRef = useRef();
   const rotatorTextRef = useRef();
