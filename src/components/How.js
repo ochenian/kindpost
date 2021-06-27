@@ -143,6 +143,7 @@ const StyledPostcardSvg = styled(PostcardSvg)`
 const StyledTruckSvg = styled(MailTruckSvg)`
   width: 6vw;
   min-width: 90px;
+  height: fit-content;
 
   @media (max-width: 411px) {
     width: 24vw;
@@ -251,12 +252,11 @@ const How = () => {
       {modalReady && (
         <>
           <Modal
-            url="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
             isOpen={isModalOpen}
             onRequestClose={() => setModalOpen(false)}
             style={customStyles}
           >
-            <video autoPlay style={{ width: '100%' }}>
+            <video autoPlay controls style={{ width: '100%' }}>
               <source
                 src="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
                 type="video/mp4"
