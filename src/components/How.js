@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
-import ModalVideo from 'react-modal-video';
+import Modal from 'react-modal';
 import BirthdaySvg from '../assets/svg/Occasion.svg';
 import PostcardSvg from '../assets/svg/Postcard.svg';
 import MailTruckSvg from '../assets/svg/Truck2.svg';
 import CtaButton from './shared/Button';
 import PlayIcon from '../assets/svg/play_icon.svg';
+import { findLastIndex } from 'lodash';
 
 const Container = styled.section`
   display: flex;
@@ -205,8 +206,27 @@ const How = () => {
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
       setModalReady(true);
+      Modal.setAppElement(document.body);
     }
   }, []);
+
+  const customStyles = {
+    content: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 0,
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      height: 'fit-content',
+      width: '80%',
+    },
+    overlay: {
+      zIndex: 20,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+    },
+  };
 
   return (
     <Container id="howTo">
@@ -230,12 +250,19 @@ const How = () => {
       </StepContainer>
       {modalReady && (
         <>
-          <ModalVideo
-            channel="custom"
+          <Modal
             url="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
             isOpen={isModalOpen}
-            onClose={() => setModalOpen(false)}
-          />
+            onRequestClose={() => setModalOpen(false)}
+            style={customStyles}
+          >
+            <video autoPlay style={{ width: '100%' }}>
+              <source
+                src="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </Modal>
           <StyledCtaButton onClick={() => setModalOpen(true)}>
             WATCH
             <StyledPlayIcon />
