@@ -8,7 +8,6 @@ import PostcardSvg from '../assets/svg/Postcard.svg';
 import MailTruckSvg from '../assets/svg/Truck2.svg';
 import CtaButton from './shared/Button';
 import PlayIcon from '../assets/svg/play_icon.svg';
-import { findLastIndex } from 'lodash';
 
 const Container = styled.section`
   display: flex;
@@ -256,7 +255,12 @@ const How = () => {
             onRequestClose={() => setModalOpen(false)}
             style={customStyles}
           >
-            <video autoPlay controls style={{ width: '100%' }}>
+            <video
+              onEnded={() => setModalOpen(false)}
+              autoPlay
+              controls
+              style={{ width: '100%' }}
+            >
               <source
                 src="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
                 type="video/mp4"
