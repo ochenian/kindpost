@@ -165,7 +165,7 @@ const Cost = styled(`div`)`
   }
 
   strong {
-    color: ${colors.brand};
+    color: #282828;
     flex-basis: 40%;
     text-align: right;
   }
@@ -314,6 +314,13 @@ const SoldOut = styled(Button)`
   text-transform: uppercase;
 `;
 
+const FeesMessage = styled.div`
+  color: #282828;
+  text-align: right;
+  font-size: 0.75rem;
+  font-style: italic;
+`;
+
 const Cart = () => {
   const [state, setState] = useState({ className: 'closed', isLoading: false });
   const { showCart, toggleCart } = useContext(CartContext);
@@ -399,20 +406,19 @@ const Cart = () => {
             </Cost>
             <Cost>
               <span>Shipping:</span>
-              <strong>FREE</strong>
+              <strong>TBD</strong>
             </Cost>
             <Cost>
-              <span>Taxes:</span>
-              <strong>
-                {parseFloat(cart.totalTax) === 0
-                  ? 'Calculated at checkout'
-                  : `$${cart.totalTax}`}
-              </strong>
+              <span>
+                {parseFloat(cart.totalTax) === 0 ? 'Estimated Tax' : 'Tax'}
+              </span>
+              <strong>${cart.totalTax}</strong>
             </Cost>
+            {/* <FeesMessage>
+              Shipping & Taxes are calculated during checkout
+            </FeesMessage> */}
             <Total>
-              <span>{`Total ${
-                parseFloat(cart.totalTax) === 0 ? `(excluding taxes)` : ``
-              }:`}</span>
+              <span>Estimated Total:</span>
               <strong>${cart.totalPrice}</strong>
             </Total>
           </Costs>
