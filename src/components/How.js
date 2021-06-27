@@ -194,6 +194,7 @@ const How = () => {
   ];
 
   const [isModalOpen, setModalOpen] = useState(false);
+  const [modalReady, setModalReady] = useState(false);
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -202,8 +203,10 @@ const How = () => {
       });
       gsap.registerPlugin(ScrollTrigger);
       gsap.core.globals('ScrollTrigger', ScrollTrigger);
+
+      setModalReady(true);
     }
-  });
+  }, []);
 
   return (
     <Container id="howTo">
@@ -225,16 +228,20 @@ const How = () => {
           </>
         ))}
       </StepContainer>
-      <ModalVideo
-        channel="custom"
-        url="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
-      />
-      <StyledCtaButton onClick={() => setModalOpen(true)}>
-        WATCH
-        <StyledPlayIcon />
-      </StyledCtaButton>
+      {modalReady && (
+        <>
+          <ModalVideo
+            channel="custom"
+            url="https://res.cloudinary.com/dbjyccq4x/video/upload/v1624770046/videos/how_it_works_website_compressed_qktaq4.mp4"
+            isOpen={isModalOpen}
+            onClose={() => setModalOpen(false)}
+          />
+          <StyledCtaButton onClick={() => setModalOpen(true)}>
+            WATCH
+            <StyledPlayIcon />
+          </StyledCtaButton>
+        </>
+      )}
     </Container>
   );
 };
