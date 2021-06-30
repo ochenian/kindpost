@@ -327,7 +327,11 @@ const Contact = () => {
   const mobile = useMediaQuery('(max-width: 1000px)');
 
   return (
-    <Layout site="kindpost" headerClass="Header">
+    <Layout
+      title="About | kindpost"
+      description="We're on a mission to share kindness around the world"
+      headerClass="Header"
+    >
       <Container>
         <HeaderContainer>
           <HeaderOverlay>OUR STORY</HeaderOverlay>

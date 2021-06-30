@@ -89,11 +89,16 @@ const SocialIcons = styled.section`
 
 const Contact = () => {
   return (
-    <Layout site="kindpost" headerClass="Header light">
+    <Layout
+      title="Contact | kindpost"
+      description="Have questions? Comments? We're here to help."
+      headerClass="Header light"
+    >
       <Container>
         <TextBody>
           <Subtitle>
-            Want to get in touch? <div>We're here to help.</div>
+            Want to get in touch?
+            <div>We're here to help.</div>
           </Subtitle>
           <StyledTextSection>
             <a href="mailto:studio@kindpost.com">help@kindpost.com</a>

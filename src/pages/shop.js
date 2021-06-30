@@ -583,7 +583,8 @@ const ProductPage = () => {
 
   return (
     <Layout
-      site={data.site.siteMetadata.siteName}
+      title="Shop | kindpost"
+      description="Order a kindpost for any occasion and create a spark of joy for yourself or a loved one."
       headerClass={`Header light ${scroll ? 'scrolled' : ''}`}
     >
       <div>

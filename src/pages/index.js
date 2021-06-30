@@ -33,7 +33,10 @@ export default () => {
   });
 
   return (
-    <Layout site={data.site.siteMetadata.siteName} headerClass="Header">
+    <Layout
+      title="kindpost | Positive messages on vintage postcards"
+      headerClass="Header"
+    >
       <FreeShipping />
       <Hero />
       {/* <Elevator /> */}

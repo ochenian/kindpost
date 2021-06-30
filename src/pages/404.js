@@ -230,7 +230,11 @@ const Button = styled(CtaButton)`
 `;
 
 const NotFoundPage = () => (
-  <Layout site="kindpost" headerClass="Header">
+  <Layout
+    title="404 | kindpost"
+    description="Page not found."
+    headerClass="Header"
+  >
     <Wrapper>
       <Sign style={{ fontFamily: 'futura-pt' }}>404</Sign>
       <Sign>

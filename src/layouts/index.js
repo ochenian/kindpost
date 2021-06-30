@@ -1,34 +1,32 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
 import { motion } from 'framer-motion';
-import { useLocation } from '@reach/router';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import Footer from '../components/footer';
 import Header from '../components/Header';
 import Cart from '../components/Cart/ShopCart';
 import { CartContext } from '../components/Cart/CartContext';
 import BurgerMenu from '../components/Menu/Menu';
+import SEO from '../components/Seo';
 
 import '../style/index.scss';
 
-const Layout = ({ children, siteName, headerClass }) => {
+const Layout = ({
+  children,
+  siteName,
+  title,
+  description,
+  image,
+  headerClass,
+}) => {
   const { showCart, toggleCart } = useContext(CartContext);
   const mobile = useMediaQuery('(max-width: 900px)');
-  const location = useLocation();
 
   return (
     <div>
       {mobile && <BurgerMenu theme={headerClass} />}
-      <Helmet>
-        <html lang="en" />
-        <title>Kindpost</title>
-        <meta
-          name="description"
-          content="Kindpost. Delivering handwritten, vintage postcards."
-        />
-      </Helmet>
+      <SEO title={title} description={description} image={image} />
       <Cart />
       <div className="Container">
         <button
