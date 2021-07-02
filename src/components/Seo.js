@@ -10,7 +10,7 @@ const SEO = ({ title, description, image, additionalSchema }) => {
         siteMetadata {
           defaultTitle: title
           defaultDescription: description
-          baseUrl
+          siteUrl
           defaultImage: image
           twitterUsername
         }
@@ -24,7 +24,7 @@ const SEO = ({ title, description, image, additionalSchema }) => {
   const {
     defaultTitle,
     defaultDescription,
-    baseUrl,
+    siteUrl,
     defaultImage,
     twitterUsername,
   } = site.siteMetadata;
@@ -32,8 +32,8 @@ const SEO = ({ title, description, image, additionalSchema }) => {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${baseUrl}/${image || defaultImage}`,
-    url: `${baseUrl}${pathname}`,
+    image: `${siteUrl}/${image || defaultImage}`,
+    url: `${siteUrl}${pathname}`,
   };
 
   const baseSchema = [
