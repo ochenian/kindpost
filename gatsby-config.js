@@ -16,7 +16,7 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 module.exports = {
   siteMetadata: {
     siteName: 'kindpost',
-    baseUrl: siteUrl,
+    siteUrl,
     description: `Kindpost: Delivering handwritten, personalized positive messages sent via
     snail mail on vintage postcards. Inspire self-care or create a spark of joy for someone you love.`,
     twitterUsername: '@kindpostco',
