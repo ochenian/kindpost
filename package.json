@@ -63,7 +63,7 @@
     "react-swipeable": "^5.5.1",
     "react-transition-group": "^4.4.1",
     "react-use-gesture": "^7.0.15",
-    "sharp": "^0.25.4",
+    "sharp": "^0.30.5",
     "shopify-buy": "^2.11.0",
     "smoothscroll-polyfill": "^0.4.4",
     "splitting": "^1.0.6",
